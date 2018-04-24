@@ -15,7 +15,7 @@
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/custom.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/MDI-2.1.19/css/materialdesignicons.css">
-    <link rel="stylesheet" href="<?php echo base_url(); ?>/asstes/css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/jquery.mCustomScrollbar.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="img/favicon.ico">
   </head>

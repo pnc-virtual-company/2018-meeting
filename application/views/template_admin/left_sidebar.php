@@ -9,7 +9,6 @@
         <h2 class="h5">Anderson Hardy</h2><span>Web Developer</span>
       </div>
       <!-- Small Brand information, appears on minimized sidebar-->
-      <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <strong>B</strong><strong class="text-primary">D</strong></a></div>
     </div>
     <!-- Sidebar Navigation Menus-->
     <div class="main-menu">
@@ -25,7 +24,7 @@
     <nav class="navbar">
       <div class="container-fluid">
         <div class="navbar-holder d-flex align-items-center justify-content-between">
-          <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="mdi mdi-format-align-justify"> </i></a><a href="index.html" class="navbar-brand">
+          <div class="navbar-header"><a href="#" class="navbar-brand">
               <div class="brand-text d-none d-md-inline-block"><span>PNC Meeting Room&nbsp;</span><strong class="text-primary">RESERVATION</strong></div></a></div>
           <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
             <!-- Notifications dropdown-->
