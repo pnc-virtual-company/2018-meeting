@@ -15,6 +15,7 @@
       <ul id="side-main-menu" class="side-menu list-unstyled">                  
         <li><a href="#"> <i class="mdi mdi-map"></i>Location</a></li>
         <li><a href="#"> <i class="mdi mdi-map-marker-radius"></i>Room</a></li>
+        <li><a href="<?php echo base_url(); ?>Welcome/list_room"> <i class="mdi mdi-home-heart"></i>List Room</a></li>
       </ul>
     </div>
   </div>
