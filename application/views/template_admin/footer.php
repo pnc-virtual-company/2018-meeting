@@ -17,6 +17,11 @@
     <script src="<?php echo base_url();?>assets/bootstrap-4.0.0/js/bootstrap.min.js"></script>
 
     <script src="<?php echo base_url(); ?>/assets/js/front.js"></script>
+<<<<<<< HEAD
+=======
+    
+
+>>>>>>> df271b65645d32ac477a3382627f87c0246270a5
 
     <link href="<?php echo base_url();?>assets/DataTable/DataTables-1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/jquery.dataTables.min.js"></script>
@@ -25,10 +30,16 @@
     <script type="text/javascript">
     $(document).ready(function() {
         //Transform the HTML table in a fancy datatable
+<<<<<<< HEAD
         $('#list_room').dataTable({
             stateSave: true,
         });
         //$("#frmResetPwd").alert();
+=======
+        $('#location').dataTable({
+            stateSave: true,
+        });
+>>>>>>> df271b65645d32ac477a3382627f87c0246270a5
         $("#users tbody").on('click', '.confirm-delete',  function(){
             var id = $(this).parent().data('id');
             var link = "<?php echo base_url();?>users/delete/" + id;
@@ -42,8 +53,15 @@
             $("#formResetPwd").prop("action", link);
             $('#frmResetPwd').modal('show');
         });
+<<<<<<< HEAD
     });
     </script>
 
+=======
+
+        
+    });
+    </script>
+>>>>>>> df271b65645d32ac477a3382627f87c0246270a5
   </body>
 </html>

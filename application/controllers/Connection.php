@@ -49,6 +49,16 @@ class Connection extends CI_Controller {
 		}
 	}
 
+	public function register(){
+	    $this->load->view('templates/header');
+	    $this->load->view('register');
+	    $this->load->view('templates/footer');
+	}
+	public function reset_pwd(){
+	    $this->load->view('templates/header');
+	    $this->load->view('reset_pwd');
+	    $this->load->view('templates/footer');
+	}
 	/**
 	 * Logout endpoint. Destroy the PHP session
 	 * @author Benjamin BALET <benjamin.balet@gmail.com>

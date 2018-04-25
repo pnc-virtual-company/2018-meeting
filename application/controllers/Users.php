@@ -51,6 +51,7 @@ class Users extends CI_Controller {
         $this->load->view('users/index', $data);
         $this->load->view('templates/footer', $data);
     }
+   
 
     /**
      * Set a user as active (TRUE) or inactive (FALSE)

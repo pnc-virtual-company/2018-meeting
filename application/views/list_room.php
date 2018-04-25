@@ -23,10 +23,10 @@
 	            1&nbsp;
 	            <a href="#" title=""><i class="mdi mdi-delete"></i></a>
 	            <a href="#" title=""><i class="mdi mdi-pencil"></i></a>
-	            <a href="#" title=""><i class="mdi mdi-notebook"></i></a>            
+	            <!-- <a href="#" title=""><i class="mdi mdi-notebook"></i></a>            
 	            <a href="#" title=""><i class="mdi mdi-table-large"></i></a>            
 	            <a href="#" title=""><i class="mdi mdi-check-circle-outline"></i></a>        
-	            <a href="#" title=""><i class="mdi mdi-toggle-switch"></i></a>
+	            <a href="#" title=""><i class="mdi mdi-toggle-switch"></i></a> -->
 	        </td>
 	        <td>B23</td>
 	        <td>BALET</td>
@@ -38,10 +38,10 @@
 	            2&nbsp;
 	            <a href="#" class="confirm-delete" title="Delete user"><i class="mdi mdi-delete"></i></a>
 	            <a href="#" title="Edit user"><i class="mdi mdi-pencil"></i></a>
-	            <a href="#" title=""><i class="mdi mdi-notebook"></i></a>            
-	            <a href="#" title=""><i class="mdi mdi-table-large"></i></a>            
+	            <!-- <a href="#" title=""><i class="mdi mdi-notebook"></i></a>             -->
+<!-- 	            <a href="#" title=""><i class="mdi mdi-table-large"></i></a>            
 	            <a href="#" title=""><i class="mdi mdi-check-circle-outline"></i></a>        
-	            <a href="#" title=""><i class="mdi mdi-toggle-switch"></i></a>
+	            <a href="#" title=""><i class="mdi mdi-toggle-switch"></i></a> -->
 	        </td>
 	        <td>B12</td>
 	        <td>BALET</td>
