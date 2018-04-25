@@ -13,7 +13,7 @@
     <!-- Sidebar Navigation Menus-->
     <div class="main-menu">
       <ul id="side-main-menu" class="side-menu list-unstyled">                  
-        <li><a href="#"> <i class="mdi mdi-map"></i>Location</a></li>
+        <li><a href="<?php base_url(); ?>welcome/location"> <i class="mdi mdi-map"></i>Location</a></li>
         <li><a href="#"> <i class="mdi mdi-map-marker-radius"></i>Room</a></li>
       </ul>
     </div>
