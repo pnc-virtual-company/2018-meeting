@@ -28,4 +28,12 @@ class Welcome extends CI_Controller {
 		$this->load->view('list_room');
 		$this->load->view('template_admin/footer');
 	}
+	public function location(){
+		$this->load->view('template_admin/header');
+		$this->load->view('template_admin/left_sidebar');
+		$this->load->view('list_lcation',$data);
+		$this->load->view('template_admin/footer');
+		$data['title'] = 'List of Location'; 
+	}
+
 }
