@@ -21,7 +21,7 @@
             <a href="#" class="confirm-delete" title="Delete user"><i class="mdi mdi-delete"></i></a>
             <a href="#" class="Pin-location" title="Pin Location"><i class="mdi mdi-map-marker"></i></a>
             &nbsp;
-            <a href="<?php echo base_url(); ?>">Room</a>
+            <a href="<?php echo base_url(); ?>welcome/list_room">Room</a>
         </td>
         <td>PNC</td>
         <td>PNC Canteen</td>
