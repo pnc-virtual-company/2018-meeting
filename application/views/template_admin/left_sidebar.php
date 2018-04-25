@@ -13,7 +13,8 @@
     <!-- Sidebar Navigation Menus-->
     <div class="main-menu">
       <ul id="side-main-menu" class="side-menu list-unstyled">                  
-        <li><a href="index.html"> <i class="mdi mdi-map-marker"></i>Room</a></li>
+        <li><a href="#"> <i class="mdi mdi-map"></i>Location</a></li>
+        <li><a href="#"> <i class="mdi mdi-map-marker-radius"></i>Room</a></li>
       </ul>
     </div>
   </div>
@@ -71,7 +72,7 @@
                     <div class="msg-body">
                       <h3 class="h5">Ashley Wood</h3><span>sent you a direct message</span><small>3 days ago at 7:58 pm - 10.06.2014</small>
                     </div></a></li>
-                <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong> <i class="fa fa-envelope"></i>Read all messages    </strong></a></li>
+                <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong> <i class="fa fa-envelope"></i>Read all messages</strong></a></li>
               </ul>
             </li>
             <!-- Log out-->
