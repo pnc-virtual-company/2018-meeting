@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/style.css">
 <div class="container">
 
 <?php echo $flashPartialView;?>
@@ -6,14 +6,28 @@
   <?php
   $attributes = array('id' => 'formLogin', 'class' => 'form-signin');
   echo form_open('connection/login', $attributes); ?>
-    <h2 class="form-signin-heading">Please sign in</h2>
-    <label for="login" class="sr-only">Login</label>
-    <input type="text" name="login" class="form-control" placeholder="Login" required autofocus>
-    <label for="password" class="sr-only">Password</label>
-    <input type="password" name="password" class="form-control" placeholder="Password" required>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    <?php echo validation_errors() ?>
-  </form>
+
+  <h1 style="text-align: center; color: white; font-family: Times New Roman;"><b>Welcome to Room Booking Page</b></h1>
+  <div class="card card-container">
+    <img id="profile-img" class="profile-img-card" src="<?php echo base_url(); ?>assets/images/VC Logo6.png" />
+    <p id="profile-name" class="profile-name-card"></p>
+      <div class="form-group" id="email">
+        <span id="reauth-email" class="reauth-email"></span>
+        <input type="text" id="inputEmail" name="login" class="form-control" placeholder="Email address" required autofocus>
+      </div>
+      <div class="form-group" id="password">
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block btn-signin"  type="submit">Login Now</button>
+    <a href="#" class="forgot-password">
+      Forgot password?
+    </a>
+    <br>
+    <a href="#" class="forgot-password">
+      <b>Register Now!</b>
+    </a>
+  </div>
+    <?php echo validation_errors() ?></form>
 
 </div> <!-- /container -->
 

@@ -12,11 +12,13 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		$data['activeLink'] = 'home';
+		// $data['activeLink'] = 'home';
 		// $this->load->view('templates/header', $data);
 		// $this->load->view('menu/index', $data);
 		// $this->load->view('welcome', $data);
 		// $this->load->view('templates/footer', $data);
-		$this->load->view('admin_dashboard');
+		$this->load->view('template_admin/header');
+		$this->load->view('template_admin/left_sidebar');
+		$this->load->view('template_admin/footer');
 	}
 }
