@@ -54,8 +54,8 @@
     <div class="row">
     	<div class="col-md-1"></div>
     	<div class="col-11">
-    	    <button class="btn btn-primary"><a href="#" class="text-center">
-    	      <i style="color: #fff" class="mdi mdi-notebook" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff"> Creat a room</span>
+    	    <button class="btn btn-primary"><a href="<?php echo base_url(); ?>Welcome/create_room" class="text-center">
+    	      <i style="color: #fff" class="mdi mdi-plus-circle" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Creat a room</span>
     	    </a>
     	    </button>
     	</div>
