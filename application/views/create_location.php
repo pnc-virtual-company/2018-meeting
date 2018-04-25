@@ -7,7 +7,7 @@
  * @since      0.1.0
  */
 ?>
-
+<br>
 <div class="container" style="background: url();">
     <div class="row">
       <div class="col-md-4"></div>
@@ -32,15 +32,13 @@
               </div>
               
               <button type="submit" class="btn btn-success">Create Location</button>
-              <a href="<?php echo base_url(); ?>users" class="btn btn-danger float-right">
+              <a href="<?php echo base_url(); ?>welcome/location" class="btn btn-danger float-right">
           <i class="mdi mdi-cancel "></i>&nbsp;Cancel
         </a>
             </form>
           </div>
           
-          <div class="card-footer">
-            <p class="text-center">Meeting Rooms</p>
-          </div>
+          
 
         </div>
       </div>

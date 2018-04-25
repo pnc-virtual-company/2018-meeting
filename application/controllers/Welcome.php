@@ -42,5 +42,12 @@ class Welcome extends CI_Controller {
 		$this->load->view('template_admin/footer');
 		$data['title'] = 'List of Location'; 
 	}
+	public function create_location(){
+		$this->load->view('template_admin/header');
+		$this->load->view('template_admin/left_sidebar');
+		$this->load->view('create_location');
+		$this->load->view('template_admin/footer');
+		
+	}
 
 }

@@ -18,8 +18,8 @@
         <td>
             
             <a href="#" title="Edit Location"><i class="mdi mdi-pencil"></i></a>
-            <a href="#" class="confirm-delete" title="Delete user"><i class="mdi mdi-delete"></i></a>
-            <a href="#" class="Pin-location" title="Pin Location"><i class="mdi mdi-map-marker"></i></a>
+            <a href="#" class="confirm-delete" title="Delete user" data-toggle="modal" data-target="#frmConfirmDelete"><i class="mdi mdi-delete"></i></a>
+            <a href="#" class="Pin-location" title="Pin Location" data-toggle="modal" data-target="#map"><i class="mdi mdi-map-marker"></i></a>
             &nbsp;
             <a href="<?php echo base_url(); ?>">Room</a>
         </td>
@@ -39,7 +39,7 @@
       <div class="col-12">
         
         &nbsp;
-        <a href="#" class="btn btn-primary"><i class="mdi mdi-plus"></i>&nbsp;Create Location</a>
+        <a href="<?php base_url(); ?>create_location" class="btn btn-primary"><i class="mdi mdi-plus"></i>&nbsp;Create Location</a>
       </div>
   </div>
 
@@ -65,6 +65,39 @@
 		</div>
 	</div>
 </div>
+<!-- pop map -->
+
+ 
+
+  <!-- The Modal -->
+  <div class="modal fade" id="map">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3909.014193350545!2d104.88086341438076!3d11.550839347580931!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310951add5e2cd81%3A0x171e0b69c7c6f7ba!2sPasserelles+num%C3%A9riques+Cambodia+(PNC)!5e0!3m2!1sen!2skh!4v1524639253160" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
 
 <div id="frmResetPwd" class="modal hide fade" tabindex="-1" role="dialog">
 	<div class="modal-dialog" role="document">
