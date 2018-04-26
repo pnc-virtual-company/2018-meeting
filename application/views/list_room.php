@@ -5,8 +5,6 @@
 <div class="col-12">
 
 <h2>List of room</h2>
-
-
 <table id="list_room" cellpadding="0" cellspacing="0" class="table table-striped table-bordered" width="100%">
     <thead>
         <tr>
@@ -37,14 +35,22 @@
 	    </tr>
 	    <tr>
 	        <td data-order="1" data-id="1">
-	            2&nbsp; 
-	            <a href="#" title="" data-toggle="modal" data-target="#myModal"><i class="mdi mdi-delete"></i></a>
+
+	            2&nbsp;
+
+	             <a href="#" title="" data-toggle="modal" data-target="#myModal"><i class="mdi mdi-delete"></i></a>
 	            <a href="<?php echo base_url(); ?>welcome/create_room" title=""><i class="mdi mdi-pencil"></i></a>
 	            <a href="<?php echo base_url(); ?>welcome/book_meeting" title=""><i class="mdi mdi-notebook"></i></a>            
 	            <a href="#" title=""><i class="mdi mdi-table-large"></i></a>            
+<<<<<<< HEAD
 	            <a href="<?php echo base_url(); ?>welcome/room_availability" title=""><i class="mdi mdi-window-close"></i></a>        
 	            <!-- <a href="#" title=""><i class="mdi mdi-toggle-switch"></i></a> -->
+=======
+	            <a href="#" title=""><i class="mdi mdi-check-circle-outline"></i></a>        
+>>>>>>> 0ae952142fedff6d3b25efd472b87456ffc19cc3
 
+	            <a href="#" title=""><i class="mdi mdi-source-commit-start"></i></a>
+	            <!-- <a href="#" title=""><i class="mdi mdi-toggle-switch"></i></a> -->
 	        </td>
 	        <td>B12</td>
 	        <td>BALET</td>
@@ -65,7 +71,6 @@
     </div>
 </div>
 </div>
-
 
 <!-- Modal calendar -->
 <div class="modal fade" id="cal">
@@ -123,4 +128,3 @@
     </div>
   </div>
 </div>
-
