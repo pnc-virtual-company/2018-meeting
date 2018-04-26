@@ -17,7 +17,7 @@
     <tr>
         <td>
             
-            <a href="<?php base_url(); ?>edit_location" title="Edit Location"><i class="mdi mdi-pencil"></i></a>
+            <a href="<?php base_url(); ?>welcome/edit_location" title="Edit Location"><i class="mdi mdi-pencil"></i></a>
             <a href="#" class="confirm-delete" title="Delete user" data-toggle="modal" data-target="#frmConfirmDelete"><i class="mdi mdi-delete"></i></a>
             <a href="#" class="Pin-location" title="Pin Location" data-toggle="modal" data-target="#map"><i class="mdi mdi-map-marker"></i></a>
             &nbsp;
@@ -34,14 +34,16 @@
 </div>
 
   <div class="row-fluid"><div class="col-12">&nbsp;</div></div>
-
-  <div class="row-fluid">
+	<div class="container">
+		<div class="row-fluid">
       <div class="col-12">
         
         &nbsp;
         <a href="<?php base_url(); ?>create_location" class="btn btn-primary"><i class="mdi mdi-plus"></i>&nbsp;Create Location</a>
       </div>
   </div>
+	</div>
+  
 
 </div>
 
