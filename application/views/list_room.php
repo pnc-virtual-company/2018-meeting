@@ -25,7 +25,7 @@
 	            <a href="<?php echo base_url(); ?>welcome/book_meeting" title=""><i class="mdi mdi-notebook"></i></a>            
 	            <a href="#" title=""><i class="mdi mdi-table-large"></i></a>            
 	            <a href="<?php echo base_url(); ?>welcome/room_availability" title=""><i class="mdi mdi-check-circle-outline"></i></a>        
-	           <!--  <a href="#" title=""><i class="mdi mdi-toggle-switch"></i></a> -->
+	           <a href="#" title=""><i class="mdi mdi-source-commit-start"></i></a>
 
 	        </td>
 	        <td>B23</td>
@@ -42,13 +42,9 @@
 	            <a href="<?php echo base_url(); ?>welcome/create_room" title=""><i class="mdi mdi-pencil"></i></a>
 	            <a href="<?php echo base_url(); ?>welcome/book_meeting" title=""><i class="mdi mdi-notebook"></i></a>            
 	            <a href="#" title=""><i class="mdi mdi-table-large"></i></a>            
-<<<<<<< HEAD
-	            <a href="<?php echo base_url(); ?>welcome/room_availability" title=""><i class="mdi mdi-window-close"></i></a>        
-	            <!-- <a href="#" title=""><i class="mdi mdi-toggle-switch"></i></a> -->
-=======
-	            <a href="#" title=""><i class="mdi mdi-check-circle-outline"></i></a>        
->>>>>>> 0ae952142fedff6d3b25efd472b87456ffc19cc3
 
+	            <a href="<?php echo base_url(); ?>welcome/room_availability" title=""><i class="mdi mdi-window-close"></i></a>        
+	            <!-- <a href="#" title=""><i class="mdi mdi-toggle-switch"></i></a> --> 
 	            <a href="#" title=""><i class="mdi mdi-source-commit-start"></i></a>
 	            <!-- <a href="#" title=""><i class="mdi mdi-toggle-switch"></i></a> -->
 	        </td>
