@@ -22,7 +22,7 @@
 	            <a href="#" title="" data-toggle="modal" data-target="#myModal"><i class="mdi mdi-delete"></i></a>
 	            <a href="<?php echo base_url(); ?>welcome/create_room" title=""><i class="mdi mdi-pencil"></i></a>
 	            <a href="<?php echo base_url(); ?>welcome/book_meeting" title=""><i class="mdi mdi-notebook"></i></a>            
-	            <a href="#" title=""><i class="mdi mdi-table-large"></i></a>            
+	            <a href="<?php echo base_url(); ?>welcome/fullCalendar" title=""><i class="mdi mdi-table-large"></i></a>            
 	            <a href="<?php echo base_url(); ?>welcome/room_availability" title=""><i class="mdi mdi-check-circle-outline"></i></a>        
 	           <a href="#" title="" data-toggle="modal" data-target="#location_room"><i class="mdi mdi-source-commit-start"></i></a>
 

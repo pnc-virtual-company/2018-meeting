@@ -10,13 +10,19 @@
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/bootstrap-4.0.0/css/bootstrap.min.css">
     <!-- Font Awesome CSS-->
-    <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/fontastic.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/custom.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/MDI-2.1.19/css/materialdesignicons.css">
     <!-- Favicon-->
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/jquery.mCustomScrollbar.css">
+    <link rel='stylesheet' href='<?php echo base_url(); ?>assets/fullcalendar-3.8.2/fullcalendar.css' />
+
     <link rel="shortcut icon" href="<?php echo base_url(); ?>/assets/css/images/favicon.ico">
     <link rel="icon" type="image/png" href="images/sr.png"/>
+    <style>
+        span{
+            all:none;
+        }
+    </style>
   </head>
   <body>

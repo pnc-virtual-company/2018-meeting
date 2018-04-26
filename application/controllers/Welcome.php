@@ -79,6 +79,14 @@ class Welcome extends CI_Controller {
 		$this->load->view('template_admin/footer');
 		
 	}
+	//create by Chhunhak
+	public function fullCalendar(){
+		$this->load->view('template_admin/header');
+		$this->load->view('template_admin/left_sidebar');
+		$this->load->view('fullcalendar');
+		$this->load->view('template_admin/footer');
+		
+	}
 	// create by thintha
 	public function edit_location(){
 		$this->load->view('template_admin/header');
