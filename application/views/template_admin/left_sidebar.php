@@ -6,7 +6,7 @@
     <div class="sidenav-header d-flex align-items-center justify-content-center">
       <!-- User Info-->
       <div class="sidenav-header-inner text-center"><img src="<?php echo base_url(); ?>/assets/images/avatar-1.jpg" alt="person" class="img-fluid rounded-circle">
-        <h2 class="h5">Anderson Hardy</h2><span>Web Developer</span>
+        <h2 class="h5">Rady Y</h2>
       </div>
       <!-- Small Brand information, appears on minimized sidebar-->
     </div>
