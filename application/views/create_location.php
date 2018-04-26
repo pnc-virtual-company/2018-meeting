@@ -38,8 +38,6 @@
             </form>
           </div>
           
-          
-
         </div>
       </div>
       <div class="col-md-4"></div>
