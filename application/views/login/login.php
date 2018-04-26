@@ -7,9 +7,9 @@
   $attributes = array('id' => 'formLogin', 'class' => 'form-signin');
   echo form_open('connection/login', $attributes); ?>
 
-  <h1 style="text-align: center; color: white; font-family: Times New Roman;"><b>Welcome to Room Booking Page</b></h1>
+  <h1 style="text-align: center; color: white; font-family: verdana;"><b>Welcome to Room Booking Page</b></h1>
   <div class="card card-container">
-    <img id="profile-img" class="profile-img-card" src="<?php echo base_url(); ?>assets/images/VC Logo6.png" />
+    <img src="<?php echo base_url(); ?>assets/images/logo_meeting.png" />
     <p id="profile-name" class="profile-name-card"></p>
       <div class="form-group" id="email">
         <span id="reauth-email" class="reauth-email"></span>
