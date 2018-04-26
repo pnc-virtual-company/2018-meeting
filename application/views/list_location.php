@@ -17,7 +17,7 @@
     <tr>
         <td>
             
-            <a href="<?php base_url(); ?>welcome/edit_location" title="Edit Location"><i class="mdi mdi-pencil"></i></a>
+            <a href="<?php echo base_url(); ?>welcome/edit_location" title="Edit Location"><i class="mdi mdi-pencil"></i></a>
             <a href="#" class="confirm-delete" title="Delete user" data-toggle="modal" data-target="#frmConfirmDelete"><i class="mdi mdi-delete"></i></a>
             <a href="#" class="Pin-location" title="Pin Location" data-toggle="modal" data-target="#map"><i class="mdi mdi-map-marker"></i></a>
             &nbsp;
