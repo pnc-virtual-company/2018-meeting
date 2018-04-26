@@ -26,7 +26,9 @@
       <div class="container-fluid">
         <div class="navbar-holder d-flex align-items-center justify-content-between">
           <div class="navbar-header"><a href="#" class="navbar-brand">
-              <div class="brand-text d-none d-md-inline-block"><span>Meeting Room&nbsp;</span><strong class="text-primary">management</strong></div></a></div>
+              <div class="brand-text d-none d-md-inline-block"><span>Meeting Room&nbsp;</span><strong class="text-primary">management</strong></div></a>
+             <!--  <img id="profile-img" class="profile-img-card" src="<?php echo base_url(); ?>assets/images/logo_meeting.png" /> -->
+          </div>
           <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
             <!-- Notifications dropdown-->
             <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="mdi mdi-bell-ring-outline" style="font-size: 16px;"></i><span class="badge badge-warning">12</span></a>

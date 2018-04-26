@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/css/custom.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/MDI-2.1.19/css/materialdesignicons.css">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="shortcut icon" href="<?php echo base_url(); ?>/assets/css/images/favicon.ico">
+    <link rel="icon" type="image/png" href="images/sr.png"/>
   </head>
   <body>
