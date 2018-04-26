@@ -1,4 +1,3 @@
-
 <br>
 <div id="container">
 <div class="row-fluid">
@@ -63,6 +62,10 @@
     	      <i style="color: #fff" class="mdi mdi-plus-circle" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Creat a room</span>
     	    </a>
     	    </button>
+          <button class="btn btn-primary"><a href="#" class="text-center">
+            <i style="color: #fff" class="mdi mdi-file-excel" data-toggle="tooltip" title="Export the list of room"></i><span style="color: #fff">&nbsp; Export list</span>
+          </a>
+          </button>
     	</div>
     </div>
 </div>
