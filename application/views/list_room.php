@@ -25,7 +25,33 @@
 	            <a href="<?php echo base_url(); ?>welcome/book_meeting" title=""><i class="mdi mdi-notebook"></i></a>            
 	            <a href="#" title=""><i class="mdi mdi-table-large"></i></a>            
 	            <a href="#" title=""><i class="mdi mdi-check-circle-outline"></i></a>        
+<<<<<<< HEAD
 	           <!--  <a href="#" title=""><i class="mdi mdi-toggle-switch"></i></a> -->
+=======
+
+	            <a href="#" title=""><i class="mdi mdi-source-commit-start"></i></a>
+
+	           <!--  <a href="#" title=""><i class="mdi mdi-toggle-switch"></i></a> -->
+	        </td>
+	        <td>B23</td>
+	        <td>BALET</td>
+	        <td>1</td>
+	        <td>B23 Classroom</td>
+	    </tr>
+	    <tr>
+	        <td data-order="1" data-id="1">
+
+	            2&nbsp;
+
+	             <a href="#" title="" data-toggle="modal" data-target="#myModal"><i class="mdi mdi-delete"></i></a>
+	            <a href="<?php echo base_url(); ?>welcome/create_room" title=""><i class="mdi mdi-pencil"></i></a>
+	            <a href="<?php echo base_url(); ?>welcome/book_meeting" title=""><i class="mdi mdi-notebook"></i></a>            
+	            <a href="#" title=""><i class="mdi mdi-table-large"></i></a>            
+	            <a href="#" title=""><i class="mdi mdi-check-circle-outline"></i></a>        
+
+	            <a href="#" title=""><i class="mdi mdi-source-commit-start"></i></a>
+	            <!-- <a href="#" title=""><i class="mdi mdi-toggle-switch"></i></a> -->
+>>>>>>> e69741e1184790b38021f355bf2ba690d5a3a53f
 	        </td>
 	        <td>B12</td>
 	        <td>BALET</td>
