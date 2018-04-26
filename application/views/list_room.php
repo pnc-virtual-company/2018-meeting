@@ -21,12 +21,21 @@
    		<tr>
 	        <td data-order="1" data-id="1">
 	            1&nbsp;
+<<<<<<< HEAD
 	            <a href="#" title=""><i class="mdi mdi-delete"></i></a>
 	            <a href="#" title=""><i class="mdi mdi-pencil"></i></a>
 	            <a href="#" title=""><i class="mdi mdi-notebook"></i></a>            
 	            <a href="#" title=""><i class="mdi mdi-table-large"></i></a>            
 	            <!-- <a href="#" title=""><i class="mdi mdi-check-circle-outline"></i></a>         -->
 	            <!-- <a href="#" title=""><i class="mdi mdi-toggle-switch"></i></a> -->
+=======
+	            <a href="#" title="" data-toggle="modal" data-target="#myModal"><i class="mdi mdi-delete"></i></a>
+	            <a href="<?php echo base_url(); ?>welcome/create_room" title=""><i class="mdi mdi-pencil"></i></a>
+	            <a href="<?php echo base_url(); ?>welcome/book_meeting" title=""><i class="mdi mdi-notebook"></i></a>            
+	            <a href="#" title=""><i class="mdi mdi-table-large"></i></a>            
+	           <!--  <a href="#" title=""><i class="mdi mdi-check-circle-outline"></i></a> -->        
+	           <!--  <a href="#" title=""><i class="mdi mdi-toggle-switch"></i></a> -->
+>>>>>>> 4a5a1bbbe513d7ea6b1479c9740be440824baa41
 	        </td>
 	        <td>B23</td>
 	        <td>BALET</td>
@@ -36,10 +45,19 @@
 	    <tr>
 	        <td data-order="1" data-id="1">
 	            2&nbsp;
+<<<<<<< HEAD
 	            <a href="#" class="confirm-delete" title="Delete user"><i class="mdi mdi-delete"></i></a>
 	            <a href="#" title="Edit user"><i class="mdi mdi-pencil"></i></a>
 	            <a href="#" title=""><i class="mdi mdi-notebook"></i></a>     
 	            <a href="#" class="Pin-location" title="Pin Location" data-toggle="modal" data-target="#cal"><i class="mdi mdi-map-marker"></i></a>
+=======
+	            <a href="#" class="confirm-delete" title="Delete user" data-toggle="modal" data-target="#myModal"><i class="mdi mdi-delete"></i></a>
+	            <a href="<?php echo base_url(); ?>welcome/create_room" title="Edit user"><i class="mdi mdi-pencil"></i></a>
+	            <a href="<?php echo base_url(); ?>welcome/book_meeting" title=""><i class="mdi mdi-notebook"></i></a>            
+	            <a href="#" title=""><i class="mdi mdi-table-large"></i></a>            
+	           <!--  <a href="#" title=""><i class="mdi mdi-check-circle-outline"></i></a>   -->      
+	            <!-- <a href="#" title=""><i class="mdi mdi-toggle-switch"></i></a> -->
+>>>>>>> 4a5a1bbbe513d7ea6b1479c9740be440824baa41
 	        </td>
 	        <td>B12</td>
 	        <td>BALET</td>
@@ -52,7 +70,7 @@
     <div class="row">
     	<div class="col-md-1"></div>
     	<div class="col-11">
-    	    <button class="btn btn-primary"><a href="<?php echo base_url(); ?>Welcome/create_room" class="text-center">
+    	    <button class="btn btn-primary"><a href="<?php echo base_url(); ?>welcome/create_room" class="text-center">
     	      <i style="color: #fff" class="mdi mdi-plus-circle" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Creat a room</span>
     	    </a>
     	    </button>
@@ -61,6 +79,7 @@
 </div>
 </div>
 
+<<<<<<< HEAD
 <!-- Modal calendar -->
 <div class="modal fade" id="cal">
     <div class="modal-dialog modal-xl">
@@ -164,3 +183,32 @@
       </div>
     </div>
   </div>
+=======
+<!-- Modol pop up delete -->
+     <div class="modal fade" id="myModal">
+	<div class="row">
+		
+	</div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+      <h3 class="modal-title">Are you sure to delete this item!</h3>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+>>>>>>> 4a5a1bbbe513d7ea6b1479c9740be440824baa41

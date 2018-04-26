@@ -35,6 +35,20 @@ class Welcome extends CI_Controller {
 		$this->load->view('create_room');
 		$this->load->view('template_admin/footer');
 	}
+	// Book meeting room by samreth.SAROEURT
+	public function book_meeting(){
+		$this->load->view('template_admin/header');
+		$this->load->view('template_admin/left_sidebar');
+		$this->load->view('book_meeting');
+		$this->load->view('template_admin/footer');
+	}
+	// Book request room by samreth.SAROEURT
+	public function book_request(){
+		$this->load->view('template_admin/header');
+		$this->load->view('template_admin/left_sidebar');
+		$this->load->view('booking_request');
+		$this->load->view('template_admin/footer');
+	}
 	public function location(){
 		$this->load->view('template_admin/header');
 		$this->load->view('template_admin/left_sidebar');
@@ -49,5 +63,13 @@ class Welcome extends CI_Controller {
 		$this->load->view('template_admin/footer');
 		
 	}
+	public function edit_location(){
+		$this->load->view('template_admin/header');
+		$this->load->view('template_admin/left_sidebar');
+		$this->load->view('edit_location');
+		$this->load->view('template_admin/footer');
+		
+	}
+
 
 }

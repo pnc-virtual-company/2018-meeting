@@ -12,13 +12,12 @@
 				</div>
 				<div class="form-group">
 					<label for="">Manager</label>
-					 <input type="text" name="name" class="form-control">
-					 <span>
-					 	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
-					 	 Select
-					 	</button>
-					 </span>
-					
+					<div class="input-group mb-3">
+					  <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
+					  <div class="input-group-append">
+					    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#myModal">Select</button>
+					  </div>
+					</div>
 				</div>
 				<div class="form-group">
 					<label for="">Floor</label>
@@ -30,14 +29,12 @@
 				</div>
 				<div class="form-group">
 					<div>
-					    <button class="btn btn-primary"><a href="#" class="text-center">
-					      <i style="color: #fff" class="mdi mdi-plus-circle" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Creat a room</span>
+					    <a class="btn btn-primary"  href="<?php echo base_url(); ?>Welcome/list_room" class="text-center">
+					      <i style="color: #fff" class="mdi mdi-check" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Create a room</span>
 					    </a>
-					    </button>
-					    <button class="btn btn-danger"><a href="#" class="text-center">
+					    <a  class="btn btn-danger"  href="<?php echo base_url(); ?>Welcome/list_room" class="text-center">
 					      <i style="color: #fff" class="mdi mdi-close" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Cancel</span>
 					    </a>
-					    </button>
 					</div>
 				</div>
 			</form>
@@ -68,35 +65,37 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Manager</th>
-                    <th>Floor</th>
-                    <th>Description</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>E-mail</th>
+                   
                 </tr>
             </thead>
             <tbody>
            		<tr>
         	        <td data-order="1" data-id="1">
         	            1&nbsp;
-        	            <a href="#" title=""><i class="mdi mdi-delete"></i></a>
-        	            <a href="#" title=""><i class="mdi mdi-pencil"></i></a>
         	        </td>
-        	        <td>B23</td>
-        	        <td>BALET</td>
-        	        <td>1</td>
-        	        <td>B23 Classroom</td>
+        	        <td>Rady</td>
+        	        <td>Y</td>
+        	        <td>rady@gmail.com</td>
         	    </tr>
-        	    <tr>
-        	        <td data-order="1" data-id="1">
+        		<tr>
+        	        <td data-order="2" data-id="2">
         	            2&nbsp;
-        	            <a href="#" class="confirm-delete" title="Delete user"><i class="mdi mdi-delete"></i></a>
-        	            <a href="#" title="Edit user"><i class="mdi mdi-pencil"></i></a>
         	        </td>
-        	        <td>B12</td>
-        	        <td>BALET</td>
-        	        <td>3</td>
-        	        <td>B12 Classroom</td>
+        	        <td>Channak</td>
+        	        <td>Chun</td>
+        	        <td>Channak@gmail.com</td>
         	    </tr>
+        	    	<tr>
+        	            <td data-order="3" data-id="3">
+        	                3&nbsp;
+        	            </td>
+        	            <td>Rith</td>
+        	            <td>Nhel</td>
+        	            <td>Rith@gmail.com</td>
+        	        </tr>
              </tbody>
              </table>
       </div>
