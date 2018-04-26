@@ -25,9 +25,8 @@
 	            <a href="<?php echo base_url(); ?>welcome/book_meeting" title=""><i class="mdi mdi-notebook"></i></a>            
 	            <a href="#" title=""><i class="mdi mdi-table-large"></i></a>            
 	            <a href="#" title=""><i class="mdi mdi-check-circle-outline"></i></a>        
-<<<<<<< HEAD
+
 	           <!--  <a href="#" title=""><i class="mdi mdi-toggle-switch"></i></a> -->
-=======
 
 	            <a href="#" title=""><i class="mdi mdi-source-commit-start"></i></a>
 
@@ -51,7 +50,6 @@
 
 	            <a href="#" title=""><i class="mdi mdi-source-commit-start"></i></a>
 	            <!-- <a href="#" title=""><i class="mdi mdi-toggle-switch"></i></a> -->
->>>>>>> e69741e1184790b38021f355bf2ba690d5a3a53f
 	        </td>
 	        <td>B12</td>
 	        <td>BALET</td>
