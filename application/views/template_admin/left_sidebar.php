@@ -9,6 +9,7 @@
         <h2 class="h5">Rady Y</h2>
       </div>
       <!-- Small Brand information, appears on minimized sidebar-->
+      <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <strong>R</strong><strong class="text-primary">Y</strong></a></div>
     </div>
     <!-- Sidebar Navigation Menus-->
     <div class="main-menu">
@@ -25,7 +26,7 @@
     <nav class="navbar">
       <div class="container-fluid">
         <div class="navbar-holder d-flex align-items-center justify-content-between">
-          <div class="navbar-header"><a href="#" class="navbar-brand">
+          <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="mdi mdi-menu"> </i></a><a href="#" class="navbar-brand">
               <div class="brand-text d-none d-md-inline-block"><span>Meeting Room&nbsp;</span><strong class="text-primary">management</strong></div></a>
              <!--  <img id="profile-img" class="profile-img-card" src="<?php echo base_url(); ?>assets/images/logo_meeting.png" /> -->
           </div>
