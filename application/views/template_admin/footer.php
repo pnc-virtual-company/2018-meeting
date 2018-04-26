@@ -30,6 +30,9 @@
         $('#list_room').dataTable({
             stateSave: true,
         });
+         $('#request_validate').dataTable({
+            stateSave: true,
+        });
         //$("#frmResetPwd").alert();
         $('#location').dataTable({
             stateSave: true,

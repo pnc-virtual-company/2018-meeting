@@ -49,6 +49,13 @@ class Welcome extends CI_Controller {
 		$this->load->view('booking_request');
 		$this->load->view('template_admin/footer');
 	}
+	// Resquest validate room by samreth.SAROEURT
+	public function request_validate(){
+		$this->load->view('template_admin/header');
+		$this->load->view('template_admin/left_sidebar');
+		$this->load->view('request_validate');
+		$this->load->view('template_admin/footer');
+	}
 	// create by thintha
 	public function room_availability(){
 		$this->load->view('template_admin/header');
