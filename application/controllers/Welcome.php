@@ -14,12 +14,15 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('template_admin/header');
 		$this->load->view('template_admin/left_sidebar');
-		$this->load->view('chart');
+		$this->load->view('list_location');
 		$this->load->view('template_admin/footer');
 	}
 	public function dashboard()
 	{
-		$this->index();
+		$this->load->view('template_admin/header');
+		$this->load->view('template_admin/left_sidebar');
+		$this->load->view('chart');
+		$this->load->view('template_admin/footer');
 	}
 	// list room by samreth.SAROEURT
 	public function list_room(){
