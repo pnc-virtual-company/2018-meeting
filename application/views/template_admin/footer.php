@@ -17,8 +17,19 @@
     <script src="<?php echo base_url();?>assets/bootstrap-4.0.0/js/bootstrap.min.js"></script>
 
     <script src="<?php echo base_url(); ?>/assets/js/front.js"></script>
-    
-
+    <script src="<?php echo base_url();?>assets/bootstrap-datepicker-1.7.1/js/bootstrap-datepicker.min.js"></script>
+     <script>
+      $(function () {
+      var date_input=$('input[name="date"]'); //our date input has the name "date"
+      var container=$('.form-inline').length>0 ? $('.form-inline').parent() : "body";
+      date_input.datepicker({
+       format: 'mm/dd/yyyy',
+       container: container,
+       todayHighlight: true,
+       autoclose: true,
+      });
+     });
+    </script>
 
     <!-- script src='<?php //echo base_url(); ?>assets/fullcalendar-3.8.2/lib/jquery.min.js'></script> -->
     <script src="<?php echo base_url(); ?>assets/js/jquery.mCustomScrollbar.concat.min.js"></script>

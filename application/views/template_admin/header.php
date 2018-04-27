@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Bootstrap Dashboard by Bootstrapious.com</title>
+    <title>Meeting Room Management</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -18,7 +18,8 @@
     <link rel='stylesheet' href='<?php echo base_url(); ?>assets/fullcalendar-3.8.2/fullcalendar.css' />
 
     <link rel="shortcut icon" href="<?php echo base_url(); ?>/assets/css/images/favicon.ico">
-    <link rel="icon" type="image/png" href="images/sr.png"/>
+    <link rel="icon" type="image/png" href="<?php echo base_url(); ?>assets/images/logo_meeting.png"/>
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/bootstrap-datepicker-1.7.1/css/bootstrap-datepicker.min.css">
     <style>
         span{
             all:none;

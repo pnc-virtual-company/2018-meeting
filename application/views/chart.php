@@ -8,10 +8,51 @@
   <div class="col-md-10">
     
   <h2>Pie chart</h2>
-  <div class="col-md-2"></div>
-  <div class="col-md-4"></div>
-  <div class="col-md-4"></div>
-  <div class="col-md-2"></div>
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-5">
+      <div class="form-inline">
+       <form action="" class="form-horizontal">
+        <div class="form-group">
+         <label class="control-label col-sm-3 requiredField" for="date">
+          Month
+         </label>
+         <div class="col-sm-9">
+          <div class="input-group">
+           <div class="input-group-addon" >
+            <i class="fa fa-calendar" >
+            </i>
+           </div>
+           <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
+          </div>
+         </div>
+        </div>
+       </form>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="form-inline">
+       <form action="" class="form-horizontal">
+        <div class="form-group">
+         <label class="control-label col-sm-3 requiredField" for="date">
+          Location
+         </label>
+         <div class="col-sm-9">
+          <div class="input-group">
+            <select name="" id="">
+                <option value="pnc">PNC</option>
+                <option value="pnv">PNV</option>
+                <option value="pnp">PNP</option>
+            </select>
+          </div>
+         </div>
+        </div>
+       </form>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+    
+  </div>
   <br>
   <canvas id="pie-chart" width="800" height="450"></canvas>
   </div>

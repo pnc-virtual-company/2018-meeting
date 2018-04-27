@@ -9,7 +9,7 @@
 
   <h1 style="text-align: center; color: white; font-family: verdana;"><b>Welcome to Room Booking Page</b></h1>
   <div class="card card-container">
-    <img src="<?php echo base_url(); ?>assets/images/logo_meeting.png" />
+    <img src="<?php echo base_url(); ?>assets/images/logo.png" />
     <p id="profile-name" class="profile-name-card"></p>
       <div class="form-group" id="email">
         <span id="reauth-email" class="reauth-email"></span>
