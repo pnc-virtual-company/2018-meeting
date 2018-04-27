@@ -34,6 +34,7 @@
 </div>
 
   <div class="row-fluid"><div class="col-12">&nbsp;</div></div>
+  <!-- button create location -->
 	<div class="container">
 		<div class="row-fluid">
       <div class="col-12">
@@ -46,7 +47,7 @@
   
 
 </div>
-
+<!-- Delete modal pop up -->
 <div id="frmConfirmDelete" class="modal hide fade" tabindex="-1" role="dialog">
 	<div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -57,7 +58,7 @@
 				</button>
 	    </div>
 	    <div class="modal-body">
-	        <p>You are going to delete a user.</p>
+	        <p>You are going to delete a location.</p>
 	        <p>Are you sure that you want to perform this action?</p>
 	    </div>
 	    <div class="modal-footer">
@@ -68,9 +69,6 @@
 	</div>
 </div>
 <!-- pop map -->
-
- 
-
   <!-- The Modal -->
   <div class="modal fade" id="map">
     <div class="modal-dialog modal-lg">
@@ -78,7 +76,7 @@
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Modal Heading</h4>
+          <h4 class="modal-title text-center">PNC Location</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         
@@ -96,38 +94,7 @@
     </div>
   </div>
   
-
-
-
-
-
-<div id="frmResetPwd" class="modal hide fade" tabindex="-1" role="dialog">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-	    <div class="modal-header">
-				<h5 class="modal-title">Reset a password</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-	    </div>
-	    <div class="modal-body">
-				<form id="formResetPwd" method="POST">
-				    <label for="password">Password</label>
-						<div class="input-group">
-					    <input type="password" name="password" id="password" required />
-							<div class="input-group-append">
-					    	<button type="send" class="btn btn-primary">Reset</button>
-							</div>
-						</div>
-				</form>
-	    </div>
-	    <div class="modal-footer">
-	       <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-	    </div>
-		</div>
-	</div>
-</div>
-
+<!-- link datatable -->
 <link href="<?php echo base_url();?>assets/DataTable/DataTables-1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
