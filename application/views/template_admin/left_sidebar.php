@@ -14,6 +14,7 @@
     <!-- Sidebar Navigation Menus-->
     <div class="main-menu">
       <ul id="side-main-menu" class="side-menu list-unstyled">                  
+        <li><a href="<?php echo base_url(); ?>welcome/dashboard"> <i class="mdi mdi-square-inc"></i>Dashboard</a></li>
         <li><a href="<?php echo base_url(); ?>welcome/location"> <i class="mdi mdi-map"></i>Location</a></li>
         <li><a href="<?php echo base_url(); ?>welcome/list_room"> <i class="mdi mdi-home-heart"></i>List Room</a></li>
         <li><a href="<?php echo base_url(); ?>welcome/request_validate"> <i class="mdi mdi-swap-vertical"></i>Request</a></li>
