@@ -17,6 +17,10 @@ class Welcome extends CI_Controller {
 		$this->load->view('chart');
 		$this->load->view('template_admin/footer');
 	}
+	public function dashboard()
+	{
+		$this->index();
+	}
 	// list room by samreth.SAROEURT
 	public function list_room(){
 		$this->load->view('template_admin/header');
