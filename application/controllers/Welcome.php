@@ -94,5 +94,5 @@ class Welcome extends CI_Controller {
 		$this->load->view('edit_location');
 		$this->load->view('template_admin/footer');
 	}
-
+	
 }
