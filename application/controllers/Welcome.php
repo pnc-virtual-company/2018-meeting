@@ -9,16 +9,12 @@ class Welcome extends CI_Controller {
 			parent::__construct();
 			log_message('debug', 'URI=' . $this->uri->uri_string());
 	}
-
+	// add chart page by maryna 
 	public function index()
 	{
-		// $data['activeLink'] = 'home';
-		// $this->load->view('templates/header', $data);
-		// $this->load->view('menu/index', $data);
-		// $this->load->view('welcome', $data);
-		// $this->load->view('templates/footer', $data);
 		$this->load->view('template_admin/header');
 		$this->load->view('template_admin/left_sidebar');
+		$this->load->view('chart');
 		$this->load->view('template_admin/footer');
 	}
 	// list room by samreth.SAROEURT

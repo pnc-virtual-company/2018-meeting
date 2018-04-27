@@ -15,6 +15,7 @@ class Connection extends CI_Controller {
 	 * Login form of the application
 	 * @author Benjamin BALET <benjamin.balet@gmail.com>
 	 */
+	// Add page login by maryna.
 	public function login()
 	{
 		$this->load->helper('form');
