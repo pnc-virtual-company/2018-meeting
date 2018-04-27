@@ -68,6 +68,7 @@
                     <th>Firstname</th>
                     <th>Lastname</th>
                     <th>E-mail</th>
+                    <th>Action</th>
                    
                 </tr>
             </thead>
@@ -79,6 +80,9 @@
         	        <td>Rady</td>
         	        <td>Y</td>
         	        <td>rady@gmail.com</td>
+        	        <td>
+        	        	<input type="checkbox" name="" id="">
+        	        </td>
         	    </tr>
         		<tr>
         	        <td data-order="2" data-id="2">
@@ -87,6 +91,9 @@
         	        <td>Channak</td>
         	        <td>Chun</td>
         	        <td>Channak@gmail.com</td>
+        	        <td>
+        	        	<input type="checkbox" name="" id="">
+        	        </td>
         	    </tr>
         	    	<tr>
         	            <td data-order="3" data-id="3">
@@ -95,6 +102,9 @@
         	            <td>Rith</td>
         	            <td>Nhel</td>
         	            <td>Rith@gmail.com</td>
+        	            <td>
+        	            	<input type="checkbox" name="" id="">
+        	            </td>
         	        </tr>
              </tbody>
              </table>
@@ -102,7 +112,10 @@
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-success">OK</button>
+      	<a class="btn btn-primary"  href="<?php echo base_url(); ?>Welcome/list_room" class="text-center">
+      	<span style="color: #fff">&nbsp;OK</span>
+      	</a>
+        <!-- <button type="button" class="btn btn-success">OK</button> -->
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
       </div>
 
