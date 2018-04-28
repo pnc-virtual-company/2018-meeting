@@ -20,6 +20,8 @@
     <link rel="shortcut icon" href="<?php echo base_url(); ?>/assets/css/images/favicon.ico">
     <link rel="icon" type="image/png" href="<?php echo base_url(); ?>assets/images/logo_meeting.png"/>
     <link rel="stylesheet" href="<?php echo base_url();?>assets/bootstrap-datepicker-1.7.1/css/bootstrap-datepicker.min.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
     <style>
         span{
             all:none;

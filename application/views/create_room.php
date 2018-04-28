@@ -22,6 +22,10 @@
 				<div class="form-group">
 					<label for="">Floor</label>
 					<input type="text" name="floor" class="form-control" >
+         <!--  <div class="custom-file">
+            <input type="file" class="custom-file-input" id="customFile">
+            <label class="custom-file-label" for="customFile">Choose file</label>
+          </div> -->
 				</div>
 				<div class="form-group">
 					<label for="comment">Description</label>

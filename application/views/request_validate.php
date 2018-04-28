@@ -24,7 +24,7 @@
 	            1&nbsp;
 	            <a href="#" title="" data-toggle="modal" data-target="#myModal"><i class="mdi mdi-delete"></i></a>
 	            <a href="<?php echo base_url(); ?>Welcome/book_meeting" title=""><i class="mdi mdi-pencil"></i></a>          
-              <a href="#" title="" data-toggle="modal" data-target="#accept"><i class="mdi mdi-check-circle-outline"></i></a>
+              <a href="#" title="" data-toggle="modal" data-target="#accept"><i class="mdi mdi-check"></i></a>
               <a href="#" title="" data-toggle="modal" data-target="#reject"><i class="mdi mdi-window-close"></i></a> 
 	        </td>
 	        <td>PNC</td>
@@ -39,7 +39,7 @@
               1&nbsp;
               <a href="#" title="" data-toggle="modal" data-target="#myModal"><i class="mdi mdi-delete"></i></a>
               <a href="<?php echo base_url(); ?>Welcome/book_meeting" title=""><i class="mdi mdi-pencil"></i></a>          
-              <a href="#" title="" data-toggle="modal" data-target="#accept"><i class="mdi mdi-check-circle-outline"></i></a>
+              <a href="#" title="" data-toggle="modal" data-target="#accept"><i class="mdi mdi-check"></i></a>
               <a href="#" title="" data-toggle="modal" data-target="#reject"><i class="mdi mdi-window-close"></i></a> 
           </td>
           <td>PNC</td>
