@@ -17,7 +17,7 @@
         <li><a href="<?php echo base_url(); ?>welcome/location"> <i class="mdi mdi-map"></i>Location</a></li>
         <li><a href="<?php echo base_url(); ?>welcome/list_room"> <i class="mdi mdi-home-heart"></i>List Room</a></li>
         <li><a href="<?php echo base_url(); ?>welcome/request_validate"> <i class="mdi mdi-swap-vertical"></i>Request</a></li>
-        <li><a href="<?php echo base_url(); ?>welcome/occupancyRate"> <i class="mdi mdi-square-inc"></i>Cccupancy   Rate</a></li>
+        <li><a href="<?php echo base_url(); ?>welcome/occupancyRate"> <i class="mdi mdi-square-inc"></i>Occupancy   Rate</a></li>
       </ul>
     </div>
   </div>
