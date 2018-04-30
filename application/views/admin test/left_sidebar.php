@@ -1,6 +1,6 @@
 
 <!-- Navbar-->
-<header class="app-header"><a class="app-header__logo" href="<?php echo base_url(); ?>/welcome/location"><img src="<?php echo base_url(); ?>assets/images/logo.png" alt="" style="max-width:80%; height:auto;"></a>
+<header class="app-header"><a class="app-header__logo" href="index.html"><img src="logo.png" alt="" style="max-width:80%; height:auto;"></a>
   <!-- Sidebar toggle button--><a class="app-sidebar__toggle mdi mdi-menu mdi-24px" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
   <!-- Navbar Right Menu-->
   <ul class="app-nav">
@@ -24,7 +24,7 @@
     <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="mdi mdi-light mdi-settings mdi-24px  "></i></a>
       <ul class="dropdown-menu settings-menu dropdown-menu-right">
         <li><a class="dropdown-item" href="page-user.html"><i class="mdi mdi-face mdi-18px"></i> Profile</a></li>
-        <li><a class="dropdown-item" href="<?php echo base_url(); ?>connection/login"><i class="mdi mdi-logout mdi-18px"></i> Logout</a></li>
+        <li><a class="dropdown-item" href="page-login.html"><i class="mdi mdi-logout mdi-18px"></i> Logout</a></li>
       </ul>
     </li>
   </ul>

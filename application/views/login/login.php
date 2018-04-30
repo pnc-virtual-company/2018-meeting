@@ -13,7 +13,7 @@
     <p id="profile-name" class="profile-name-card"></p>
       <div class="form-group" id="email">
         <span id="reauth-email" class="reauth-email"></span>
-        <input type="text" id="inputEmail" name="login" class="form-control" placeholder="Email address" required autofocus>
+        <input type="text" id="inputEmail" name="login" class="form-control" placeholder="User Name" required autofocus>
       </div>
       <div class="form-group" id="password">
         <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>

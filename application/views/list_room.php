@@ -3,7 +3,7 @@
 <div class="row-fluid">
 <div class="col-12">
 
-<h2>List of room</h2>
+<h2>List of room</h2><br>
 <table id="list_room" cellpadding="0" cellspacing="0" class="table table-striped table-bordered" width="100%">
     <thead>
         <tr>
@@ -19,12 +19,12 @@
 	        <td data-order="1" data-id="1">
 	            1&nbsp;
 
-	            <a href="#" title="" data-toggle="modal" data-target="#myModal"><i class="mdi mdi-delete"></i></a>
-	            <a href="<?php echo base_url(); ?>welcome/create_room" title=""><i class="mdi mdi-pencil"></i></a>
-	            <a href="<?php echo base_url(); ?>welcome/book_meeting" title=""><i class="mdi mdi-notebook"></i></a>            
-	            <a href="<?php echo base_url(); ?>welcome/fullCalendar" title=""><i class="mdi mdi-table-large"></i></a>            
-	            <a href="<?php echo base_url(); ?>welcome/room_availability" title=""><i class="mdi mdi-check"></i></a>        
-	           <a href="#" title="" data-toggle="modal" data-target="#location_room"><i class="mdi mdi-source-commit-start"></i></a>
+	            <a href="#" data-toggle="modal" data-target="#myModal" title="Delete this room"><i class="mdi mdi-delete"></i></a>
+	            <a href="<?php echo base_url(); ?>welcome/update_room" title="Update this room"><i class="mdi mdi-pencil"></i></a>
+	            <a href="<?php echo base_url(); ?>welcome/book_meeting" title="Book a room"><i class="mdi mdi-notebook"></i></a>            
+	            <a href="<?php echo base_url(); ?>welcome/fullCalendar" title="Calendar"><i class="mdi mdi-table-large"></i></a>            
+	            <a href="<?php echo base_url(); ?>welcome/room_availability" title="View room"><i class="mdi mdi-check"></i></a>        
+	           <a href="#" title="View location room" data-toggle="modal" data-target="#location_room"><i class="mdi mdi-source-commit-start"></i></a>
 
 	        </td>
 	        <td>B23</td>
@@ -37,14 +37,12 @@
 
 	            2&nbsp;
 
-	             <a href="#" title="" data-toggle="modal" data-target="#myModal"><i class="mdi mdi-delete"></i></a>
-	            <a href="<?php echo base_url(); ?>welcome/create_room" title=""><i class="mdi mdi-pencil"></i></a>
-	            <a href="<?php echo base_url(); ?>welcome/book_meeting" title=""><i class="mdi mdi-notebook"></i></a>            
-	            <a href="#" title=""><i class="mdi mdi-table-large"></i></a>            
-
-	            <a href="<?php echo base_url(); ?>welcome/room_availability" title=""><i class="mdi mdi-window-close"></i></a>        
-	            <!-- <a href="#" title=""><i class="mdi mdi-toggle-switch"></i></a> --> 
-	            <a href="#" title="" data-toggle="modal" data-target="#location_room"><i class="mdi mdi-source-commit-start"></i></a>
+              <a href="#" data-toggle="modal" data-target="#myModal" title="Delete this room"><i class="mdi mdi-delete"></i></a>
+              <a href="<?php echo base_url(); ?>welcome/update_room" title="Update this room"><i class="mdi mdi-pencil"></i></a>
+              <a href="<?php echo base_url(); ?>welcome/book_meeting" title="Book a room"><i class="mdi mdi-notebook"></i></a>            
+              <a href="<?php echo base_url(); ?>welcome/fullCalendar" title="Calendar"><i class="mdi mdi-table-large"></i></a>            
+              <a href="<?php echo base_url(); ?>welcome/room_availability" title="View room"><i class="mdi mdi-check"></i></a>        
+             <a href="#" title="View location room" data-toggle="modal" data-target="#location_room"><i class="mdi mdi-source-commit-start"></i></a>
 	            <!-- <a href="#" title=""><i class="mdi mdi-toggle-switch"></i></a> -->
 	        </td>
 	        <td>B12</td>
@@ -63,7 +61,7 @@
     	    </a>
     	    </button>
           <button class="btn btn-primary"><a href="#" class="text-center">
-            <i style="color: #fff" class="mdi mdi-file-excel" data-toggle="tooltip" title="Export the list of room"></i><span style="color: #fff">&nbsp; Export list</span>
+            <i style="color: #fff" class="mdi mdi-file-export" data-toggle="tooltip" title="Export the list of room"></i><span style="color: #fff">&nbsp; Export list</span>
           </a>
           </button>
     	</div>
@@ -89,12 +87,13 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-      <h3 class="modal-title">Are you sure to delete this item!</h3>
+      <h4 class="modal-title">Are you sure to delete this room!</h4>
       </div>
 
       <!-- Modal footer -->
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
       </div>
 
     </div>

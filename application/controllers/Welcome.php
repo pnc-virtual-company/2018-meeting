@@ -60,6 +60,19 @@ class Welcome extends CI_Controller {
 		$this->load->view('request_validate');
 		$this->load->view('template_admin/footer');
 	}
+	// Update a room by samreth.SAROEURT
+	public function update_room(){
+		$this->load->view('template_admin/header');
+		$this->load->view('template_admin/left_sidebar');
+		$this->load->view('update_room');
+		$this->load->view('template_admin/footer');
+	}
+	public function update_booking(){
+		$this->load->view('template_admin/header');
+		$this->load->view('template_admin/left_sidebar');
+		$this->load->view('update_booking');
+		$this->load->view('template_admin/footer');
+	}
 	// create by thintha
 	public function room_availability(){
 		$this->load->view('template_admin/header');
@@ -71,9 +84,8 @@ class Welcome extends CI_Controller {
 	public function location(){
 		$this->load->view('template_admin/header');
 		$this->load->view('template_admin/left_sidebar');
-		$this->load->view('list_location',$data);
+		$this->load->view('list_location');
 		$this->load->view('template_admin/footer');
-		$data['title'] = 'List of Location'; 
 	}
 	// create by thintha
 	public function create_location(){

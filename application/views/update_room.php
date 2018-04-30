@@ -4,7 +4,7 @@
 	<div class="row">
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
-			<h1>Create a room</h1>
+			<h2>Update a room</h2>
 			<form action="" method="">
 				<div class="form-group">
 					<label for="">Name</label>
@@ -26,7 +26,7 @@
                <option>2</option>
                <option>3</option>
                <option>4</option>
-          </select>
+             </select>
 				</div>
         <div class="form-group">
           <div class="custom-file">

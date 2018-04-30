@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
-			<h1>Book a meeting room</h1>
+			<h2>Update book meeting</h2>
 			<form action="" method="">
 				<div class="form-group">
 					<label for="">Start Date</label>
@@ -25,7 +25,7 @@
 				</div>
 				<div class="form-group">
 					<label for="comment">Note</label>
-					<textarea class="form-control" rows="5" id="comment" style="resize: none;"></textarea>
+					<textarea class="form-control" rows="5" id="comment"></textarea>
 				</div>
 				<div class="form-group">
 					<div>

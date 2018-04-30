@@ -5,7 +5,7 @@
 <div class="col-12">
 
 <h2>Booking Request Validate</h2>
-
+<br>
 <table id="request_validate" cellpadding="0" cellspacing="0" class="table table-striped table-bordered" width="100%">
     <thead>
         <tr>
@@ -23,9 +23,9 @@
 	        <td data-order="1" data-id="1">
 	            1&nbsp;
 	            <!-- <a href="#" title="" data-toggle="modal" data-target="#myModal"><i class="mdi mdi-delete"></i></a> -->
-	            <a href="<?php echo base_url(); ?>Welcome/book_meeting" title=""><i class="mdi mdi-pencil"></i></a>          
-              <a href="#" title="" data-toggle="modal" data-target="#accept"><i class="mdi mdi-check"></i></a>
-              <a href="#" title="" data-toggle="modal" data-target="#reject"><i class="mdi mdi-window-close"></i></a> 
+	            <a href="<?php echo base_url(); ?>Welcome/update_booking" title="Update booking"><i class="mdi mdi-pencil"></i></a>          
+              <a href="#" title="Accept request" data-toggle="modal" data-target="#accept"><i class="mdi mdi-check"></i></a>
+              <a href="#" title="Reject request" data-toggle="modal" data-target="#reject"><i class="mdi mdi-window-close"></i></a> 
 	        </td>
 	        <td>PNC</td>
 	        <td>B23</td>
@@ -38,9 +38,9 @@
 	        <td data-order="1" data-id="1">
               2&nbsp;
               <!-- <a href="#" title="" data-toggle="modal" data-target="#myModal"><i class="mdi mdi-delete"></i></a> -->
-              <a href="<?php echo base_url(); ?>Welcome/book_meeting" title=""><i class="mdi mdi-pencil"></i></a>          
-              <a href="#" title="" data-toggle="modal" data-target="#accept"><i class="mdi mdi-check"></i></a>
-              <a href="#" title="" data-toggle="modal" data-target="#reject"><i class="mdi mdi-window-close"></i></a> 
+             <a href="<?php echo base_url(); ?>Welcome/update_booking" title="Update booking"><i class="mdi mdi-pencil"></i></a>          
+              <a href="#" title="Accept request" data-toggle="modal" data-target="#accept"><i class="mdi mdi-check"></i></a>
+              <a href="#" title="Reject request" data-toggle="modal" data-target="#reject"><i class="mdi mdi-window-close"></i></a> 
           </td>
           <td>PNC</td>
           <td>B23</td>
@@ -96,7 +96,7 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-      <h3 class="modal-title">Are you sure to accept this request!</h3>
+      <h4 class="modal-title">Are you sure to accept this request!</h4>
       </div>
 
       <!-- Modal footer -->
@@ -124,7 +124,7 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-      <h3 class="modal-title">Are you sure to reject this request!</h3>
+      <h4 class="modal-title">Are you sure to reject this request!</h4>
       </div>
 
       <!-- Modal footer -->

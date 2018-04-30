@@ -31,25 +31,14 @@
       </div>
     </div>
     <div class="col-md-5">
-      <div class="form-inline">
-       <form action="" class="form-horizontal">
-        <div class="form-group">
-         <label class="control-label col-sm-3 requiredField" for="date">
-          Location
-         </label>
-         <div class="col-sm-9">
-          <div class="input-group">
-            <select name="" id="">
-                <option value="pnc">PNC</option>
-                <option value="pnv">PNV</option>
-                <option value="pnp">PNP</option>
-            </select>
-          </div>
-         </div>
-        </div>
-       </form>
-      </div>
-    </div>
+       <div class="col-sm-9">
+          <select name="location" class="form-control">
+              <option value="pnc">PNC</option>
+              <option value="pnv">PNV</option>
+              <option value="pnp">PNP</option>
+          </select>
+       </div>
+     </div>
     <div class="col-md-1"></div>
     
   </div>
@@ -87,7 +76,14 @@ new Chart(document.getElementById("pie-chart"), {
   </div>
   <div class="col-md-1"></div>
 </div>
-
+<div class="row">
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
+    <hr>
+        <div id="calendar" ></div>
+  </div>
+  <div class="col-md-1"></div>
+</div>
 <script type="text/javascript">
 // Bar chart
 new Chart(document.getElementById("bar-chart"), {
@@ -112,11 +108,3 @@ new Chart(document.getElementById("bar-chart"), {
 });
 </script>
 
-        <div class="row">
-          <div class="col-md-1"></div>
-          <div class="col-md-10">
-            <hr>
-                <div id="calendar" ></div>
-          </div>
-          <div class="col-md-1"></div>
-        </div>
