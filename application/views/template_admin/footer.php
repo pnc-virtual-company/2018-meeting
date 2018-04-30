@@ -18,8 +18,31 @@
 
     <script src="<?php echo base_url(); ?>/assets/js/front.js"></script>
     <script src="<?php echo base_url();?>assets/bootstrap-datepicker-1.7.1/js/bootstrap-datepicker.min.js"></script>
+    
+    <script src='<?php echo base_url(); ?>assets/fullcalendar-3.8.2/lib/moment.min.js'></script>
+    <script src='<?php echo base_url(); ?>assets/fullcalendar-3.8.2/fullcalendar.js'></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
      <script>
+
       $(function () {
+
+        $('#datetimepicker1').datetimepicker({
+                icons: {
+                    time: "mdi mdi-clock",
+                    date: "mdi mdi-calendar-clock",
+                    up: "mdi mdi-arrow-up-bold",
+                    down: "mdi mdi-arrow-down-bold"
+                }
+        });
+        $('#datetimepicker2').datetimepicker({
+                icons: {
+                    time: "mdi mdi-clock",
+                    date: "mdi mdi-calendar-clock",
+                    up: "mdi mdi-arrow-up-bold",
+                    down: "mdi mdi-arrow-down-bold"
+                }
+        });
       var date_input=$('input[name="date"]'); //our date input has the name "date"
       var container=$('.form-inline').length>0 ? $('.form-inline').parent() : "body";
       date_input.datepicker({
@@ -105,8 +128,6 @@
             });
         });
     </script>
-    <script src='<?php echo base_url(); ?>assets/fullcalendar-3.8.2/lib/moment.min.js'></script>
-    <script src='<?php echo base_url(); ?>assets/fullcalendar-3.8.2/fullcalendar.js'></script>
     
 
     

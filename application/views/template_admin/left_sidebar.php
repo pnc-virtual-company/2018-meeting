@@ -14,10 +14,10 @@
     <!-- Sidebar Navigation Menus-->
     <div class="main-menu">
       <ul id="side-main-menu" class="side-menu list-unstyled">                  
-        <li><a href="<?php echo base_url(); ?>welcome/dashboard"> <i class="mdi mdi-square-inc"></i>Dashboard</a></li>
         <li><a href="<?php echo base_url(); ?>welcome/location"> <i class="mdi mdi-map"></i>Location</a></li>
         <li><a href="<?php echo base_url(); ?>welcome/list_room"> <i class="mdi mdi-home-heart"></i>List Room</a></li>
         <li><a href="<?php echo base_url(); ?>welcome/request_validate"> <i class="mdi mdi-swap-vertical"></i>Request</a></li>
+        <li><a href="<?php echo base_url(); ?>welcome/occupancyRate"> <i class="mdi mdi-square-inc"></i>Cccupancy   Rate</a></li>
       </ul>
     </div>
   </div>
@@ -30,7 +30,7 @@
         <div class="navbar-holder d-flex align-items-center justify-content-between">
           <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="mdi mdi-menu"> </i></a><a href="#" class="navbar-brand">
               <div class="brand-text d-none d-md-inline-block"><span>Meeting Room&nbsp;</span><strong class="text-primary">management</strong></div></a>
-             <!--  <img id="profile-img" class="profile-img-card" src="<?php echo base_url(); ?>assets/images/logo_meeting.png" /> -->
+              <!-- <img id="profile-img" class="profile-img-card" src="<?php //echo base_url(); ?>assets/images/logo_meeting.png" /> -->
           </div>
           <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
             <!-- Notifications dropdown-->

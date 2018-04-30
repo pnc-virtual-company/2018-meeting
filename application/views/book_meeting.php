@@ -7,11 +7,21 @@
 			<form action="" method="">
 				<div class="form-group">
 					<label for="">Start Date</label>
-					<input type="text" name="startDate" class="form-control">
+					<div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                    	<input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
+                    	<div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                    	    <div class="input-group-text"><i class="mdi mdi-calendar-clock"></i></div>
+                    	</div>
+                	</div>
 				</div>
 				<div class="form-group">
 					<label for="">End Date</label>
-					<input type="text" name="endDate" class="form-control">
+					<div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+                    	<input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2"/>
+                    	<div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                    	    <div class="input-group-text"><i class="mdi mdi-calendar-clock"></i></div>
+                    	</div>
+                	</div>
 				</div>
 				<div class="form-group">
 					<label for="comment">Note</label>
