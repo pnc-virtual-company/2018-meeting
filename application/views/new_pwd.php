@@ -9,13 +9,13 @@
 					</div>
 					<div class="card-body">
 						<ul>
-							<li>Email:</li>
-							<li>Your new password here:</li>
+							<li>Email: danet.thorng@student.passerellesnumeriques.org</li>
+							<li>Your new password here: 1234567890</li>
 						</ul>
 					</div>
 					<div class="card-footer">
-						<button type="button" class="btn btn-outline-success float-right">OK</a></button>
-						<button type="button" class="btn btn-outline-danger float-left">Cancel</button>
+						<button type="button" class="btn btn-outline-success float-right">OK</button>
+						<a href="<?php base_url(); ?>reset_pwd" ><button type="button" class="btn btn-outline-danger float-left">Cancel</button></a>
 					</div>
 				</div>
 			</div>
