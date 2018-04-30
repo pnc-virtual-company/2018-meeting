@@ -7,7 +7,8 @@
   <div class="col-md-1"></div>
   <div class="col-md-10">
     
-  <h2>Pie chart</h2>
+  <h2 style="text-align: center;">Distribution of booked hours per meeting room, in PNC</h2>
+  <br><br>
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-5">
@@ -51,10 +52,8 @@
       </div>
     </div>
     <div class="col-md-1"></div>
-    
   </div>
-  <br>
-  <canvas id="pie-chart" width="800" height="450"></canvas>
+  <canvas id="pie-chart" width="850" height="400"></canvas>
   </div>
   <div class="col-md-1"></div>
 </div>
@@ -63,7 +62,7 @@
 new Chart(document.getElementById("pie-chart"), {
     type: 'pie',
     data: {
-      labels: ["B32", "B21", "B11", "A22", "B31"],
+      labels: ["B32", "B21", "B11", "A22", "B31"], 
       datasets: [{
         label: "Population (millions)",
         backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
@@ -73,17 +72,18 @@ new Chart(document.getElementById("pie-chart"), {
     options: {
       title: {
         display: true,
-        text: 'The most Room That popular booked'
+        // text: 'Distribution of booked hours per meeting room, in PNC'
       }
     }
 });
 </script>
+<br> <br><br><br><br>
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-10">
-    <h2>Bar chart</h2>
+     <h2 style="text-align: center;">Daily Occupancy rate, in PNC</h2>
     <br>
-    <canvas id="bar-chart" width="800" height="450"></canvas>
+    <canvas id="bar-chart" width="900" height="400"></canvas>
   </div>
   <div class="col-md-1"></div>
 </div>
@@ -106,12 +106,12 @@ new Chart(document.getElementById("bar-chart"), {
       legend: { display: false },
       title: {
         display: true,
-        text: 'Predicted world population (millions) in 2050'
+        // text: 'Daily Occupancy rate, in PNC'
       }
     }
 });
 </script>
-
+<br> <br>
         <div class="row">
           <div class="col-md-1"></div>
           <div class="col-md-10">

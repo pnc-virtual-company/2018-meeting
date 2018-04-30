@@ -17,7 +17,7 @@ class Welcome extends CI_Controller {
 		$this->load->view('list_location');
 		$this->load->view('template_admin/footer');
 	}
-	//add by Chhunhak.CHHOEUNG
+	//add by Chhunhak.CHHOEUNG and Maryna.PHORN
 	public function occupancyRate()
 	{
 		$this->load->view('template_admin/header');
