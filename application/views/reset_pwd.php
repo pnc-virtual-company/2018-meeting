@@ -17,8 +17,7 @@
 					</div>
 					<div class="card-footer">
 						<a href="<?php base_url(); ?>new_pwd" ><button type="button" class="btn btn-outline-success float-right">Reset Now</button></a>
-						<button type="button" class="btn btn-outline-danger float-left">Cancel</button>
-
+						<a href="<?php base_url(); ?>login" ><button type="button" class="btn btn-outline-danger float-left">Cancel</button></a>
 					</div>
 				</div>
 			</div>

@@ -18,7 +18,7 @@
 					</div>
 				<div class="card-footer">
 					<button type="button" class="btn btn-outline-success float-right">Register Now</button>
-					<button type="button" class="btn btn-outline-danger float-left">Cancel</button>
+					<a href="<?php base_url(); ?>login" ><button type="button" class="btn btn-outline-danger float-left">Cancel</button></a>
 				</div>
 				</div>
 			</div>
