@@ -40,7 +40,7 @@
       <div class="col-12">
         
         &nbsp;
-        <a href="<?php base_url(); ?>create_location" class="btn btn-primary"><i class="mdi mdi-plus"></i>&nbsp;Create Location</a>
+        <a href="<?php echo base_url(); ?>welcome/create_location" class="btn btn-primary"><i class="mdi mdi-plus"></i>&nbsp;Create Location</a>
       </div>
   </div>
 	</div>
