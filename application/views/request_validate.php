@@ -56,7 +56,7 @@
 </div>
 
 <!-- Modol pop up delete -->
-<<!-- div class="modal fade" id="myModal">
+<!-- <div class="modal fade" id="myModal">
 	<div class="row">
 		
 	</div>
@@ -78,8 +78,8 @@
 
     </div>
   </div>
-</div>
- -->
+</div> -->
+
 <!-- Modol pop up Accept -->
 <div class="modal fade" id="accept">
   <div class="row">
