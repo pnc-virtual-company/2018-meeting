@@ -13,11 +13,7 @@
     <p id="profile-name" class="profile-name-card"></p>
       <div class="form-group" id="email">
         <span id="reauth-email" class="reauth-email"></span>
-<<<<<<< HEAD
-        <input type="text" id="inputEmail" name="login" class="form-control" placeholder="User Name" required autofocus>
-=======
         <input type="text" id="username" name="login" class="form-control" placeholder="Username" required autofocus>
->>>>>>> b31ac852f8c87313c1a9569781829ff48ecb2702
       </div>
       <div class="form-group" id="password">
         <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>

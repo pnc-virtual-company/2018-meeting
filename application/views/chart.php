@@ -107,16 +107,3 @@ new Chart(document.getElementById("bar-chart"), {
     }
 });
 </script>
-<<<<<<< HEAD
-
-=======
-<br> <br>
-        <div class="row">
-          <div class="col-md-1"></div>
-          <div class="col-md-10">
-            <hr>
-                <div id="calendar" ></div>
-          </div>
-          <div class="col-md-1"></div>
-        </div>
->>>>>>> b31ac852f8c87313c1a9569781829ff48ecb2702
