@@ -16,7 +16,16 @@
      <script>
 
       $(function () {
-
+            var url = window.location.pathname,
+                    urlRegExp = new RegExp(url.replace(/\/$/, '') + "$");
+                $('#menu_leftsidebar a').each(function () {
+                    if (urlRegExp.test(this.href.replace(/\/$/, ''))) {
+                            $(this).addClass('active');
+                            $(this).parent().siblings().find('a').removeClass('active');
+                            e.preventDefault();
+                    }          
+                });
+               
         $('#datetimepicker1').datetimepicker({
                 icons: {
                     time: "mdi mdi-clock",
