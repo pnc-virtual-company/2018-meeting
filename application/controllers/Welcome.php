@@ -112,6 +112,9 @@ class Welcome extends CI_Controller {
 			}else{
 				$this->create_location();
 			}
+		}else{
+			$this->create_location();
+
 		}
 
 	}
