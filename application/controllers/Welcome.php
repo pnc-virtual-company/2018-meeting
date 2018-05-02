@@ -36,7 +36,9 @@ class Welcome extends CI_Controller {
 	public function create_room(){
 		$this->load->view('template_admin/header');
 		$this->load->view('template_admin/left_sidebar');
-		$this->load->view('create_room');
+		$this->load->model('Users_model');
+		$data['manager'] = $this->Users_model->selectManager();
+		$this->load->view('create_room',$data);
 		$this->load->view('template_admin/footer');
 	}
 	// Book meeting room by samreth.SAROEURT
@@ -110,6 +112,39 @@ class Welcome extends CI_Controller {
 		$this->load->view('edit_location');
 		$this->load->view('template_admin/footer');
 	}
-	
+	// insert creat room by samreth.SAROEURT
+	public function insert_create_room(){
+		// upload image
+		// $config['upload_path'] = 'assets/imgages/room/';
+		// $config['allowed_types'] = 'gif|jpg|png|jpeg';
+		// $config['overwrite'] = TRUE;
+		// $config['max_size'] = "2048000"; 
+		// $config['max_height'] = "768";
+		// $config['max_width'] = "1024";
+
+
+		//     if ($this->upload->do_upload('profilePic')){
+		//         $data = $this->upload->data();
+		//             $picture = array(
+		//                 'photoPath' => $this->upload->data('full_path').$data['file_name']
+		//             );
+		//     }
+		//     else{
+		//             echo $this->upload->display_errors();
+		//     } 
+
+		$room = $this->input->post("name");
+		$floor = $this->input->post("floor");
+		$description = $this->input->post("description");
+		
+		$this->load->model('Users_model');
+		$data= $this->Users_model->insert_create_room($room,$floor,$description);
+		
+		if ($data) {
+			redirect('Welcome/create_room');
+		}else{
+			echo "Data not insert";
+		}
+	}
 	
 }

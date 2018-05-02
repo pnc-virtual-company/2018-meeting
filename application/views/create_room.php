@@ -5,10 +5,10 @@
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
 			<h1>Create a room</h1>
-			<form action="" method="">
+			<form action="<?php echo base_url();?>Welcome/insert_create_room" method="post" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="">Name</label>
-					<input type="text" name="name" class="form-control">
+					<input type="text" name="name" class="form-control" required="">
 				</div>
 				<div class="form-group">
 					<label for="">Manager</label>
@@ -21,26 +21,28 @@
 				</div>
 				<div class="form-group">
 					<label for="">Floor</label>
-					 <input type="text" name="name" class="form-control">
+					 <input type="text" name="floor" class="form-control" required="">
 				</div>
         <div class="form-group">
           <div class="custom-file">
-            <input type="file" class="custom-file-input" id="customFile">
+            <input type="file" class="custom-file-input" id="customFile" accept="image/*" name="photo">
             <label class="custom-file-label" for="customFile">Upload image floor</label>
+             <!-- <input type="file" class="image-upload" accept="image/*" name="profilePic" id="profilePic"/> -->
           </div>
         </div>
 				<div class="form-group">
 					<label for="comment">Description</label>
-					<textarea class="form-control" rows="5" id="comment"></textarea>
+					<textarea class="form-control" rows="5" id="comment" name="description" required=""></textarea>
 				</div>
 				<div class="form-group">
+          
 					<div>
-					    <a class="btn btn-primary"  href="<?php echo base_url(); ?>Welcome/list_room" class="text-center">
-					      <i style="color: #fff" class="mdi mdi-check" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Create a room</span>
-					    </a>
-					    <a  class="btn btn-danger"  href="<?php echo base_url(); ?>Welcome/list_room" class="text-center">
-					      <i style="color: #fff" class="mdi mdi-close" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Cancel</span>
-					    </a>
+              <button class="btn btn-primary" type="submit" name="send" value="login">
+                <i style="color: #fff" class="mdi mdi-check" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Create a room</span>
+              </button>
+               <button class="btn btn-danger" type="submit" name="send" value="login">
+                <i style="color: #fff" class="mdi mdi-close" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Cancel</span>
+              </button>
 					</div>
 				</div>
 			</form>
@@ -67,57 +69,39 @@
       <!-- Modal body -->
       <div class="modal-body">
         <table id="list_room" cellpadding="0" cellspacing="0" class="table table-striped table-bordered" width="100%">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Firstname</th>
-                    <th>Lastname</th>
-                    <th>E-mail</th>
-                    <th>Action</th>
-                   
-                </tr>
-            </thead>
-            <tbody>
-           		<tr>
-        	        <td data-order="1" data-id="1">
-        	            1&nbsp;
-        	        </td>
-        	        <td>Rady</td>
-        	        <td>Y</td>
-        	        <td>rady@gmail.com</td>
-        	        <td>
-        	        	<input type="checkbox" name="" id="">
-        	        </td>
-        	    </tr>
-        		<tr>
-        	        <td data-order="2" data-id="2">
-        	            2&nbsp;
-        	        </td>
-        	        <td>Channak</td>
-        	        <td>Chun</td>
-        	        <td>Channak@gmail.com</td>
-        	        <td>
-        	        	<input type="checkbox" name="" id="">
-        	        </td>
-        	    </tr>
-        	    	<tr>
-        	            <td data-order="3" data-id="3">
-        	                3&nbsp;
-        	            </td>
-        	            <td>Rith</td>
-        	            <td>Nhel</td>
-        	            <td>Rith@gmail.com</td>
-        	            <td>
-        	            	<input type="checkbox" name="" id="">
-        	            </td>
-        	        </tr>
-             </tbody>
-             </table>
+          <thead>
+              <tr>
+                  <th>ID</th>
+                  <th>Firstname</th>
+                  <th>Lastname</th>
+                  <th>E-mail</th>
+                  <th>Action</th> 
+              </tr>
+          </thead>
+          <tbody>
+            <?php   
+               foreach ($manager as $row) {
+               ?>
+                 <tr>
+                     <td><?php echo $row->user_id; ?></td>
+                     <td><?php echo $row->firstname; ?></td>
+                     <td><?php echo $row->lastname; ?></td>
+                     <td><?php echo $row->email; ?></td>
+                     
+                     <td>
+                        <input type="checkbox" name="" id="">
+                     </td>
+                 </tr>  
+              <?php
+              }
+            ?>
+          </tbody>        
+        </table>
       </div>
 
       <!-- Modal footer -->
       <div class="modal-footer">
-      	<a class="btn btn-primary"  href="<?php echo base_url(); ?>Welcome/list_room" class="text-center">
+      	<a class="btn btn-primary" href="<?php echo base_url(); ?>Welcome/create_room" class="text-center">
       	<span style="color: #fff">&nbsp;OK</span>
       	</a>
         <!-- <button type="button" class="btn btn-success">OK</button> -->

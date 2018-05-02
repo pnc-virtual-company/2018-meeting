@@ -238,7 +238,7 @@ class Users_model extends CI_Model {
     public function checkCredentials($login, $password) {
         $this->db->from('users');
         $this->db->where('login', $login);
-        $this->db->where('active = TRUE');
+        // $this->db->where('active = TRUE');
         $query = $this->db->get();
 
         if ($query->num_rows() == 0) {
@@ -337,4 +337,25 @@ class Users_model extends CI_Model {
         }
         return $rnd;
     }
+
+    // Select manager from databas By Samreth.SAROEURT
+    function selectManager(){
+        
+        $this->db->select('*');
+        $query = $this->db->get(' tbl_users');
+        return  $query->result();
+    }
+    // Select manager from databas By Samreth.SAROEURT
+    function insert_create_room($room,$floor,$description){
+            
+            $data = array(
+                'room_name' =>$room, 
+                'floor' =>$floor,  
+                'description' =>$description   
+            );
+
+            $result = $this->db->insert('tbl_rooms',$data);
+            return $result;
+        }
+
 }

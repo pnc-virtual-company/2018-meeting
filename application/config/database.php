@@ -80,7 +80,7 @@ $db['default'] = array(
 	'password' => '',
 	'database' => 'skeleton',
 	'dbdriver' => 'pdo',
-	'dbprefix' => 'skeleton_',
+	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
 	'cache_on' => FALSE,
