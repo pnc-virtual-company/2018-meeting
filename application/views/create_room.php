@@ -21,17 +21,12 @@
 				</div>
 				<div class="form-group">
 					<label for="">Floor</label>
-					<select class="form-control" id="exampleSelect1">
-               <option>1</option>
-               <option>2</option>
-               <option>3</option>
-               <option>4</option>
-          </select>
+					 <input type="text" name="name" class="form-control">
 				</div>
         <div class="form-group">
           <div class="custom-file">
             <input type="file" class="custom-file-input" id="customFile">
-            <label class="custom-file-label" for="customFile">Choose floor</label>
+            <label class="custom-file-label" for="customFile">Upload image floor</label>
           </div>
         </div>
 				<div class="form-group">
@@ -54,8 +49,7 @@
 	</div>
 </div>
 
-<!-- Button to Open the Modal -->
-<!-- The Modal -->
+<!--Pup up list manager name -->
 
 <div class="modal fade" id="myModal">
 	<div class="row">
