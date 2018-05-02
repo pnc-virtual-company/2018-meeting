@@ -5,16 +5,8 @@
 
 <h2>List of room</h2><br>
 <table id="list_room" cellpadding="0" cellspacing="0" class="table table-striped table-bordered" width="100%">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Manager</th>
-            <th>Floor</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
+    
+<!--     <tbody>
    		<tr>
 	        <td data-order="1" data-id="1">
 	            1&nbsp;
@@ -44,13 +36,46 @@
               <a href="<?php echo base_url(); ?>welcome/room_availability" title="View room"><i class="mdi mdi-check"></i></a>        
              <a href="#" title="View location room" data-toggle="modal" data-target="#location_room"><i class="mdi mdi-source-commit-start"></i></a>
 	            <!-- <a href="#" title=""><i class="mdi mdi-toggle-switch"></i></a> -->
-	        </td>
+	      <!--   </td>
 	        <td>B12</td>
 	        <td>BALET</td>
 	        <td>3</td>
 	        <td>B12 Classroom</td>
 	    </tr>
-     </tbody>
+     </tbody> -->
+
+     <thead>
+         <tr>
+             <th>ID</th>
+             <th>Name</th>
+             <th>Manager</th>
+             <th>Floor</th>
+             <th>Description</th>
+         </tr>
+     </thead>
+     <tbody>
+       <?php   
+          foreach ($list_room as $row) {
+          ?>
+            <tr>
+                <td>
+                  <?php echo $row->room_id; ?>
+                   <a href="#" data-toggle="modal" data-target="#myModal" title="Delete this room"><i class="mdi mdi-delete"></i></a>
+                   <a href="<?php echo base_url(); ?>welcome/update_room" title="Update this room"><i class="mdi mdi-pencil"></i></a>
+                   <a href="<?php echo base_url(); ?>welcome/book_meeting" title="Book a room"><i class="mdi mdi-notebook"></i></a>            
+                   <a href="<?php echo base_url(); ?>welcome/fullCalendar" title="Calendar"><i class="mdi mdi-table-large"></i></a>            
+                   <a href="<?php echo base_url(); ?>welcome/room_availability" title="View room"><i class="mdi mdi-check"></i></a>        
+                  <a href="#" title="View location room" data-toggle="modal" data-target="#location_room"><i class="mdi mdi-source-commit-start"></i></a>
+                </td>
+                <td><?php echo $row->room_name; ?></td>
+                <td><?php echo $row->firstname; ?></td>
+                <td><?php echo $row->floor; ?></td>
+                <td><?php echo $row->description; ?></td>    
+            </tr>  
+         <?php
+         }
+       ?>
+     </tbody>        
      </table>
     </div>
     <div class="row">

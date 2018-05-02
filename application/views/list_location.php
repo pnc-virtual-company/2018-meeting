@@ -10,25 +10,31 @@
             <th>Name</th>
             <th>Description</th>
             <th>Address</th>
-           
         </tr>
     </thead>
     <tbody>
-    <tr>
-        <td>
-            
-            <a href="<?php echo base_url(); ?>welcome/edit_location" id="edit_location" title="Edit Location"><i class="mdi mdi-pencil"></i></a>
-            <a href="#" class="confirm-delete" title="Delete Location" data-toggle="modal" data-target="#frmConfirmDelete"><i class="mdi mdi-delete"></i></a>
-            <a href="#" class="Pin-location" title="Pin Location" data-toggle="modal" data-target="#map"><i class="mdi mdi-map-marker"></i></a>
-            &nbsp;
-            <a href="<?php echo base_url(); ?>welcome/list_room">Room</a>
-        </td>
-        <td>PNC</td>
-        <td>PNC Canteen</td>
-        <td>PP</td>
-        
-    </tr>
-            </tbody>
+      <?php   
+         foreach ($list_location as $row) {
+         ?>
+           <tr>
+               
+              <td>
+                  <?php echo $row->loc_id; ?>
+                    
+                  <a href="<?php echo base_url(); ?>welcome/edit_location" id="edit_location" title="Edit Location"><i class="mdi mdi-pencil"></i></a>
+                  <a href="#" class="confirm-delete" title="Delete Location" data-toggle="modal" data-target="#frmConfirmDelete"><i class="mdi mdi-delete"></i></a>
+                  <a href="#" class="Pin-location" title="Pin Location" data-toggle="modal" data-target="#map"><i class="mdi mdi-map-marker"></i></a>
+                  &nbsp;
+                  <a href="<?php echo base_url(); ?>welcome/list_room">Room</a>
+              </td>
+               <td><?php echo $row->loc_name; ?></td>
+               <td><?php echo $row->description; ?></td>
+               <td><?php echo $row->place; ?></td>    
+           </tr>  
+        <?php
+        }
+      ?>
+    </tbody> 
         </table>
     </div>
 </div>

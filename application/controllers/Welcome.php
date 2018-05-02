@@ -9,12 +9,15 @@ class Welcome extends CI_Controller {
 			parent::__construct();
 			log_message('debug', 'URI=' . $this->uri->uri_string());
 	}
-	// add chart page by maryna 
+	// add chart page by maryna &
+	//list location by Chhunhak.CHHOEUNG
 	public function index()
 	{
 		$this->load->view('template_admin/header');
 		$this->load->view('template_admin/left_sidebar');
-		$this->load->view('list_location');
+		$this->load->model('Users_model');
+		$data['list_location'] = $this->Users_model->selectLocation();
+		$this->load->view('list_location', $data);
 		$this->load->view('template_admin/footer');
 	}
 	//add by Chhunhak.CHHOEUNG and Maryna.PHORN
@@ -29,7 +32,9 @@ class Welcome extends CI_Controller {
 	public function list_room(){
 		$this->load->view('template_admin/header');
 		$this->load->view('template_admin/left_sidebar');
-		$this->load->view('list_room');
+		$this->load->model('Users_model');
+		$data['list_room'] = $this->Users_model->selectRoom();
+		$this->load->view('list_room', $data);
 		$this->load->view('template_admin/footer');
 	}
 	// Create room by samreth.SAROEURT
@@ -83,11 +88,9 @@ class Welcome extends CI_Controller {
 		$this->load->view('template_admin/footer');
 	}
 	// create by thintha
+	// Edited by Chhunhak.CHHOEUNG
 	public function location(){
-		$this->load->view('template_admin/header');
-		$this->load->view('template_admin/left_sidebar');
-		$this->load->view('list_location');
-		$this->load->view('template_admin/footer');
+		$this->index();
 	}
 	// create by thintha
 	public function create_location(){
@@ -114,24 +117,6 @@ class Welcome extends CI_Controller {
 	}
 	// insert creat room by samreth.SAROEURT
 	public function insert_create_room(){
-		// upload image
-		// $config['upload_path'] = 'assets/imgages/room/';
-		// $config['allowed_types'] = 'gif|jpg|png|jpeg';
-		// $config['overwrite'] = TRUE;
-		// $config['max_size'] = "2048000"; 
-		// $config['max_height'] = "768";
-		// $config['max_width'] = "1024";
-
-
-		//     if ($this->upload->do_upload('profilePic')){
-		//         $data = $this->upload->data();
-		//             $picture = array(
-		//                 'photoPath' => $this->upload->data('full_path').$data['file_name']
-		//             );
-		//     }
-		//     else{
-		//             echo $this->upload->display_errors();
-		//     } 
 
 		$room = $this->input->post("name");
 		$floor = $this->input->post("floor");

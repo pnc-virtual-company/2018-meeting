@@ -342,7 +342,30 @@ class Users_model extends CI_Model {
     function selectManager(){
         
         $this->db->select('*');
-        $query = $this->db->get(' tbl_users');
+        $query = $this->db->get(' users');
+        return  $query->result();
+    }
+     // Select manager from databas By Samreth.SAROEURT
+    function selectRoom(){
+        
+        // $this->db->select('*');
+        // $query = $this->db->get('users');
+        // return  $query->result();
+
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->join(' tbl_rooms', ' tbl_rooms.user_id = users.id');
+
+        $query = $this->db->get();
+        return  $query->result();
+    }
+    // Select Location from Db By Chhunhak.CHHOEUNG
+    function selectLocation(){
+        
+        $this->db->select('*');
+        $this->db->from('tbl_locations');
+
+        $query = $this->db->get();
         return  $query->result();
     }
     // Select manager from databas By Samreth.SAROEURT
