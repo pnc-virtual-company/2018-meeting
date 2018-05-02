@@ -98,9 +98,24 @@ class Welcome extends CI_Controller {
 		$this->load->view('template_admin/left_sidebar');
 		$this->load->view('create_location');
 		$this->load->view('template_admin/footer');
-		
 	}
-	//create by Chhunhak
+	// insert locatin into db by Chhunhak.CHHOEUNG
+	public function insert_location(){
+		$name =$this->input->post('loc_name');
+		$des =$this->input->post('des');
+		$add =$this->input->post('address');
+		if ($name != '' && $des != '' && $add != '') {
+			$this->load->model('Users_model');
+			$add = $this->Users_model->add_location($name, $des, $add);
+			if ($add == 'true') {
+				$this->index();
+			}else{
+				$this->create_location();
+			}
+		}
+
+	}
+	//create by Chhunhak.CHHOEUNG
 	public function fullCalendar(){
 		$this->load->view('template_admin/header');
 		$this->load->view('template_admin/left_sidebar');

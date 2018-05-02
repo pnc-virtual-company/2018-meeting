@@ -17,18 +17,18 @@
             <h4>Create A New Location</h4>
           </div>
           <div class="card-body">
-            <form action="/action_page.php">
+            <form method="POST" action="<?php echo base_url(); ?>welcome/insert_location">
               <div class="form-group">
-                <label for="email">Name</label>
-                <input type="email" class="form-control" id="email" name="email">
+                <label for="loc_name">Name</label>
+                <input type="text" class="form-control" id="loc_name" name="loc_name">
               </div>
               <div class="form-group">
                 <label for="pwd">Description</label>
-                <input type="password" class="form-control" id="pwd"  name="pswd">
+                <input type="text" class="form-control" id="pwd"  name="des">
               </div>
               <div class="form-group">
                 <label for="pwd">Address</label>
-                <input type="password" class="form-control" id="pwd"  name="pswd">
+                <input type="text" class="form-control"  name="address">
               </div>
               
               <button type="submit" class="btn btn-success">Create Location</button>

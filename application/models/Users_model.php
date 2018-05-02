@@ -380,5 +380,15 @@ class Users_model extends CI_Model {
             $result = $this->db->insert('tbl_rooms',$data);
             return $result;
         }
+    function add_location($name, $des, $add){
+        
+        $data = array(
+            'loc_name' =>$name, 
+            'description' =>$des,  
+            'place' =>$add   
+        );
+        $result = $this->db->insert('tbl_locations',$data);
+        return $result;
+    }
 
 }
