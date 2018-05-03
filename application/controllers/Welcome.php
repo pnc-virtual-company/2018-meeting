@@ -139,9 +139,12 @@ class Welcome extends CI_Controller {
 	}
 	// create by thintha
 	public function edit_location(){
+		$loc_id = $this->input->get('loc_id');
 		$this->load->view('template_admin/header');
 		$this->load->view('template_admin/left_sidebar');
-		$this->load->view('edit_location');
+		$this->load->model('Users_model');
+		$data['listUpdatelocation'] = $this->Users_model->selectUpdateLocation($loc_id);
+		$this->load->view('edit_location', $data);
 		$this->load->view('template_admin/footer');
 	}
 	// insert creat room by samreth.SAROEURT
@@ -180,14 +183,14 @@ class Welcome extends CI_Controller {
 	{
 		$room_id = $this->input->get('room_id');
 		$this->load->model('Users_model');
-        $data = $this->Users_model->delete_room($room_id);
-        if ($data == 'true') {
-        	$this->all_room();
-        } else {
-            redirect('notfound');
-            
-        } 
-    
+		$data = $this->Users_model->delete_room($room_id);
+		if ($data == 'true') {
+			$this->all_room();
+		} else {
+			redirect('notfound');
+
+		} 
+
 	}
 
 // booking request room by samreth.SAROEURT
@@ -206,5 +209,21 @@ class Welcome extends CI_Controller {
 			echo "Data not insert";
 		}
 	}
-	
+
+	// update location by Maryna.PHORN
+
+	public function update_locations(){
+		$name = $this->input->post("name");
+		$des = $this->input->post("description");
+		$add = $this->input->post("address");
+		$loc_id = $this->input->post("loc_id");
+		$this->load->model('Users_model');
+ 		$data = $this->Users_model->update_location($name,$des,$add,$loc_id);
+		
+		if ($data == 'true') {
+			$this->index();
+		}else{
+			echo "Data not insert";
+		}
+	}
 }

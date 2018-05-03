@@ -369,6 +369,15 @@ class Users_model extends CI_Model {
         $query = $this->db->get();
         return  $query->result();
     }
+     public function selectUpdateLocation($loc_id){
+        
+        $this->db->select('*');
+        $this->db->from('tbl_locations');
+        $this->db->where('loc_id',$loc_id);
+
+        $query = $this->db->get();
+        return  $query->result();
+    }
     // Select manager from databas By Samreth.SAROEURT
     public function insert_create_room($room,$floor,$description){
 
@@ -416,6 +425,16 @@ class Users_model extends CI_Model {
             );
 
             $result = $this->db->insert('tbl_room_request',$data);
+            return $result;
+        }
+        function update_location($name,$des,$add,$loc_id){
+            $edit = array(
+                'loc_name' =>$name, 
+                'description' =>$des,   
+                'place' =>$add   
+            );
+            $this->db->where('loc_id', $loc_id);
+            $result = $this->db->update('tbl_locations', $edit);
             return $result;
         }
 }

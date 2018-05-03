@@ -15,20 +15,26 @@
         <div class="card ">
           <div class="card-header text-center">
             <h4>Edit Location</h4>
-          </div>
+          </div>  
+              
+          <?php foreach ($listUpdatelocation as $row): ?>
+
+          <?php endforeach; ?>
+
           <div class="card-body">
-            <form action="">
+            <form method="POST"  action="<?php echo base_url(); ?>welcome/update_locations">
               <div class="form-group">
+                <input type="hidden" value="<?php echo $row->loc_id; ?>" name="loc_id">
                 <label for="">Name</label>
-                <input type="text" class="form-control" value="" id="email" name="email">
+                <input type="text" class="form-control" value="<?php echo $row->loc_name; ?>" id="name" name="name" >
               </div>
               <div class="form-group">
                 <label for="">Description</label>
-                <input type="text" class="form-control" id="pwd"  name="pswd">
+                <input type="text" class="form-control"  value="<?php echo $row->description; ?>"  id="des"  name="description">
               </div>
               <div class="form-group">
                 <label for="">Address</label>
-                <input type="text" class="form-control" id="pwd"  name="pswd">
+                <input type="text" class="form-control" value="<?php echo $row->place; ?>"  id="add"  name="address">
               </div>
               
               <button type="submit" class="btn btn-success">Update Location</button>
