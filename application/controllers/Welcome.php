@@ -6,8 +6,8 @@ class Welcome extends CI_Controller {
 	//Default constructor
 	function __construct()
 	{
-			parent::__construct();
-			log_message('debug', 'URI=' . $this->uri->uri_string());
+		parent::__construct();
+		log_message('debug', 'URI=' . $this->uri->uri_string());
 	}
 	// add chart page by maryna &
 	//list location by Chhunhak.CHHOEUNG
@@ -129,7 +129,6 @@ class Welcome extends CI_Controller {
 			$this->create_location();
 
 		}
-
 	}
 	//create by Chhunhak.CHHOEUNG
 	public function fullCalendar(){
@@ -162,6 +161,23 @@ class Welcome extends CI_Controller {
 			echo "Data not insert";
 		}
 	}
+<<<<<<< HEAD
+	// delete location by Danet THORNG
+	public function delete_location()
+	{
+		
+		$locationID = $this->input->get('loc_id');
+		$this->load->model('Users_model');
+		$data = $this->Users_model->delete_location($locationID);
+		if ($data == 'true') {
+			redirect('Welcome/location');
+		}else{
+			echo "not delete";
+		}
+	}
+
+	// delete location by Danet THORNG
+=======
 	// create by thintha
 	public function delete_room()
 	{
@@ -178,4 +194,5 @@ class Welcome extends CI_Controller {
     
 	}
 	
+>>>>>>> 9ea0db95e07558e659b86e77112682f8957faceb
 }
