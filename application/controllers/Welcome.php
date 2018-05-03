@@ -160,7 +160,7 @@ class Welcome extends CI_Controller {
 			echo "Data not insert";
 		}
 	}
-<<<<<<< HEAD
+
 	// delete location by Danet THORNG
 	public function delete_location()
 	{
@@ -175,8 +175,6 @@ class Welcome extends CI_Controller {
 		}
 	}
 
-	// delete location by Danet THORNG
-=======
 	// create by thintha
 	public function delete_room()
 	{
@@ -192,19 +190,6 @@ class Welcome extends CI_Controller {
     
 	}
 
-	// delete location by Danet THORNG
-	 public function delete_location()
-	 {
-	  
-	  $locationID = $this->input->get('loc_id');
-	  $this->load->model('Users_model');
-	  $data = $this->Users_model->delete_location($locationID);
-	  if ($data == 'true') {
-	   redirect('Welcome/location');
-	  }else{
-	   echo "not delete";
-	  }
-	 }
 // booking request room by samreth.SAROEURT
 	public function booking_room(){
 
@@ -222,5 +207,4 @@ class Welcome extends CI_Controller {
 		}
 	}
 	
->>>>>>> 9ea0db95e07558e659b86e77112682f8957faceb
 }

@@ -394,18 +394,12 @@ class Users_model extends CI_Model {
         return $fk_id;
 
     }
-<<<<<<< HEAD
-    
-    // delete location by Danet THORNG
-    public function delete_location($locationID)
-      {
-=======
+
     // by thintha
     public function delete_room($room_id) {
          $delete = $this->db->delete('tbl_rooms', array('tbl_rooms.room_id' => $room_id));
          return $delete;
     }
-<<<<<<< HEAD
     // delete location by Danet THORNG
     public function delete_location($locationID) {
         $result = $this->db->delete('tbl_locations',array('tbl_locations.loc_id' =>$locationID ));
@@ -424,12 +418,4 @@ class Users_model extends CI_Model {
             $result = $this->db->insert('tbl_room_request',$data);
             return $result;
         }
-=======
->>>>>>> 9ea0db95e07558e659b86e77112682f8957faceb
-
-        $result = $this->db->delete('tbl_locations',array('tbl_locations.loc_id' =>$locationID ));
-        return $result;
-      }
-    // delete location by Danet THORNG
->>>>>>> 7fd5ba17252b23f48737e2f2bf5698116abd94df
 }

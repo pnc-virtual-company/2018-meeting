@@ -29,9 +29,9 @@
 				</div>
 				<div class="form-group">
 					<div>
-					    <a class="btn btn-primary"  href="<?php echo base_url(); ?>Welcome/book_request" class="text-center">
-					      <i style="color: #fff" class="mdi mdi-check" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Book a room</span>
-					    </a>
+					    <button class="btn btn-primary" type="submit" name="send" value="login">
+					      <i style="color: #fff" class="mdi mdi-check" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Book Meeting</span>
+					    </button>
 					    <a  class="btn btn-danger"  href="<?php echo base_url(); ?>Welcome/list_room" class="text-center">
 					      <i style="color: #fff" class="mdi mdi-close" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Cancel</span>
 					    </a>
