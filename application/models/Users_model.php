@@ -391,6 +391,7 @@ class Users_model extends CI_Model {
             $result = $this->db->insert('tbl_rooms',$data);
             return $result;
         }
+
     public function add_location($name, $des, $add){
         
         $data = array(
@@ -399,8 +400,7 @@ class Users_model extends CI_Model {
             'place' =>$add   
         );
         $result = $this->db->insert('tbl_locations',$data);
-        $fk_id = $this->db->insert_id(); 
-        return $fk_id;
+        return $result;
 
     }
 
@@ -415,13 +415,20 @@ class Users_model extends CI_Model {
         return $result;
     }
     //Booking room request By Samreth.SAROEURT
-     function booking_room($sdate,$edate,$note){
+     function  booking_room($note,$sdate,$edate,$user_id,$room_id){
 
             
+            // var_dump($room_id);die();
+            $sdate = substr($sdate,0,-3);
+            $edate = substr($edate,0,-3);
+            // var_dump($sdate, $edate);die();
             $data = array(
+                'description' =>$note,     
                 'startDate' =>$sdate, 
                 'endDate' =>$edate,   
-                'description' =>$note   
+                'user_id' => $user_id,
+                'room_id' => $room_id,
+                'sta_id' => 1
             );
 
             $result = $this->db->insert('tbl_room_request',$data);
