@@ -21,7 +21,7 @@
             <tr>
                 <td>
                   <?php echo $row->room_id; ?>&nbsp;
-                   <a href="#" data-toggle="modal" data-target="#myModal" title="Delete this room"><i class="mdi mdi-delete"></i></a>
+                   <a href="<?php echo base_url(); ?>welcome/delete_room?$id=<?php echo $row->room_id; ?>" data-toggle="modal" data-target="#myModal" title="Delete this room"><i class="mdi mdi-delete"></i></a>
                    <a href="<?php echo base_url(); ?>welcome/update_room" title="Update this room"><i class="mdi mdi-pencil"></i></a>
                    <a href="<?php echo base_url(); ?>welcome/book_meeting" title="Book a room"><i class="mdi mdi-notebook"></i></a>            
                    <a href="<?php echo base_url(); ?>welcome/fullCalendar" title="Calendar"><i class="mdi mdi-table-large"></i></a>            
@@ -40,17 +40,17 @@
      </table>
     </div>
     <div class="row">
-    	<div class="col-md-1"></div>
-    	<div class="col-11">
-    	    <button class="btn btn-primary"><a href="<?php echo base_url(); ?>welcome/create_room?loc_id=<?php error_reporting(0); echo $row->loc_id; ?>" class="text-center">
-    	      <i style="color: #fff" class="mdi mdi-plus-circle" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Creat a room</span>
-    	    </a>
-    	    </button>
+      <div class="col-md-1"></div>
+      <div class="col-11">
+          <button class="btn btn-primary"><a href="<?php echo base_url(); ?>welcome/create_room?loc_id=<?php error_reporting(0); echo $row->loc_id; ?>" class="text-center">
+            <i style="color: #fff" class="mdi mdi-plus-circle" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Creat a room</span>
+          </a>
+          </button>
           <button class="btn btn-primary"><a href="#" class="text-center">
             <i style="color: #fff" class="mdi mdi-file-export" data-toggle="tooltip" title="Export the list of room"></i><span style="color: #fff">&nbsp; Export list</span>
           </a>
           </button>
-    	</div>
+      </div>
     </div>
 </div>
 </div>
@@ -59,9 +59,9 @@
 
 <!-- Modol pop up delete -->
   <div class="modal fade" id="myModal">
-	<div class="row">
-		
-	</div>
+  <div class="row">
+    
+  </div>
   <div class="modal-dialog">
     <div class="modal-content">
 
@@ -78,7 +78,8 @@
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+        <a href="<?php echo base_url(); ?>welcome/delete_room?room_id=<?php echo $row->room_id; ?>" class="btn btn-danger">OK </a>
+        
         <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
       </div>
 
@@ -88,9 +89,9 @@
 
 <!-- Modal pup up list location room -->
 <div class="modal fade" id="location_room">
-	<div class="row">
-		
-	</div>
+  <div class="row">
+    
+  </div>
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
 

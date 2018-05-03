@@ -38,6 +38,15 @@ class Welcome extends CI_Controller {
 		$this->load->view('list_room', $data);
 		$this->load->view('template_admin/footer');
 	}
+	public function all_room(){
+		$this->load->view('template_admin/header');
+		$this->load->view('template_admin/left_sidebar');
+		$loc_id = $this->input->get('loc_id');
+		$this->load->model('Users_model');
+		$data['list_room'] = $this->Users_model->selectAllRoom();
+		$this->load->view('list_room', $data);
+		$this->load->view('template_admin/footer');
+	}
 	// Create room by samreth.SAROEURT
 	public function create_room(){
 		$this->load->view('template_admin/header');
@@ -152,6 +161,21 @@ class Welcome extends CI_Controller {
 		}else{
 			echo "Data not insert";
 		}
+	}
+
+	public function delete_room()
+	{
+		$room_id = $this->input->get('room_id');
+		$this->load->model('Users_model');
+        $data = $this->Users_model->delete_room($room_id);
+        if ($data == 'true') {
+        	$this->all_room();
+        } else {
+            redirect('notfound');
+            
+        }
+        
+    
 	}
 	
 }

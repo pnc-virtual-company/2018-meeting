@@ -385,4 +385,8 @@ class Users_model extends CI_Model {
         return $result;
     }
 
+    public function delete_room($room_id) {
+        $this->db->delete('tbl_rooms', array('room_id' => $room_id));
+    }
+
 }
