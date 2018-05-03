@@ -172,9 +172,38 @@ class Welcome extends CI_Controller {
         } else {
             redirect('notfound');
             
-        }
-        
+        } 
     
+	}
+
+	// delete location by Danet THORNG
+	 public function delete_location()
+	 {
+	  
+	  $locationID = $this->input->get('loc_id');
+	  $this->load->model('Users_model');
+	  $data = $this->Users_model->delete_location($locationID);
+	  if ($data == 'true') {
+	   redirect('Welcome/location');
+	  }else{
+	   echo "not delete";
+	  }
+	 }
+// booking request room by samreth.SAROEURT
+	public function booking_room(){
+
+		$sdate = $this->input->post("startDate");
+		$edate = $this->input->post("endDate");
+		$note = $this->input->post("comment");
+		// $location = $this->session->userdata('loc_id');
+		$this->load->model('Users_model');
+		$data= $this->Users_model->booking_room($sdate,$edate,$note);
+		
+		if ($data) {
+			redirect('Welcome/book_meeting');
+		}else{
+			echo "Data not insert";
+		}
 	}
 	
 }

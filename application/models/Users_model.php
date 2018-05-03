@@ -390,12 +390,31 @@ class Users_model extends CI_Model {
             'place' =>$add   
         );
         $result = $this->db->insert('tbl_locations',$data);
-        return $result;
+        $fk_id = $this->db->insert_id(); 
+        return $fk_id;
+
     }
 
     public function delete_room($room_id) {
          $delete = $this->db->delete('tbl_rooms', array('tbl_rooms.room_id' => $room_id));
          return $delete;
     }
+    // delete location by Danet THORNG
+    public function delete_location($locationID) {
+        $result = $this->db->delete('tbl_locations',array('tbl_locations.loc_id' =>$locationID ));
+        return $result;
+    }
+    //Booking room request By Samreth.SAROEURT
+     function booking_room($sdate,$edate,$note){
 
+            
+            $data = array(
+                'startDate' =>$sdate, 
+                'endDate' =>$edate,   
+                'description' =>$note   
+            );
+
+            $result = $this->db->insert('tbl_room_request',$data);
+            return $result;
+        }
 }

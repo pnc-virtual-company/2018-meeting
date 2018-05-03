@@ -13,7 +13,7 @@
 				<div class="form-group">
 					<label for="">Manager</label>
 					<div class="input-group mb-3">
-					  <input type="text" class="form-control" value="<?php echo $row->id; ?>" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
+					  <input type="text" class="form-control" value="" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
 					  <div class="input-group-append">
 					    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#myModal">Select</button>
 					  </div>
@@ -68,10 +68,10 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <table id="list_room" cellpadding="0" cellspacing="0" class="table table-striped table-bordered" width="70%">
+        <table id="list_room" cellpadding="0" cellspacing="0" class="table table-striped table-bordered" width="90%">
           <thead>
               <tr>
-                 <!--  <th>ID</th> -->
+                  <th>ID</th>
                   <th>Firstname</th>
                   <th>Lastname</th>
                   <th>E-mail</th>
@@ -89,7 +89,7 @@
                      <td><?php echo $row->email; ?></td>
                      
                      <td>
-                        <input type="radio" name="<?php echo $row->id;  ?>" value="<?php echo $row->id; ?>">
+                        <input type="radio" name="manager" value="<?php echo $row->id; ?>">
                      </td>
                  </tr>  
               <?php

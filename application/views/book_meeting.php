@@ -4,11 +4,11 @@
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
 			<h1>Book a meeting room</h1>
-			<form action="" method="">
+			<form action="<?php echo base_url();?>Welcome/booking_room" method="post">
 				<div class="form-group">
 					<label for="">Start Date</label>
 					<div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-                    	<input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
+                    	<input type="text" name="startDate" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
                     	<div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
                     	    <div class="input-group-text"><i class="mdi mdi-calendar-clock"></i></div>
                     	</div>
@@ -17,7 +17,7 @@
 				<div class="form-group">
 					<label for="">End Date</label>
 					<div class="input-group date" id="datetimepicker2" data-target-input="nearest">
-                    	<input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2"/>
+                    	<input type="text" name="endDate" class="form-control datetimepicker-input" data-target="#datetimepicker2"/>
                     	<div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
                     	    <div class="input-group-text"><i class="mdi mdi-calendar-clock"></i></div>
                     	</div>
@@ -25,7 +25,7 @@
 				</div>
 				<div class="form-group">
 					<label for="comment">Note</label>
-					<textarea class="form-control" rows="5" id="comment" style="resize: none;"></textarea>
+					<textarea class="form-control" rows="5" id="comment" name="comment" style="resize: none;"></textarea>
 				</div>
 				<div class="form-group">
 					<div>

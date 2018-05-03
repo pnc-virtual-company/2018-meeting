@@ -67,7 +67,7 @@
 	        <p>Are you sure that you want to perform this action?</p>
 	    </div>
 	    <div class="modal-footer">
-	        <a href="#" class="btn btn-danger" id="lnkDeleteUser">Yes</a>
+	        <a href="<?php echo base_url(); ?>welcome/delete_location?loc_id=<?php echo $row->loc_id;?>" class="btn btn-danger" id="lnkDeleteUser">Yes</a>
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
 	    </div>
 		</div>
