@@ -9,6 +9,7 @@
 					<label for="">Start Date</label>
 					<div class="input-group date" id="datetimepicker1" data-target-input="nearest">
                     	<input type="text" name="startDate" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
+	
                     	<div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
                     	    <div class="input-group-text"><i class="mdi mdi-calendar-clock"></i></div>
                     	</div>
@@ -42,3 +43,7 @@
 		<div class="col-md-4"></div>
 	</div>
 </div>
+<?php 
+	$room_id = $this->input->get('room_id');
+	$this->session->set_userdata('room_id', $room_id);
+ ?>

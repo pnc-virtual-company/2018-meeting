@@ -23,7 +23,7 @@
                   <?php echo $row->room_id; ?>&nbsp;
                    <a href="<?php echo base_url(); ?>welcome/delete_room?$id=<?php echo $row->room_id; ?>" data-toggle="modal" data-target="#myModal" title="Delete this room"><i class="mdi mdi-delete"></i></a>
                    <a href="<?php echo base_url(); ?>welcome/update_room" title="Update this room"><i class="mdi mdi-pencil"></i></a>
-                   <a href="<?php echo base_url(); ?>welcome/book_meeting" title="Book a room"><i class="mdi mdi-notebook"></i></a>            
+                   <a href="<?php echo base_url(); ?>welcome/book_meeting?room_id=<?php echo $row->room_id; ?>" title="Book a room"><i class="mdi mdi-notebook"></i></a>            
                    <a href="<?php echo base_url(); ?>welcome/fullCalendar" title="Calendar"><i class="mdi mdi-table-large"></i></a>            
                    <a href="<?php echo base_url(); ?>welcome/room_availability" title="View room"><i class="mdi mdi-check"></i></a>        
                   <a href="#" title="View location room" data-toggle="modal" data-target="#location_room"><i class="mdi mdi-source-commit-start"></i></a>

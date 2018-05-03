@@ -196,11 +196,12 @@ class Welcome extends CI_Controller {
 		$sdate = $this->input->post("startDate");
 		$edate = $this->input->post("endDate");
 		$note = $this->input->post("comment");
-		// $location = $this->session->userdata('loc_id');
+		$room_id = $this->session->userdata('room_id');
+		$user_id = $this->session->userdata('id');
 		$this->load->model('Users_model');
-		$data= $this->Users_model->booking_room($sdate,$edate,$note);
+		$data= $this->Users_model->booking_room($note,$sdate,$edate,$user_id,$room_id);
 		
-		if ($data) {
+		if ($data == 'true') {
 			redirect('Welcome/book_meeting');
 		}else{
 			echo "Data not insert";
