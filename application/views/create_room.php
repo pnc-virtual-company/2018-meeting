@@ -23,16 +23,16 @@
 					<label for="">Floor</label>
 					 <input type="text" name="floor" class="form-control" required="">
 				</div>
-        <div class="form-group">
+        <!--<div class="form-group">
           <div class="custom-file">
             <input type="file" class="custom-file-input" id="customFile" accept="image/*" name="photo">
             <label class="custom-file-label" for="customFile">Upload image floor</label>
-             <!-- <input type="file" class="image-upload" accept="image/*" name="profilePic" id="profilePic"/> -->
+            <input type="file" class="image-upload" accept="image/*" name="profilePic" id="profilePic"/> 
           </div>
-        </div>
+        </div>-->
 				<div class="form-group">
 					<label for="comment">Description</label>
-					<textarea class="form-control" rows="5" id="comment" name="description" required=""></textarea>
+					<textarea class="form-control" rows="5" id="comment" style="resize: none;" name="description" required=""></textarea>
 				</div>
 				<div class="form-group">
           
@@ -68,10 +68,10 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <table id="list_room" cellpadding="0" cellspacing="0" class="table table-striped table-bordered" width="100%">
+        <table id="list_room" cellpadding="0" cellspacing="0" class="table table-striped table-bordered" width="70%">
           <thead>
               <tr>
-                  <th>ID</th>
+                 <!--  <th>ID</th> -->
                   <th>Firstname</th>
                   <th>Lastname</th>
                   <th>E-mail</th>
@@ -83,7 +83,7 @@
                foreach ($manager as $row) {
                ?>
                  <tr>
-                     <td><?php echo $row->user_id; ?></td>
+                     <td><?php echo $row->id; ?></td>
                      <td><?php echo $row->firstname; ?></td>
                      <td><?php echo $row->lastname; ?></td>
                      <td><?php echo $row->email; ?></td>

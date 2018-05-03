@@ -1,9 +1,8 @@
 <br>
-
 <div id="container" >
 	<div class="row-fluid">
 		<div class="col-12">
-<table id="location" cellpadding="0" cellspacing="0" class="table table-striped table-bordered" width="100%">
+<table id="location" class="table table-striped table-bordered  " width="100%">
     <thead>
         <tr>
             <th>ID</th>
@@ -25,7 +24,7 @@
                   <a href="#" class="confirm-delete" title="Delete Location" data-toggle="modal" data-target="#frmConfirmDelete"><i class="mdi mdi-delete"></i></a>
                   <a href="#" class="Pin-location" title="Pin Location" data-toggle="modal" data-target="#map"><i class="mdi mdi-map-marker"></i></a>
                   &nbsp;
-                  <a href="<?php echo base_url(); ?>welcome/list_room">Room</a>
+                  <a href="<?php echo base_url(); ?>welcome/list_room?loc_id=<?php echo $row->loc_id; ?>">Room</a>
               </td>
                <td><?php echo $row->loc_name; ?></td>
                <td><?php echo $row->description; ?></td>
@@ -100,17 +99,20 @@
     </div>
   </div>
   
+<script src="<?php echo base_url();?>assets/js/jquery-3.2.1.min.js"></script>
 <!-- link datatable -->
 <link href="<?php echo base_url();?>assets/DataTable/DataTables-1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
 
-<script type="text/javascript">
+<script>
+
 $(document).ready(function() {
     //Transform the HTML table in a fancy datatable
     $('#location').dataTable({
-        stateSave: true,
+        select: true
     });
-    
-    
+
+
+});
 </script>

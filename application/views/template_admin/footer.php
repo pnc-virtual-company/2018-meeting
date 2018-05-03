@@ -138,15 +138,18 @@
         //Transform the HTML table in a fancy datatable
 
         $('#list_room').dataTable({
-            stateSave: true,
+            select: 'single'
         });
          $('#request_validate').dataTable({
-            stateSave: true,
+            language: {
+                select: {
+                   rows: "%d rows selected"
+                }
+            },
+            select: true
+
         });
-        //$("#frmResetPwd").alert();
-        $('#location').dataTable({
-            stateSave: true,
-        });
+        
         $("#users tbody").on('click', '.confirm-delete',  function(){
             var id = $(this).parent().data('id');
             var link = "<?php echo base_url();?>users/delete/" + id;

@@ -220,10 +220,7 @@ class Users_model extends CI_Model {
             'id' => $row->id,
             'firstname' => $row->firstname,
             'lastname' => $row->lastname,
-            'fullname' => $row->firstname . ' ' . $row->lastname,
-            'isAdmin' => $isAdmin,
-            'isSuperAdmin' => $isSuperAdmin,
-            'loggedIn' => TRUE
+            'fullname' => $row->firstname . ' ' . $row->lastname
         );
         $this->session->set_userdata($newdata);
     }
@@ -346,16 +343,12 @@ class Users_model extends CI_Model {
         return  $query->result();
     }
      // Select manager from databas By Samreth.SAROEURT
-    function selectRoom(){
-        
-        // $this->db->select('*');
-        // $query = $this->db->get('users');
-        // return  $query->result();
+    function selectRoom($loc_id){
 
         $this->db->select('*');
         $this->db->from('users');
         $this->db->join(' tbl_rooms', ' tbl_rooms.user_id = users.id');
-
+        $this->db->where('loc_id', $loc_id);
         $query = $this->db->get();
         return  $query->result();
     }
@@ -370,10 +363,11 @@ class Users_model extends CI_Model {
     }
     // Select manager from databas By Samreth.SAROEURT
     function insert_create_room($room,$floor,$description){
+
             
             $data = array(
                 'room_name' =>$room, 
-                'floor' =>$floor,  
+                'floor' =>$floor,   
                 'description' =>$description   
             );
 

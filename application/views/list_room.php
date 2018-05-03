@@ -5,45 +5,6 @@
 
 <h2>List of room</h2><br>
 <table id="list_room" cellpadding="0" cellspacing="0" class="table table-striped table-bordered" width="100%">
-    
-<!--     <tbody>
-   		<tr>
-	        <td data-order="1" data-id="1">
-	            1&nbsp;
-
-	            <a href="#" data-toggle="modal" data-target="#myModal" title="Delete this room"><i class="mdi mdi-delete"></i></a>
-	            <a href="<?php echo base_url(); ?>welcome/update_room" title="Update this room"><i class="mdi mdi-pencil"></i></a>
-	            <a href="<?php echo base_url(); ?>welcome/book_meeting" title="Book a room"><i class="mdi mdi-notebook"></i></a>            
-	            <a href="<?php echo base_url(); ?>welcome/fullCalendar" title="Calendar"><i class="mdi mdi-table-large"></i></a>            
-	            <a href="<?php echo base_url(); ?>welcome/room_availability" title="View room"><i class="mdi mdi-check"></i></a>        
-	           <a href="#" title="View location room" data-toggle="modal" data-target="#location_room"><i class="mdi mdi-source-commit-start"></i></a>
-
-	        </td>
-	        <td>B23</td>
-	        <td>BALET</td>
-	        <td>1</td>
-	        <td>B23 Classroom</td>
-	    </tr>
-	    <tr>
-	        <td data-order="1" data-id="1">
-
-	            2&nbsp;
-
-              <a href="#" data-toggle="modal" data-target="#myModal" title="Delete this room"><i class="mdi mdi-delete"></i></a>
-              <a href="<?php echo base_url(); ?>welcome/update_room" title="Update this room"><i class="mdi mdi-pencil"></i></a>
-              <a href="<?php echo base_url(); ?>welcome/book_meeting" title="Book a room"><i class="mdi mdi-notebook"></i></a>            
-              <a href="<?php echo base_url(); ?>welcome/fullCalendar" title="Calendar"><i class="mdi mdi-table-large"></i></a>            
-              <a href="<?php echo base_url(); ?>welcome/room_availability" title="View room"><i class="mdi mdi-check"></i></a>        
-             <a href="#" title="View location room" data-toggle="modal" data-target="#location_room"><i class="mdi mdi-source-commit-start"></i></a>
-	            <!-- <a href="#" title=""><i class="mdi mdi-toggle-switch"></i></a> -->
-	      <!--   </td>
-	        <td>B12</td>
-	        <td>BALET</td>
-	        <td>3</td>
-	        <td>B12 Classroom</td>
-	    </tr>
-     </tbody> -->
-
      <thead>
          <tr>
              <th>ID</th>
@@ -54,12 +15,12 @@
          </tr>
      </thead>
      <tbody>
-       <?php   
+       <?php  
           foreach ($list_room as $row) {
           ?>
             <tr>
                 <td>
-                  <?php echo $row->room_id; ?>
+                  <?php echo $row->room_id; ?>&nbsp;
                    <a href="#" data-toggle="modal" data-target="#myModal" title="Delete this room"><i class="mdi mdi-delete"></i></a>
                    <a href="<?php echo base_url(); ?>welcome/update_room" title="Update this room"><i class="mdi mdi-pencil"></i></a>
                    <a href="<?php echo base_url(); ?>welcome/book_meeting" title="Book a room"><i class="mdi mdi-notebook"></i></a>            
@@ -81,7 +42,7 @@
     <div class="row">
     	<div class="col-md-1"></div>
     	<div class="col-11">
-    	    <button class="btn btn-primary"><a href="<?php echo base_url(); ?>welcome/create_room" class="text-center">
+    	    <button class="btn btn-primary"><a href="<?php echo base_url(); ?>welcome/create_room?loc_id=<?php error_reporting(0); echo $row->loc_id; ?>" class="text-center">
     	      <i style="color: #fff" class="mdi mdi-plus-circle" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Creat a room</span>
     	    </a>
     	    </button>

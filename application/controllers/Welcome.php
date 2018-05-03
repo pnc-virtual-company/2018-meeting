@@ -32,8 +32,9 @@ class Welcome extends CI_Controller {
 	public function list_room(){
 		$this->load->view('template_admin/header');
 		$this->load->view('template_admin/left_sidebar');
+		$loc_id = $this->input->get('loc_id');
 		$this->load->model('Users_model');
-		$data['list_room'] = $this->Users_model->selectRoom();
+		$data['list_room'] = $this->Users_model->selectRoom($loc_id);
 		$this->load->view('list_room', $data);
 		$this->load->view('template_admin/footer');
 	}
@@ -46,6 +47,7 @@ class Welcome extends CI_Controller {
 		$this->load->view('create_room',$data);
 		$this->load->view('template_admin/footer');
 	}
+
 	// Book meeting room by samreth.SAROEURT
 	public function book_meeting(){
 		$this->load->view('template_admin/header');
@@ -71,7 +73,9 @@ class Welcome extends CI_Controller {
 	public function update_room(){
 		$this->load->view('template_admin/header');
 		$this->load->view('template_admin/left_sidebar');
-		$this->load->view('update_room');
+		$this->load->model('Users_model');
+		$data['manager'] = $this->Users_model->selectManager();
+		$this->load->view('update_room',$data);
 		$this->load->view('template_admin/footer');
 	}
 	public function update_booking(){
@@ -139,7 +143,7 @@ class Welcome extends CI_Controller {
 		$room = $this->input->post("name");
 		$floor = $this->input->post("floor");
 		$description = $this->input->post("description");
-		
+		$location = $this->session->userdata('loc_id');
 		$this->load->model('Users_model');
 		$data= $this->Users_model->insert_create_room($room,$floor,$description);
 		
