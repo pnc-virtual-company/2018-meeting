@@ -162,7 +162,7 @@ class Welcome extends CI_Controller {
 			echo "Data not insert";
 		}
 	}
-
+	// create by thintha
 	public function delete_room()
 	{
 		$room_id = $this->input->get('room_id');

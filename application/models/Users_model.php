@@ -384,7 +384,7 @@ class Users_model extends CI_Model {
         $result = $this->db->insert('tbl_locations',$data);
         return $result;
     }
-
+    // by thintha
     public function delete_room($room_id) {
         $this->db->delete('tbl_rooms', array('room_id' => $room_id));
     }
