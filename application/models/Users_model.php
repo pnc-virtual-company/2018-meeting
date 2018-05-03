@@ -336,14 +336,14 @@ class Users_model extends CI_Model {
     }
 
     // Select manager from databas By Samreth.SAROEURT
-    function selectManager(){
+    public function selectManager(){
         
         $this->db->select('*');
         $query = $this->db->get(' users');
         return  $query->result();
     }
      // Select manager from databas By Samreth.SAROEURT
-    function selectRoom($loc_id){
+    public function selectRoom($loc_id){
 
         $this->db->select('*');
         $this->db->from('users');
@@ -361,7 +361,7 @@ class Users_model extends CI_Model {
         return  $query->result();
     }
     // Select Location from Db By Chhunhak.CHHOEUNG
-    function selectLocation(){
+    public function selectLocation(){
         
         $this->db->select('*');
         $this->db->from('tbl_locations');
@@ -370,7 +370,7 @@ class Users_model extends CI_Model {
         return  $query->result();
     }
     // Select manager from databas By Samreth.SAROEURT
-    function insert_create_room($room,$floor,$description){
+    public function insert_create_room($room,$floor,$description){
 
             
             $data = array(
@@ -382,7 +382,7 @@ class Users_model extends CI_Model {
             $result = $this->db->insert('tbl_rooms',$data);
             return $result;
         }
-    function add_location($name, $des, $add){
+    public function add_location($name, $des, $add){
         
         $data = array(
             'loc_name' =>$name, 
@@ -394,11 +394,18 @@ class Users_model extends CI_Model {
         return $fk_id;
 
     }
-
+<<<<<<< HEAD
+    
+    // delete location by Danet THORNG
+    public function delete_location($locationID)
+      {
+=======
+    // by thintha
     public function delete_room($room_id) {
          $delete = $this->db->delete('tbl_rooms', array('tbl_rooms.room_id' => $room_id));
          return $delete;
     }
+<<<<<<< HEAD
     // delete location by Danet THORNG
     public function delete_location($locationID) {
         $result = $this->db->delete('tbl_locations',array('tbl_locations.loc_id' =>$locationID ));
@@ -417,4 +424,12 @@ class Users_model extends CI_Model {
             $result = $this->db->insert('tbl_room_request',$data);
             return $result;
         }
+=======
+>>>>>>> 9ea0db95e07558e659b86e77112682f8957faceb
+
+        $result = $this->db->delete('tbl_locations',array('tbl_locations.loc_id' =>$locationID ));
+        return $result;
+      }
+    // delete location by Danet THORNG
+>>>>>>> 7fd5ba17252b23f48737e2f2bf5698116abd94df
 }

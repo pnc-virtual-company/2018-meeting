@@ -17,7 +17,7 @@
             <h4>Edit Location</h4>
           </div>
           <div class="card-body">
-            <form action="/action_page.php">
+            <form action="">
               <div class="form-group">
                 <label for="">Name</label>
                 <input type="text" class="form-control" value="" id="email" name="email">
