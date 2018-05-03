@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4">
-      <h1>Create a room</h1>
+      <h1>Update a room</h1>
       <form action="<?php echo base_url();?>Welcome/insert_create_room" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label for="">Name</label>

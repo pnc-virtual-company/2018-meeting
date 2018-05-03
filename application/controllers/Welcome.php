@@ -41,7 +41,6 @@ class Welcome extends CI_Controller {
 	public function all_room(){
 		$this->load->view('template_admin/header');
 		$this->load->view('template_admin/left_sidebar');
-		$loc_id = $this->input->get('loc_id');
 		$this->load->model('Users_model');
 		$data['list_room'] = $this->Users_model->selectAllRoom();
 		$this->load->view('list_room', $data);

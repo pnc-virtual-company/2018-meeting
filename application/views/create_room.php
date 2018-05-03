@@ -13,7 +13,7 @@
 				<div class="form-group">
 					<label for="">Manager</label>
 					<div class="input-group mb-3">
-					  <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
+					  <input type="text" class="form-control" value="<?php echo $row->id; ?>" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
 					  <div class="input-group-append">
 					    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#myModal">Select</button>
 					  </div>
@@ -89,7 +89,7 @@
                      <td><?php echo $row->email; ?></td>
                      
                      <td>
-                        <input type="checkbox" name="" id="">
+                        <input type="radio" name="<?php echo $row->id;  ?>" value="<?php echo $row->id; ?>">
                      </td>
                  </tr>  
               <?php
