@@ -384,10 +384,17 @@ class Users_model extends CI_Model {
         $result = $this->db->insert('tbl_locations',$data);
         return $result;
     }
+<<<<<<< HEAD
     
     // delete location by Danet THORNG
     public function delete_location($locationID)
       {
+=======
+    // by thintha
+    public function delete_room($room_id) {
+        $this->db->delete('tbl_rooms', array('room_id' => $room_id));
+    }
+>>>>>>> 9ea0db95e07558e659b86e77112682f8957faceb
 
         $result = $this->db->delete('tbl_locations',array('tbl_locations.loc_id' =>$locationID ));
         return $result;
