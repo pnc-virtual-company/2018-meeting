@@ -391,8 +391,7 @@ class Users_model extends CI_Model {
             'place' =>$add   
         );
         $result = $this->db->insert('tbl_locations',$data);
-        $fk_id = $this->db->insert_id(); 
-        return $fk_id;
+        return $result;
 
     }
 
