@@ -352,6 +352,14 @@ class Users_model extends CI_Model {
         $query = $this->db->get();
         return  $query->result();
     }
+    function selectAllRoom(){
+
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->join(' tbl_rooms', ' tbl_rooms.user_id = users.id');
+        $query = $this->db->get();
+        return  $query->result();
+    }
     // Select Location from Db By Chhunhak.CHHOEUNG
     function selectLocation(){
         

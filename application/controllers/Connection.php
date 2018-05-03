@@ -65,7 +65,7 @@ class Connection extends CI_Controller {
 	    $this->load->view('new_pwd');
 	    $this->load->view('templates/footer');
 	}
-//Danet THORNG
+	//Danet THORNG
 
 	/**
 	 * Logout endpoint. Destroy the PHP session
@@ -75,6 +75,6 @@ class Connection extends CI_Controller {
 	{
 		log_message('debug', 'Logout current user and redirect to the home page');
 		$this->session->sess_destroy();
-		redirect('welcome');
+		redirect('welcome');	
 	}
 }
