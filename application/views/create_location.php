@@ -30,6 +30,11 @@
                 <label for="pwd">Address</label>
                 <input type="text" class="form-control"  name="address">
               </div>
+              <div class="form-group">
+                <label for="pwd">Embed URL Map</label>
+                <input type="text" class="form-control"  name="embed_url_map">
+                <span style="font-size: 12px;" class="text-danger">* you need to copy embed url from gogle map</span>
+              </div>
               
               <button type="submit" class="btn btn-success">Create Location</button>
               <a href="<?php echo base_url(); ?>welcome/location" class="btn btn-danger float-right">
