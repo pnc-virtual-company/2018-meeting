@@ -416,7 +416,7 @@ class Users_model extends CI_Model {
             $edate = substr($edate,0,-3);
             // var_dump($sdate, $edate);die();
             $data = array(
-                'description' =>$note,     
+                'book_description' =>$note,     
                 'startDate' =>$sdate, 
                 'endDate' =>$edate,   
                 'user_id' => $user_id,
@@ -430,12 +430,13 @@ class Users_model extends CI_Model {
 
      // Select manager from databas By Samreth.SAROEURT
     public function select_room_request(){
-
+        $user_id = $this->session->userdata('id');
         $this->db->select('*');
         $this->db->from('tbl_room_request');
         $this->db->join('tbl_status', ' tbl_room_request.sta_id = tbl_status.sta_id');
         $this->db->join('tbl_rooms', ' tbl_rooms.room_id = tbl_room_request.room_id');
         $this->db->join('tbl_locations', ' tbl_rooms.loc_id = tbl_locations.loc_id');
+        $this->db->where('tbl_room_request.user_id', $user_id);
         $query = $this->db->get();
         // var_dump($query->result());die();
         return  $query->result();

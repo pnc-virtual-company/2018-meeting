@@ -219,5 +219,7 @@ class Welcome extends CI_Controller {
 		$this->load->view('booking_request', $data);
 		$this->load->view('template_admin/footer');
 	}
+
+	// delete list room request by samreth.SAROEURT
 	
 }
