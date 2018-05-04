@@ -19,7 +19,6 @@
               
           <?php foreach ($listUpdatelocation as $row): ?>
 
-          <?php endforeach; ?>
 
           <div class="card-body">
             <form method="POST"  action="<?php echo base_url(); ?>welcome/update_locations">
@@ -36,6 +35,7 @@
                 <label for="">Address</label>
                 <input type="text" class="form-control" value="<?php echo $row->place; ?>"  id="add"  name="address">
               </div>
+          <?php endforeach; ?>
               
               <button type="submit" class="btn btn-success">Update Location</button>
               <a href="<?php echo base_url(); ?>welcome/location" class="btn btn-danger float-right">
