@@ -427,19 +427,19 @@ class Users_model extends CI_Model {
             $result = $this->db->insert('tbl_room_request',$data);
             return $result;
         }
-<<<<<<< HEAD
 
      // Select manager from databas By Samreth.SAROEURT
-    public function select_room_request($room_id){
+    public function select_room_request(){
 
         $this->db->select('*');
-        $this->db->from('tbl_users');
-        $this->db->join(' tbl_room_request', ' tbl_room_request.user_id = tbl_users.user_id');
-        $this->db->where('room_id', $room_id);
+        $this->db->from('tbl_room_request');
+        $this->db->join('tbl_status', ' tbl_room_request.sta_id = tbl_status.sta_id');
+        $this->db->join('tbl_rooms', ' tbl_rooms.room_id = tbl_room_request.room_id');
+        $this->db->join('tbl_locations', ' tbl_rooms.loc_id = tbl_locations.loc_id');
         $query = $this->db->get();
+        // var_dump($query->result());die();
         return  $query->result();
     }
-=======
         function update_location($name,$des,$add,$loc_id){
             $edit = array(
                 'loc_name' =>$name, 
@@ -450,5 +450,4 @@ class Users_model extends CI_Model {
             $result = $this->db->update('tbl_locations', $edit);
             return $result;
         }
->>>>>>> af47c0f43d651ddd35f6aa0ec820c0fb68d0f8c5
 }

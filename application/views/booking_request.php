@@ -21,7 +21,7 @@
     </thead>
      <tbody>
        <?php  
-          foreach ($request as $row) {
+          foreach ($book_request as $row) {
           ?>
            <tr>
                <td data-order="1" data-id="1">
@@ -29,9 +29,9 @@
                    <a href="#" title="" data-toggle="modal" data-target="#myModal"><i class="mdi mdi-delete"></i></a>
                    <a href="<?php echo base_url(); ?>Welcome/book_meeting" title=""><i class="mdi mdi-pencil"></i></a>
                </td>
-               <td>PNC</td>
-               <td>B23</td>
-               <td>Requested</td>
+               <td><?php echo $row->loc_name  ?></td>
+               <td><?php echo $row->room_name ?></td>
+               <td><?php echo $row->status ?></td>
                <td><?php echo $row->startDate; ?></td>
                <td><?php echo $row->endDate; ?></td>
                <td><?php echo $row->description; ?></td>

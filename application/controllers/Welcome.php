@@ -200,7 +200,6 @@ class Welcome extends CI_Controller {
 		$note = $this->input->post("comment");
 		$room_id = $this->session->userdata('room_id');
 		$user_id = $this->session->userdata('id');
-		// var_dump($sdate, $edate, $note); die();
 		$this->load->model('Users_model');
 		$data= $this->Users_model->booking_room($note,$sdate,$edate,$user_id,$room_id);
 		
@@ -215,9 +214,8 @@ class Welcome extends CI_Controller {
 	public function select_room_request(){
 		$this->load->view('template_admin/header');
 		$this->load->view('template_admin/left_sidebar');
-		$room_id = $this->input->get('room_id');
 		$this->load->model('Users_model');
-		$data['request'] = $this->Users_model->select_room_request($room_id);
+		$data['book_request'] = $this->Users_model->select_room_request();
 		$this->load->view('booking_request', $data);
 		$this->load->view('template_admin/footer');
 	}
