@@ -79,6 +79,20 @@ class Welcome extends CI_Controller {
 		$this->load->view('update_room',$data);
 		$this->load->view('template_admin/footer');
 	}
+	//edited by Chhunhak.CHHOEUNG
+	public function update_locations(){
+			$name = $this->input->post("name");
+			$des = $this->input->post("description");
+			$add = $this->input->post("address");
+			$loc_id = $this->input->post("loc_id");
+			$this->load->model('Users_model');
+	 		$data = $this->Users_model->update_location($name,$des,$add,$loc_id);
+			if ($data == 'true') {
+				$this->index();
+			}else{
+				echo "Data not insert";
+			}
+		}
 	public function update_booking(){
 		$this->load->view('template_admin/header');
 		$this->load->view('template_admin/left_sidebar');
@@ -133,11 +147,14 @@ class Welcome extends CI_Controller {
 	}
 	// create by thintha
 	public function edit_location(){
-		$this->load->view('template_admin/header');
-		$this->load->view('template_admin/left_sidebar');
-		$this->load->view('edit_location');
-		$this->load->view('template_admin/footer');
-	}
+			$loc_id = $this->input->get('loc_id');
+			$this->load->view('template_admin/header');
+			$this->load->view('template_admin/left_sidebar');
+			$this->load->model('Users_model');
+			$data['listUpdatelocation'] = $this->Users_model->selectUpdateLocation($loc_id);
+			$this->load->view('edit_location', $data);
+			$this->load->view('template_admin/footer');
+		}
 	// insert creat room by samreth.SAROEURT
 	public function insert_create_room(){
 
@@ -229,9 +246,30 @@ class Welcome extends CI_Controller {
 
 	// Book meeting room by samreth.SAROEURT
 	public function update_booking_room(){
+		$book_id = $this->input->get('book_id');
 		$this->load->view('template_admin/header');
 		$this->load->view('template_admin/left_sidebar');
-		$this->load->view('update_booking');
+		$this->load->model('Users_model');
+		$data['request_update'] = $this->Users_model->select_booking($book_id);
+		$this->load->view('update_booking', $data);
 		$this->load->view('template_admin/footer');
 	}
+
+	//edite meeting room by samreth.SAROEURT
+	public function update_request(){
+			
+			$sdate = $this->input->post("startDate");
+			$edate = $this->input->post("endDate");
+			$note = $this->input->post("comment");
+			$book_id = $this->input->post("book_id");
+			$this->load->model('Users_model');
+	 		$data = $this->Users_model->update_request($sdate,$edate,$note,$book_id);
+			if ($data == 'true') {
+				$this->select_room_request();
+			}else{
+				echo "Data not insert";
+			}
+		}
+	
+	
 }

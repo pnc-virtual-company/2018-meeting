@@ -30,7 +30,7 @@
                     echo $i; ?>&nbsp;
                     <input type="hidden" value="<?php echo $row->book_id;  ?>">
                    <a href="<?php echo base_url(); ?>welcome/delete_book_request?book_id=<?php echo $row->book_id; ?>" title="" data-toggle="modal" data-target="#myModal"><i class="mdi mdi-delete"></i></a>
-                   <a href="<?php echo base_url(); ?>Welcome/update_booking" title=""><i class="mdi mdi-pencil"></i></a>
+                   <a href="<?php echo base_url(); ?>Welcome/update_booking_room?book_id=<?php echo $row->book_id; ?>" title=""><i class="mdi mdi-pencil"></i></a>
                </td>
                <td><?php echo $row->loc_name  ?></td>
                <td><?php echo $row->room_name ?></td>
