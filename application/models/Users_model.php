@@ -392,12 +392,13 @@ class Users_model extends CI_Model {
             return $result;
         }
 
-    public function add_location($name, $des, $add){
+    public function add_location($name, $des, $add,$embed_url_map){
         
         $data = array(
             'loc_name' =>$name, 
             'description' =>$des,  
-            'place' =>$add   
+            'place' =>$add,
+            'embed_url_map' => $embed_url_map
         );
         $result = $this->db->insert('tbl_locations',$data);
         return $result;
