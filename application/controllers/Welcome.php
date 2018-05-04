@@ -72,9 +72,11 @@ class Welcome extends CI_Controller {
 	}
 	// Update a room by samreth.SAROEURT
 	public function update_room(){
+		$user_id = $this->input->get('user_id');
 		$this->load->view('template_admin/header');
 		$this->load->view('template_admin/left_sidebar');
 		$this->load->model('Users_model');
+		// $update_room['update_room'] = $this->Users_model->selectUpdateRoom($user_id);
 		$data['manager'] = $this->Users_model->selectManager();
 		$this->load->view('update_room',$data);
 		$this->load->view('template_admin/footer');

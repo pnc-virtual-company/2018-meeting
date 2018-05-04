@@ -16,13 +16,14 @@
      </thead>
      <tbody>
        <?php  
+            $i=1;
           foreach ($list_room as $row) {
           ?>
             <tr>
                 <td>
-                  <?php echo $row->room_id; ?>&nbsp;
+                  <?php echo $i;; ?>&nbsp;
                    <a href="<?php echo base_url(); ?>welcome/delete_room?$room_id=<?php echo $row->room_id; ?>" data-toggle="modal" data-target="#myModal" title="Delete this room"><i class="mdi mdi-delete"></i></a>
-                   <a href="<?php echo base_url(); ?>welcome/update_room" title="Update this room"><i class="mdi mdi-pencil"></i></a>
+                   <a href="<?php echo base_url(); ?>welcome/update_room?room_id=<?php echo $row->room_id; ?>" title="Update this room"><i class="mdi mdi-pencil"></i></a>
                    <a href="<?php echo base_url(); ?>welcome/book_meeting?room_id=<?php echo $row->room_id; ?>" title="Book a room"><i class="mdi mdi-notebook"></i></a>            
                    <a href="<?php echo base_url(); ?>welcome/fullCalendar" title="Calendar"><i class="mdi mdi-table-large"></i></a>            
                    <a href="<?php echo base_url(); ?>welcome/room_availability" title="View room"><i class="mdi mdi-check"></i></a>        
@@ -31,7 +32,7 @@
                 <td><?php echo $row->room_name; ?></td>
                 <td><?php echo $row->firstname; ?></td>
                 <td><?php echo $row->floor; ?></td>
-                <td><?php echo $row->description; ?></td>    
+                <td><?php echo $row->description; $i++;?></td>    
             </tr>  
          <?php
          }

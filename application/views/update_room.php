@@ -6,14 +6,19 @@
     <div class="col-md-4">
       <h1>Update a room</h1>
       <form action="<?php echo base_url();?>Welcome/insert_create_room" method="post" enctype="multipart/form-data">
+       <!--  <?php 
+          //foreach ($update_room as $row) {
+        ?> -->
+
         <div class="form-group">
           <label for="">Name</label>
-          <input type="text" name="name" class="form-control" required="">
+          <input type="text" name="name" value="<?php //echo $row->room_name; ?>" class="form-control" required="">
         </div>
         <div class="form-group">
           <label for="">Manager</label>
           <div class="input-group mb-3">
-            <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
+            <input type="hidden" name="user_id" value="<?php //echo $row->user_id; ?>">
+            <input type="text" value="<?php //echo $row->user_id; ?>" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
             <div class="input-group-append">
               <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#myModal">Select</button>
             </div>
@@ -21,18 +26,11 @@
         </div>
         <div class="form-group">
           <label for="">Floor</label>
-           <input type="text" name="floor" class="form-control" required="">
-        </div>
-        <div class="form-group">
-          <div class="custom-file">
-            <input type="file" class="custom-file-input" id="customFile" accept="image/*" name="photo">
-            <label class="custom-file-label" for="customFile">Upload image floor</label>
-             <!-- <input type="file" class="image-upload" accept="image/*" name="profilePic" id="profilePic"/> -->
-          </div>
+           <input type="text" value="<?php //echo $row->floor; ?>" name="floor" class="form-control" required="">
         </div>
         <div class="form-group">
           <label for="comment">Description</label>
-          <textarea class="form-control" rows="5" id="comment" name="description" required=""></textarea>
+          <textarea class="form-control" value="<?php //echo $row->description; ?>" rows="5" id="comment" name="description" required="" style="resize: none;"></textarea>
         </div>
         <div class="form-group">
           
@@ -45,6 +43,7 @@
               </button>
           </div>
         </div>
+
       </form>
     </div>
     <div class="col-md-4"></div>

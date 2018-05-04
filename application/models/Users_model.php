@@ -342,6 +342,14 @@ class Users_model extends CI_Model {
         $query = $this->db->get(' users');
         return  $query->result();
     }
+    public function selectUpdateRoom($user_id){
+        
+        $this->db->select('*');
+        $this->db->where('user_id', $user_id);
+        $query = $this->db->get('tbl_rooms');
+
+        return  $query->result();
+    }
      // Select manager from databas By Samreth.SAROEURT
     public function selectRoom($loc_id){
 
