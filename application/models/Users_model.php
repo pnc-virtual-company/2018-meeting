@@ -451,4 +451,10 @@ class Users_model extends CI_Model {
             $result = $this->db->update('tbl_locations', $edit);
             return $result;
         }
+
+        // delete list booking request by Samreth.SAROEURT 
+        public function delete_book_request($book_id) {
+            $result = $this->db->delete('tbl_room_request',array('tbl_room_request.book_id' =>$book_id ));
+            return $result;
+        }
 }

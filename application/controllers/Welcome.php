@@ -63,13 +63,6 @@ class Welcome extends CI_Controller {
 		$this->load->view('book_meeting');
 		$this->load->view('template_admin/footer');
 	}
-	// Book request room by samreth.SAROEURT
-	// public function book_request(){
-	// 	$this->load->view('template_admin/header');
-	// 	$this->load->view('template_admin/left_sidebar');
-	// 	$this->load->view('booking_request');
-	// 	$this->load->view('template_admin/footer');
-	// }
 	// Resquest validate room by samreth.SAROEURT
 	public function request_validate(){
 		$this->load->view('template_admin/header');
@@ -204,7 +197,7 @@ class Welcome extends CI_Controller {
 		$data= $this->Users_model->booking_room($note,$sdate,$edate,$user_id,$room_id);
 		
 		if ($data == 'true') {
-			redirect('Welcome/select_room_request');
+			$this->select_room_request();
 		}else{
 			echo "Data not insert";
 		}
@@ -221,5 +214,24 @@ class Welcome extends CI_Controller {
 	}
 
 	// delete list room request by samreth.SAROEURT
-	
+	public function delete_book_request()
+	{
+		
+		$book_id = $this->input->get('book_id');
+		$this->load->model('Users_model');
+		$data = $this->Users_model->delete_book_request($book_id);
+		if ($data == 'true') {
+			$this->select_room_request();
+		}else{
+			echo "not delete";
+		}
+	}
+
+	// Book meeting room by samreth.SAROEURT
+	public function update_booking_room(){
+		$this->load->view('template_admin/header');
+		$this->load->view('template_admin/left_sidebar');
+		$this->load->view('update_booking');
+		$this->load->view('template_admin/footer');
+	}
 }
