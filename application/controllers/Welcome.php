@@ -102,12 +102,15 @@ class Welcome extends CI_Controller {
 		$this->load->view('template_admin/footer');
 	}
 	// create by thintha
-	public function room_availability(){
-		$this->load->view('template_admin/header');
-		$this->load->view('template_admin/left_sidebar');
-		$this->load->view('room_availability');
-		$this->load->view('template_admin/footer');
-	}
+	 public function room_availability(){
+	  $this->load->view('template_admin/header');
+	  $this->load->view('template_admin/left_sidebar');
+	  $room_id = $this->input->get('room_id');
+	  $this->load->model('Users_model');
+	  $data['view_room'] = $this->Users_model->view_room_detail($room_id);
+	  $this->load->view('room_availability', $data);
+	  $this->load->view('template_admin/footer');
+	 }
 	// create by thintha
 	// Edited by Chhunhak.CHHOEUNG
 	public function location(){
@@ -212,8 +215,8 @@ class Welcome extends CI_Controller {
 		$room_id = $this->session->userdata('room_id');
 		$user_id = $this->session->userdata('id');
 		$this->load->model('Users_model');
-		$data= $this->Users_model->booking_room($note,$sdate,$edate,$user_id,$room_id);
-		
+		// var_dump($sdate, $edate, $note, $room_id, $user_id);die();
+		$data = $this->Users_model->booking_room($note,$sdate,$edate,$user_id,$room_id);
 		if ($data == 'true') {
 			$this->select_room_request();
 		}else{

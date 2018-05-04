@@ -26,7 +26,7 @@
                    <a href="<?php echo base_url(); ?>welcome/update_room?room_id=<?php echo $row->room_id; ?>" title="Update this room"><i class="mdi mdi-pencil"></i></a>
                    <a href="<?php echo base_url(); ?>welcome/book_meeting?room_id=<?php echo $row->room_id; ?>" title="Book a room"><i class="mdi mdi-notebook"></i></a>            
                    <a href="<?php echo base_url(); ?>welcome/fullCalendar" title="Calendar"><i class="mdi mdi-table-large"></i></a>            
-                   <a href="<?php echo base_url(); ?>welcome/room_availability" title="View room"><i class="mdi mdi-check"></i></a>        
+                   <a href="<?php echo base_url(); ?>welcome/room_availability?room_id=<?php echo $row->room_id; ?>" title="View room"><i class="mdi mdi-check"></i></a>        
                   <a href="#" title="View location room" data-toggle="modal" data-target="#location_room"><i class="mdi mdi-source-commit-start"></i></a>
                 </td>
                 <td><?php echo $row->room_name; ?></td>

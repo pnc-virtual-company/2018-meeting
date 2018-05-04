@@ -492,4 +492,13 @@ class Users_model extends CI_Model {
             $result = $this->db->update('tbl_room_request', $edit);
             return $result;
         }
+        //by thintha
+        public function view_room_detail($room_id){
+            $this->db->select ( 'tbl_rooms.room_name ,tbl_room_request.startDate' ) ;
+            $this->db->from('tbl_rooms' );
+            $this->db->join ('tbl_room_request', 'tbl_rooms.room_id = tbl_room_request.room_id');
+            $this->db->where('tbl_rooms.room_id', $room_id );
+            $query = $this->db->get();
+            return $query->result();
+        }
 }

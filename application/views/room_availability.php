@@ -3,13 +3,15 @@
 		<div class="row">
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
+				<?php foreach ($view_room as $row): ?>
+					
 				<div class="card">
 					<div class="card-header">
 						<h4 class="text-center text-info">Room Availability</h4>
 					</div>
 					<div class="card-body">
-						<h1>Room Status<span style="color:green">(B22)</span> </h1>
-				<p>The room is free. <br>But next timeslot start at 2018-03-18 15:00:00</p>
+						<h1>Room Status<span style="color:green"><?php echo $row->room_name; ?></span> </h1>
+				<p>The room is free. <br>But next timeslot start at <?php echo $row->startDate; ?></p>
 				<br>
 				<div class="form-group">
 					<a href="<?php echo base_url(); ?>welcome/list_room" class="btn btn-info float-left">
@@ -23,6 +25,8 @@
 					</div>
 				</div>
 				
+				<hr>
+				<?php endforeach ?>
 			</div>
 			
 			<div class="col-md-3"></div>
