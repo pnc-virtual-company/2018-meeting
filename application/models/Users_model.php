@@ -379,15 +379,13 @@ class Users_model extends CI_Model {
         return  $query->result();
     }
     // Select manager from databas By Samreth.SAROEURT
-    public function insert_create_room($room,$floor,$description,$user_id,$room_id){            
-            $user_id = $this->session->userdata('id');
+    public function insert_create_room($room,$floor,$description,$user_id){            
             $data = array(
                 'room_name' =>$room, 
                 'floor' =>$floor,   
                 'description' =>$description,
                 'user_id' => $user_id,
-                'room_id' => $room_id,
-                'status' =>$room_id   
+                'status' => 1   
             );
 
             $result = $this->db->insert('tbl_rooms',$data);

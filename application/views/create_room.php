@@ -11,9 +11,10 @@
 					<input type="text" name="name" class="form-control" required="">
 				</div>
 				<div class="form-group">
-					<label for="">Manager</label>
+					<label for="">Manager ID</label>
 					<div class="input-group mb-3">
-					  <input type="text" class="form-control" value="" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
+            <input type="hidden" name="user_id" value="" id="user_id">
+					  <input type="text" class="form-control" value="" aria-label="Recipient's username" aria-describedby="basic-addon2" id="manager_id" name="manager_id" disabled>
 					  <div class="input-group-append">
 					    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#myModal">Select</button>
 					  </div>
@@ -71,7 +72,7 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <table id="list_room" cellpadding="0" cellspacing="0" class="table table-striped table-bordered" width="90%">
+        <table id="list_room" class="table table-striped table-bordered" style="width: 100%;">
           <thead>
               <tr>
                   <th>ID</th>
@@ -86,13 +87,13 @@
                foreach ($manager as $row) {
                ?>
                  <tr>
-                     <td><?php echo $row->id; ?></td>
-                     <td><?php echo $row->firstname; ?></td>
-                     <td><?php echo $row->lastname; ?></td>
-                     <td><?php echo $row->email; ?></td>
+                     <td id="id"><?php echo $row->id; ?></td>
+                     <td id="fname"><?php echo $row->firstname; ?></td>
+                     <td id="lname"><?php echo $row->lastname; ?></td>
+                     <td id="email"><?php echo $row->email; ?></td>
                      
                      <td>
-                        <input type="radio" name="manager" value="<?php echo $row->id; ?>">
+                        <input type="radio" name="manager" id="manager" value="<?php echo $row->id; ?>">
                      </td>
                  </tr>  
               <?php
@@ -104,8 +105,8 @@
 
       <!-- Modal footer -->
       <div class="modal-footer">
-      	<a class="btn btn-primary" href="<?php echo base_url(); ?>Welcome/create_room" class="text-center">
-      	<span style="color: #fff">&nbsp;OK</span>
+      	<a class="btn btn-primary" href="#" class="text-center" id="get_m_id">
+      	<span style="color: #fff" data-dismiss="modal">&nbsp;OK</span>
       	</a>
         <!-- <button type="button" class="btn btn-success">OK</button> -->
         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>

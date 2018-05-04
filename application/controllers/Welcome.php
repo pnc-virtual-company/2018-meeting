@@ -160,14 +160,13 @@ class Welcome extends CI_Controller {
 
 		$room = $this->input->post("name");
 		$floor = $this->input->post("floor");
+		$user_id = $this->input->post("user_id");
 		$description = $this->input->post("description");
-		$room_id = $this->session->userdata('room_id');
-		$user_id = $this->session->userdata('id');
 		$this->load->model('Users_model');
-		$data= $this->Users_model->insert_create_room($room,$floor,$description,$room_id,$user_id);
+		$data= $this->Users_model->insert_create_room($room,$floor,$description,$user_id);
 		
-		if ($data) {
-			redirect('Welcome/create_room');
+		if ($data == 'true') {
+			redirect('Welcome/all_room');
 		}else{
 			echo "Data not insert";
 		}
