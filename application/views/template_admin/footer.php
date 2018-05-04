@@ -27,14 +27,19 @@
                 });
                
         $('#datetimepicker1').datetimepicker({
+                format: 'YYYY-MM-DD hh:mm',
+
                 icons: {
                     time: "mdi mdi-clock",
                     date: "mdi mdi-calendar-clock",
                     up: "mdi mdi-arrow-up-bold",
                     down: "mdi mdi-arrow-down-bold"
                 }
+               
+
         });
         $('#datetimepicker2').datetimepicker({
+                format: 'YYYY-MM-DD hh:mm',
                 icons: {
                     time: "mdi mdi-clock",
                     date: "mdi mdi-calendar-clock",

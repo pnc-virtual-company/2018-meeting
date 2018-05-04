@@ -370,13 +370,15 @@ class Users_model extends CI_Model {
         return  $query->result();
     }
     // Select manager from databas By Samreth.SAROEURT
-    public function insert_create_room($room,$floor,$description){
-
-            
+    public function insert_create_room($room,$floor,$description,$user_id,$room_id){            
+            $user_id = $this->session->userdata('id');
             $data = array(
                 'room_name' =>$room, 
                 'floor' =>$floor,   
-                'description' =>$description   
+                'description' =>$description,
+                'user_id' => $user_id,
+                'room_id' => $room_id,
+                'status' =>$room_id   
             );
 
             $result = $this->db->insert('tbl_rooms',$data);
@@ -407,8 +409,7 @@ class Users_model extends CI_Model {
     }
     //Booking room request By Samreth.SAROEURT
      function  booking_room($note,$sdate,$edate,$user_id,$room_id){
-
-            
+    
             // var_dump($room_id);die();
             $sdate = substr($sdate,0,-3);
             $edate = substr($edate,0,-3);
@@ -425,4 +426,15 @@ class Users_model extends CI_Model {
             $result = $this->db->insert('tbl_room_request',$data);
             return $result;
         }
+
+     // Select manager from databas By Samreth.SAROEURT
+    public function select_room_request($room_id){
+
+        $this->db->select('*');
+        $this->db->from('tbl_users');
+        $this->db->join(' tbl_room_request', ' tbl_room_request.user_id = tbl_users.user_id');
+        $this->db->where('room_id', $room_id);
+        $query = $this->db->get();
+        return  $query->result();
+    }
 }

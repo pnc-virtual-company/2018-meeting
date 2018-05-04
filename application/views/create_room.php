@@ -50,7 +50,10 @@
 		<div class="col-md-4"></div>
 	</div>
 </div>
-
+<?php 
+  $room_id = $this->input->get('room_id');
+  $this->session->set_userdata('room_id', $room_id);
+ ?>
 <!--Pup up list manager name -->
 
 <div class="modal fade" id="myModal">

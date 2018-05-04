@@ -64,12 +64,12 @@ class Welcome extends CI_Controller {
 		$this->load->view('template_admin/footer');
 	}
 	// Book request room by samreth.SAROEURT
-	public function book_request(){
-		$this->load->view('template_admin/header');
-		$this->load->view('template_admin/left_sidebar');
-		$this->load->view('booking_request');
-		$this->load->view('template_admin/footer');
-	}
+	// public function book_request(){
+	// 	$this->load->view('template_admin/header');
+	// 	$this->load->view('template_admin/left_sidebar');
+	// 	$this->load->view('booking_request');
+	// 	$this->load->view('template_admin/footer');
+	// }
 	// Resquest validate room by samreth.SAROEURT
 	public function request_validate(){
 		$this->load->view('template_admin/header');
@@ -119,7 +119,7 @@ class Welcome extends CI_Controller {
 		if ($name != '' && $des != '' && $add != '') {
 			$this->load->model('Users_model');
 			$add = $this->Users_model->add_location($name, $des, $add);
-			if ($add == 'true') {
+				if ($add == 'true') {
 				$this->index();
 			}else{
 				$this->create_location();
@@ -150,9 +150,10 @@ class Welcome extends CI_Controller {
 		$room = $this->input->post("name");
 		$floor = $this->input->post("floor");
 		$description = $this->input->post("description");
-		$location = $this->session->userdata('loc_id');
+		$room_id = $this->session->userdata('room_id');
+		$user_id = $this->session->userdata('id');
 		$this->load->model('Users_model');
-		$data= $this->Users_model->insert_create_room($room,$floor,$description);
+		$data= $this->Users_model->insert_create_room($room,$floor,$description,$room_id,$user_id);
 		
 		if ($data) {
 			redirect('Welcome/create_room');
@@ -198,14 +199,26 @@ class Welcome extends CI_Controller {
 		$note = $this->input->post("comment");
 		$room_id = $this->session->userdata('room_id');
 		$user_id = $this->session->userdata('id');
+		// var_dump($sdate, $edate, $note); die();
 		$this->load->model('Users_model');
 		$data= $this->Users_model->booking_room($note,$sdate,$edate,$user_id,$room_id);
 		
 		if ($data == 'true') {
-			redirect('Welcome/book_meeting');
+			redirect('Welcome/select_room_request');
 		}else{
 			echo "Data not insert";
 		}
+	}
+
+	// list room by samreth.SAROEURT
+	public function select_room_request(){
+		$this->load->view('template_admin/header');
+		$this->load->view('template_admin/left_sidebar');
+		$room_id = $this->input->get('room_id');
+		$this->load->model('Users_model');
+		$data['request'] = $this->Users_model->select_room_request($room_id);
+		$this->load->view('booking_request', $data);
+		$this->load->view('template_admin/footer');
 	}
 	
 }
