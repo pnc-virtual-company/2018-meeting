@@ -11,7 +11,7 @@
 					<input type="text" name="name" class="form-control" required="">
 				</div>
 				<div class="form-group">
-					<label for="">Manager ID</label>
+					<label for="">Manager Name</label>
 					<div class="input-group mb-3">
             <input type="hidden" name="user_id" value="" id="user_id">
 					  <input type="text" class="form-control" value="" aria-label="Recipient's username" aria-describedby="basic-addon2" id="manager_id" name="manager_id" disabled>
@@ -41,9 +41,10 @@
               <button class="btn btn-primary" type="submit" name="send" value="login">
                 <i style="color: #fff" class="mdi mdi-check" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Create a room</span>
               </button>
-               <button class="btn btn-danger" type="submit" name="send" value="login">
-                <i style="color: #fff" class="mdi mdi-close" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Cancel</span>
-              </button>
+               <button class="btn btn-danger"><a href="<?php echo base_url(); ?>welcome/all_room" class="text-center">
+             <span style="color: #fff">&nbsp; Cancel</span>
+          </a>
+          </button>
 					</div>
 				</div>
 			</form>
@@ -79,7 +80,7 @@
                   <th>Firstname</th>
                   <th>Lastname</th>
                   <th>E-mail</th>
-                  <th>Action</th> 
+                  <th>Select</th> 
               </tr>
           </thead>
           <tbody>
