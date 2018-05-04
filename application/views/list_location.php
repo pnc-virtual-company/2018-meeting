@@ -38,7 +38,6 @@
                      <!-- Modal body -->
                      <div class="modal-body">
                        <iframe src="<?php  echo $row->embed_url_map;  ?>" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-
                      </div>
                      <!-- Modal footer -->
                      <div class="modal-footer">

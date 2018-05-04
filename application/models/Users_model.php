@@ -391,7 +391,7 @@ class Users_model extends CI_Model {
             $result = $this->db->insert('tbl_rooms',$data);
             return $result;
         }
-
+//Update by Chhunhak.CHHOEUNG
     public function add_location($name, $des, $add,$embed_url_map){
         
         $data = array(
