@@ -50,7 +50,7 @@
         
         &nbsp;
         <button class="btn btn-primary"><a href="<?php echo base_url(); ?>welcome/create_room?loc_id=<?php error_reporting(0); echo $row->loc_id; ?>" class="text-center">
-            <i style="color: #fff" class="mdi mdi-plus-circle" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Creat a room</span>
+            <i style="color: #fff" class="mdi mdi-plus-circle" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Create a room</span>
           </a>
           </button>&nbsp;
           <button class="btn btn-primary"><a href="#" class="text-center">
