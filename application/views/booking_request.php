@@ -50,31 +50,24 @@
 </div>
 </div>
 
-<!-- Modol pop up delete -->
-     <div class="modal fade" id="myModal">
-	<div class="row">
-		
-	</div>
-  <div class="modal-dialog">
+<!-- Delete modal pop up -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
-
-      <!-- Modal Header -->
       <div class="modal-header">
-        
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h5 class="modal-title">Delete confirmation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-
-      <!-- Modal body -->
       <div class="modal-body">
-      <h3 class="modal-title">Are you sure to delete this item!</h3>
+          <p>You are going to delete this room request.</p>
+          <p>Are you sure that you want to perform this action?</p>
       </div>
-
-      <!-- Modal footer -->
       <div class="modal-footer">
-        <a href="<?php echo base_url(); ?>welcome/delete_book_request?book_id=<?php echo $row->book_id;?>" class="btn btn-danger" id="lnkDeleteUser">Yes</a>
-        <button type="button" class="btn btn-success" data-dismiss="modal">Cancel</button>
+          <a href="<?php echo base_url(); ?>welcome/delete_book_request?book_id=<?php echo $row->book_id;?>" class="btn btn-danger" id="lnkDeleteUser">Yes</a>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
       </div>
-
     </div>
   </div>
 </div>
