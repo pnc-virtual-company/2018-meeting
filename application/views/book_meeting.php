@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
-			<h1>Book a meeting room</h1>
+			<h2>Make A Reservation</h2>
 			<form action="<?php echo base_url();?>Welcome/booking_room" method="post">
 				<div class="form-group">
 					<label for="">Start Date</label>
@@ -33,7 +33,7 @@
 					    <button class="btn btn-primary" type="submit" name="send" value="login">
 					      <i style="color: #fff" class="mdi mdi-check" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Book Meeting</span>
 					    </button>
-					    <a  class="btn btn-danger"  href="<?php echo base_url(); ?>Welcome/list_room" class="text-center">
+					    <a  class="btn btn-danger float-right"  href="<?php echo base_url(); ?>Welcome/list_room" class="text-center">
 					      <i style="color: #fff" class="mdi mdi-close" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Cancel</span>
 					    </a>
 					</div>
