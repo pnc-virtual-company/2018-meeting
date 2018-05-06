@@ -348,6 +348,14 @@ class Users_model extends CI_Model {
         $query = $this->db->get(' users');
         return  $query->result();
     }
+    public function selectUpdateRoom($user_id){
+        
+        $this->db->select('*');
+        $this->db->where('user_id', $user_id);
+        $query = $this->db->get('tbl_rooms');
+
+        return  $query->result();
+    }
      // Select manager from databas By Samreth.SAROEURT
     public function selectRoom($loc_id){
 
@@ -375,16 +383,23 @@ class Users_model extends CI_Model {
         $query = $this->db->get();
         return  $query->result();
     }
+    public function selectUpdateLocation($loc_id){
+        
+        $this->db->select('*');
+        $this->db->from('tbl_locations');
+        $this->db->where('loc_id', $loc_id);
+
+        $query = $this->db->get();
+        return  $query->result();
+    }
     // Select manager from databas By Samreth.SAROEURT
-    public function insert_create_room($room,$floor,$description,$user_id,$room_id){            
-            $user_id = $this->session->userdata('id');
+    public function insert_create_room($room,$floor,$description,$user_id){            
             $data = array(
                 'room_name' =>$room, 
                 'floor' =>$floor,   
                 'description' =>$description,
                 'user_id' => $user_id,
-                'room_id' => $room_id,
-                'status' =>$room_id   
+                'status' => 1   
             );
 
             $result = $this->db->insert('tbl_rooms',$data);
@@ -447,7 +462,12 @@ class Users_model extends CI_Model {
         // var_dump($query->result());die();
         return  $query->result();
     }
+<<<<<<< HEAD
     public function update_location($name,$des,$add,$loc_id){
+=======
+
+        function update_location($name,$des,$add,$loc_id){
+>>>>>>> db7064490095af41dc6204f45f94248a1f11f2ab
             $edit = array(
                 'loc_name' =>$name, 
                 'description' =>$des,   
@@ -458,6 +478,7 @@ class Users_model extends CI_Model {
             return $result;
         }
 
+<<<<<<< HEAD
 //insert Location into Database by Danet THRONG
     // public function M_CreateNewUser($firstname, $lastname, $email, $password)
     // {
@@ -471,4 +492,39 @@ class Users_model extends CI_Model {
     //insert Location into Database by Danet THRONG
 
 
+=======
+        // delete list booking request by Samreth.SAROEURT 
+        public function delete_book_request($book_id) {
+            $result = $this->db->delete('tbl_room_request',array('tbl_room_request.book_id' =>$book_id ));
+            return $result;
+        }
+        // delete list booking request by Samreth.SAROEURT
+        public function select_booking($book_id){
+            $this->db->select('*');
+            $this->db->from('tbl_room_request');
+            $this->db->where('book_id', $book_id);
+            $query = $this->db->get();
+            return  $query->result();
+        }
+        // update list booking request by Samreth.SAROEURT 
+        function update_request($sdate,$edate,$note, $book_id){
+            $edit = array(
+                'startDate' =>$sdate, 
+                'endDate' =>$edate,   
+                'book_description' =>$note   
+            );
+            $this->db->where('book_id', $book_id);
+            $result = $this->db->update('tbl_room_request', $edit);
+            return $result;
+        }
+        //by thintha
+        public function view_room_detail($room_id){
+            $this->db->select ( 'tbl_rooms.room_name ,tbl_room_request.startDate' ) ;
+            $this->db->from('tbl_rooms' );
+            $this->db->join ('tbl_room_request', 'tbl_rooms.room_id = tbl_room_request.room_id');
+            $this->db->where('tbl_rooms.room_id', $room_id );
+            $query = $this->db->get();
+            return $query->result();
+        }
+>>>>>>> db7064490095af41dc6204f45f94248a1f11f2ab
 }

@@ -63,13 +63,6 @@ class Welcome extends CI_Controller {
 		$this->load->view('book_meeting');
 		$this->load->view('template_admin/footer');
 	}
-	// Book request room by samreth.SAROEURT
-	// public function book_request(){
-	// 	$this->load->view('template_admin/header');
-	// 	$this->load->view('template_admin/left_sidebar');
-	// 	$this->load->view('booking_request');
-	// 	$this->load->view('template_admin/footer');
-	// }
 	// Resquest validate room by samreth.SAROEURT
 	public function request_validate(){
 		$this->load->view('template_admin/header');
@@ -79,13 +72,29 @@ class Welcome extends CI_Controller {
 	}
 	// Update a room by samreth.SAROEURT
 	public function update_room(){
+		$user_id = $this->input->get('user_id');
 		$this->load->view('template_admin/header');
 		$this->load->view('template_admin/left_sidebar');
 		$this->load->model('Users_model');
+		// $update_room['update_room'] = $this->Users_model->selectUpdateRoom($user_id);
 		$data['manager'] = $this->Users_model->selectManager();
 		$this->load->view('update_room',$data);
 		$this->load->view('template_admin/footer');
 	}
+	//edited by Chhunhak.CHHOEUNG
+	public function update_locations(){
+			$name = $this->input->post("name");
+			$des = $this->input->post("description");
+			$add = $this->input->post("address");
+			$loc_id = $this->input->post("loc_id");
+			$this->load->model('Users_model');
+	 		$data = $this->Users_model->update_location($name,$des,$add,$loc_id);
+			if ($data == 'true') {
+				$this->index();
+			}else{
+				echo "Data not insert";
+			}
+		}
 	public function update_booking(){
 		$this->load->view('template_admin/header');
 		$this->load->view('template_admin/left_sidebar');
@@ -93,12 +102,15 @@ class Welcome extends CI_Controller {
 		$this->load->view('template_admin/footer');
 	}
 	// create by thintha
-	public function room_availability(){
-		$this->load->view('template_admin/header');
-		$this->load->view('template_admin/left_sidebar');
-		$this->load->view('room_availability');
-		$this->load->view('template_admin/footer');
-	}
+	 public function room_availability(){
+	  $this->load->view('template_admin/header');
+	  $this->load->view('template_admin/left_sidebar');
+	  $room_id = $this->input->get('room_id');
+	  $this->load->model('Users_model');
+	  $data['view_room'] = $this->Users_model->view_room_detail($room_id);
+	  $this->load->view('room_availability', $data);
+	  $this->load->view('template_admin/footer');
+	 }
 	// create by thintha
 	// Edited by Chhunhak.CHHOEUNG
 	public function location(){
@@ -140,24 +152,26 @@ class Welcome extends CI_Controller {
 	}
 	// create by thintha
 	public function edit_location(){
-		$this->load->view('template_admin/header');
-		$this->load->view('template_admin/left_sidebar');
-		$this->load->view('edit_location');
-		$this->load->view('template_admin/footer');
-	}
+			$loc_id = $this->input->get('loc_id');
+			$this->load->view('template_admin/header');
+			$this->load->view('template_admin/left_sidebar');
+			$this->load->model('Users_model');
+			$data['listUpdatelocation'] = $this->Users_model->selectUpdateLocation($loc_id);
+			$this->load->view('edit_location', $data);
+			$this->load->view('template_admin/footer');
+		}
 	// insert creat room by samreth.SAROEURT
 	public function insert_create_room(){
 
 		$room = $this->input->post("name");
 		$floor = $this->input->post("floor");
+		$user_id = $this->input->post("user_id");
 		$description = $this->input->post("description");
-		$room_id = $this->session->userdata('room_id');
-		$user_id = $this->session->userdata('id');
 		$this->load->model('Users_model');
-		$data= $this->Users_model->insert_create_room($room,$floor,$description,$room_id,$user_id);
+		$data= $this->Users_model->insert_create_room($room,$floor,$description,$user_id);
 		
-		if ($data) {
-			redirect('Welcome/create_room');
+		if ($data == 'true') {
+			redirect('Welcome/all_room');
 		}else{
 			echo "Data not insert";
 		}
@@ -201,10 +215,10 @@ class Welcome extends CI_Controller {
 		$room_id = $this->session->userdata('room_id');
 		$user_id = $this->session->userdata('id');
 		$this->load->model('Users_model');
-		$data= $this->Users_model->booking_room($note,$sdate,$edate,$user_id,$room_id);
-		
+		// var_dump($sdate, $edate, $note, $room_id, $user_id);die();
+		$data = $this->Users_model->booking_room($note,$sdate,$edate,$user_id,$room_id);
 		if ($data == 'true') {
-			redirect('Welcome/select_room_request');
+			$this->select_room_request();
 		}else{
 			echo "Data not insert";
 		}
@@ -221,6 +235,46 @@ class Welcome extends CI_Controller {
 	}
 
 	// delete list room request by samreth.SAROEURT
+	public function delete_book_request()
+	{
+		
+		$book_id = $this->input->get('book_id');
+		$this->load->model('Users_model');
+		$data = $this->Users_model->delete_book_request($book_id);
+		if ($data == 'true') {
+			$this->select_room_request();
+		}else{
+			echo "not delete";
+		}
+	}
+
+	// Book meeting room by samreth.SAROEURT
+	public function update_booking_room(){
+		$book_id = $this->input->get('book_id');
+		$this->load->view('template_admin/header');
+		$this->load->view('template_admin/left_sidebar');
+		$this->load->model('Users_model');
+		$data['request_update'] = $this->Users_model->select_booking($book_id);
+		$this->load->view('update_booking', $data);
+		$this->load->view('template_admin/footer');
+	}
+
+	//edite meeting room by samreth.SAROEURT
+	public function update_request(){
+			
+			$sdate = $this->input->post("startDate");
+			$edate = $this->input->post("endDate");
+			$note = $this->input->post("comment");
+			$book_id = $this->input->post("book_id");
+			$this->load->model('Users_model');
+	 		$data = $this->Users_model->update_request($sdate,$edate,$note,$book_id);
+			if ($data == 'true') {
+				$this->select_room_request();
+			}else{
+				echo "Data not insert";
+			}
+		}
+	
 	
 
 	//Register a new user by Danet.THORNG

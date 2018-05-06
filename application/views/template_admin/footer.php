@@ -16,6 +16,12 @@
      <script>
 
       $(function () {
+               $("tr").on( "click", function() {
+                    var mid = $( "#manager:checked" ).val();
+                    $( "#manager_id" ).attr('value',mid);
+                    $( "#user_id" ).attr('value',mid);
+               });
+               
             var url = window.location.pathname,
                     urlRegExp = new RegExp(url.replace(/\/$/, '') + "$");
                 $('#menu_leftsidebar a').each(function () {
