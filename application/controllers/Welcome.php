@@ -222,4 +222,11 @@ class Welcome extends CI_Controller {
 
 	// delete list room request by samreth.SAROEURT
 	
+
+	//Register a new user by Danet.THORNG
+	
+	
+
+	//Register a new user by Danet.THORNG
+
 }
