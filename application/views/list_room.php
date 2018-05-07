@@ -114,7 +114,8 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-      <img width="100%" src="<?php echo base_url(); ?>assets/images/room/1st_Floor.png" />
+     <!--  <img width="100%" src="<?php echo base_url(); ?>assets/images/room/1st_Floor.png" /> -->
+     <img width="100%" src="<?php echo base_url(); ?>assets/images/room/<?php echo $row->room_image ?>" alt="a">
       </div>
 
       <!-- Modal footer -->
