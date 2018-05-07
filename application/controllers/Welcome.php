@@ -69,12 +69,16 @@ class Welcome extends CI_Controller {
 		$this->load->view('book_meeting');
 		$this->load->view('template/footer');
 	}
-	// Resquest validate room by samreth.SAROEURT
+	// Resquest validate room by thintha
 	public function request_validate(){
+
 		$this->load->view('template/header');
 		$this->load->view('template/left_sidebar');
-		$this->load->view('request_validate');
+		$this->load->model('Users_model');
+		$data['request'] = $this->Users_model->select_request_validate();
+		$this->load->view('request_validate', $data);
 		$this->load->view('template/footer');
+
 	}
 	// Update a room by samreth.SAROEURT
 	public function update_room(){
@@ -298,6 +302,7 @@ class Welcome extends CI_Controller {
 				echo "Data not insert";
 			}
 		}
+
 
 		
 	
