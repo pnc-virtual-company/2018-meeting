@@ -498,6 +498,7 @@ class Users_model extends CI_Model {
             $this->db->from('tbl_rooms' );
             $this->db->join ('tbl_room_request', 'tbl_rooms.room_id = tbl_room_request.room_id');
             $this->db->where('tbl_rooms.room_id', $room_id );
+            $this->db->limit(1);
             $query = $this->db->get();
             return $query->result();
         }
