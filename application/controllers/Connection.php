@@ -50,11 +50,13 @@ class Connection extends CI_Controller {
 		}
 	}
 // Danet THORNG
-	public function register(){
-	    $this->load->view('templates/header');
-	    $this->load->view('register');
-	    $this->load->view('templates/footer');
-	}
+	// public function register(){
+	//     $this->load->view('templates/header');
+	//     $this->load->model('Users_model');
+	//     $userRole['role'] = $this->Users_model->getRole();
+	//     $this->load->view('register',$userRole);
+	//     $this->load->view('templates/footer');
+	// }
 	public function reset_pwd(){
 	    $this->load->view('templates/header');
 	    $this->load->view('reset_pwd');
@@ -66,7 +68,17 @@ class Connection extends CI_Controller {
 	    $this->load->view('templates/footer');
 	}
 	//Danet THORNG
-
+	// public function CreateNewUser()
+	// 	{
+	// 		$this->load->model('Users_model');
+	// 		$data = $this->Users_model->setUsers();
+	// 		if ($data == 'true') {
+	// 			redirect('welcome');
+	// 		}else{
+	// 			echo "Cannot login";
+	// 		}
+	// 		// $result = $this->load->view('login',$data);
+	// 	}
 	/**
 	 * Logout endpoint. Destroy the PHP session
 	 * @author Benjamin BALET <benjamin.balet@gmail.com>

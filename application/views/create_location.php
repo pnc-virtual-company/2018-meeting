@@ -38,8 +38,8 @@
               
               <button type="submit" class="btn btn-success">Create Location</button>
               <a href="<?php echo base_url(); ?>welcome/location" class="btn btn-danger float-right">
-          <i class="mdi mdi-cancel "></i>&nbsp;Cancel
-        </a>
+                <i class="mdi mdi-cancel "></i>&nbsp;Cancel
+              </a>
             </form>
           </div>
           
