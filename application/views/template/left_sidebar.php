@@ -37,11 +37,10 @@
    
     <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/all_room" ><i class="app-menu__icon mdi mdi-home-heart mdi-light mdi-18px"></i><span class="app-menu__label">List Room</span></a></li>
 
-   <!--  <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/request_validate"><i class="app-menu__icon mdi mdi-swap-vertical mdi-light mdi-18px"></i><span class="app-menu__label">Request</span></a></li> -->
+    <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/request_validate"><i class="app-menu__icon mdi mdi-swap-vertical mdi-light mdi-18px"></i><span class="app-menu__label">Request</span></a></li>
 
     <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/select_room_request"><i class="app-menu__icon mdi mdi-swap-vertical mdi-light mdi-18px"></i><span class="app-menu__label">My Booking Room</span></a></li>
     <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/occupancyRate" ><i class="app-menu__icon mdi mdi-square-inc mdi-light mdi-18px"></i><span class="app-menu__label">Occupancy Rate</span></a></li>
-    
   </ul>
 </aside>
 <main class="app-content" style="background-color: #ffffff;">

@@ -18,11 +18,11 @@
            <tr>   
               <td>
                   <?php echo $row->loc_id; ?>
-                  <!-- <a href="<?php echo base_url(); ?>welcome/edit_location?loc_id=<?php echo $row->loc_id; ?>" id="edit_location" title="Update Location"><i class="mdi mdi-pencil"></i></a>
-                  <a href="<?php echo base_url(); ?>Welcome/delete_location?loc_id=<?php echo $row->loc_id;?>" class="confirm-delete" title="Delete Location" data-toggle="modal" data-target="#frmConfirmDelete"><i class="mdi mdi-delete"></i></a> -->
+                  <!-- <a href="<?php //echo base_url(); ?>normal/edit_location?loc_id=<?php echo $row->loc_id; ?>" id="edit_location" title="Update Location"><i class="mdi mdi-pencil"></i></a>
+                  <a href="<?php //echo base_url(); ?>normal/delete_location?loc_id=<?php echo $row->loc_id;?>" class="confirm-delete" title="Delete Location" data-toggle="modal" data-target="#frmConfirmDelete"><i class="mdi mdi-delete"></i></a> -->
                   <a href="#" class="Pin-location" title="View Location on google map" data-toggle="modal" data-target="#<?php echo $row->loc_id; ?>"><i class="mdi mdi-map-marker"></i></a>
                   &nbsp;
-                  <a href="<?php echo base_url(); ?>welcome/list_room?loc_id=<?php echo $row->loc_id; ?>">Room</a>
+                  <a href="<?php echo base_url(); ?>normal/list_room?loc_id=<?php echo $row->loc_id; ?>">Room</a>
               </td>
                <td><?php echo $row->loc_name; ?></td>
                <td><?php echo $row->description; ?></td>
@@ -61,7 +61,7 @@
       <div class="col-12">
         
         &nbsp;
-        <a href="<?php echo base_url(); ?>welcome/create_location" class="btn btn-primary"><i class="mdi mdi-plus"></i>&nbsp;Create Location</a>
+        <a href="<?php echo base_url(); ?>normal/create_location" class="btn btn-primary"><i class="mdi mdi-plus"></i>&nbsp;Create Location</a>
       </div>
   </div>
 	</div>
@@ -81,7 +81,7 @@
 	        <p>Are you sure that you want to perform this action?</p>
 	    </div>
 	    <div class="modal-footer">
-	        <a href="<?php echo base_url(); ?>welcome/delete_location?loc_id=<?php echo $row->loc_id;?>" class="btn btn-danger" id="lnkDeleteUser">Yes</a>
+	        <a href="<?php echo base_url(); ?>normal/delete_location?loc_id=<?php echo $row->loc_id;?>" class="btn btn-danger" id="lnkDeleteUser">Yes</a>
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
 	    </div>
 		</div>

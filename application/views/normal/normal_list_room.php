@@ -22,11 +22,11 @@
             <tr>
                 <td>
                   <?php echo $i;; ?>&nbsp;
-                   <!-- <a href="<?php echo base_url(); ?>welcome/delete_room?$room_id=<?php echo $row->room_id; ?>" data-toggle="modal" data-target="#myModal" title="Delete this room"><i class="mdi mdi-delete"></i></a>
-                   <a href="<?php echo base_url(); ?>welcome/update_room?room_id=<?php echo $row->room_id; ?>" title="Update room information"><i class="mdi mdi-pencil"></i></a> -->
-                   <a href="<?php echo base_url(); ?>welcome/book_meeting?room_id=<?php echo $row->room_id; ?>" title="Make a reservation"><i class="mdi mdi-notebook"></i></a>            
-                   <a href="<?php echo base_url(); ?>welcome/fullCalendar" title="Room calendar"><i class="mdi mdi-table-large"></i></a>            
-                   <a href="<?php echo base_url(); ?>welcome/room_availability?room_id=<?php echo $row->room_id; ?>" title="Room availability"><i class="mdi mdi-check"></i></a>        
+                   <!-- <a href="<?php //echo base_url(); ?>welcome/delete_room?$room_id=<?php echo $row->room_id; ?>" data-toggle="modal" data-target="#myModal" title="Delete this room"><i class="mdi mdi-delete"></i></a>
+                   <a href="<?php //echo base_url(); ?>welcome/update_room?room_id=<?php echo $row->room_id; ?>" title="Update room information"><i class="mdi mdi-pencil"></i></a> -->
+                   <a href="<?php echo base_url(); ?>normal/book_meeting?room_id=<?php echo $row->room_id; ?>" title="Make a reservation"><i class="mdi mdi-notebook"></i></a>            
+                   <a href="<?php echo base_url(); ?>normal/fullCalendar" title="Room calendar"><i class="mdi mdi-table-large"></i></a>            
+                   <a href="<?php echo base_url(); ?>normal/room_availability?room_id=<?php echo $row->room_id; ?>" title="Room availability"><i class="mdi mdi-check"></i></a>        
                   <a href="#" title="View room location" data-toggle="modal" data-target="#location_room"><i class="mdi mdi-source-commit-start"></i></a>
                 </td>
                 <td><?php echo $row->room_name; ?></td>

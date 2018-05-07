@@ -15,6 +15,22 @@ class Connection extends CI_Controller {
 	 * Login form of the application
 	 * @author Benjamin BALET <benjamin.balet@gmail.com>
 	 */
+	public function index(){
+		$this->session;
+		$login = $this->session->login;
+		$password = $this->session->password;
+
+		$this->load->model('users_model');
+		if ($this->users_model->checkSession($login, $password) == 'true') {
+			if ($this->session->role == 1) {
+				redirect('welcome');
+			}else if ($this->session->role == 2) {
+				redirect('normal');
+			}
+		}else{
+			$this->login();
+		}
+	}
 	// Add page login by maryna.
 	public function login()
 	{
@@ -40,7 +56,11 @@ class Connection extends CI_Controller {
 					redirect($this->session->userdata('last_page'));
 				} else {
 					log_message('debug', 'Not last_page set. Redirect to the home page');
-					redirect('welcome');
+					if ($this->session->role == 1) {
+						redirect('welcome');
+					}else if ($this->session->role == 2) {
+						redirect('normal');
+					}
 				}
 			} else {
 				log_message('error', 'Invalid credentials for user ' . $this->input->post('login'));

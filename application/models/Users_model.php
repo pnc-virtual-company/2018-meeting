@@ -226,7 +226,9 @@ class Users_model extends CI_Model {
             'id' => $row->id,
             'firstname' => $row->firstname,
             'lastname' => $row->lastname,
-            'fullname' => $row->firstname . ' ' . $row->lastname
+            'fullname' => $row->firstname . ' ' . $row->lastname,
+            'password' =>$row->password,
+            'role' => $row->role
         );
         $this->session->set_userdata($newdata);
     }
@@ -238,10 +240,26 @@ class Users_model extends CI_Model {
      * @return bool TRUE if the user is succesfully authenticated, FALSE otherwise
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
+    public function checkSession($login, $password){
+        $this->db->select('login, password');
+        $this->db->from('users');
+        $result= $this->db->get();
+        $data = "";
+        foreach ($result->result() as  $value) {
+            if ($login == $value->login && $password == $value->password) {
+                $data = "true";
+            }else{
+                $data = "fales";
+            }
+        }
+       
+        return $data;
+
+    }
     public function checkCredentials($login, $password) {
         $this->db->from('users');
         $this->db->where('login', $login);
-        // $this->db->where('active = TRUE');
+        $this->db->where('active = TRUE');
         $query = $this->db->get();
 
         if ($query->num_rows() == 0) {

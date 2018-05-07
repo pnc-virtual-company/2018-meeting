@@ -14,11 +14,11 @@
 				<p>The room is free. <br>But next timeslot start at <?php echo $row->startDate; ?></p>
 				<br>
 				<div class="form-group">
-					<a href="<?php echo base_url(); ?>welcome/list_room" class="btn btn-info float-left">
+					<a href="<?php echo base_url(); ?>normal/list_room" class="btn btn-info float-left">
 						<i class="mdi mdi-arrow-left-bold "></i>&nbsp;Back to the list of room
 					</a>
 
-					<a href="<?php echo base_url(); ?>welcome/location" class="btn btn-info  float-right" data-toggle="modal" data-target="#popupcalendar">
+					<a href="<?php echo base_url(); ?>normal/location" class="btn btn-info  float-right" data-toggle="modal" data-target="#popupcalendar">
 						<i class="mdi mdi-table-large"></i>&nbsp;Calendar of the room
 					</a>
 				</div>
