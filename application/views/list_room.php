@@ -27,7 +27,7 @@
                    <a href="<?php echo base_url(); ?>welcome/book_meeting?room_id=<?php echo $row->room_id; ?>" title="Make a reservation"><i class="mdi mdi-notebook"></i></a>            
                    <a href="<?php echo base_url(); ?>welcome/fullCalendar" title="Room calendar"><i class="mdi mdi-table-large"></i></a>            
                    <a href="<?php echo base_url(); ?>welcome/room_availability?room_id=<?php echo $row->room_id; ?>" title="Room availability"><i class="mdi mdi-check"></i></a>        
-                  <a href="#" title="View room location" data-toggle="modal" data-target="#location_room"><i class="mdi mdi-source-commit-start"></i></a>
+                  <a href="<?php echo base_url(); ?>welcome/list_room?room_id=<?php echo $row->room_id; ?>" title="View room location" data-toggle="modal" data-target="#location_room"><i class="mdi mdi-source-commit-start"></i></a>
                 </td>
                 <td><?php echo $row->room_name; ?></td>
                 <td><?php echo $row->firstname; ?></td>
@@ -49,7 +49,7 @@
       <div class="col-12">
         
         &nbsp;
-        <button class="btn btn-primary"><a href="<?php echo base_url(); ?>welcome/create_room?loc_id=<?php error_reporting(0); echo $row->loc_id; ?>" class="text-center">
+        <button class="btn btn-primary"><a href="<?php echo base_url(); ?>welcome/create_room?loc_id=<?php error_reporting(0); echo $this->input->get('loc_id'); ?>" class="text-center">
             <i style="color: #fff" class="mdi mdi-plus-circle" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Create a room</span>
           </a>
           </button>&nbsp;
@@ -114,7 +114,7 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-     <!--  <img width="100%" src="<?php echo base_url(); ?>assets/images/room/1st_Floor.png" /> -->
+     
      <img width="100%" src="<?php echo base_url(); ?>assets/images/room/<?php echo $row->room_image ?>" alt="a">
       </div>
 

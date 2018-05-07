@@ -172,6 +172,7 @@ class Welcome extends CI_Controller {
 		$room = $this->input->post("name");
 		$floor = $this->input->post("floor");
 		$user_id = $this->input->post("user_id");
+		$loc_id = $this->session->userdata('loc_id');
 		$description = $this->input->post("description");
 
 		$config['upload_path']          = './assets/images/room/';
@@ -188,18 +189,19 @@ class Welcome extends CI_Controller {
 		    }else{
 		       // $this->load->model('Dishes_model');
 		        // $data['dishes'] = $this->Dishes_model->insert_img();
-		     if($data){
-		     	redirect('Welcome/all_room');
+		     if($config){
+		     	echo "upload success";
 		     }
+		 }
 		$this->load->model('Users_model');
-		$data= $this->Users_model->insert_create_room($room,$floor,$description,$user_id);
+		$data= $this->Users_model->insert_create_room($room,$floor,$description,$user_id,$loc_id);
 		
 		if ($data == 'true') {
-			redirect('Welcome/all_room');
+			$this->list_room();
 		}else{
 			echo "Data not insert";
 		}
-	}}
+	}
 
 	// delete location by Danet THORNG
 	public function delete_location()

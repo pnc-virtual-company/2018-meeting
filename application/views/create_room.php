@@ -4,16 +4,22 @@
 	<div class="row">
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
-			<h1>Create a room</h1>
-			<form action="<?php echo base_url();?>Welcome/insert_create_room" method="post" enctype="multipart/form-data">
+			<h2>Make A Reservation</h2>
+			<form action="<?php echo base_url();?>Welcome/insert_create_room?loc_id=<?php echo $this->input->get('loc_id'); ?>" method="post" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="">Name</label>
 					<input type="text" name="name" class="form-control" required="">
 				</div>
 				<div class="form-group">
+          <?php 
+          
+            $loc_id = $this->input->get('loc_id');
+            $this->session->set_userdata('loc_id', $loc_id);
+           ?>
 					<label for="">Manager Name</label>
 					<div class="input-group mb-3">
             <input type="hidden" name="user_id" value="" id="user_id">
+            <input type="hidden" name="loc_id" value="" id="loc_id">
 					  <input type="text" class="form-control" value="" aria-label="Recipient's username" aria-describedby="basic-addon2" id="manager_id" name="manager_id" disabled>
 					  <div class="input-group-append">
 					    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#myModal">Select</button>
@@ -42,7 +48,7 @@
                 <i style="color: #fff" class="mdi mdi-check" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Create a room</span>
               </button>
                
-          <a href="<?php echo base_url(); ?>welcome/all_room" class="btn btn-danger float-right">
+          <a href="<?php echo base_url(); ?>welcome/list_room?loc_id=<?php echo $this->input->get('loc_id'); ?>" class="btn btn-danger float-right">
           <i class="mdi mdi-cancel "></i>&nbsp;Cancel
         </a>
 					</div>
@@ -55,6 +61,8 @@
 <?php 
   $room_id = $this->input->get('room_id');
   $this->session->set_userdata('room_id', $room_id);
+  $loc_id = $this->input->get('loc_id');
+  $this->session->set_userdata('loc_id', $loc_id);
  ?>
 <!--Pup up list manager name -->
 
