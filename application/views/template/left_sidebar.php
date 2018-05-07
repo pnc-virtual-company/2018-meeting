@@ -23,7 +23,7 @@
     <!-- User Menu-->
     <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="mdi mdi-light mdi-settings mdi-24px  "></i></a>
       <ul class="dropdown-menu settings-menu dropdown-menu-right">
-        <li><a class="dropdown-item" href="page-user.html"><i class="mdi mdi-face mdi-18px"></i> Profile</a></li>
+        <li><a class="dropdown-item" href="page-user.html"><i class="mdi mdi-account mdi-18px"></i> Profile</a></li>
         <li><a class="dropdown-item" href="<?php echo base_url(); ?>connection/login"><i class="mdi mdi-logout mdi-18px"></i> Logout</a></li>
       </ul>
     </li>
@@ -37,10 +37,11 @@
    
     <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/all_room" ><i class="app-menu__icon mdi mdi-home mdi-light mdi-18px"></i><span class="app-menu__label">List Room</span></a></li>
 
-    <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/request_validate"><i class="app-menu__icon mdi mdi-swap-vertical mdi-light mdi-18px"></i><span class="app-menu__label">Request</span></a></li>
+    <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/request_validate"><i class="app-menu__icon mdi mdi-repeat mdi-light mdi-18px"></i><span class="app-menu__label">Request</span></a></li>
 
-    <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/select_room_request"><i class="app-menu__icon mdi mdi-book mdi-light mdi-18px"></i><span class="app-menu__label">My Booking Room</span></a></li>
-    <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/occupancyRate" ><i class="app-menu__icon mdi mdi-square-inc mdi-light mdi-18px"></i><span class="app-menu__label">Occupancy Rate</span></a></li>
+    <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/select_room_request"><i class="app-menu__icon mdi mdi-library-books mdi-light mdi-18px"></i><span class="app-menu__label">My Booking Room</span></a></li>
+    <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/occupancyRate" ><i class="app-menu__icon mdi mdi-chart-areaspline mdi-light mdi-18px"></i><span class="app-menu__label">Occupancy Rate</span></a></li>
+    <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/occupancyRate" ><i class="app-menu__icon mdi mdi-account mdi-light mdi-18px"></i><span class="app-menu__label">List All Users</span></a></li>
   </ul>
 </aside>
 <main class="app-content" style="background-color: #ffffff;">
