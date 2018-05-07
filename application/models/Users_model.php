@@ -464,10 +464,6 @@ class Users_model extends CI_Model {
     }
 
     public function update_location($name,$des,$add,$loc_id){
-
-
-        function update_location($name,$des,$add,$loc_id){
-
             $edit = array(
                 'loc_name' =>$name, 
                 'description' =>$des,   
