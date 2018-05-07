@@ -20,15 +20,15 @@
             <form method="POST" action="<?php echo base_url(); ?>welcome/insert_location">
               <div class="form-group">
                 <label for="loc_name">Name</label>
-                <input type="text" class="form-control" id="loc_name" name="loc_name" required="">
+                <input type="text" class="form-control" id="loc_name" name="loc_name">
               </div>
               <div class="form-group">
                 <label for="pwd">Description</label>
-                <input type="text" class="form-control" id="pwd"  name="des" required="">
+                <input type="text" class="form-control" id="pwd"  name="des">
               </div>
               <div class="form-group">
                 <label for="pwd">Address</label>
-                <input type="text" class="form-control"  name="address" required="">
+                <input type="text" class="form-control"  name="address">
               </div>
               <div class="form-group">
                 <label for="pwd">Embed URL Map</label>
@@ -38,8 +38,8 @@
               
               <button type="submit" class="btn btn-success">Create Location</button>
               <a href="<?php echo base_url(); ?>welcome/location" class="btn btn-danger float-right">
-                <i class="mdi mdi-cancel "></i>&nbsp;Cancel
-              </a>
+          <i class="mdi mdi-cancel "></i>&nbsp;Cancel
+        </a>
             </form>
           </div>
           

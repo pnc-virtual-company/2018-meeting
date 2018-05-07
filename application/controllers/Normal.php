@@ -13,73 +13,73 @@ class Welcome extends CI_Controller {
 	//list location by Chhunhak.CHHOEUNG
 	public function index()
 	{
-		$this->load->view('template_admin/header');
-		$this->load->view('template_admin/left_sidebar');
+		$this->load->view('template/header');
+		$this->load->view('template/normal_left_sidebar');
 		$this->load->model('Users_model');
 		$data['list_location'] = $this->Users_model->selectLocation();
-		$this->load->view('list_location', $data);
-		$this->load->view('template_admin/footer');
+		$this->load->view('normal/normal_list_location', $data);
+		$this->load->view('template/footer');
 	}
 	//add by Chhunhak.CHHOEUNG and Maryna.PHORN
 	public function occupancyRate()
 	{
-		$this->load->view('template_admin/header');
-		$this->load->view('template_admin/left_sidebar');
-		$this->load->view('chart');
-		$this->load->view('template_admin/footer');
+		$this->load->view('template/header');
+		$this->load->view('template/normal_left_sidebar');
+		$this->load->view('normal/normal_chart');
+		$this->load->view('template/footer');
 	}
 	// list room by samreth.SAROEURT
 	public function list_room(){
-		$this->load->view('template_admin/header');
-		$this->load->view('template_admin/left_sidebar');
+		$this->load->view('template/header');
+		$this->load->view('template/normal_left_sidebar');
 		$loc_id = $this->input->get('loc_id');
 		$this->load->model('Users_model');
 		$data['list_room'] = $this->Users_model->selectRoom($loc_id);
-		$this->load->view('list_room', $data);
-		$this->load->view('template_admin/footer');
+		$this->load->view('normal/normal_list_room', $data);
+		$this->load->view('template/footer');
 	}
 	public function all_room(){
-		$this->load->view('template_admin/header');
-		$this->load->view('template_admin/left_sidebar');
+		$this->load->view('template/header');
+		$this->load->view('template/normal_left_sidebar');
 		$this->load->model('Users_model');
 		$data['list_room'] = $this->Users_model->selectAllRoom();
-		$this->load->view('list_room', $data);
-		$this->load->view('template_admin/footer');
+		$this->load->view('normal/normal_list_room', $data);
+		$this->load->view('template/footer');
 	}
 	// Create room by samreth.SAROEURT
 	public function create_room(){
-		$this->load->view('template_admin/header');
-		$this->load->view('template_admin/left_sidebar');
+		$this->load->view('template/header');
+		$this->load->view('template/normal_left_sidebar');
 		$this->load->model('Users_model');
 		$data['manager'] = $this->Users_model->selectManager();
-		$this->load->view('create_room',$data);
-		$this->load->view('template_admin/footer');
+		$this->load->view('normal/normal_create_room',$data);
+		$this->load->view('template/footer');
 	}
 
 	// Book meeting room by samreth.SAROEURT
 	public function book_meeting(){
-		$this->load->view('template_admin/header');
-		$this->load->view('template_admin/left_sidebar');
-		$this->load->view('book_meeting');
-		$this->load->view('template_admin/footer');
+		$this->load->view('template/header');
+		$this->load->view('template/normal_left_sidebar');
+		$this->load->view('normal/normal_book_meeting');
+		$this->load->view('template/footer');
 	}
 	// Resquest validate room by samreth.SAROEURT
 	public function request_validate(){
-		$this->load->view('template_admin/header');
-		$this->load->view('template_admin/left_sidebar');
-		$this->load->view('request_validate');
-		$this->load->view('template_admin/footer');
+		$this->load->view('template/header');
+		$this->load->view('template/normal_left_sidebar');
+		$this->load->view('normal/normal_request_validate');
+		$this->load->view('template/footer');
 	}
 	// Update a room by samreth.SAROEURT
 	public function update_room(){
 		$user_id = $this->input->get('user_id');
-		$this->load->view('template_admin/header');
-		$this->load->view('template_admin/left_sidebar');
+		$this->load->view('template/header');
+		$this->load->view('template/normal_left_sidebar');
 		$this->load->model('Users_model');
 		// $update_room['update_room'] = $this->Users_model->selectUpdateRoom($user_id);
 		$data['manager'] = $this->Users_model->selectManager();
-		$this->load->view('update_room',$data);
-		$this->load->view('template_admin/footer');
+		$this->load->view('normal/normal_update_room',$data);
+		$this->load->view('template/footer');
 	}
 	//edited by Chhunhak.CHHOEUNG
 	public function update_locations(){
@@ -96,20 +96,20 @@ class Welcome extends CI_Controller {
 			}
 		}
 	public function update_booking(){
-		$this->load->view('template_admin/header');
-		$this->load->view('template_admin/left_sidebar');
-		$this->load->view('update_booking');
-		$this->load->view('template_admin/footer');
+		$this->load->view('template/header');
+		$this->load->view('template/normal_left_sidebar');
+		$this->load->view('normal/normal_update_booking');
+		$this->load->view('template/footer');
 	}
 	// create by thintha
 	 public function room_availability(){
-	  $this->load->view('template_admin/header');
-	  $this->load->view('template_admin/left_sidebar');
+	  $this->load->view('template/header');
+	  $this->load->view('template/normal_left_sidebar');
 	  $room_id = $this->input->get('room_id');
 	  $this->load->model('Users_model');
 	  $data['view_room'] = $this->Users_model->view_room_detail($room_id);
-	  $this->load->view('room_availability', $data);
-	  $this->load->view('template_admin/footer');
+	  $this->load->view('normal/normal_room_availability', $data);
+	  $this->load->view('template/footer');
 	 }
 	// create by thintha
 	// Edited by Chhunhak.CHHOEUNG
@@ -118,10 +118,10 @@ class Welcome extends CI_Controller {
 	}
 	// create by thintha
 	public function create_location(){
-		$this->load->view('template_admin/header');
-		$this->load->view('template_admin/left_sidebar');
-		$this->load->view('create_location');
-		$this->load->view('template_admin/footer');
+		$this->load->view('template/header');
+		$this->load->view('template/normal_left_sidebar');
+		$this->load->view('normal/normal_create_location');
+		$this->load->view('template/footer');
 	}
 	// insert locatin into db by Chhunhak.CHHOEUNG
 	public function insert_location(){
@@ -144,21 +144,21 @@ class Welcome extends CI_Controller {
 	}
 	//create by Chhunhak.CHHOEUNG
 	public function fullCalendar(){
-		$this->load->view('template_admin/header');
-		$this->load->view('template_admin/left_sidebar');
-		$this->load->view('fullcalendar');
-		$this->load->view('template_admin/footer');
+		$this->load->view('template/header');
+		$this->load->view('template/normal_left_sidebar');
+		$this->load->view('normal/normal_fullcalendar');
+		$this->load->view('template/footer');
 		
 	}
 	// create by thintha
 	public function edit_location(){
 			$loc_id = $this->input->get('loc_id');
-			$this->load->view('template_admin/header');
-			$this->load->view('template_admin/left_sidebar');
+			$this->load->view('template/header');
+			$this->load->view('template/normal_left_sidebar');
 			$this->load->model('Users_model');
 			$data['listUpdatelocation'] = $this->Users_model->selectUpdateLocation($loc_id);
-			$this->load->view('edit_location', $data);
-			$this->load->view('template_admin/footer');
+			$this->load->view('normal/normal_edit_location', $data);
+			$this->load->view('template/footer');
 		}
 	// insert creat room by samreth.SAROEURT
 	public function insert_create_room(){
@@ -167,24 +167,6 @@ class Welcome extends CI_Controller {
 		$floor = $this->input->post("floor");
 		$user_id = $this->input->post("user_id");
 		$description = $this->input->post("description");
-
-		$config['upload_path']          = './assets/images/room/';
-		$config['allowed_types']        = 'gif|jpg|png';
-		$config['max_size']             = 10000;
-		$config['max_width']            = 10024;
-		$config['max_height']           = 7068;
-
-		$this->load->library('upload', $config);		    
-
-		if ( ! $this->upload->do_upload('photo'))
-		    {
-		      echo $this->upload->display_errors();
-		    }else{
-		       // $this->load->model('Dishes_model');
-		        // $data['dishes'] = $this->Dishes_model->insert_img();
-		     if($data){
-		     	redirect('Welcome/all_room');
-		     }
 		$this->load->model('Users_model');
 		$data= $this->Users_model->insert_create_room($room,$floor,$description,$user_id);
 		
@@ -193,7 +175,7 @@ class Welcome extends CI_Controller {
 		}else{
 			echo "Data not insert";
 		}
-	}}
+	}
 
 	// delete location by Danet THORNG
 	public function delete_location()
@@ -244,12 +226,12 @@ class Welcome extends CI_Controller {
 
 	// list room by samreth.SAROEURT
 	public function select_room_request(){
-		$this->load->view('template_admin/header');
-		$this->load->view('template_admin/left_sidebar');
+		$this->load->view('template/header');
+		$this->load->view('template/normal_left_sidebar');
 		$this->load->model('Users_model');
 		$data['book_request'] = $this->Users_model->select_room_request();
-		$this->load->view('booking_request', $data);
-		$this->load->view('template_admin/footer');
+		$this->load->view('normal/normal_booking_request', $data);
+		$this->load->view('template/footer');
 	}
 
 	// delete list room request by samreth.SAROEURT
@@ -269,12 +251,12 @@ class Welcome extends CI_Controller {
 	// Book meeting room by samreth.SAROEURT
 	public function update_booking_room(){
 		$book_id = $this->input->get('book_id');
-		$this->load->view('template_admin/header');
-		$this->load->view('template_admin/left_sidebar');
+		$this->load->view('template/header');
+		$this->load->view('template/normal_left_sidebar');
 		$this->load->model('Users_model');
 		$data['request_update'] = $this->Users_model->select_booking($book_id);
-		$this->load->view('update_booking', $data);
-		$this->load->view('template_admin/footer');
+		$this->load->view('normal/normal_update_booking', $data);
+		$this->load->view('template/footer');
 	}
 
 	//edite meeting room by samreth.SAROEURT
@@ -292,8 +274,6 @@ class Welcome extends CI_Controller {
 				echo "Data not insert";
 			}
 		}
-
-		
 	
 	
 }

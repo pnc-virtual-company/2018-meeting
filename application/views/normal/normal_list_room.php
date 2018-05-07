@@ -22,8 +22,8 @@
             <tr>
                 <td>
                   <?php echo $i;; ?>&nbsp;
-                   <a href="<?php echo base_url(); ?>welcome/delete_room?$room_id=<?php echo $row->room_id; ?>" data-toggle="modal" data-target="#myModal" title="Delete this room"><i class="mdi mdi-delete"></i></a>
-                   <a href="<?php echo base_url(); ?>welcome/update_room?room_id=<?php echo $row->room_id; ?>" title="Update room information"><i class="mdi mdi-pencil"></i></a>
+                   <!-- <a href="<?php echo base_url(); ?>welcome/delete_room?$room_id=<?php echo $row->room_id; ?>" data-toggle="modal" data-target="#myModal" title="Delete this room"><i class="mdi mdi-delete"></i></a>
+                   <a href="<?php echo base_url(); ?>welcome/update_room?room_id=<?php echo $row->room_id; ?>" title="Update room information"><i class="mdi mdi-pencil"></i></a> -->
                    <a href="<?php echo base_url(); ?>welcome/book_meeting?room_id=<?php echo $row->room_id; ?>" title="Make a reservation"><i class="mdi mdi-notebook"></i></a>            
                    <a href="<?php echo base_url(); ?>welcome/fullCalendar" title="Room calendar"><i class="mdi mdi-table-large"></i></a>            
                    <a href="<?php echo base_url(); ?>welcome/room_availability?room_id=<?php echo $row->room_id; ?>" title="Room availability"><i class="mdi mdi-check"></i></a>        
@@ -49,10 +49,7 @@
       <div class="col-12">
         
         &nbsp;
-        <button class="btn btn-primary"><a href="<?php echo base_url(); ?>welcome/create_room?loc_id=<?php error_reporting(0); echo $row->loc_id; ?>" class="text-center">
-            <i style="color: #fff" class="mdi mdi-plus-circle" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Create a room</span>
-          </a>
-          </button>&nbsp;
+        
           <button class="btn btn-primary"><a href="#" class="text-center">
             <i style="color: #fff" class="mdi mdi-file-export" data-toggle="tooltip" title="Export the list of room"></i><span style="color: #fff">&nbsp; Export list</span>
           </a>
@@ -114,7 +111,7 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-      <img width="100%" src="<?php echo base_url(); ?>assets/images/room/1st_Floor.png" />
+      <img width="100%" src="<?php echo base_url(); ?>assets/images/FloorMap1.png" />
       </div>
 
       <!-- Modal footer -->
