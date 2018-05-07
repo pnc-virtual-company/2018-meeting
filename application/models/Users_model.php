@@ -37,7 +37,12 @@ class Users_model extends CI_Model {
         $query = $this->db->get_where('users', array('users.id' => $id));
         return $query->row_array();
     }
-
+    public function getRole() {
+        $this->db->select('*');
+        $this->db->from('tbl_roles');
+        $query = $this->db->get();
+        return $query->result();
+    }
     /**
      * Get the list of users and their roles
      * @return array record of users
@@ -126,6 +131,7 @@ class Users_model extends CI_Model {
 
         //Role field is a binary mask
         $role = 0;
+        error_reporting(0);
         foreach($this->input->post("role") as $role_bit){
             $role = $role | $role_bit;
         }
@@ -136,10 +142,10 @@ class Users_model extends CI_Model {
             'login' => $this->input->post('login'),
             'email' => $this->input->post('email'),
             'password' => $hash,
-            'role' => $role
+            'role_id' => $role
         );
-        $this->db->insert('users', $data);
-        return $password;
+        $result = $this->db->insert('users', $data);
+        return $result;
     }
 
     /**
@@ -360,7 +366,7 @@ class Users_model extends CI_Model {
         $query = $this->db->get();
         return  $query->result();
     }
-    function selectAllRoom(){
+    public function selectAllRoom(){
 
         $this->db->select('*');
         $this->db->from('users');
@@ -424,7 +430,7 @@ class Users_model extends CI_Model {
         return $result;
     }
     //Booking room request By Samreth.SAROEURT
-     function  booking_room($note,$sdate,$edate,$user_id,$room_id){
+    public function  booking_room($note,$sdate,$edate,$user_id,$room_id){
     
             // var_dump($room_id);die();
             $sdate = substr($sdate,0,-3);
@@ -456,8 +462,12 @@ class Users_model extends CI_Model {
         // var_dump($query->result());die();
         return  $query->result();
     }
+<<<<<<< HEAD
+    public function update_location($name,$des,$add,$loc_id){
+=======
 
         function update_location($name,$des,$add,$loc_id){
+>>>>>>> db7064490095af41dc6204f45f94248a1f11f2ab
             $edit = array(
                 'loc_name' =>$name, 
                 'description' =>$des,   
@@ -468,6 +478,21 @@ class Users_model extends CI_Model {
             return $result;
         }
 
+<<<<<<< HEAD
+//insert Location into Database by Danet THRONG
+    // public function M_CreateNewUser($firstname, $lastname, $email, $password)
+    // {
+    //     $data = array('firstname'=>$firstname,
+    //                 'lastname'=>$lastname,
+    //                 'email'=>$email,
+    //                 'password'=>$password);
+    //     $result = $this->db->insert('users',$data);
+    //     return $result;
+    // }
+    //insert Location into Database by Danet THRONG
+
+
+=======
         // delete list booking request by Samreth.SAROEURT 
         public function delete_book_request($book_id) {
             $result = $this->db->delete('tbl_room_request',array('tbl_room_request.book_id' =>$book_id ));
@@ -502,4 +527,5 @@ class Users_model extends CI_Model {
             $query = $this->db->get();
             return $query->result();
         }
+>>>>>>> db7064490095af41dc6204f45f94248a1f11f2ab
 }

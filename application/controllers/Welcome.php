@@ -276,4 +276,11 @@ class Welcome extends CI_Controller {
 		}
 	
 	
+
+	//Register a new user by Danet.THORNG
+	
+	
+
+	//Register a new user by Danet.THORNG
+
 }

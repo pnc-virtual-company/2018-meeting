@@ -23,9 +23,7 @@
       Forgot password?
     </a>
     <br>
-    <a href="<?php base_url(); ?>register" class="forgot-password">
-      <b>Register Now!</b>
-    </a>
+   
   </div>
     <?php echo validation_errors() ?></form>
 
