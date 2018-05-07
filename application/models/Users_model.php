@@ -462,12 +462,12 @@ class Users_model extends CI_Model {
         // var_dump($query->result());die();
         return  $query->result();
     }
-<<<<<<< HEAD
+
     public function update_location($name,$des,$add,$loc_id){
-=======
+
 
         function update_location($name,$des,$add,$loc_id){
->>>>>>> db7064490095af41dc6204f45f94248a1f11f2ab
+
             $edit = array(
                 'loc_name' =>$name, 
                 'description' =>$des,   
@@ -478,7 +478,7 @@ class Users_model extends CI_Model {
             return $result;
         }
 
-<<<<<<< HEAD
+
 //insert Location into Database by Danet THRONG
     // public function M_CreateNewUser($firstname, $lastname, $email, $password)
     // {
@@ -492,7 +492,7 @@ class Users_model extends CI_Model {
     //insert Location into Database by Danet THRONG
 
 
-=======
+
         // delete list booking request by Samreth.SAROEURT 
         public function delete_book_request($book_id) {
             $result = $this->db->delete('tbl_room_request',array('tbl_room_request.book_id' =>$book_id ));
@@ -527,5 +527,5 @@ class Users_model extends CI_Model {
             $query = $this->db->get();
             return $query->result();
         }
->>>>>>> db7064490095af41dc6204f45f94248a1f11f2ab
+
 }
