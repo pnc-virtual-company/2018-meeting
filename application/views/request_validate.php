@@ -19,66 +19,34 @@
         </tr>
     </thead>
     <tbody>
-   		<tr>
-	        <td data-order="1" data-id="1">
-	            1&nbsp;
-	            <!-- <a href="#" title="" data-toggle="modal" data-target="#myModal"><i class="mdi mdi-delete"></i></a> -->
-	            <a href="<?php echo base_url(); ?>Welcome/update_booking" title="Update booking"><i class="mdi mdi-pencil"></i></a>          
-              <a href="#" title="Accept request" data-toggle="modal" data-target="#accept"><i class="mdi mdi-check"></i></a>
-              <a href="#" title="Reject request" data-toggle="modal" data-target="#reject"><i class="mdi mdi-window-close"></i></a> 
-	        </td>
-	        <td>PNC</td>
-	        <td>B23</td>
-	        <td>23/04/2018 9:30AM</td>
-	        <td>23/04/2018 10:30AM</td>
-          <td>Bajament BALET</td>
-	        <td>Monthly team meeting</td>
-	    </tr>
-	    <tr>
-	        <td data-order="1" data-id="1">
-              2&nbsp;
+      <?php  
+            $i=1;
+          foreach ($request as $row) {
+          ?>
+      <tr>
+          <td data-order="1" data-id="1">
+              1&nbsp;
               <!-- <a href="#" title="" data-toggle="modal" data-target="#myModal"><i class="mdi mdi-delete"></i></a> -->
-             <a href="<?php echo base_url(); ?>Welcome/update_booking" title="Update booking"><i class="mdi mdi-pencil"></i></a>          
+              <a href="<?php echo base_url(); ?>Welcome/update_booking" title="Update booking"><i class="mdi mdi-pencil"></i></a>          
               <a href="#" title="Accept request" data-toggle="modal" data-target="#accept"><i class="mdi mdi-check"></i></a>
               <a href="#" title="Reject request" data-toggle="modal" data-target="#reject"><i class="mdi mdi-window-close"></i></a> 
           </td>
-          <td>PNC</td>
-          <td>B23</td>
-          <td>23/04/2018 9:30AM</td>
-          <td>23/04/2018 10:30AM</td>
-          <td>Bajament BALET</td>
-          <td>Monthly team meeting</td>
-	    </tr>
+          <td><?php echo $row->loc_name; ?></td>
+          <td><?php echo $row->room_name; ?></td>
+          <td><?php echo $row->startDate; ?></td>
+          <td><?php echo $row->endDate;?></td>
+          <td><?php echo $row->firstname;?></td>
+          <td><?php echo $row->book_description;?></td>
+      </tr>
+      <?php
+         }
+       ?>
      </tbody>
      </table>
     </div>
 </div>
 </div>
 
-<!-- Modol pop up delete -->
-<!-- <div class="modal fade" id="myModal">
-	<div class="row">
-		
-	</div>
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <div class="modal-header">
-        
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <div class="modal-body">
-      <h3 class="modal-title">Are you sure to delete this item!</h3>
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
-      </div>
-
-    </div>
-  </div>
-</div> -->
 
 <!-- Modol pop up Accept -->
 <div class="modal fade" id="accept">

@@ -60,11 +60,11 @@ class Users_model extends CI_Model {
   /**
    * Get the list of roles or one role
    * 00000001 1  Admin
-   * 00000010 2	User
-   * 00000100 8	HR Officier / Local HR Manager
-   * 00001000 16	HR Manager
-   * 00010000 32	General Manager
-   * 00100000 34	Global Manager
+   * 00000010 2 User
+   * 00000100 8 HR Officier / Local HR Manager
+   * 00001000 16    HR Manager
+   * 00010000 32    General Manager
+   * 00100000 34    Global Manager
    * @param int $id optional id of one role
    * @return array record of roles
    * @author Benjamin BALET <benjamin.balet@gmail.com>
@@ -498,21 +498,6 @@ class Users_model extends CI_Model {
             return $result;
         }
 
-
-//insert Location into Database by Danet THRONG
-    // public function M_CreateNewUser($firstname, $lastname, $email, $password)
-    // {
-    //     $data = array('firstname'=>$firstname,
-    //                 'lastname'=>$lastname,
-    //                 'email'=>$email,
-    //                 'password'=>$password);
-    //     $result = $this->db->insert('users',$data);
-    //     return $result;
-    // }
-    //insert Location into Database by Danet THRONG
-
-
-
         // delete list booking request by Samreth.SAROEURT 
         public function delete_book_request($book_id) {
             $result = $this->db->delete('tbl_room_request',array('tbl_room_request.book_id' =>$book_id ));
@@ -547,5 +532,17 @@ class Users_model extends CI_Model {
             $query = $this->db->get();
             return $query->result();
         }
+        // create by Thintha
+        public function select_request_validate(){
+       
+        $this->db->select('tbl_locations.loc_name,tbl_rooms.room_name,tbl_room_request.startDate,tbl_room_request.endDate,users.firstname,tbl_room_request.book_description');
+        $this->db->from('tbl_room_request');
+        $this->db->join('tbl_rooms', ' tbl_room_request.room_id = tbl_rooms.room_id');
+        $this->db->join('users', ' tbl_rooms.user_id = users.id');
+        $this->db->join('tbl_locations', ' tbl_rooms.loc_id = tbl_locations.loc_id');
+        $query = $this->db->get();
+        //var_dump($query->result());die();
+        return  $query->result();
+    }
 
 }
