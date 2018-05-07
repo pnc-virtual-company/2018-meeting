@@ -388,12 +388,17 @@ class Users_model extends CI_Model {
     }
     // Select manager from databas By Samreth.SAROEURT
     public function insert_create_room($room,$floor,$description,$user_id){            
+            
+            $data = array('upload_data' => $this->upload->data());
+            $photo = $this->upload->data()['file_name']; // Get image name
+
             $data = array(
                 'room_name' =>$room, 
                 'floor' =>$floor,   
                 'description' =>$description,
                 'user_id' => $user_id,
-                'status' => 1   
+                'status' => 1,   
+                'room_image' => $photo    
             );
 
             $result = $this->db->insert('tbl_rooms',$data);

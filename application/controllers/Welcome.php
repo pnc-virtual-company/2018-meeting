@@ -167,6 +167,24 @@ class Welcome extends CI_Controller {
 		$floor = $this->input->post("floor");
 		$user_id = $this->input->post("user_id");
 		$description = $this->input->post("description");
+
+		$config['upload_path']          = './assets/images/room/';
+		$config['allowed_types']        = 'gif|jpg|png';
+		$config['max_size']             = 10000;
+		$config['max_width']            = 10024;
+		$config['max_height']           = 7068;
+
+		$this->load->library('upload', $config);		    
+
+		if ( ! $this->upload->do_upload('photo'))
+		    {
+		      echo $this->upload->display_errors();
+		    }else{
+		       // $this->load->model('Dishes_model');
+		        // $data['dishes'] = $this->Dishes_model->insert_img();
+		     if($data){
+		     	redirect('Welcome/all_room');
+		     }
 		$this->load->model('Users_model');
 		$data= $this->Users_model->insert_create_room($room,$floor,$description,$user_id);
 		
@@ -175,7 +193,7 @@ class Welcome extends CI_Controller {
 		}else{
 			echo "Data not insert";
 		}
-	}
+	}}
 
 	// delete location by Danet THORNG
 	public function delete_location()

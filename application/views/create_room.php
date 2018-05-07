@@ -24,13 +24,13 @@
 					<label for="">Floor</label>
 					 <input type="text" name="floor" class="form-control" required="">
 				</div>
-        <!--<div class="form-group">
+        <div class="form-group">
           <div class="custom-file">
             <input type="file" class="custom-file-input" id="customFile" accept="image/*" name="photo">
             <label class="custom-file-label" for="customFile">Upload image floor</label>
-            <input type="file" class="image-upload" accept="image/*" name="profilePic" id="profilePic"/> 
+            <!-- <input type="file" class="image-upload" accept="image/*" name="profilePic" id="profilePic"/>  -->
           </div>
-        </div>-->
+        </div>
 				<div class="form-group">
 					<label for="comment">Description</label>
 					<textarea class="form-control" rows="5" id="comment" style="resize: none;" name="description" required=""></textarea>
