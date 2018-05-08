@@ -18,8 +18,9 @@
       $(function () {
                $("tr").on( "click", function() {
                     var mid = $( "#manager:checked" ).val();
-                    $( "#manager_id" ).attr('value',mid);
-                    $( "#user_id" ).attr('value',mid);
+                    var managerid = $("#managerid").val();
+                    $( "#manager_name" ).attr('value',mid);
+                    $( "#manager_id" ).attr('value',managerid);
                });
                
             var url = window.location.pathname,
