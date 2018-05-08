@@ -366,6 +366,7 @@ public function selectManager(){
     $query = $this->db->get(' users');
     return  $query->result();
 }
+
 public function selectUpdateRoom($user_id){
     
     $this->db->select('*');
@@ -487,6 +488,7 @@ public function select_room_request(){
     return  $query->result();
 }
 
+// Update location by Maryna
 public function update_location($name,$des,$add,$loc_id){
         $edit = array(
             'loc_name' =>$name, 
@@ -542,6 +544,12 @@ public function update_location($name,$des,$add,$loc_id){
     $this->db->join('tbl_locations', ' tbl_rooms.loc_id = tbl_locations.loc_id');
     $query = $this->db->get();
     //var_dump($query->result());die();
+    return  $query->result();
+}
+public function update(){
+    
+    $this->db->select('*');
+    $query = $this->db->get(' users');
     return  $query->result();
 }
 
