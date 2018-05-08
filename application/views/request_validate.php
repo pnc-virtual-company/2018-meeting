@@ -46,61 +46,51 @@
     </div>
 </div>
 </div>
-
-
-<!-- Modol pop up Accept -->
-<div class="modal fade" id="accept">
-  <div class="row">
-    
-  </div>
-  <div class="modal-dialog">
+<!-- Modol pop up Accept request -->
+<div id="accept" class="modal hide fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
-
-      <!-- Modal Header -->
       <div class="modal-header">
-        
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h5 class="modal-title">Accept confirmation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-
-      <!-- Modal body -->
       <div class="modal-body">
-      <h4 class="modal-title">Are you sure to accept this request!</h4>
+          <p>You are going to accept this request.</p>
+          <p>Are you sure that you want to perform this action?</p>
       </div>
-
-      <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <a href="#" class="btn btn-danger" id="accept">Yes</a>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
       </div>
-
     </div>
   </div>
 </div>
-<!-- Modol pop up reject -->
-<div class="modal fade" id="reject">
-  <div class="row">
-    
-  </div>
-  <div class="modal-dialog">
+
+<!-- Modol pop up reject request -->
+<div id="reject" class="modal hide fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
-
-      <!-- Modal Header -->
       <div class="modal-header">
-        
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h5 class="modal-title">Reject confirmation</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-
-      <!-- Modal body -->
       <div class="modal-body">
-      <h4 class="modal-title">Are you sure to reject this request!</h4>
+          <p>You are going to reject this request.</p>
+          <p>Are you sure that you want to perform this action?</p>
       </div>
-
-      <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <a href="#" class="btn btn-danger" id="reject">Yes</a>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
       </div>
-
     </div>
   </div>
 </div>
+
+
+
+
+
