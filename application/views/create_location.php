@@ -1,3 +1,4 @@
+
 <?php
 /**
  * This view allows to create a new employee
@@ -8,13 +9,13 @@
  */
 ?>
 <br>
-<div class="container" style="background: url();">
+<div class="container">
     <div class="row">
       <div class="col-md-4"></div>
       <div class="col-md-4">
-        <div class="card ">
-          <div class="card-header text-center">
-            <h4>Create A New Location</h4>
+        <div class="">
+          <div class="text-center">
+            <h3>Create A New Location</h3>
           </div>
           <div class="card-body">
             <form method="POST" action="<?php echo base_url(); ?>welcome/insert_location">
@@ -33,7 +34,7 @@
               <div class="form-group">
                 <label for="pwd">Embed URL Map</label>
                 <input type="text" class="form-control"  name="embed_url_map" required="">
-                <span style="font-size: 12px;" class="text-danger">* you need to copy embed url from gogle map</span>
+                <span style="font-size: 12px;" class="text-danger">* you need to copy embed url from Google map</span>
               </div>
               
               <button type="submit" class="btn btn-success">Create Location</button>
