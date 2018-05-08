@@ -41,7 +41,7 @@
 
     <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/select_room_request"><i class="app-menu__icon mdi mdi-library-books mdi-light mdi-18px"></i><span class="app-menu__label">My Booking Room</span></a></li>
     <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/occupancyRate" ><i class="app-menu__icon mdi mdi-chart-areaspline mdi-light mdi-18px"></i><span class="app-menu__label">Occupancy Rate</span></a></li>
-    <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/occupancyRate" ><i class="app-menu__icon mdi mdi-account mdi-light mdi-18px"></i><span class="app-menu__label">List All Users</span></a></li>
+    <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/listAllUsers" ><i class="app-menu__icon mdi mdi-account mdi-light mdi-18px"></i><span class="app-menu__label">List All Users</span></a></li>
   </ul>
 </aside>
 <main class="app-content" style="background-color: #ffffff;">

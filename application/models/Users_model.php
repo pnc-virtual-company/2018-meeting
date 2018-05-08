@@ -366,6 +366,7 @@ public function selectManager(){
     $query = $this->db->get(' users');
     return  $query->result();
 }
+
 public function selectUpdateRoom($user_id){
     
     $this->db->select('*');
@@ -429,6 +430,17 @@ public function insert_create_room($room,$floor,$description,$user_id,$loc_id){
         $result = $this->db->insert('tbl_rooms',$data);
         return $result;
     }
+    //edit user by Chhunhak.chhoeung
+    public function update_user($id){
+        
+        $this->db->select("id,firstname,lastname,login, email,role");
+        $this->db->from('users');
+        $this->db->where('id', $id);
+        $query = $this->db->get();
+        return  $query->result();
+    }
+    
+
 //Update by Chhunhak.CHHOEUNG
 public function add_location($name, $des, $add,$embed_url_map){
     
@@ -453,25 +465,6 @@ public function delete_location($locationID) {
     $result = $this->db->delete('tbl_locations',array('tbl_locations.loc_id' =>$locationID ));
     return $result;
 }
-//Booking room request By Samreth.SAROEURT
-public function  booking_room($note,$sdate,$edate,$user_id,$room_id){
-
-        // var_dump($room_id);die();
-        $sdate = substr($sdate,0,-3);
-        $edate = substr($edate,0,-3);
-        // var_dump($sdate, $edate);die();
-        $data = array(
-            'book_description' =>$note,     
-            'startDate' =>$sdate, 
-            'endDate' =>$edate,   
-            'user_id' => $user_id,
-            'room_id' => $room_id,
-            'sta_id' => 1
-        );
-
-        $result = $this->db->insert('tbl_room_request',$data);
-        return $result;
-    }
 
  // Select manager from databas By Samreth.SAROEURT
 public function select_room_request(){
@@ -486,23 +479,32 @@ public function select_room_request(){
     // var_dump($query->result());die();
     return  $query->result();
 }
-
-public function update_location($name,$des,$add,$loc_id){
-        $edit = array(
-            'loc_name' =>$name, 
-            'description' =>$des,   
-            'place' =>$add   
-        );
-        $this->db->where('loc_id', $loc_id);
-        $result = $this->db->update('tbl_locations', $edit);
+    //delect user by Chhunhak CHHOEUNG
+    public function delete_user($id) {
+        $result = $this->db->delete('users',array('users.id' =>$id ));
         return $result;
     }
+    //Booking room request By Samreth.SAROEURT
+    public function  booking_room($note,$sdate,$edate,$user_id,$room_id){
+    
+            // var_dump($room_id);die();
+            $sdate = substr($sdate,0,-3);
+            $edate = substr($edate,0,-3);
+            // var_dump($sdate, $edate);die();
+            $data = array(
+                'book_description' =>$note,     
+                'startDate' =>$sdate, 
+                'endDate' =>$edate,   
+                'user_id' => $user_id,
+                'room_id' => $room_id,
+                'sta_id' => 1
+            );
 
-    // delete list booking request by Samreth.SAROEURT 
-    public function delete_book_request($book_id) {
-        $result = $this->db->delete('tbl_room_request',array('tbl_room_request.book_id' =>$book_id ));
-        return $result;
-    }
+            $result = $this->db->insert('tbl_room_request',$data);
+            return $result;
+        }
+
+
     // delete list booking request by Samreth.SAROEURT
     public function select_booking($book_id){
         $this->db->select('*');
@@ -511,6 +513,45 @@ public function update_location($name,$des,$add,$loc_id){
         $query = $this->db->get();
         return  $query->result();
     }
+
+    public function update_location($name,$des,$add,$loc_id){
+            $edit = array(
+                'loc_name' =>$name, 
+                'description' =>$des,   
+                'place' =>$add   
+            );
+            $this->db->where('loc_id', $loc_id);
+            $result = $this->db->update('tbl_locations', $edit);
+            return $result;
+        }
+        //update_user_data by Chhunhak.CHHOEUNG
+        public function update_user_data($id,$firstname,$lastname, $login, $email,$role){
+            $edit = array(
+                'firstname' =>$firstname, 
+                'lastname' =>$lastname, 
+                'login' =>$login,   
+                'email' =>$email,
+                'role' => $role   
+            );
+            $this->db->where('id', $id);
+            $result = $this->db->update('users', $edit);
+            return $result;
+        }
+
+        // delete list booking request by Samreth.SAROEURT 
+        public function delete_book_request($book_id) {
+            $result = $this->db->delete('tbl_room_request',array('tbl_room_request.book_id' =>$book_id ));
+            return $result;
+        }
+        
+
+        public function listAllUsers(){
+            $this->db->select("id,firstname,lastname,login, email, tbl_roles.role_name");
+            $this->db->from('users');
+            $this->db->join('tbl_roles', 'users.role=tbl_roles.role_id');
+            $users = $this->db->get();
+            return $users->result();
+        }
     // update list booking request by Samreth.SAROEURT 
     function update_request($sdate,$edate,$note, $book_id){
         $edit = array(
@@ -544,5 +585,12 @@ public function update_location($name,$des,$add,$loc_id){
     //var_dump($query->result());die();
     return  $query->result();
 }
+public function update(){
+    
+    $this->db->select('*');
+    $query = $this->db->get(' users');
+    return  $query->result();
+}
+
 
 }

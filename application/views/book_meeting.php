@@ -33,9 +33,9 @@
 					    <button class="btn btn-primary" type="submit" name="send" value="login">
 					      <i style="color: #fff" class="mdi mdi-check" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Book Meeting</span>
 					    </button>
-					   <a href="<?php echo base_url(); ?>welcome/list_room?room_id=<?php echo $this->input->get('room_id'); ?>" class="btn btn-danger float-right">
-					   <i class="mdi mdi-cancel "></i>&nbsp;Cancel
-					   </a>
+					    <a  class="btn btn-danger float-right"  href="<?php echo base_url(); ?>Welcome/all_room" class="text-center">
+					      <i style="color: #fff" class="mdi mdi-close" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Cancel</span>
+					    </a>
 					</div>
 				</div>
 			</form>

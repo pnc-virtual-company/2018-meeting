@@ -44,6 +44,16 @@ class Welcome extends CI_Controller {
 		$this->load->view('list_room', $data);
 		$this->load->view('template/footer');
 	}
+	// list room by Chhunhak.CHHOEUNG
+	public function listAllUsers(){
+		$this->load->view('template/header');
+		$this->load->view('template/left_sidebar');
+		$loc_id = $this->input->get('loc_id');
+		$this->load->model('Users_model');
+		$data['listAllUsers'] = $this->Users_model->listAllUsers();
+		$this->load->view('list_all_users', $data);
+		$this->load->view('template/footer');
+	}
 	public function all_room(){
 		$this->load->view('template/header');
 		$this->load->view('template/left_sidebar');
@@ -86,12 +96,12 @@ class Welcome extends CI_Controller {
 		$this->load->view('template/header');
 		$this->load->view('template/left_sidebar');
 		$this->load->model('Users_model');
-		// $update_room['update_room'] = $this->Users_model->selectUpdateRoom($user_id);
+		$update_room['update_room'] = $this->Users_model->selectUpdateRoom($user_id);
 		$data['manager'] = $this->Users_model->selectManager();
 		$this->load->view('update_room',$data);
 		$this->load->view('template/footer');
 	}
-	//edited by Chhunhak.CHHOEUNG
+	// Edited location by Maryna.PHORN
 	public function update_locations(){
 		$name = $this->input->post("name");
 		$des = $this->input->post("description");
@@ -133,6 +143,15 @@ class Welcome extends CI_Controller {
 		$this->load->view('create_location');
 		$this->load->view('template/footer');
 	}
+	//create user by chhunhak.CHHOEUNG
+	// public function create_user(){
+	// 	$this->load->view('template/header');
+	// 	$this->load->view('template/left_sidebar');
+	// 	$this->load->model('Users_model');
+	// 	$data['role']  = $this->Users_model->get_role();
+	// 	$this->load->view('create_user', $data);
+	// 	$this->load->view('template/footer');
+	// }
 	// insert locatin into db by Chhunhak.CHHOEUNG
 	public function insert_location(){
 		$name =$this->input->post('loc_name');
@@ -170,6 +189,37 @@ class Welcome extends CI_Controller {
 		$this->load->view('edit_location', $data);
 		$this->load->view('template/footer');
 	}
+	//Edit user by Chhunhak.CHHOEUNG
+	public function edit_user(){
+		$id = $this->input->get('id');
+		$this->load->view('template/header');
+		$this->load->view('template/left_sidebar');
+		$this->load->model('Users_model');
+		$data['updateUser'] = $this->Users_model->update_user($id);
+		$this->load->view('update_user', $data);
+		$this->load->view('template/footer');
+	}
+	public function get_update_user(){
+		$id =$this->input->post('id');
+		$firstname =$this->input->post('firstname');
+		$lastname =$this->input->post('lastname');
+		$login =$this->input->post('login');
+		$email =$this->input->post('email');
+		$role =$this->input->post('role');
+		if ($firstname != '' && $lastname !='' &&$login != '' && $email != ''&& $role != '') {
+			$this->load->model('Users_model');
+			$add = $this->Users_model->update_user_data($id,$firstname,$lastname, $login, $email,$role);
+			if ($add == 'true') {
+				$this->listAllUsers();
+			}else{
+				$this->update_user();
+			}
+		}else{
+			$this->update_user();
+
+		}
+	}
+
 	// insert creat room by samreth.SAROEURT
 	public function insert_create_room(){
 
@@ -216,6 +266,18 @@ class Welcome extends CI_Controller {
 		$data = $this->Users_model->delete_location($locationID);
 		if ($data == 'true') {
 			redirect('Welcome/location');
+		}else{
+			echo "not delete";
+		}
+	}
+	//Delete user by Chhunhak.CHHOEUNG
+	public function delete_user()
+	{
+		$id = $this->input->get('id');
+		$this->load->model('Users_model');
+		$data = $this->Users_model->delete_user($id);
+		if ($data == 'true') {
+			redirect('Welcome/listAllUsers');
 		}else{
 			echo "not delete";
 		}
@@ -304,9 +366,5 @@ class Welcome extends CI_Controller {
 			echo "Data not insert";
 		}
 	}
-
-
-
-	
 	
 }
