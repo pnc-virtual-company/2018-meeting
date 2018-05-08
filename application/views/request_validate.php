@@ -46,7 +46,7 @@
     </div>
 </div>
 </div>
-<!-- Modol pop up Accept -->
+<!-- Modol pop up Accept request -->
 <div id="accept" class="modal hide fade" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -68,7 +68,7 @@
   </div>
 </div>
 
-<!-- Modol pop up reject -->
+<!-- Modol pop up reject request -->
 <div id="reject" class="modal hide fade" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
