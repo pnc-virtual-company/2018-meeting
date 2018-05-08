@@ -353,7 +353,6 @@ class Welcome extends CI_Controller {
 
 	//edite meeting room by samreth.SAROEURT
 	public function update_request(){
-
 		$sdate = $this->input->post("startDate");
 		$edate = $this->input->post("endDate");
 		$note = $this->input->post("comment");
@@ -366,5 +365,15 @@ class Welcome extends CI_Controller {
 			echo "Data not insert";
 		}
 	}
+	//Export file into excel by Danet THORNG
+	public function getExportFile(){
+		// redirect('welcome/getExportFile');
+		$this->load->model('users_model');
+		$users = $this->users_model->getExportFile();
+		$this->load->view('export', $users);
+	}
+
+
+	//Export file into excel by Danet THORNG
 	
 }

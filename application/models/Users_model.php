@@ -28,14 +28,14 @@ public function __construct() {
  * @return array record of users
  * @author Benjamin BALET <benjamin.balet@gmail.com>
  */
-public function getUsers($id = 0) {
-    $this->db->select('users.*');
-    if ($id === 0) {
-        $query = $this->db->get('users');
-        return $query->result_array();
-    }
-    $query = $this->db->get_where('users', array('users.id' => $id));
-    return $query->row_array();
+public function getExportFile() {    //getUsers
+    $id = $this->session->id;
+    $this->db->select('tbl_rooms.*');
+    $this->db->from('tbl_rooms');
+    $this->db->join('users', ' tbl_rooms.user_id = users.id');
+    $query = $this->db->where('tbl_rooms.user_id', $id);
+    $query = $this->db->get();
+    return  $query->result();
 }
 public function getRole() {
     $this->db->select('*');
@@ -591,6 +591,7 @@ public function update(){
     $query = $this->db->get(' users');
     return  $query->result();
 }
+//Export Data 
 
 
 }
