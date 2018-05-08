@@ -42,24 +42,21 @@
     </div>
   
 
-<div class="row-fluid"><div class="col-12">&nbsp;</div></div>
+<div class="row-fluid">
+  <div class="col-12">
+    &nbsp;&nbsp;
+    <button class="btn btn-primary"><a href="<?php echo base_url(); ?>welcome/create_room?loc_id=<?php error_reporting(0); echo $this->input->get('loc_id'); ?>" class="text-center">
+        <i style="color: #fff" class="mdi mdi-plus-circle" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Create a room</span>
+      </a>
+      </button>&nbsp;
+      <button class="btn btn-primary"><a href="#" class="text-center">
+        <i style="color: #fff" class="mdi mdi-file-export" data-toggle="tooltip" title="Export the list of room"></i><span style="color: #fff">&nbsp; Export list</span>
+      </a>
+      </button>
+  </div>
+</div>
   <!-- button create location -->
-  <div class="container">
-    <div class="row-fluid">
-      <div class="col-12">
-        
-        &nbsp;
-        <button class="btn btn-primary"><a href="<?php echo base_url(); ?>welcome/create_room?loc_id=<?php error_reporting(0); echo $this->input->get('loc_id'); ?>" class="text-center">
-            <i style="color: #fff" class="mdi mdi-plus-circle" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Create a room</span>
-          </a>
-          </button>&nbsp;
-          <button class="btn btn-primary"><a href="#" class="text-center">
-            <i style="color: #fff" class="mdi mdi-file-export" data-toggle="tooltip" title="Export the list of room"></i><span style="color: #fff">&nbsp; Export list</span>
-          </a>
-          </button>
-      </div>
-  </div>
-  </div>
+  
 
 
 

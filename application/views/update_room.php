@@ -38,9 +38,9 @@
               <button class="btn btn-primary" type="submit" name="send" value="login">
                 <i style="color: #fff" class="mdi mdi-check" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Create a room</span>
               </button>
-               <button class="btn btn-danger" type="submit" name="send" value="login">
+              <a href="<?php echo base_url(); ?>welcome/all_room" class="btn btn-danger float-right">
                 <i style="color: #fff" class="mdi mdi-close" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Cancel</span>
-              </button>
+              </a>
           </div>
         </div>
 

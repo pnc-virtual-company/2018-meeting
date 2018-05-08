@@ -54,17 +54,13 @@
         </table>
     </div>
 </div>
-  <div class="row-fluid"><div class="col-12">&nbsp;</div></div>
-  <!-- button create location -->
-	<div class="container">
-		<div class="row-fluid">
-      <div class="col-12">
-        
-        &nbsp;
-        <a href="<?php echo base_url(); ?>welcome/create_location" class="btn btn-primary"><i class="mdi mdi-plus"></i>&nbsp;Create Location</a>
-      </div>
+  <div class="row-fluid">
+    <div class="col-12">
+    &nbsp;
+    &nbsp;
+    <a href="<?php echo base_url(); ?>welcome/create_location" class="btn btn-primary"><i class="mdi mdi-plus"></i>&nbsp;Create Location</a>
   </div>
-	</div>
+  </div>
 </div>
 <!-- Delete modal pop up -->
 <div id="frmConfirmDelete" class="modal hide fade" tabindex="-1" role="dialog">

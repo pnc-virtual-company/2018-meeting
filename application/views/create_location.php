@@ -32,7 +32,7 @@
               </div>
               <div class="form-group">
                 <label for="pwd">Embed URL Map</label>
-                <input type="text" class="form-control"  name="embed_url_map">
+                <input type="text" class="form-control"  name="embed_url_map" required="">
                 <span style="font-size: 12px;" class="text-danger">* you need to copy embed url from gogle map</span>
               </div>
               
