@@ -37,10 +37,10 @@
                 format: 'YYYY-MM-DD hh:mm',
 
                 icons: {
-                    time: "mdi mdi-clock",
-                    date: "mdi mdi-calendar-clock",
-                    up: "mdi mdi-arrow-up-bold",
-                    down: "mdi mdi-arrow-down-bold"
+                    time: "mdi mdi-clock mdi-36px ",
+                    date: "mdi mdi-calendar-clock mdi-36px",
+                    up: "mdi mdi-arrow-up-bold mdi-24px",
+                    down: "mdi mdi-arrow-down-bold mdi-24px"
                 }
                
 
@@ -48,10 +48,10 @@
         $('#datetimepicker2').datetimepicker({
                 format: 'YYYY-MM-DD hh:mm',
                 icons: {
-                    time: "mdi mdi-clock",
-                    date: "mdi mdi-calendar-clock",
-                    up: "mdi mdi-arrow-up-bold",
-                    down: "mdi mdi-arrow-down-bold"
+                    time: "mdi mdi-clock mdi-36px",
+                    date: "mdi mdi-calendar-clock mdi-36px",
+                    up: "mdi mdi-arrow-up-bold mdi-24px",
+                    down: "mdi mdi-arrow-down-bold mdi-24px"
                 }
         });
       var date_input=$('input[name="date"]'); //our date input has the name "date"
