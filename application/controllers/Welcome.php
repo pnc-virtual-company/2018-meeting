@@ -175,8 +175,8 @@ class Welcome extends CI_Controller {
 
 		$room = $this->input->post("name");
 		$floor = $this->input->post("floor");
-		$user_id = $this->input->post("user_id");
-		$loc_id = $this->session->userdata('loc_id');
+		$user_id = $this->input->post("manager_id");
+		$loc_id = $this->input->get('loc_id');
 		$description = $this->input->post("description");
 
 		$config['upload_path']          = './assets/images/room/';
