@@ -10,11 +10,11 @@
 <br>
 <div class="container">
     <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
-        <div class="card ">
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
+      <div class="col-lg-6 col-md-8 col-sm-8">
+        <div class="card card-primary">
           <div class="card-header text-center">
-            <h4>Edit Location</h4>
+            <h4>Update User information</h4>
           </div>  
               
           <?php foreach ($updateUser as $row): ?>
@@ -45,18 +45,15 @@
               </div>
           <?php endforeach; ?>
               
-              <button type="submit" class="btn btn-success">Update Location</button>
+              <button type="submit" class="btn btn-success">Update User</button>
               <a href="<?php echo base_url(); ?>welcome/listAllUsers" class="btn btn-danger float-right">
           <i class="mdi mdi-cancel "></i>&nbsp;Cancel
         </a>
             </form>
           </div>
-          
-          
-
         </div>
       </div>
-      <div class="col-md-4"></div>
+      <div class="col-lg-3 col-md-2 col-sm-2"></div>
       
     </div>
     
