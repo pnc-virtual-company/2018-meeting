@@ -181,15 +181,14 @@ class Welcome extends CI_Controller {
 	}
 	// create by thintha
 	public function edit_location(){
-<<<<<<< HEAD
-			$loc_id = $this->input->get('loc_id');
-			$this->load->view('template/header');
-			$this->load->view('template/left_sidebar');
-			$this->load->model('Users_model');
-			$data['listUpdatelocation'] = $this->Users_model->selectUpdateLocation($loc_id);
-			$this->load->view('edit_location', $data);
-			$this->load->view('template/footer');
-		}
+		$loc_id = $this->input->get('loc_id');
+		$this->load->view('template/header');
+		$this->load->view('template/left_sidebar');
+		$this->load->model('Users_model');
+		$data['listUpdatelocation'] = $this->Users_model->selectUpdateLocation($loc_id);
+		$this->load->view('edit_location', $data);
+		$this->load->view('template/footer');
+	}
 	//Edit user by Chhunhak.CHHOEUNG
 	public function edit_user(){
 		$id = $this->input->get('id');
@@ -220,16 +219,7 @@ class Welcome extends CI_Controller {
 
 		}
 	}
-=======
-		$loc_id = $this->input->get('loc_id');
-		$this->load->view('template/header');
-		$this->load->view('template/left_sidebar');
-		$this->load->model('Users_model');
-		$data['listUpdatelocation'] = $this->Users_model->selectUpdateLocation($loc_id);
-		$this->load->view('edit_location', $data);
-		$this->load->view('template/footer');
-	}
->>>>>>> 8cef0766896fe42a0e00d0c4f64e5acaee2f5f66
+
 	// insert creat room by samreth.SAROEURT
 	public function insert_create_room(){
 
