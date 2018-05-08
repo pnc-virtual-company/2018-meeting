@@ -410,6 +410,15 @@ class Users_model extends CI_Model {
         $query = $this->db->get();
         return  $query->result();
     }
+    //edit user by Chhunhak.chhoeung
+    public function update_user($id){
+        
+        $this->db->select("id,firstname,lastname,login, email,role");
+        $this->db->from('users');
+        $this->db->where('id', $id);
+        $query = $this->db->get();
+        return  $query->result();
+    }
     // Select manager from databas By Samreth.SAROEURT
     public function insert_create_room($room,$floor,$description,$user_id,$loc_id){            
             
@@ -451,6 +460,11 @@ class Users_model extends CI_Model {
     // delete location by Danet THORNG
     public function delete_location($locationID) {
         $result = $this->db->delete('tbl_locations',array('tbl_locations.loc_id' =>$locationID ));
+        return $result;
+    }
+    //delect user by Chhunhak CHHOEUNG
+    public function delete_user($id) {
+        $result = $this->db->delete('users',array('users.id' =>$id ));
         return $result;
     }
     //Booking room request By Samreth.SAROEURT
@@ -495,6 +509,19 @@ class Users_model extends CI_Model {
             );
             $this->db->where('loc_id', $loc_id);
             $result = $this->db->update('tbl_locations', $edit);
+            return $result;
+        }
+        //update_user_data by Chhunhak.CHHOEUNG
+        public function update_user_data($id,$firstname,$lastname, $login, $email,$role){
+            $edit = array(
+                'firstname' =>$firstname, 
+                'lastname' =>$lastname, 
+                'login' =>$login,   
+                'email' =>$email,
+                'role' => $role   
+            );
+            $this->db->where('id', $id);
+            $result = $this->db->update('users', $edit);
             return $result;
         }
 
@@ -543,6 +570,13 @@ class Users_model extends CI_Model {
         $query = $this->db->get();
         //var_dump($query->result());die();
         return  $query->result();
-    }
+        }
+        public function listAllUsers(){
+            $this->db->select("id,firstname,lastname,login, email, tbl_roles.role_name");
+            $this->db->from('users');
+            $this->db->join('tbl_roles', 'users.role=tbl_roles.role_id');
+            $users = $this->db->get();
+            return $users->result();
+        }
 
 }
