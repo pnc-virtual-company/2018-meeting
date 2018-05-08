@@ -4,7 +4,7 @@
 	<div class="row">
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
-			<h2>Make A Reservation</h2>
+			<h2>Create A Room</h2>
 			<form action="<?php echo base_url();?>Welcome/insert_create_room?loc_id=<?php echo $this->input->get('loc_id'); ?>" method="post" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="">Name</label>
@@ -18,9 +18,8 @@
            ?>
 					<label for="">Manager Name</label>
 					<div class="input-group mb-3">
-            <input type="hidden" name="user_id" value="" id="user_id">
-            <input type="hidden" name="loc_id" value="" id="loc_id">
-					  <input type="text" class="form-control" value="" aria-label="Recipient's username" aria-describedby="basic-addon2" id="manager_id" name="manager_id" disabled>
+            <input type="hidden" name="manager_id" value="" id="manager_id">
+					  <input type="text" class="form-control" value="" aria-label="Recipient's username" aria-describedby="basic-addon2" id="manager_name" name="manager_name" disabled>
 					  <div class="input-group-append">
 					    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#myModal">Select</button>
 					  </div>
@@ -50,7 +49,7 @@
                
           <a href="<?php echo base_url(); ?>welcome/list_room?loc_id=<?php echo $this->input->get('loc_id'); ?>" class="btn btn-danger float-right">
           <i class="mdi mdi-cancel "></i>&nbsp;Cancel
-        </a>
+          </a>
 					</div>
 				</div>
 			</form>
@@ -100,9 +99,9 @@
                      <td id="fname"><?php echo $row->firstname; ?></td>
                      <td id="lname"><?php echo $row->lastname; ?></td>
                      <td id="email"><?php echo $row->email; ?></td>
-                     
                      <td>
-                        <input type="radio" name="manager" id="manager" value="<?php echo $row->id; ?>">
+                        <input type="hidden" name="managerid" id="managerid" value="<?php echo $row->id; ?>">
+                        <input type="radio" name="manager_name" id="manager" value="<?php echo $row->firstname. "&nbsp;".$row->lastname ?>">
                      </td>
                  </tr>  
               <?php
