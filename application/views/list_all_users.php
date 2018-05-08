@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-md-5"></div>
         <div class="col-md-2">
-          <a href="<?php echo base_url(); ?>welcome/create_location" title="Add new User"><i class="mdi mdi-plus-circle mdi-24px"></i></a>
+          <a href="<?php echo base_url(); ?>welcome/create_location" title="Add new User" class="btn btn-primary"><i class="mdi mdi-plus-circle mdi-24px"></i>&nbsp;Add new user</a>
         </div>
         <div class="col-md-5"></div>
       </div>

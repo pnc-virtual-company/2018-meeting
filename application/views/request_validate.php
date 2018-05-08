@@ -21,6 +21,7 @@
     <tbody>
       <?php  
             $i=1;
+            error_reporting(0);
           foreach ($request as $row) {
           ?>
       <tr>

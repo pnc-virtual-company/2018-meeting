@@ -581,6 +581,7 @@ public function select_room_request(){
     $this->db->join('tbl_rooms', ' tbl_room_request.room_id = tbl_rooms.room_id');
     $this->db->join('users', ' tbl_rooms.user_id = users.id');
     $this->db->join('tbl_locations', ' tbl_rooms.loc_id = tbl_locations.loc_id');
+    error_reporting(0);
     $query = $this->db->get();
     //var_dump($query->result());die();
     return  $query->result();

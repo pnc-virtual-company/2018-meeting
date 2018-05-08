@@ -16,10 +16,10 @@ class Welcome extends CI_Controller {
 		$this->session;
 		$role = $this->session->role;
 		if ($role == 1) {
-			$this->load->view('template/header');
-			$this->load->view('template/left_sidebar');
 			$this->load->model('Users_model');
 			$data['list_location'] = $this->Users_model->selectLocation();
+			$this->load->view('template/header');
+			$this->load->view('template/left_sidebar', $data);
 			$this->load->view('list_location', $data);
 			$this->load->view('template/footer');
 		}else{
@@ -29,15 +29,19 @@ class Welcome extends CI_Controller {
 	//add by Chhunhak.CHHOEUNG and Maryna.PHORN
 	public function occupancyRate()
 	{
+		$this->load->model('Users_model');
+		$data['list_location'] = $this->Users_model->selectLocation();
 		$this->load->view('template/header');
-		$this->load->view('template/left_sidebar');
+		$this->load->view('template/left_sidebar', $data);
 		$this->load->view('chart');
 		$this->load->view('template/footer');
 	}
 	// list room by samreth.SAROEURT
 	public function list_room(){
+		$this->load->model('Users_model');
+		$location['list_location'] = $this->Users_model->selectLocation();
 		$this->load->view('template/header');
-		$this->load->view('template/left_sidebar');
+		$this->load->view('template/left_sidebar', $location);
 		$loc_id = $this->input->get('loc_id');
 		$this->load->model('Users_model');
 		$data['list_room'] = $this->Users_model->selectRoom($loc_id);
@@ -46,8 +50,10 @@ class Welcome extends CI_Controller {
 	}
 	// list room by Chhunhak.CHHOEUNG
 	public function listAllUsers(){
+		$this->load->model('Users_model');
+		$location['list_location'] = $this->Users_model->selectLocation();
 		$this->load->view('template/header');
-		$this->load->view('template/left_sidebar');
+		$this->load->view('template/left_sidebar', $location);
 		$loc_id = $this->input->get('loc_id');
 		$this->load->model('Users_model');
 		$data['listAllUsers'] = $this->Users_model->listAllUsers();
@@ -55,8 +61,10 @@ class Welcome extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 	public function all_room(){
+		$this->load->model('Users_model');
+		$location['list_location'] = $this->Users_model->selectLocation();
 		$this->load->view('template/header');
-		$this->load->view('template/left_sidebar');
+		$this->load->view('template/left_sidebar', $location);
 		$this->load->model('Users_model');
 		$data['list_room'] = $this->Users_model->selectAllRoom();
 		$this->load->view('list_room', $data);
@@ -64,8 +72,10 @@ class Welcome extends CI_Controller {
 	}
 	// Create room by samreth.SAROEURT
 	public function create_room(){
+		$this->load->model('Users_model');
+		$location['list_location'] = $this->Users_model->selectLocation();
 		$this->load->view('template/header');
-		$this->load->view('template/left_sidebar');
+		$this->load->view('template/left_sidebar', $location);
 		$this->load->model('Users_model');
 		$data['manager'] = $this->Users_model->selectManager();
 		$this->load->view('create_room',$data);
@@ -74,16 +84,19 @@ class Welcome extends CI_Controller {
 
 	// Book meeting room by samreth.SAROEURT
 	public function book_meeting(){
+		$this->load->model('Users_model');
+		$data['list_location'] = $this->Users_model->selectLocation();
 		$this->load->view('template/header');
-		$this->load->view('template/left_sidebar');
+		$this->load->view('template/left_sidebar', $data);
 		$this->load->view('book_meeting');
 		$this->load->view('template/footer');
 	}
 	// Resquest validate room by thintha and Maryna. PHORN
 	public function request_validate(){
-
+		$this->load->model('Users_model');
+		$location['list_location'] = $this->Users_model->selectLocation();
 		$this->load->view('template/header');
-		$this->load->view('template/left_sidebar');
+		$this->load->view('template/left_sidebar', $location);
 		$this->load->model('Users_model');
 		$data['request'] = $this->Users_model->select_request_validate();
 		$this->load->view('request_validate', $data);
@@ -92,9 +105,11 @@ class Welcome extends CI_Controller {
 	}
 	// Update a room by samreth.SAROEURT
 	public function update_room(){
+		$this->load->model('Users_model');
+		$location['list_location'] = $this->Users_model->selectLocation();
 		$user_id = $this->input->get('user_id');
 		$this->load->view('template/header');
-		$this->load->view('template/left_sidebar');
+		$this->load->view('template/left_sidebar', $location);
 		$this->load->model('Users_model');
 		$update_room['update_room'] = $this->Users_model->selectUpdateRoom($user_id);
 		$data['manager'] = $this->Users_model->selectManager();
@@ -116,15 +131,19 @@ class Welcome extends CI_Controller {
 		}
 	}
 	public function update_booking(){
+		$this->load->model('Users_model');
+		$data['list_location'] = $this->Users_model->selectLocation();
 		$this->load->view('template/header');
-		$this->load->view('template/left_sidebar');
+		$this->load->view('template/left_sidebar', $data);
 		$this->load->view('update_booking');
 		$this->load->view('template/footer');
 	}
 	// create by thintha
 	public function room_availability(){
+		$this->load->model('Users_model');
+		$location['list_location'] = $this->Users_model->selectLocation();
 		$this->load->view('template/header');
-		$this->load->view('template/left_sidebar');
+		$this->load->view('template/left_sidebar', $location);
 		$room_id = $this->input->get('room_id');
 		$this->load->model('Users_model');
 		$data['view_room'] = $this->Users_model->view_room_detail($room_id);
@@ -138,15 +157,17 @@ class Welcome extends CI_Controller {
 	}
 	// create by thintha
 	public function create_location(){
+		$this->load->model('Users_model');
+		$data['list_location'] = $this->Users_model->selectLocation();
 		$this->load->view('template/header');
-		$this->load->view('template/left_sidebar');
+		$this->load->view('template/left_sidebar', $data);
 		$this->load->view('create_location');
 		$this->load->view('template/footer');
 	}
 	//create user by chhunhak.CHHOEUNG
 	// public function create_user(){
 	// 	$this->load->view('template/header');
-	// 	$this->load->view('template/left_sidebar');
+	// 	$this->load->view('template/left_sidebar', $data);
 	// 	$this->load->model('Users_model');
 	// 	$data['role']  = $this->Users_model->get_role();
 	// 	$this->load->view('create_user', $data);
@@ -173,17 +194,21 @@ class Welcome extends CI_Controller {
 	}
 	//create by Chhunhak.CHHOEUNG
 	public function fullCalendar(){
+		$this->load->model('Users_model');
+		$data['list_location'] = $this->Users_model->selectLocation();
 		$this->load->view('template/header');
-		$this->load->view('template/left_sidebar');
+		$this->load->view('template/left_sidebar', $data);
 		$this->load->view('fullcalendar');
 		$this->load->view('template/footer');
 		
 	}
 	// create by thintha
 	public function edit_location(){
+		$this->load->model('Users_model');
+		$location['list_location'] = $this->Users_model->selectLocation();
 		$loc_id = $this->input->get('loc_id');
 		$this->load->view('template/header');
-		$this->load->view('template/left_sidebar');
+		$this->load->view('template/left_sidebar', $location);
 		$this->load->model('Users_model');
 		$data['listUpdatelocation'] = $this->Users_model->selectUpdateLocation($loc_id);
 		$this->load->view('edit_location', $data);
@@ -191,9 +216,11 @@ class Welcome extends CI_Controller {
 	}
 	//Edit user by Chhunhak.CHHOEUNG
 	public function edit_user(){
+		$this->load->model('Users_model');
+		$location['list_location'] = $this->Users_model->selectLocation();
 		$id = $this->input->get('id');
 		$this->load->view('template/header');
-		$this->load->view('template/left_sidebar');
+		$this->load->view('template/left_sidebar', $location);
 		$this->load->model('Users_model');
 		$data['updateUser'] = $this->Users_model->update_user($id);
 		$this->load->view('update_user', $data);
@@ -318,8 +345,10 @@ class Welcome extends CI_Controller {
 
 	// list room by samreth.SAROEURT
 	public function select_room_request(){
+		$this->load->model('Users_model');
+		$location['list_location'] = $this->Users_model->selectLocation();
 		$this->load->view('template/header');
-		$this->load->view('template/left_sidebar');
+		$this->load->view('template/left_sidebar', $location);
 		$this->load->model('Users_model');
 		$data['book_request'] = $this->Users_model->select_room_request();
 		$this->load->view('booking_request', $data);
@@ -342,9 +371,11 @@ class Welcome extends CI_Controller {
 
 	// Book meeting room by samreth.SAROEURT
 	public function update_booking_room(){
+		$this->load->model('Users_model');
+		$location['list_location'] = $this->Users_model->selectLocation();
 		$book_id = $this->input->get('book_id');
 		$this->load->view('template/header');
-		$this->load->view('template/left_sidebar');
+		$this->load->view('template/left_sidebar', $location);
 		$this->load->model('Users_model');
 		$data['request_update'] = $this->Users_model->select_booking($book_id);
 		$this->load->view('update_booking', $data);
