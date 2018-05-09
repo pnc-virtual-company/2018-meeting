@@ -2,6 +2,7 @@
 <div id="container" >
 	<div class="row-fluid">
 		<div class="col-12">
+      <h2>  Location</h2>
 <table id="location" class="table table-striped table-bordered  " width="100%">
     <thead>
         <tr>
