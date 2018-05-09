@@ -76,7 +76,7 @@
                     right: 'month,basicWeek,basicDay'
                 },
                 /*themeSystem: 'bootstrap3',*/
-                defaultDate: '2017-11-12',
+                defaultDate: Date(),
                     navLinks: true, // can click day/week names to navigate views
                     editable: true,
                     eventLimit: true, // allow "more" link when too many events
@@ -137,6 +137,7 @@
                     }
                     ]
             });
+            $('#calendar').fullCalendar('changeView', 'agendaDay');
         });
     </script>
     
