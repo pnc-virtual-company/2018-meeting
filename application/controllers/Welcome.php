@@ -165,14 +165,14 @@ class Welcome extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 	//create user by chhunhak.CHHOEUNG
-	// public function create_user(){
-	// 	$this->load->view('template/header');
-	// 	$this->load->view('template/left_sidebar', $data);
-	// 	$this->load->model('Users_model');
-	// 	$data['role']  = $this->Users_model->get_role();
-	// 	$this->load->view('create_user', $data);
-	// 	$this->load->view('template/footer');
-	// }
+	public function create_user(){
+		$this->load->model('Users_model');
+		$data['list_location'] = $this->Users_model->selectLocation();
+		$this->load->view('template/header');
+		$this->load->view('template/left_sidebar', $data);
+		$this->load->view('comming');
+		$this->load->view('template/footer');
+	}
 	// insert locatin into db by Chhunhak.CHHOEUNG
 	public function insert_location(){
 		$name =$this->input->post('loc_name');

@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="<?php echo base_url();?>assets/bootstrap-datepicker-1.7.1/css/bootstrap-datepicker.min.css">
     <style>
         #datetimepicker1, #datetimepicker2:hover{
-            cursor: pointer;
+            cursor: pointer;    
         }
     </style>
   </head>
