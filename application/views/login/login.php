@@ -18,7 +18,7 @@
         <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
       </div>
       <button class="btn btn-lg btn-primary btn-block btn-signin"  type="submit">Login Now</button>
-    <a href="<?php base_url(); ?>reset_pwd" class="forgot-password">
+    <a href="<?php base_url(); ?>connection/reset_pwd" class="forgot-password">
       Forgot password?
     </a>
     <br>
