@@ -37,7 +37,7 @@
    <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon mdi mdi-home mdi-light mdi-24px"></i><span class="app-menu__label">List Rooms</span><i class="treeview-indicator mdi mdi-arrow-right-drop-circle-outline"></i></a>
      <ul class="treeview-menu" style="background-color: #026aab;">
       <?php foreach ($list_location as $row): ?>
-          <li><a class="treeview-item" href="<?php echo base_url(); ?>welcome/list_room?loc_id=<?php echo $row->loc_id; ?>"><i class="mdi mdi-map-marker"></i>&nbsp;<?php echo $row->loc_name; ?>&nbsp; Room</a></li>
+          <li><a class="treeview-item" href="<?php echo base_url(); ?>welcome/list_room?loc_id=<?php echo $row->loc_id; ?>&loc_name=<?php echo $row->loc_name; ?>"><i class="mdi mdi-map-marker"></i>&nbsp;<?php echo $row->loc_name; ?>&nbsp; Room</a></li>
       <?php endforeach ?>
      </ul>
    </li>

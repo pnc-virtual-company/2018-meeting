@@ -10,7 +10,7 @@
     
      <thead>
         <tr>
-            <th>ID</th>
+            <th>Action</th>
             <th>Location</th>
             <th>Room</th>
             <th>Status</th>
@@ -21,13 +21,11 @@
     </thead>
      <tbody>
        <?php  
-          $i = 1;
           foreach ($book_request as $row) {
           ?>
            <tr>
                <td data-order="1" data-id="1">
-                   <?php 
-                    echo $i; ?>&nbsp;
+                  &nbsp;
                     <input type="hidden" value="<?php echo $row->book_id;  ?>">
                    <a href="<?php echo base_url(); ?>welcome/delete_book_request?book_id=<?php echo $row->book_id; ?>" title="Delete room request" data-toggle="modal" data-target="#myModal"><i class="mdi mdi-delete"></i></a>
                    <a href="<?php echo base_url(); ?>Welcome/update_booking_room?book_id=<?php echo $row->book_id; ?>" title="Update room Request"><i class="mdi mdi-pencil"></i></a>
@@ -37,7 +35,7 @@
                <td><?php echo $row->status ?></td>
                <td><?php echo $row->startDate; ?></td>
                <td><?php echo $row->endDate; ?></td>
-               <td><?php echo $row->book_description; $i++;?></td>
+               <td><?php echo $row->book_description;?></td>
               <!--  <td>23/04/2018 10:30AM</td>
                <td>Monthly team meeting</td> -->
            </tr>         

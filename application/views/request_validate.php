@@ -20,14 +20,13 @@
     </thead>
     <tbody>
       <?php  
-            $i=1;
+            
             error_reporting(0);
-            $i =1;
           foreach ($request as $row) {
           ?>
       <tr>
           <td data-order="1" data-id="1">
-              <?php echo $i; ?>&nbsp;
+              &nbsp;
               <!-- <a href="#" title="" data-toggle="modal" data-target="#myModal"><i class="mdi mdi-delete"></i></a> -->
               <a href="<?php echo base_url(); ?>Welcome/update_booking" title="Update booking"><i class="mdi mdi-pencil"></i></a>          
               <a href="#" title="Accept request" data-toggle="modal" data-target="#accept"><i class="mdi mdi-check"></i></a>
@@ -38,7 +37,7 @@
           <td><?php echo $row->startDate; ?></td>
           <td><?php echo $row->endDate;?></td>
           <td><?php echo $row->firstname;?></td>
-          <td><?php echo $row->book_description;$i++;?></td>
+          <td><?php echo $row->book_description;?></td>
       </tr>
       <?php
          }

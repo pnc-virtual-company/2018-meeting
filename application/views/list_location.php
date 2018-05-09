@@ -5,7 +5,7 @@
 <table id="location" class="table table-striped table-bordered  " width="100%">
     <thead>
         <tr>
-            <th>ID</th>
+            <th>Action</th>
             <th>Name</th>
             <th>Description</th>
             <th>Address</th>
@@ -17,12 +17,10 @@
          ?>
            <tr>   
               <td>
-                  <?php echo $row->loc_id; ?>
+                  <!-- <?php echo $row->loc_id; ?> -->
                   <a href="<?php echo base_url(); ?>welcome/edit_location?loc_id=<?php echo $row->loc_id; ?>" id="edit_location" title="Update Location"><i class="mdi mdi-pencil"></i></a>
                   <a href="<?php echo base_url(); ?>Welcome/delete_location?loc_id=<?php echo $row->loc_id;?>" class="confirm-delete" title="Delete Location" data-toggle="modal" data-target="#frmConfirmDelete"><i class="mdi mdi-delete"></i></a>
                   <a href="#" class="Pin-location" title="View Location on google map" data-toggle="modal" data-target="#<?php echo $row->loc_id; ?>"><i class="mdi mdi-map-marker"></i></a>
-                  &nbsp;
-                  <a href="<?php echo base_url(); ?>welcome/list_room?loc_id=<?php echo $row->loc_id; ?>">Room</a>
               </td>
                <td><?php echo $row->loc_name; ?></td>
                <td><?php echo $row->description; ?></td>
