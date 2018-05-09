@@ -20,13 +20,13 @@
 					<div class="input-group date" id="datetimepicker2" data-target-input="nearest">
                     	<input type="text" name="endDate" data-toggle="datetimepicker" required="" class="form-control datetimepicker-input" data-target="#datetimepicker2"/>
                     	<div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
-                    	    <div class="input-group-text"><i class="mdi mdi-calendar-clock"></i></div>
+                    	    <div class="input-group-text text-center"><i class="mdi mdi-calendar-clock text-center"></i></div>
                     	</div>
                 	</div>
 				</div>
 				<div class="form-group">
 					<label for="comment">Note</label>
-					<textarea class="form-control" rows="5" id="comment" required="" name="comment" style="resize: none;"></textarea>
+					<textarea class="form-control" rows="4" id="comment" required="" name="comment" style="resize: none;"></textarea>
 				</div>
 				<div class="form-group">
 					<div>

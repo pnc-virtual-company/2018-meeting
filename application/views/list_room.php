@@ -2,12 +2,14 @@
 <div id="container">
 <div class="row-fluid">
 <div class="col-12">
-
-<h2>List of room</h2><br>
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>welcome/location">Locations</a></li>
+    <li class="breadcrumb-item"><a href="#"><?php echo $this->input->get('loc_name'); ?></a></li>
+  </ol>
 <table id="list_room" cellpadding="0" cellspacing="0" class="table table-striped table-bordered" width="100%">
      <thead>
          <tr>
-             <th>ID</th>
+             <th>Action</th>
              <th>Name</th>
              <th>Manager</th>
              <th>Floor</th>
@@ -16,12 +18,11 @@
      </thead>
      <tbody>
        <?php  
-            $i=1;
           foreach ($list_room as $row) {
           ?>
             <tr>
                 <td>
-                  <?php echo $i;; ?>&nbsp;
+                 &nbsp;
                    <a href="<?php echo base_url(); ?>welcome/delete_room?$room_id=<?php echo $row->room_id; ?>" data-toggle="modal" data-target="#myModal" title="Delete this room"><i class="mdi mdi-delete"></i></a>
                    <a href="<?php echo base_url(); ?>welcome/update_room?room_id=<?php echo $row->room_id; ?>" title="Update room information"><i class="mdi mdi-pencil"></i></a>
                    <a href="<?php echo base_url(); ?>welcome/book_meeting?room_id=<?php echo $row->room_id; ?>" title="Make a reservation"><i class="mdi mdi-notebook"></i></a>            
@@ -32,7 +33,7 @@
                 <td><?php echo $row->room_name; ?></td>
                 <td><?php echo $row->firstname; ?></td>
                 <td><?php echo $row->floor; ?></td>
-                <td><?php echo $row->description; $i++;?></td>    
+                <td><?php echo $row->description; ?></td>    
             </tr>  
          <?php
          }

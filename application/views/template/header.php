@@ -19,5 +19,10 @@
     <link rel="icon" type="image/png" href="<?php echo base_url(); ?>assets/images/logo_meeting.png"/>
     
     <link rel="stylesheet" href="<?php echo base_url();?>assets/bootstrap-datepicker-1.7.1/css/bootstrap-datepicker.min.css">
+    <style>
+        #datetimepicker1, #datetimepicker2:hover{
+            cursor: pointer;    
+        }
+    </style>
   </head>
   <body class="app sidebar-mini rtl">
