@@ -475,6 +475,7 @@ public function select_room_request(){
     $this->db->join('tbl_rooms', ' tbl_rooms.room_id = tbl_room_request.room_id');
     $this->db->join('tbl_locations', ' tbl_rooms.loc_id = tbl_locations.loc_id');
     $this->db->where('tbl_room_request.user_id', $user_id);
+    $this->db->order_by('tbl_room_request.book_id', 'DESC');
     $query = $this->db->get();
     // var_dump($query->result());die();
     return  $query->result();
@@ -581,6 +582,7 @@ public function select_room_request(){
     $this->db->join('tbl_rooms', ' tbl_room_request.room_id = tbl_rooms.room_id');
     $this->db->join('users', ' tbl_rooms.user_id = users.id');
     $this->db->join('tbl_locations', ' tbl_rooms.loc_id = tbl_locations.loc_id');
+    $this->db->order_by('tbl_room_request.book_id', 'DESC');
     error_reporting(0);
     $query = $this->db->get();
     //var_dump($query->result());die();
