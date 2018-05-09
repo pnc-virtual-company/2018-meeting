@@ -27,14 +27,17 @@
                 <label for="">Name</label>
                 <input type="text" class="form-control" value="<?php echo $row->loc_name; ?>" id="name" name="name" >
               </div>
+              <br>
               <div class="form-group">
                 <label for="">Description</label>
                 <input type="text" class="form-control"  value="<?php echo $row->description; ?>"  id="des"  name="description">
               </div>
+              <br>
               <div class="form-group">
                 <label for="">Address</label>
                 <input type="text" class="form-control" value="<?php echo $row->place; ?>"  id="add"  name="address">
               </div>
+              <br>
           <?php endforeach; ?>
               
               <button type="submit" class="btn btn-success">Update Location</button>
