@@ -408,3 +408,4 @@ class Welcome extends CI_Controller {
 	//Export file into excel by Danet THORNG
 	
 }
+///testing
