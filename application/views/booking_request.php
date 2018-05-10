@@ -14,8 +14,9 @@
             <th>Location</th>
             <th>Room</th>
             <th>Status</th>
-            <th>Start Date</th>
-            <th>End Date</th>
+            <th>Date</th>
+            <th>Start</th>
+            <th>End</th>
             <th>Note</th>
         </tr>
     </thead>
@@ -33,8 +34,9 @@
                <td><?php echo $row->loc_name  ?></td>
                <td><?php echo $row->room_name ?></td>
                <td><?php echo $row->status ?></td>
-               <td><?php echo $row->startDate; ?></td>
-               <td><?php echo $row->endDate; ?></td>
+               <td><?php echo $row->Date; ?></td>
+               <td><?php echo substr($row->Start,0,-10) ?></td>
+               <td><?php echo substr($row->End,0,-10) ?></td>
                <td><?php echo $row->book_description;?></td>
               <!--  <td>23/04/2018 10:30AM</td>
                <td>Monthly team meeting</td> -->

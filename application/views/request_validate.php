@@ -12,8 +12,9 @@
             <th>Action</th>
             <th>Location</th>
             <th>Room</th>
-            <th>Start Date</th>
-            <th>End Date</th>
+            <th>Date</th>
+            <th>Start</th>
+            <th>End</th>
             <th>Creator</th>
             <th>Note</th>
         </tr>
@@ -34,8 +35,9 @@
           </td>
           <td><?php echo $row->loc_name; ?></td>
           <td><?php echo $row->room_name; ?></td>
-          <td><?php echo $row->startDate; ?></td>
-          <td><?php echo $row->endDate;?></td>
+          <td><?php echo $row->Date; ?></td>
+          <td><?php echo substr($row->Start,0,-10) ?></td>
+          <td><?php echo substr($row->End,0,-10) ?></td>
           <td><?php echo $row->firstname;?></td>
           <td><?php echo $row->book_description;?></td>
       </tr>
