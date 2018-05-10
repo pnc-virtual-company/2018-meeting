@@ -4,7 +4,7 @@
 <div class="row-fluid">
 <div class="col-12">
 
-<h2>My Booking Request</h2>
+<h2>My Reservation</h2>
 
 <table id="list_room" cellpadding="0" cellspacing="0" class="table table-striped table-bordered" width="100%">
     

@@ -2,9 +2,9 @@
 <br>
 <div class="container">
 	<div class="row">
-		<div class="col-md-4"></div>
-		<div class="col-md-4">
-			<h2>Create A Room</h2>
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<h1 class="text-center">Create A Room</h1>
 			<form action="<?php echo base_url();?>Welcome/insert_create_room?loc_id=<?php echo $this->input->get('loc_id'); ?>" method="post" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="">Name</label>
@@ -56,7 +56,7 @@
 				</div>
 			</form>
 		</div>
-		<div class="col-md-4"></div>
+		<div class="col-md-3"></div>
 	</div>
 </div>
 <?php 

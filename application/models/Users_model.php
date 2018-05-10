@@ -486,7 +486,7 @@ public function select_room_request(){
         return $result;
     }
     //Booking room request By Samreth.SAROEURT
-    public function  booking_room($note,$date,$start,$end,$user_id,$room_id){
+    public function  booking_room($note,$date,$startHour,$startMin,$endHour,$endMin,$user_id,$room_id){
 
             // var_dump($room_id);die();
             $sdate = substr($date,0,-3);
@@ -495,17 +495,16 @@ public function select_room_request(){
             $data = array(
                 'book_description' =>$note,     
                 'Date' =>$date, 
-                'Start' =>$start,   
-                'End' =>$end,   
+                'Start' =>$startHour.':'.$startMin,   
+                'End' =>$endHour.':'.$endMin,   
                 'user_id' => $user_id,
                 'room_id' => $room_id,
                 'sta_id' => 1
             );
-
+            
             $result = $this->db->insert('tbl_room_request',$data);
             return $result;
         }
-
     // delete list booking request by Samreth.SAROEURT
     public function select_booking($book_id){
         $this->db->select('*');
@@ -554,12 +553,13 @@ public function select_room_request(){
             return $users->result();
         }
     // update list booking request by Samreth.SAROEURT 
-    function update_request($date,$start,$end,$note,$book_id){
+    function update_request($date,$startHour,$startMin,$endHour,$endMin,$note,$book_id){
         $edit = array(
             'Date' =>$date, 
-            'Start' =>$start,   
-            'End' =>$end,   
-            'book_description' =>$note   
+            'Start' =>$startHour.':'.$startMin,   
+            'End' =>$endHour.':'.$endMin,   
+            'book_description' =>$note     
+            
         );
         $this->db->where('book_id', $book_id);
         $result = $this->db->update('tbl_room_request', $edit);
