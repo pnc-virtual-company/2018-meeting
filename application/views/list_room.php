@@ -2,10 +2,7 @@
 <div id="container">
 <div class="row-fluid">
 <div class="col-12">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>welcome/location">Locations</a></li>
-    <li class="breadcrumb-item"><a href="#"><?php echo $this->input->get('loc_name'); ?></a></li>
-  </ol>
+<h2><?php echo $this->input->get('loc_name'); ?>&nbsp;Meeting Rooms</h2>
 <table id="list_room" cellpadding="0" cellspacing="0" class="table table-striped table-bordered" width="100%">
      <thead>
          <tr>
