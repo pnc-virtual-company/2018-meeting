@@ -412,7 +412,7 @@ public function selectUpdateLocation($loc_id){
     return  $query->result();
 }
 // Select manager from databas By Samreth.SAROEURT
-public function insert_create_room($room,$floor,$description,$user_id,$loc_id){            
+public function insert_create_room($room,$floor,$description,$manager,$loc_id){            
         
         $data = array('upload_data' => $this->upload->data());
         $photo = $this->upload->data()['file_name']; // Get image name
@@ -421,12 +421,12 @@ public function insert_create_room($room,$floor,$description,$user_id,$loc_id){
             'room_name' =>$room, 
             'floor' =>$floor,   
             'description' =>$description,
-            'user_id' => $user_id,
+            'user_id' => $manager,
             'loc_id' => $loc_id,
-            'status' => 1,   
+            'sta_id' => 1,   
             'room_image' => $photo    
         );
-
+       
         $result = $this->db->insert('tbl_rooms',$data);
         return $result;
     }
@@ -494,7 +494,7 @@ public function select_room_request(){
             // var_dump($sdate, $edate);die();
             $data = array(
                 'book_description' =>$note,     
-                'Date' =>$sdate, 
+                'Date' =>$date, 
                 'Start' =>$start,   
                 'End' =>$end,   
                 'user_id' => $user_id,
@@ -567,7 +567,7 @@ public function select_room_request(){
     }
     //by thintha
     public function view_room_detail($room_id){
-        $this->db->select ( 'tbl_rooms.room_name ,tbl_room_request.startDate' ) ;
+        $this->db->select ( '*' ) ;
         $this->db->from('tbl_rooms' );
         $this->db->join ('tbl_room_request', 'tbl_rooms.room_id = tbl_room_request.room_id');
         $this->db->where('tbl_rooms.room_id', $room_id );

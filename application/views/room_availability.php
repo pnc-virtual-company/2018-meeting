@@ -11,10 +11,10 @@
 					</div>
 					<div class="card-body">
 						
-				<p>The room is currently free. <br>But next book start at <?php echo $row->startDate; ?></p>
+				<p>The room is currently free. <br>But next reservation starts at: <?php echo $row->Date."&nbsp;/".substr($row->Start,0,-10). "&nbsp;/".substr($row->End,0,-10); ?></p>
 				<br>
 				<div class="form-group">
-					<a href="<?php echo base_url(); ?>welcome/list_room" class="btn btn-info float-left">
+					<a href="<?php echo base_url(); ?>welcome/list_room?room_id=<?php echo $this->input->get('room_id'); ?>" class="btn btn-info float-left">
 						<i class="mdi mdi-arrow-left-bold "></i>&nbsp;Back to the list of room
 					</a>
 

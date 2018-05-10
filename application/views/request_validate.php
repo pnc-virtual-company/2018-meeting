@@ -29,7 +29,7 @@
           <td data-order="1" data-id="1">
               &nbsp;
               <!-- <a href="#" title="" data-toggle="modal" data-target="#myModal"><i class="mdi mdi-delete"></i></a> -->
-              <a href="<?php echo base_url(); ?>Welcome/update_booking" title="Update booking"><i class="mdi mdi-pencil"></i></a>          
+              <a href="#" title="Update booking"><i class="mdi mdi-pencil"></i></a>          
               <a href="#" title="Accept request" data-toggle="modal" data-target="#accept"><i class="mdi mdi-check"></i></a>
               <a href="#" title="Reject request" data-toggle="modal" data-target="#reject"><i class="mdi mdi-window-close"></i></a> 
           </td>

@@ -252,7 +252,7 @@ class Welcome extends CI_Controller {
 
 		$room = $this->input->post("name");
 		$floor = $this->input->post("floor");
-		$user_id = $this->input->post("manager_id");
+		$manager = $this->input->post("manager");
 		$loc_id = $this->input->get('loc_id');
 		$description = $this->input->post("description");
 
@@ -275,7 +275,7 @@ class Welcome extends CI_Controller {
 			}
 		}
 		$this->load->model('Users_model');
-		$data= $this->Users_model->insert_create_room($room,$floor,$description,$user_id,$loc_id);
+		$data= $this->Users_model->insert_create_room($room,$floor,$description,$manager,$loc_id);
 		
 		if ($data == 'true') {
 			$this->list_room();

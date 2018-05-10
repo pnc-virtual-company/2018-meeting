@@ -23,18 +23,69 @@
             <tr>
                 <td>
                  &nbsp;
-                   <a href="<?php echo base_url(); ?>welcome/delete_room?$room_id=<?php echo $row->room_id; ?>" data-toggle="modal" data-target="#myModal" title="Delete this room"><i class="mdi mdi-delete"></i></a>
+                   <a href="<?php echo base_url(); ?>welcome/delete_room?$room_id=<?php echo $row->room_id; ?>" data-toggle="modal" data-target="#<?php echo $row->room_id; ?>" title="Delete this room"><i class="mdi mdi-delete"></i></a>
                    <a href="<?php echo base_url(); ?>welcome/update_room?room_id=<?php echo $row->room_id; ?>" title="Update room information"><i class="mdi mdi-pencil"></i></a>
                    <a href="<?php echo base_url(); ?>welcome/book_meeting?room_id=<?php echo $row->room_id; ?>" title="Make a reservation"><i class="mdi mdi-notebook"></i></a>            
                    <a href="<?php echo base_url(); ?>welcome/fullCalendar" title="Room calendar"><i class="mdi mdi-table-large"></i></a>            
                    <a href="<?php echo base_url(); ?>welcome/room_availability?room_id=<?php echo $row->room_id; ?>" title="Room availability"><i class="mdi mdi-check"></i></a>        
-                  <a href="<?php echo base_url(); ?>welcome/list_room?room_id=<?php echo $row->room_id; ?>" title="View room location" data-toggle="modal" data-target="#location_room"><i class="mdi mdi-source-commit-start"></i></a>
+                  <a href="<?php echo base_url(); ?>welcome/list_room?room_id=<?php echo $row->room_id; ?>" title="View room location" data-toggle="modal" data-target="#location<?php echo $row->room_id; ?>"><i class="mdi mdi-source-commit-start"></i></a>
                 </td>
                 <td><?php echo $row->room_name; ?></td>
                 <td><?php echo $row->firstname; ?></td>
                 <td><?php echo $row->floor; ?></td>
                 <td><?php echo $row->description; ?></td>    
             </tr>  
+            <!-- Delete modal pop up -->
+            <div id="<?php echo $row->room_id; ?>" class="modal hide fade" tabindex="-1" role="dialog">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Delete confirmation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                      <p>You are going to delete this room.</p>
+                      <p>Are you sure that you want to perform this action?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <a href="<?php echo base_url(); ?>welcome/delete_room?room_id=<?php echo $row->room_id; ?>" class="btn btn-danger">OK </a>
+                    
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+             
+            <!-- Modal pup up list location room -->
+            <div class="modal fade" id="location<?php echo $row->room_id; ?>">
+              <div class="row">
+                
+              </div>
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                 
+                 <img width="100%" src="<?php echo base_url(); ?>assets/images/room/<?php echo $row->room_image ?>" alt="a">
+                  </div>
+
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                   <!--  <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button> -->
+                  </div>
+
+                </div>
+              </div>
+            </div>
          <?php
          }
        ?>
@@ -57,70 +108,12 @@
   </div>
 </div>
   <!-- button create location -->
-  
-
-
-
-
-
-
-
 </div>
 </div>
 
-<!-- Delete modal pop up -->
-<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Delete confirmation</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <p>You are going to delete this room.</p>
-          <p>Are you sure that you want to perform this action?</p>
-      </div>
-      <div class="modal-footer">
-        <a href="<?php echo base_url(); ?>welcome/delete_room?room_id=<?php echo $row->room_id; ?>" class="btn btn-danger">OK </a>
-        
-        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 
 
 
 
-<!-- Modal pup up list location room -->
-<div class="modal fade" id="location_room">
-  <div class="row">
-    
-  </div>
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-     
-     <img width="100%" src="<?php echo base_url(); ?>assets/images/room/<?php echo $row->room_image ?>" alt="a">
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-       <!--  <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button> -->
-      </div>
-
-    </div>
-  </div>
-</div>

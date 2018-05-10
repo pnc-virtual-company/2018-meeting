@@ -47,8 +47,8 @@
 					  <div class="col-10">
 					    <div>
 					    	<button type="submit" class="btn btn-primary">Update Request</button>
-					        <a  class="btn btn-danger"  href="<?php echo base_url(); ?>Welcome/select_room_request" class="text-center">
-					          <i style="color: #fff" class="mdi mdi-close float-right" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Cancel</span>
+					        <a  class="btn btn-danger float-right"  href="<?php echo base_url(); ?>Welcome/select_room_request" class="text-center">
+					          <i style="color: #fff" class="mdi mdi-close" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Cancel</span>
 					        </a>
 					    </div>
 					  </div>
