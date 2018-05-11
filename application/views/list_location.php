@@ -2,7 +2,12 @@
 <div id="container" >
 	<div class="row-fluid">
 		<div class="col-12">
-      <h2 style="text-align: center;">Location</h2>
+      <div class="row-fluid">
+          &nbsp;
+          &nbsp;
+          <a href="<?php echo base_url(); ?>welcome/create_location" class="btn btn-primary"><i class="mdi mdi-plus"></i>&nbsp;Create Location</a>
+          <h2 style="text-align: center;">Location</h2>
+      </div>
       <table id="location" class="table table-striped table-bordered  " width="100%">
         <thead>
           <tr>
@@ -53,13 +58,7 @@
    </table>
  </div>
 </div>
-<div class="row-fluid">
-  <div class="col-12">
-    &nbsp;
-    &nbsp;
-    <a href="<?php echo base_url(); ?>welcome/create_location" class="btn btn-primary"><i class="mdi mdi-plus"></i>&nbsp;Create Location</a>
-  </div>
-</div>
+
 </div>
 <!-- Delete modal pop up -->
 <div id="frmConfirmDelete" class="modal hide fade" tabindex="-1" role="dialog">
