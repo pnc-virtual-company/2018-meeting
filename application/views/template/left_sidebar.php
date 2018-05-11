@@ -5,7 +5,9 @@
   <!-- Navbar Right Menu-->
   <ul class="app-nav">
     <!--Notification Menu-->
-    <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications"><i class="mdi mdi-light mdi-bell-ring mdi-24px"></i></a>
+    <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications" style="
+    margin-top: 10px;
+"><i class="mdi mdi-light mdi-bell-ring mdi-24px"></i></a>
       <ul class="app-notification dropdown-menu dropdown-menu-right">
         <li class="app-notification__title">You have 4 new notifications.</li>
         <div class="app-notification__content">
@@ -21,7 +23,9 @@
       </ul>
     </li>
     <!-- User Menu-->
-    <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="mdi mdi-light mdi-settings mdi-24px  "></i></a>
+    <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu" style="
+    margin-top: 10px;
+"><i class="mdi mdi-light mdi-settings mdi-24px  "></i></a>
       <ul class="dropdown-menu settings-menu dropdown-menu-right">
         <li><a class="dropdown-item" href="page-user.html"><i class="mdi mdi-account mdi-24px"></i> Profile</a></li>
         <li><a class="dropdown-item" href="<?php echo base_url(); ?>connection/login"><i class="mdi mdi-logout mdi-24px"></i> Logout</a></li>

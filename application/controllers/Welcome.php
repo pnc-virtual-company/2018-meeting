@@ -327,7 +327,6 @@ class Welcome extends CI_Controller {
 
 // booking request room by samreth.SAROEURT
 	public function booking_room(){
-
 		$date = $this->input->post("sdate");
 		$startHour = $this->input->post("startHour");
 		$startMin = $this->input->post("startMin");
@@ -341,6 +340,7 @@ class Welcome extends CI_Controller {
 		// var_dump($note,$date,$startHour,$startMin,$endHour,$endMin,$user_id,$room_id);die();
 		$data = $this->Users_model->booking_room($note,$date,$startHour,$startMin,$endHour,$endMin,$user_id,$room_id);
 		if ($data == 'true') {
+
 			$this->select_room_request();
 		}else{
 			echo "Data not insert";
