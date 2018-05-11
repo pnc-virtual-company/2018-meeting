@@ -12,10 +12,10 @@
     <div class="row">
       <div class="col-lg-3 col-md-2 col-sm-2"></div>
       <div class="col-lg-6 col-md-8 col-sm-8">
-        <div class="card card-primary">
-          <div class="card-header text-center">
-            <h4>Update User information</h4>
-          </div>  
+  <!--       <div class="card card-primary"> -->
+          
+            <h3 style="text-align: center;">Update User information</h3>
+     
               
           <?php foreach ($updateUser as $row): ?>
 
@@ -52,7 +52,7 @@
             </form>
           </div>
         </div>
-      </div>
+     <!--  </div> -->
       <div class="col-lg-3 col-md-2 col-sm-2"></div>
       
     </div>
