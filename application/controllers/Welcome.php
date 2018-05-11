@@ -111,8 +111,8 @@ class Welcome extends CI_Controller {
 		$this->load->view('template/header');
 		$this->load->view('template/left_sidebar', $location);
 		$this->load->model('Users_model');
-		$update_room['update_room'] = $this->Users_model->selectUpdateRoom($user_id);
-		$data['manager'] = $this->Users_model->selectManager();
+		$data['update_room'] = $this->Users_model->selectUpdateRoom($user_id);
+		// $data['manager'] = $this->Users_model->selectManager();
 		$this->load->view('update_room',$data);
 		$this->load->view('template/footer');
 	}

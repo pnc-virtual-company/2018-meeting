@@ -94,7 +94,7 @@
 <div class="row-fluid">
   <div class="col-12">
     &nbsp;&nbsp;
-    <button class="btn btn-primary"><a href="<?php echo base_url(); ?>welcome/create_room?loc_id=<?php error_reporting(0); echo $this->input->get('loc_id'); ?>" class="text-center">
+    <button class="btn btn-primary"><a href="<?php echo base_url(); ?>welcome/create_room?loc_id=<?php error_reporting(0); echo $this->input->get('loc_id'); ?>&loc_name=<?php echo  $this->input->get('loc_name'); ?>" class="text-center">
         <i style="color: #fff" class="mdi mdi-plus-circle" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Create a room</span>
       </a>
       </button>&nbsp;

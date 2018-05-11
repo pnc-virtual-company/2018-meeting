@@ -49,7 +49,7 @@
                 <i style="color: #fff" class="mdi mdi-check" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Create a room</span>
               </button>
                
-          <a href="<?php echo base_url(); ?>welcome/list_room?loc_id=<?php echo $this->input->get('loc_id'); ?>" class="btn btn-danger float-right">
+          <a href="<?php echo base_url(); ?>welcome/list_room?loc_id=<?php echo $this->input->get('loc_id'); ?>&loc_name=<?php echo $this->input->get('loc_name'); ?>" class="btn btn-danger float-right">
           <i class="mdi mdi-cancel "></i>&nbsp;Cancel
           </a>
 					</div>
@@ -65,6 +65,4 @@
   $loc_id = $this->input->get('loc_id');
   $this->session->set_userdata('loc_id', $loc_id);
  ?>
-<!--Pup up list manager name -->
 
-<
