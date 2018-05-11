@@ -412,7 +412,7 @@ public function selectUpdateLocation($loc_id){
     return  $query->result();
 }
 // Select manager from databas By Samreth.SAROEURT
-public function insert_create_room($room,$floor,$description,$user_id,$loc_id){            
+public function insert_create_room($room,$floor,$description,$manager,$loc_id){            
         
         $data = array('upload_data' => $this->upload->data());
         $photo = $this->upload->data()['file_name']; // Get image name
@@ -421,12 +421,12 @@ public function insert_create_room($room,$floor,$description,$user_id,$loc_id){
             'room_name' =>$room, 
             'floor' =>$floor,   
             'description' =>$description,
-            'user_id' => $user_id,
+            'user_id' => $manager,
             'loc_id' => $loc_id,
-            'status' => 1,   
+            'sta_id' => 1,   
             'room_image' => $photo    
         );
-
+       
         $result = $this->db->insert('tbl_rooms',$data);
         return $result;
     }
@@ -486,26 +486,25 @@ public function select_room_request(){
         return $result;
     }
     //Booking room request By Samreth.SAROEURT
-    public function  booking_room($note,$sdate,$edate,$user_id,$room_id){
-    
+    public function  booking_room($note,$date,$startHour,$startMin,$endHour,$endMin,$user_id,$room_id){
+
             // var_dump($room_id);die();
-            $sdate = substr($sdate,0,-3);
-            $edate = substr($edate,0,-3);
+            $sdate = substr($date,0,-3);
+            // $edate = substr($edate,0,-3);
             // var_dump($sdate, $edate);die();
             $data = array(
                 'book_description' =>$note,     
-                'startDate' =>$sdate, 
-                'endDate' =>$edate,   
+                'Date' =>$date, 
+                'Start' =>$startHour.':'.$startMin,   
+                'End' =>$endHour.':'.$endMin,   
                 'user_id' => $user_id,
                 'room_id' => $room_id,
                 'sta_id' => 1
             );
-
+            
             $result = $this->db->insert('tbl_room_request',$data);
             return $result;
         }
-
-
     // delete list booking request by Samreth.SAROEURT
     public function select_booking($book_id){
         $this->db->select('*');
@@ -554,11 +553,13 @@ public function select_room_request(){
             return $users->result();
         }
     // update list booking request by Samreth.SAROEURT 
-    function update_request($sdate,$edate,$note, $book_id){
+    function update_request($date,$startHour,$startMin,$endHour,$endMin,$note,$book_id){
         $edit = array(
-            'startDate' =>$sdate, 
-            'endDate' =>$edate,   
-            'book_description' =>$note   
+            'Date' =>$date, 
+            'Start' =>$startHour.':'.$startMin,   
+            'End' =>$endHour.':'.$endMin,   
+            'book_description' =>$note     
+            
         );
         $this->db->where('book_id', $book_id);
         $result = $this->db->update('tbl_room_request', $edit);
@@ -566,7 +567,7 @@ public function select_room_request(){
     }
     //by thintha
     public function view_room_detail($room_id){
-        $this->db->select ( 'tbl_rooms.room_name ,tbl_room_request.startDate' ) ;
+        $this->db->select ( '*' ) ;
         $this->db->from('tbl_rooms' );
         $this->db->join ('tbl_room_request', 'tbl_rooms.room_id = tbl_room_request.room_id');
         $this->db->where('tbl_rooms.room_id', $room_id );
@@ -577,7 +578,7 @@ public function select_room_request(){
     // create by Thintha and Maryna PHORN
     public function select_request_validate(){
    
-    $this->db->select('tbl_locations.loc_name,tbl_rooms.room_name,tbl_room_request.startDate,tbl_room_request.endDate,users.firstname,tbl_room_request.book_description');
+    $this->db->select('*');
     $this->db->from('tbl_room_request');
     $this->db->join('tbl_rooms', ' tbl_room_request.room_id = tbl_rooms.room_id');
     $this->db->join('users', ' tbl_rooms.user_id = users.id');

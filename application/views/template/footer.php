@@ -14,7 +14,19 @@
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
      <script>
+        $(function(){
+            $('#btn-primary').click(function(){
+                var sdate = $('#sdate').val();
+                var hiddenvalue = $('#hiddenvalue').val();
 
+                if (sdate == hiddenvalue ) {
+                   alert("You can not book aroom");
+                }else{
+                   alert("you can count");
+                }
+
+            });
+        });
       $(function () {
                $("tr").on( "click", function() {
                     var mid = $( "#manager:checked" ).val();
@@ -34,25 +46,25 @@
                 });
                
         $('#datetimepicker1').datetimepicker({
-                format: 'YYYY-MM-DD hh:mm',
+                format: 'YYYY-MM-DD',
 
-                icons: {
-                    time: "mdi mdi-clock mdi-36px ",
-                    date: "mdi mdi-calendar-clock mdi-36px",
-                    up: "mdi mdi-arrow-up-bold mdi-24px",
-                    down: "mdi mdi-arrow-down-bold mdi-24px"
-                }
+                // icons: {
+                //     time: "mdi mdi-clock mdi-36px ",
+                //     date: "mdi mdi-calendar-clock mdi-36px",
+                //     up: "mdi mdi-arrow-up-bold mdi-24px",
+                //     down: "mdi mdi-arrow-down-bold mdi-24px"
+                // }
                
 
         });
         $('#datetimepicker2').datetimepicker({
-                format: 'YYYY-MM-DD hh:mm',
-                icons: {
-                    time: "mdi mdi-clock mdi-36px",
-                    date: "mdi mdi-calendar-clock mdi-36px",
-                    up: "mdi mdi-arrow-up-bold mdi-24px",
-                    down: "mdi mdi-arrow-down-bold mdi-24px"
-                }
+                format: 'YYYY-MM-DD',
+                // icons: {
+                //     time: "mdi mdi-clock mdi-36px",
+                //     date: "mdi mdi-calendar-clock mdi-36px",
+                //     up: "mdi mdi-arrow-up-bold mdi-24px",
+                //     down: "mdi mdi-arrow-down-bold mdi-24px"
+                // }
         });
       var date_input=$('input[name="date"]'); //our date input has the name "date"
       var container=$('.form-inline').length>0 ? $('.form-inline').parent() : "body";

@@ -8,7 +8,7 @@
   echo form_open('connection/login', $attributes); ?>
 
   <div class="card card-container">
-    <img src="<?php echo base_url(); ?>assets/images/logo.png" />
+    <img src="<?php echo base_url(); ?>assets/images/logo_login.png" />
     <p id="profile-name" class="profile-name-card"></p>
       <div class="form-group" id="email">
         <span id="reauth-email" class="reauth-email"></span>
