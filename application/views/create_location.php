@@ -38,7 +38,7 @@
                 <label for="pwd">Embed URL Map</label>
                 <input type="button" class="form-control"  data-target="#us6-dialog" data-toggle="modal" name="embed_url_map" required="">
             </div>
-            <button type="submit" class="btn btn-success">Create Location</button>
+            <button type="submit" class="btn btn-info">Create Location</button>
             <a href="<?php echo base_url(); ?>welcome/location" class="btn btn-danger float-right">
                 <i class="mdi mdi-cancel "></i>&nbsp;Cancel
             </a>
