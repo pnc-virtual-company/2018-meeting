@@ -14,7 +14,7 @@
       <div class="col-lg-6 col-md-8 col-sm-8">
         <div class="card card-primary">
           <div class="card-header text-center">
-            <h4>Update User information</h4>
+            <h4 style="text-align: center;">Update User information</h4>
           </div>  
               
           <?php foreach ($updateUser as $row): ?>
