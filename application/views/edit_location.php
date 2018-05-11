@@ -25,17 +25,17 @@
               <div class="form-group">
                 <input type="hidden" value="<?php echo $row->loc_id; ?>" name="loc_id">
                 <label for="">Name</label>
-                <input type="text" class="form-control" value="<?php echo $row->loc_name; ?>" id="name" name="name" >
+                <input type="text" class="form-control" value="<?php echo $row->loc_name; ?>" id="name" name="name" required="" >
               </div>
               <br>
               <div class="form-group">
                 <label for="">Description</label>
-                <input type="text" class="form-control"  value="<?php echo $row->description; ?>"  id="des"  name="description">
+                <input type="text" class="form-control"  value="<?php echo $row->description; ?>"  id="des"  name="description" required="">
               </div>
               <br>
               <div class="form-group">
                 <label for="">Address</label>
-                <input type="text" class="form-control" value="<?php echo $row->place; ?>"  id="add"  name="address">
+                <input type="text" class="form-control" value="<?php echo $row->place; ?>"  id="add"  name="address" required="">
               </div>
               <br>
           <?php endforeach; ?>
