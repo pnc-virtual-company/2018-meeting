@@ -9,15 +9,15 @@
 ?>
 <br>
 <div class="container">
-    <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-6">
-        <div class="">
-          <div class="text-center">
-            <h3>Edit Location</h3>
-          </div>  
-              
-          <?php foreach ($listUpdatelocation as $row): ?>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="">
+        <div class="text-center">
+          <h3 style="text-align: center;">Edit Location</h3>
+        </div>  
+
+        <?php foreach ($listUpdatelocation as $row): ?>
 
 
           <div class="card-body">
@@ -38,9 +38,10 @@
                 <input type="text" class="form-control" value="<?php echo $row->place; ?>"  id="add"  name="address" required="">
               </div>
               <br>
+
           <?php endforeach; ?>
               
-              <button type="submit" class="btn btn-success">Update Location</button>
+              <button type="submit" class="btn btn-info">Update Location</button>
               <a href="<?php echo base_url(); ?>welcome/location" class="btn btn-danger float-right">
           <i class="mdi mdi-cancel "></i>&nbsp;Cancel
         </a>
@@ -49,15 +50,24 @@
           
           
 
+            <?php endforeach; ?>
+
+
+            <button type="submit" class="btn btn-success">Update Location</button>
+            <a href="<?php echo base_url(); ?>welcome/location" class="btn btn-danger float-right">
+              <i class="mdi mdi-cancel "></i>&nbsp;Cancel
+            </a>
+          </form>
         </div>
       </div>
-      <div class="col-md-3"></div>
-      
     </div>
-    
+    <div class="col-md-3"></div>
+
   </div>
 
+</div>
 
 
 
-  
+
+
