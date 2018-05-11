@@ -2,7 +2,18 @@
 <div id="container">
 <div class="row-fluid">
 <div class="col-12">
-<h2><?php echo $this->input->get('loc_name'); ?>&nbsp;Meeting Rooms</h2>
+
+    &nbsp;&nbsp;
+    <button class="btn btn-primary"><a href="<?php echo base_url(); ?>welcome/create_room?loc_id=<?php error_reporting(0); echo $this->input->get('loc_id'); ?>&loc_name=<?php echo  $this->input->get('loc_name'); ?>" class="text-center">
+        <i style="color: #fff" class="mdi mdi-plus-circle" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Create a room</span>
+      </a>
+      </button>&nbsp;
+      <button class="btn btn-primary"><a href="<?php echo base_url(); ?>welcome/getExportFile" class="text-center">
+        <i style="color: #fff" class="mdi mdi-file-export" data-toggle="tooltip" title="Export the list of room"></i><span style="color: #fff">&nbsp; Export list</span>
+      </a>
+      </button>
+
+<h2 style="text-align: center;"><?php echo $this->input->get('loc_name'); ?>&nbsp;Meeting Rooms</h2>
 <table id="list_room" cellpadding="0" cellspacing="0" class="table table-striped table-bordered" width="100%">
      <thead>
          <tr>
@@ -20,9 +31,9 @@
             <tr>
                 <td>
                  &nbsp;
-                   <a href="<?php echo base_url(); ?>welcome/delete_room?$room_id=<?php echo $row->room_id; ?>" data-toggle="modal" data-target="#<?php echo $row->room_id; ?>" title="Delete this room"><i class="mdi mdi-delete"></i></a>
+                   <a href="<?php echo base_url(); ?>welcome/delete_room?room_id=<?php echo $row->room_id; ?>" data-toggle="modal" data-target="#<?php echo $row->room_id; ?>" title="Delete this room"><i class="mdi mdi-delete"></i></a>
                    <a href="<?php echo base_url(); ?>welcome/update_room?room_id=<?php echo $row->room_id; ?>" title="Update room information"><i class="mdi mdi-pencil"></i></a>
-                   <a href="<?php echo base_url(); ?>welcome/book_meeting?loc_id=<?php error_reporting(0); echo $this->input->get('loc_id'); ?>&loc_name=<?php echo  $this->input->get('loc_name'); ?>" title="Make a reservation"><i class="mdi mdi-notebook"></i></a>            
+                   <a href="<?php echo base_url(); ?>welcome/book_meeting?loc_id=<?php error_reporting(0); echo $this->input->get('loc_id'); ?>&loc_name=<?php echo  $this->input->get('loc_name'); ?>&room_id=<?php echo $row->room_id;?>" title="Make a reservation"><i class="mdi mdi-notebook"></i></a>            
                    <a href="<?php echo base_url(); ?>welcome/fullCalendar" title="Room calendar"><i class="mdi mdi-table-large"></i></a>            
                    <a href="<?php echo base_url(); ?>welcome/room_availability?room_id=<?php echo $row->room_id; ?>" title="Room availability"><i class="mdi mdi-check"></i></a>        
                   <a href="<?php echo base_url(); ?>welcome/list_room?room_id=<?php echo $row->room_id; ?>" title="View room location" data-toggle="modal" data-target="#location<?php echo $row->room_id; ?>"><i class="mdi mdi-source-commit-start"></i></a>
@@ -89,22 +100,7 @@
      </tbody>        
      </table>
     </div>
-  
 
-<div class="row-fluid">
-  <div class="col-12">
-    &nbsp;&nbsp;
-    <button class="btn btn-primary"><a href="<?php echo base_url(); ?>welcome/create_room?loc_id=<?php error_reporting(0); echo $this->input->get('loc_id'); ?>&loc_name=<?php echo  $this->input->get('loc_name'); ?>" class="text-center">
-        <i style="color: #fff" class="mdi mdi-plus-circle" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Create a room</span>
-      </a>
-      </button>&nbsp;
-      <button class="btn btn-primary"><a href="<?php echo base_url(); ?>welcome/getExportFile" class="text-center">
-        <i style="color: #fff" class="mdi mdi-file-export" data-toggle="tooltip" title="Export the list of room"></i><span style="color: #fff">&nbsp; Export list</span>
-      </a>
-      </button>
-  </div>
-</div>
-  <!-- button create location -->
 </div>
 </div>
 
