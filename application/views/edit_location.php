@@ -53,7 +53,11 @@
             <?php endforeach; ?>
 
 
+            <button type="submit" class="btn btn-info">Update Location</button>
+
+
             <button type="submit" class="btn btn-success">Update Location</button>
+
             <a href="<?php echo base_url(); ?>welcome/location" class="btn btn-danger float-right">
               <i class="mdi mdi-cancel "></i>&nbsp;Cancel
             </a>
