@@ -367,10 +367,10 @@ public function selectManager(){
     return  $query->result();
 }
 
-public function selectUpdateRoom($user_id){
+public function selectUpdateRoom($room_id){
     
     $this->db->select('*');
-    $this->db->where('user_id', $user_id);
+    $this->db->where('room_id', $room_id);
     $query = $this->db->get('tbl_rooms');
 
     return  $query->result();
@@ -428,6 +428,25 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
         );
        
         $result = $this->db->insert('tbl_rooms',$data);
+        return $result;
+    }
+    //by maryna.PHOAN
+    public function update_rooms($room,$floor,$description,$manager,$loc_id,$room_id){            
+        
+        $data = array('upload_data' => $this->upload->data());
+        $photo = $this->upload->data()['file_name']; // Get image name
+        // var_dump($room,$floor,$description,$manager,$loc_id,$room_id);die();
+        $data = array(
+            'room_name' =>$room, 
+            'floor' =>$floor,   
+            'description' =>$description,
+            'user_id' => $manager,
+            'loc_id' => $loc_id,
+            'status' => 1,   
+            'room_image' => $photo    
+        );
+        $this->db->where('room_id', $room_id);
+        $result = $this->db->update('tbl_rooms',$data);
         return $result;
     }
     //edit user by Chhunhak.chhoeung

@@ -107,15 +107,51 @@ class Welcome extends CI_Controller {
 	public function update_room(){
 		$this->load->model('Users_model');
 		$location['list_location'] = $this->Users_model->selectLocation();
-		$user_id = $this->input->get('user_id');
+		$room_id = $this->input->get('room_id');
 		$this->load->view('template/header');
 		$this->load->view('template/left_sidebar', $location);
 		$this->load->model('Users_model');
-		$data['update_room'] = $this->Users_model->selectUpdateRoom($user_id);
-		// $data['manager'] = $this->Users_model->selectManager();
+		$data['update_room'] = $this->Users_model->selectUpdateRoom($room_id);
+		$data['manager'] = $this->Users_model->selectManager();
 		$this->load->view('update_room',$data);
 		$this->load->view('template/footer');
 	}
+	public function update_rooms(){
+
+		$room = $this->input->post("name");
+		$floor = $this->input->post("floor");
+		$manager = $this->input->post("manager");
+		$room_id = $this->input->get('room_id');
+		$loc_id = $this->input->get('loc_id');
+		$description = $this->input->post("description");
+		$config['upload_path']          = './assets/images/room/';
+		$config['allowed_types']        = 'gif|jpg|png';
+		$config['max_size']             = 10000;
+		$config['max_width']            = 10024;
+		$config['max_height']           = 7068;
+
+		$this->load->library('upload', $config);		    
+
+		if ( ! $this->upload->do_upload('photo'))
+		{
+			echo $this->upload->display_errors();
+		}else{
+		       // $this->load->model('Dishes_model');
+		        // $data['dishes'] = $this->Dishes_model->insert_img();
+			if($config){
+				echo "upload success";
+			}
+		}
+		$this->load->model('Users_model');
+		$data= $this->Users_model->update_rooms($room,$floor,$description,$manager,$loc_id, $room_id);
+		
+		if ($data == 'true') {
+			$this->list_room();
+		}else{
+			echo "Data not insert";
+		}
+	}
+
 	// Edited location by Maryna.PHORN
 	public function update_locations(){
 		$name = $this->input->post("name");
