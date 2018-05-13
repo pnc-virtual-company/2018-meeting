@@ -48,12 +48,10 @@
 
 						<div>
 							<button class="btn btn-primary" type="submit" name="send" value="login">
-								<i style="color: #fff" class="mdi mdi-check" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; update </span>
+								<i style="color: #fff" class="mdi mdi-check" data-toggle="tooltip"></i><span style="color: #fff">&nbsp; update </span>
 							</button>
-
 							<a href="<?php echo base_url(); ?>welcome/list_room?loc_id=<?php echo $this->input->get('loc_id'); ?>&loc_name=<?php echo $this->input->get('room_name'); ?>" class="btn btn-danger float-right">
-								<i class="mdi mdi-cancel "></i>&nbsp;Cancel
-							</a>
+								<i class="mdi mdi-cancel "></i>&nbsp;Cancel</a>
 						</div>
 					</div>
 				</form>
