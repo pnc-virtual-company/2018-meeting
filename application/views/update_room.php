@@ -50,8 +50,15 @@
 							<button class="btn btn-primary" type="submit" name="send" value="login">
 								<i style="color: #fff" class="mdi mdi-check" data-toggle="tooltip"></i><span style="color: #fff">&nbsp; update </span>
 							</button>
+<<<<<<< HEAD
 							<a href="<?php echo base_url(); ?>welcome/list_room?loc_id=<?php echo $this->input->get('loc_id'); ?>&loc_name=<?php echo $this->input->get('room_name'); ?>" class="btn btn-danger float-right">
 								<i class="mdi mdi-cancel "></i>&nbsp;Cancel</a>
+=======
+
+							<a href="<?php echo base_url(); ?>welcome/list_room?loc_id=<?php echo $this->input->get('loc_id'); ?>&loc_name=<?php echo $this->input->get('loc_name'); ?>" class="btn btn-danger float-right">
+								<i class="mdi mdi-cancel "></i>&nbsp;Cancel
+							</a>
+>>>>>>> 87155610f952757b7dffeeff8f987d5cc6df0867
 						</div>
 					</div>
 				</form>
