@@ -3,10 +3,9 @@
 	<div class="row-fluid">
 		<div class="col-12">
       <div class="row-fluid">
-          &nbsp;
-          &nbsp;
-          <a href="<?php echo base_url(); ?>welcome/create_location" class="btn btn-primary"><i class="mdi mdi-plus"></i>&nbsp;Create Location</a>
           <h2 style="text-align: center;">Location</h2>
+          <a href="<?php echo base_url(); ?>welcome/create_location" class="btn btn-primary"><i class="mdi mdi-plus"></i>&nbsp;Create Location</a>
+          <br> <br>
       </div>
       <table id="location" class="table table-striped table-bordered  " width="100%">
         <thead>

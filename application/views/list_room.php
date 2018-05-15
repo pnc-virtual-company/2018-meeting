@@ -1,6 +1,8 @@
 <br>
 <div id="container">
   <div class="row-fluid">
+
+  <h2 style="text-align: center;"><?php echo $this->input->get('loc_name'); ?>&nbsp;Meeting Rooms</h2>
     <div class="col-12">
 
       &nbsp;&nbsp;
@@ -12,8 +14,7 @@
       <i style="color: #fff" class="mdi mdi-file-export" data-toggle="tooltip" title="Export the list of room"></i><span style="color: #fff">&nbsp; Export list</span>
     </a>
   </button>
-
-  <h2 style="text-align: center;"><?php echo $this->input->get('loc_name'); ?>&nbsp;Meeting Rooms</h2>
+  <br><br>
   <table id="list_room" cellpadding="0" cellspacing="0" class="table table-striped table-bordered" width="100%">
    <thead>
      <tr>
