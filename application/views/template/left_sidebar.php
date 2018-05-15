@@ -37,18 +37,18 @@
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar">
   <ul class="app-menu" id="menu_leftsidebar">
-    <li><a class="app-menu__item" href="#"><i class="app-menu__icon mdi mdi-book-open-page-variant mdi-24px"></i><span class="app-menu__label">&nbsp;Booking Room</span></a></li>
+    <li><a class="app-menu__item" href="#"><i class="app-menu__icon mdi mdi-book-open-page-variant mdi-24px"></i><span class="app-menu__label">&nbsp;Book Rooms</span></a></li>
     
     <!-- <li><a class="app-menu__item active" href="<?php// echo base_url(); ?>welcome/"><i class="app-menu__icon mdi mdi-map mdi-light mdi-24px"></i><span class="app-menu__label">Location</span></a></li> -->
    
-   <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon mdi mdi-account-multiple mdi-light mdi-24px"></i><span class="app-menu__label">Meeting Rooms</span><i class="treeview-indicator mdi mdi-arrow-right-drop-circle-outline"></i></a>
+   <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon mdi mdi-account-multiple mdi-light mdi-24px"></i><span class="app-menu__label">&nbsp;Meeting Rooms</span><i class="treeview-indicator mdi mdi-arrow-right-drop-circle-outline"></i></a>
      <ul class="treeview-menu" style="background-color: #026aab;">
       <?php foreach ($list_location as $row): ?>
           <li><a class="treeview-item" href="<?php echo base_url(); ?>welcome/list_room?loc_id=<?php echo $row->loc_id; ?>&loc_name=<?php echo $row->loc_name; ?>"><i class="mdi mdi-map-marker"></i>&nbsp;<?php echo $row->loc_name; ?>&nbsp;</a></li>
       <?php endforeach ?>
     </ul>
    </li>
-    <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/select_room_request"><i class="app-menu__icon mdi mdi-content-paste mdi-light mdi-24px"></i><span class="app-menu__label">My Reservation</span></a></li>
+    <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/select_room_request"><i class="app-menu__icon mdi mdi-content-paste mdi-light mdi-24px"></i><span class="app-menu__label">My Reservations</span></a></li>
  
     <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/request_validate"><i class="app-menu__icon mdi mdi-repeat mdi-light mdi-24px"></i><span class="app-menu__label">Request</span></a></li>
 
