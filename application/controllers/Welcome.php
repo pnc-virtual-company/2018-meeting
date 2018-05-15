@@ -103,7 +103,7 @@ class Welcome extends CI_Controller {
 		$this->load->view('template/footer');
 
 	}
-	// Update a room by samreth.SAROEURT
+	// Update a room by Maryna.PHORN
 	public function update_room(){
 		$this->load->model('Users_model');
 		$location['list_location'] = $this->Users_model->selectLocation();

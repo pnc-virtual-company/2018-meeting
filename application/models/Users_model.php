@@ -430,7 +430,7 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
         $result = $this->db->insert('tbl_rooms',$data);
         return $result;
     }
-    //by maryna.PHOAN
+    //Update Room by maryna.PHOAN
     public function update_rooms($room,$floor,$description,$manager,$loc_id,$room_id){            
         
         $data = array('upload_data' => $this->upload->data());
