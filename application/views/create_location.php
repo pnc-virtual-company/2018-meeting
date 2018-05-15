@@ -7,10 +7,18 @@
  * @since      0.1.0
  */
 ?>
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- need this style for autocomplete search -->
+<style>
+.pac-container {
+    z-index: 99999;
+}
+</style>
 
-<script type="text/javascript" src='https://maps.google.com/maps/api/js?key=AIzaSyDfX9vIQIDd8hKzMklGdZKlIaBouSGUoek&callback=places'></script>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBAjaIzPJQY_nrDt5zi2ayk1BfeQOHo7Kk&sensor=false&libraries=places"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/map-plugin/dist/locationpicker.jquery.js"></script>
 <br>
 <div class="container">
     <div class="row">
