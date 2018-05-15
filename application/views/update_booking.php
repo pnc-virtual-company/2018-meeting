@@ -5,7 +5,7 @@
  		<div class="col-md-6">
  			<?php foreach ($request_update as $rows): ?>
  			<?php endforeach; ?>
- 			<h2 class="text-center">Make A Reservation</h2><br>
+ 			<h2 class="text-center">Update A Reservation</h2><br>
  			<form action="<?php echo base_url();?>Welcome/update_request" method="post">
  				<div class="form-group row">
  					<label for="example-time-input" class="col-2 col-form-label">Date:</label>
