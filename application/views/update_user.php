@@ -38,7 +38,7 @@
                   <input type="text" class="form-control" value="<?php echo $row->role; ?>"  id="add"  name="role">
                 </div>
               <?php endforeach; ?>
-              <button type="submit" class="btn btn-success">Update User</button>
+              <button type="submit" class="btn btn-primary">Update User</button>
               <a href="<?php echo base_url(); ?>welcome/listAllUsers" class="btn btn-danger float-right">
                 <i class="mdi mdi-cancel "></i>&nbsp;Cancel
               </a>
