@@ -5,11 +5,10 @@
  * General styles
  */
 body, html {
-    height: 100%;
+    overflow: hidden;
     background-repeat: no-repeat;
-    background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
+    background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));z
 }
-
 .card-container.card {
     max-width: 350px;
     padding: 40px 40px;
@@ -83,7 +82,7 @@ body, html {
 .form-signin #inputEmail,
 .form-signin #inputPassword {
     direction: ltr;
-    height: 44px;
+    height: 37px;
     font-size: 16px;
 }
 
