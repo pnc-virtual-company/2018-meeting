@@ -38,24 +38,16 @@
                 <label for="pwd">Description</label>
                 <input type="text" class="form-control" id="pwd"  name="des" required="">
             </div>
+
             <div class="form-group">
                 <label for="pwd">Address</label>
-                <input type="text" class="form-control"  name="address" required="">
-            </div>
-            <div class="form-group">
-                <label for="pwd">Embed URL Map</label>
-                <input type="button" class="form-control"  data-target="#us6-dialog" data-toggle="modal" name="embed_url_map" required="">
+                <input type="text" class="form-control"  data-target="#us6-dialog" data-toggle="modal" name="address" id="address" value="">
             </div>
             <button type="submit" class="btn btn-info">Create Location</button>
             <a href="<?php echo base_url(); ?>welcome/location" class="btn btn-danger float-right">
                 <i class="mdi mdi-cancel "></i>&nbsp;Cancel
             </a>
-        </form>
-    </div>
-</div>
-</div>
-<div class="col-md-3"></div>
-<div id="us6-dialog" class="modal fade">
+            <div id="us6-dialog" class="modal fade">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -66,7 +58,7 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label">Location:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="us3-address" />
+                        <input type="text" name="address" class="form-control" id="us3-address" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -81,11 +73,11 @@
                 <div class="m-t-small">
                     <label class="p-r-small col-sm-1 control-label">Lat.:</label>
                     <div class="col-sm-3">
-                        <input type="text" class="form-control" style="width: 110px" id="us3-lat" />
+                        <input type="hidden" class="form-control" style="width: 110px" id="us3-lat" />
                     </div>
                     <label class="p-r-small col-sm-2 control-label">Long.:</label>
                     <div class="col-sm-3">
-                        <input type="text" class="form-control" style="width: 110px" id="us3-lon" />
+                        <input type="hidden" class="form-control" style="width: 110px" id="us3-lon" />
                     </div>
                 </div>
                 <div class="clearfix"></div>
@@ -113,13 +105,19 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="getaddress">Save changes</button>
             </div>
         </div>
         <!-- /.modal-content -->
     </div>
     <!-- /.modal-dialog -->
 </div>
+        </form>
+    </div>
+</div>
+</div>
+<div class="col-md-3"></div>
+
 </div>
 
 </div>

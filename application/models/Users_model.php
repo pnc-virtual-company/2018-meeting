@@ -441,13 +441,13 @@ class Users_model extends CI_Model {
         
 
     //Update by Chhunhak.CHHOEUNG
-    public function add_location($name, $des, $add,$embed_url_map){
+    public function add_location($name, $des, $add){
         
         $data = array(
             'loc_name' =>$name, 
             'description' =>$des,  
-            'place' =>$add,
-            'embed_url_map' => $embed_url_map
+            'address' =>$add,
+            
         );
         $result = $this->db->insert('tbl_locations',$data);
         return $result;
@@ -517,7 +517,7 @@ class Users_model extends CI_Model {
                 $edit = array(
                     'loc_name' =>$name, 
                     'description' =>$des,   
-                    'place' =>$add   
+                    'address' =>$add   
                 );
                 $this->db->where('loc_id', $loc_id);
                 $result = $this->db->update('tbl_locations', $edit);

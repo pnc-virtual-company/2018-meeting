@@ -14,6 +14,10 @@
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
      <script>
+        $('#getaddress').click(function(){
+            var address = $('#us3-address').val();
+            $('#address').attr('value',address);
+        });
         $(function(){
             $('#btn-primary').click(function(){
                 var sdate = $('#sdate').val();
