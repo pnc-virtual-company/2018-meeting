@@ -1,7 +1,7 @@
 
 <!-- Navbar-->
 <header class="app-header"><a class="app-header__logo" href="<?php echo base_url(); ?>/normal/location"><img src="<?php echo base_url(); ?>assets/images/logo.png" alt="" style="max-width:100%; height:auto;"></a>
-  <!-- Sidebar toggle button--><a class="app-sidebar__toggle mdi mdi-menu mdi-24px" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+  <!-- Sidebar toggle button--><a class="app-sidebar__toggle mdi mdi-menu mdi-24px" href="#" data-toggle="sidebar" aria-label="Hide Sidebar" id="hide_menu" style="display: none;"></a>
   <!-- Navbar Right Menu-->
   <ul class="app-nav">
     <!--Notification Menu-->

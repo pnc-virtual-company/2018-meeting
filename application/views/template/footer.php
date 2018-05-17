@@ -14,10 +14,24 @@
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
      <script>
+
         $('#getaddress').click(function(){
             var address = $('#us3-address').val();
             $('#address').attr('value',address);
         });
+
+        
+        $(window).resize(function() {
+          if ($(window).width() < 768) {
+            $("#hide_menu").show();
+          }
+         else {
+           $("#hide_menu").hide();
+         }
+        });
+
+
+
         $(function(){
             $('#btn-primary').click(function(){
                 var sdate = $('#sdate').val();
