@@ -116,8 +116,8 @@ class Welcome extends CI_Controller {
 		$this->load->view('update_room',$data);
 		$this->load->view('template/footer');
 	}
+	// Update a room by Maryna.PHORN
 	public function update_rooms(){
-
 		$room = $this->input->post("name");
 		$floor = $this->input->post("floor");
 		$manager = $this->input->post("manager");
