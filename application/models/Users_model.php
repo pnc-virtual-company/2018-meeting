@@ -421,8 +421,7 @@ class Users_model extends CI_Model {
                 'floor' =>$floor,   
                 'description' =>$description,
                 'user_id' => $manager,
-                'loc_id' => $loc_id,
-                'status' => 1,   
+                'loc_id' => $loc_id,   
                 'sta_id' => 1,   
                 'room_image' => $photo    
             );
