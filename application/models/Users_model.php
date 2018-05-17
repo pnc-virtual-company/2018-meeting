@@ -423,6 +423,7 @@ class Users_model extends CI_Model {
                 'user_id' => $manager,
                 'loc_id' => $loc_id,
                 'status' => 1,   
+                'sta_id' => 1,   
                 'room_image' => $photo    
             );
             $this->db->where('room_id', $room_id);
