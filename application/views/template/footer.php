@@ -5,6 +5,10 @@
     <script src="<?php echo base_url();?>assets/js/popper-1.12.9..min.js"></script>
     <script src="<?php echo base_url();?>assets/bootstrap-4.0.0/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/main.js"></script>
+    
+    <script src="<?php echo base_url(); ?>assets/js/jquery.timepicker.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery.datepair.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/datepair.min.js"></script>
 
     <script src="<?php echo base_url(); ?>/assets/js/front.js"></script>
     <script src="<?php echo base_url();?>assets/bootstrap-datepicker-1.7.1/js/bootstrap-datepicker.min.js"></script>
@@ -62,7 +66,17 @@
                             e.preventDefault();
                     }          
                 });
-               
+          
+         // initialize input widgets first
+            $('#datepairExample .time').timepicker({
+                'showDuration': true,
+                'timeFormat': 'g:ia'
+            });
+
+            
+
+            // initialize datepair
+            $('#datepairExample').datepair();     
         $('#datetimepicker1').datetimepicker({
                 format: 'YYYY-MM-DD',
 
@@ -77,12 +91,7 @@
         });
         $('#datetimepicker2').datetimepicker({
                 format: 'YYYY-MM-DD',
-                // icons: {
-                //     time: "mdi mdi-clock mdi-36px",
-                //     date: "mdi mdi-calendar-clock mdi-36px",
-                //     up: "mdi mdi-arrow-up-bold mdi-24px",
-                //     down: "mdi mdi-arrow-down-bold mdi-24px"
-                // }
+
         });
       var date_input=$('input[name="date"]'); //our date input has the name "date"
       var container=$('.form-inline').length>0 ? $('.form-inline').parent() : "body";
