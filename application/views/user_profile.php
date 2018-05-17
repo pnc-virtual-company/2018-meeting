@@ -13,9 +13,6 @@
     z-index: 99999;
 }
 </style>
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
 <br>
 <div class="container">
     <div class="row">
@@ -26,13 +23,13 @@
             <h3>User Profile</h3>
         </div>
         <div class="card-body">
-            <form method="POST" action="<?php echo base_url(); ?>welcome/insert_location">
+            <form method="POST" action="">
               <div class="form-group">
                 <label for="name">First Name</label>
                 <input type="text" class="form-control" id="name" name="name" required="" placeholder="Enter your firstname">
             </div>
             <div class="form-group">
-                <label for="lastname">Last Name</label>
+                <label for="lname">Last Name</label>
                 <input type="text" class="form-control" id="lname"  name="lname" required="" placeholder="Enter your lastname">
             </div>
             <div class="form-group">
@@ -45,11 +42,11 @@
             </div>
             <div class="form-group">
                 <label for="pwd">Password</label>
-                <input type="text" class="form-control"  name="pwd" required="" placeholder="Enter your password">
+                <input type="password" class="form-control"  name="pwd" required="" placeholder="Enter your password">
             </div>
-            <button type="submit" class="btn btn-info">Save</button>
-          <!--   <a href="<?php echo base_url(); ?>welcome/location" class="btn btn-danger float-right">
-                <i class="mdi mdi-cancel "></i>&nbsp;Cancel -->
+            <button type="submit" class="btn btn-info">Login</button>
+            <a href="<?php echo base_url(); ?>welcome/location" class="btn btn-danger float-right">
+                <i class="mdi mdi-cancel "></i>&nbsp;Cancel
             </a>
         </form>
     </div>

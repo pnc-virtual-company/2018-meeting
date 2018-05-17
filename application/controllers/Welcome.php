@@ -457,4 +457,10 @@ class Welcome extends CI_Controller {
 			$users = $this->users_model->getExportFile();
 			$this->load->view('export', $users);
 		}
+		public function user_profile(){		
+			$this->load->view('template/header');
+			$this->load->view('template/left_sidebar');
+			$this->load->view('user_profile');
+			$this->load->view('template/footer');
+		}
 }
