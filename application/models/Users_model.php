@@ -485,7 +485,7 @@ class Users_model extends CI_Model {
             return $result;
         }
         //Booking room request By Samreth.SAROEURT
-        public function  booking_room($note,$date,$startHour,$startMin,$endHour,$endMin,$user_id,$room_id){
+        public function  booking_room($note,$date,$start,$end,$user_id,$room_id){
 
                 // var_dump($room_id);die();
                 $sdate = substr($date,0,-3);
@@ -494,8 +494,8 @@ class Users_model extends CI_Model {
                 $data = array(
                     'book_description' =>$note,     
                     'Date' =>$date, 
-                    'Start' =>$startHour.':'.$startMin,   
-                    'End' =>$endHour.':'.$endMin,   
+                    'Start' =>$start,   
+                    'End' =>$end,   
                     'user_id' => $user_id,
                     'room_id' => $room_id,
                     'sta_id' => 1
@@ -552,11 +552,11 @@ class Users_model extends CI_Model {
                 return $users->result();
             }
         // update list booking request by Samreth.SAROEURT 
-        function update_request($date,$startHour,$startMin,$endHour,$endMin,$note,$book_id){
+        function update_request($date,$start,$end,$note,$book_id){
             $edit = array(
                 'Date' =>$date, 
-                'Start' =>$startHour.':'.$startMin,   
-                'End' =>$endHour.':'.$endMin,   
+                'Start' =>$start,   
+                'End' =>$end,   
                 'book_description' =>$note     
                 
             );

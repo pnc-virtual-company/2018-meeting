@@ -17,74 +17,19 @@
                     	</div>
                 	</div>
 				  </div>
-				</div><br>
+				</div><br><br>
 				
-				<div class="form-group row">
-				  <label for="example-time-input" class="col-2 col-form-label">From:</label>
-				  <div class="col-5">
-				    <select class="custom-select" name="startHour">
-				      
-				      <option value="7">7</option>
-				      <option value="8">8</option>
-				      <option value="9">9</option>
-				      <option value="10">10</option>
-				      <option value="11">11</option>
-				      <option value="12">12</option>
-				      <option value="13">13</option>
-				      <option value="14">14</option>
-				      <option value="15">15</option>
-				      <option value="16">16</option>
-				      <option value="17">17</option>
-				      <option value="18">18</option>
-				      <option value="19">19</option>
-				      <option value="20">20</option>
-				      <option value="21">21</option>
-				      <option value="22">22</option>
-				    </select>
+				<div class="form-group row" id="datepairExample">
+				  <label for="example-time-input" class="col-2 col-form-label">Start:</label>
+				  <div class="col-5">	         
+				      <input type="text" name="start" class="time start form-control" />    
 				  </div>
-				  <label for="example-time-input" class="col-1 col-form-label">:</label>
+				  <label for="example-time-input" class="col-1 col-form-label">End:</label>
 				  <div class="col-4">
-				    <select class="custom-select" name="startMin">
-				      <option value="00">00</option>
-				      <option value="15">15</option>
-				      <option value="30">30</option>
-				      <option value="45">45</option>
-				    </select>
+				   	<input type="text" name="end" class="time end form-control" />
 				  </div>
-				</div><br>
-				<div class="form-group row">
-				  <label for="example-time-input" class="col-2 col-form-label">To:</label>
-				  <div class="col-5">
-				    <select class="custom-select" name="endHour">
-				       <option value="7">7</option>
-				      <option value="8">8</option>
-				      <option value="9">9</option>
-				      <option value="10">10</option>
-				      <option value="11">11</option>
-				      <option value="12">12</option>
-				      <option value="13">13</option>
-				      <option value="14">14</option>
-				      <option value="15">15</option>
-				      <option value="16">16</option>
-				      <option value="17">17</option>
-				      <option value="18">18</option>
-				      <option value="19">19</option>
-				      <option value="20">20</option>
-				      <option value="21">21</option>
-				      <option value="22">22</option>
-				    </select>
-				  </div>
-				  <label for="example-time-input" class="col-1 col-form-label">:</label>
-				  <div class="col-4">
-				    <select class="custom-select" name="endMin">
-				    <option value="00">00</option>
-				      <option value="15">15</option>
-				      <option value="30">30</option>
-				      <option value="45">45</option>
-				    </select>
-				  </div>
-				</div><br>
-				
+				</div><br><br>
+
 				<div class="form-group row">
 				  <label for="example-time-input" class="col-2 col-form-label">Note:</label>
 				  <div class="col-10">

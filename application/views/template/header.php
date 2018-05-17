@@ -9,6 +9,7 @@
     <meta name="robots" content="all,follow">
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/jquery.timepicker.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/bootstrap-4.0.0/css/bootstrap.min.css">
     <!-- Font Awesome CSS-->
     <!-- Custom stylesheet - for your changes-->
