@@ -15,23 +15,10 @@ class Connection extends CI_Controller {
 	 * Login form of the application
 	 * @author Benjamin BALET <benjamin.balet@gmail.com>
 	 */
-	public function index(){
-		$this->session;
-		$login = $this->session->login;
-		$password = $this->session->password;
-
-		$this->load->model('users_model');
-		if ($this->users_model->checkSession($login, $password) == 'true') {
-			if ($this->session->role == 1) {
-				redirect('welcome');
-			}else if ($this->session->role == 2) {
-				redirect('normal');
-			}
-		}else{
-			$this->login();
-		}
+	public function index()
+	{
+		$this->login();
 	}
-	// Add page login by maryna.
 	public function login()
 	{
 		$this->load->helper('form');
@@ -50,17 +37,13 @@ class Connection extends CI_Controller {
 			$login = $this->input->post('login');
 			$password = $this->input->post('password');
 			if ($this->users_model->checkCredentials($login, $password)) {
-				log_message('debug', 'Received good credentials for user #' . $this->session->userdata('user_id'));
+				log_message('debug', 'Received good credentials for user #' . $this->session->userdata('id'));
 				if ($this->session->userdata('last_page') != '') {
 					log_message('debug', 'last_page set. Redirect to ' . $this->session->userdata('last_page'));
 					redirect($this->session->userdata('last_page'));
 				} else {
 					log_message('debug', 'Not last_page set. Redirect to the home page');
-					if ($this->session->role == 1) {
-						redirect('welcome');
-					}else if ($this->session->role == 2) {
-						redirect('normal');
-					}
+					redirect('welcome');
 				}
 			} else {
 				log_message('error', 'Invalid credentials for user ' . $this->input->post('login'));
@@ -69,36 +52,7 @@ class Connection extends CI_Controller {
 			}
 		}
 	}
-// Danet THORNG
-	// public function register(){
-	//     $this->load->view('templates/header');
-	//     $this->load->model('Users_model');
-	//     $userRole['role'] = $this->Users_model->getRole();
-	//     $this->load->view('register',$userRole);
-	//     $this->load->view('templates/footer');
-	// }
-	public function reset_pwd(){
-	    $this->load->view('templates/header');
-	    $this->load->view('reset_pwd');
-	    $this->load->view('templates/footer');
-	}
-	public function new_pwd(){
-	    $this->load->view('templates/header');
-	    $this->load->view('new_pwd');
-	    $this->load->view('templates/footer');
-	}
-	//Danet THORNG
-	// public function CreateNewUser()
-	// 	{
-	// 		$this->load->model('Users_model');
-	// 		$data = $this->Users_model->setUsers();
-	// 		if ($data == 'true') {
-	// 			redirect('welcome');
-	// 		}else{
-	// 			echo "Cannot login";
-	// 		}
-	// 		// $result = $this->load->view('login',$data);
-	// 	}
+
 	/**
 	 * Logout endpoint. Destroy the PHP session
 	 * @author Benjamin BALET <benjamin.balet@gmail.com>
@@ -107,6 +61,6 @@ class Connection extends CI_Controller {
 	{
 		log_message('debug', 'Logout current user and redirect to the home page');
 		$this->session->sess_destroy();
-		redirect('welcome');	
+		redirect('welcome');
 	}
 }
