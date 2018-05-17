@@ -29,7 +29,8 @@
             </td>
             <td><?php echo $row->loc_name; ?></td>
             <td><?php echo $row->description; ?></td>
-            <td><?php echo $row->place; ?></td>    
+            <td><?php echo $row->address
+            ; ?></td>    
             <div class="modal fade" id="<?php echo $row->loc_id; ?>">
              <div class="modal-dialog modal-lg">
                <div class="modal-content">
