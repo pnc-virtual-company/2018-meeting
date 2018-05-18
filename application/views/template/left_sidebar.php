@@ -37,7 +37,7 @@
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar">
   <ul class="app-menu" id="menu_leftsidebar">
-    <li><a class="app-menu__item" href="#"><i class="app-menu__icon mdi mdi-book-open-page-variant mdi-24px"></i><span class="app-menu__label">&nbsp;Book Rooms</span></a></li>
+    <li><a class="app-menu__item" href="#"><i class="app-menu__icon mdi mdi-book-open-variant mdi-24px"></i><span class="app-menu__label">&nbsp;Book Rooms</span></a></li>
     
     <!-- <li><a class="app-menu__item active" href="<?php// echo base_url(); ?>welcome/"><i class="app-menu__icon mdi mdi-map mdi-light mdi-24px"></i><span class="app-menu__label">Location</span></a></li> -->
    
