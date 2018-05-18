@@ -166,7 +166,7 @@ class Welcome extends CI_Controller {
 		public function update_locations(){
 			$name = $this->input->post("name");
 			$des = $this->input->post("description");
-			$add = $this->input->post("address");
+			$add = $this->input->post("update_address");
 			$loc_id = $this->input->post("loc_id");
 			$this->load->model('Users_model');
 			$data = $this->Users_model->update_location($name,$des,$add,$loc_id);

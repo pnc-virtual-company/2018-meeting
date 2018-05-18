@@ -23,6 +23,15 @@
             var address = $('#us3-address').val();
             $('#address').attr('value',address);
         });
+        $('#getUpdateAdd').click(function(){
+            var address = $('#us3-address').val();
+            $('#update_address').attr('value',address);
+        });
+
+         $('#update_address').click(function(){
+            var update = $('#update_address').val();
+            $('#us3-address').attr('value',update);
+        });
 
         
         $(window).resize(function() {
