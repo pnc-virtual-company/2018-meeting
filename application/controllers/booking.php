@@ -87,14 +87,16 @@
 		}
 			// Resquest validate room by thintha and Maryna. PHORN
 		public function request_validate(){
+			$user = $this->userlevel();
+			if ($user == 'admin' || $user == 'manager') {
 			$this->load->model('Users_model');
-			$location['list_location'] = $this->Users_model->selectLocation();
-			$this->load->view('template/header');
-			$this->load->view('template/left_sidebar', $location);
-			$this->load->model('Users_model');
+			$data['list_location'] = $this->Users_model->selectLocation();
 			$data['request'] = $this->Users_model->select_request_validate();
-			$this->load->view('request_validate', $data);
-			$this->load->view('template/footer');
+			$data['page'] = 'request_validate';
+			$this->load->view($user, $data);
+			}else{
+				redirect('errors/error');
+			}
 
 		}
 

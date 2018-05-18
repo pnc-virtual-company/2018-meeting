@@ -116,18 +116,7 @@ class room extends CI_Controller {
 			$this->load->view('book_meeting');
 			$this->load->view('template/footer');
 		}
-		// Resquest validate room by thintha and Maryna. PHORN
-		public function request_validate(){
-			$this->load->model('Users_model');
-			$data['list_location'] = $this->Users_model->selectLocation();
-			$this->load->view('template/header');
-			$this->load->view('template/left_sidebar', $location);
-			$this->load->model('Users_model');
-			$data['request'] = $this->Users_model->select_request_validate();
-			$this->load->view('request_validate', $data);
-			$this->load->view('template/footer');
-
-		}
+		
 		// Update a room by Maryna.PHORN
 		public function update_room(){
 			$user = $this->userlevel();
