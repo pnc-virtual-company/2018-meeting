@@ -48,11 +48,11 @@
       <?php endforeach ?>
     </ul>
    </li>
-    <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/select_room_request"><i class="app-menu__icon mdi mdi-content-paste mdi-light mdi-24px"></i><span class="app-menu__label">My Reservations</span></a></li>
+    <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/select_room_request"><i class="app-menu__icon mdi mdi-content-paste mdi-light mdi-24px"></i><span class="app-menu__label">&nbsp;My Reservations</span></a></li>
  
-    <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/request_validate"><i class="app-menu__icon mdi mdi-repeat mdi-light mdi-24px"></i><span class="app-menu__label">Request</span></a></li>
+    <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/request_validate"><i class="app-menu__icon mdi mdi-repeat mdi-light mdi-24px"></i><span class="app-menu__label">&nbsp;Request</span></a></li>
 
-    <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon mdi mdi-settings mdi-light mdi-24px"></i><span class="app-menu__label">Admin</span><i class="treeview-indicator mdi mdi-arrow-right-drop-circle-outline"></i></a>
+    <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon mdi mdi-settings mdi-light mdi-24px"></i><span class="app-menu__label">&nbsp;Admin</span><i class="treeview-indicator mdi mdi-arrow-right-drop-circle-outline"></i></a>
      <ul class="treeview-menu" style="background-color: #026aab;">
           <li><a class="treeview-item" href="<?php echo base_url(); ?>welcome/occupancyRate"><i class="mdi mdi-chart-areaspline" style="font-size: 16px;"></i>&nbsp;Occupancy Rate</a></li>
           <li><a class="treeview-item" href="<?php echo base_url(); ?>welcome/listAllUsers"><i class="mdi mdi-account " style="font-size: 16px;"></i>&nbsp;User Management</a></li>
