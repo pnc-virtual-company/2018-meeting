@@ -491,9 +491,18 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
     }
         //Booking room request By Samreth.SAROEURT
 
+    
+
+
+
     public function  booking_room($note,$date,$start,$end,$user_id,$room_id){
 
         $sdate = substr($date,0,-3);
+
+                // $edate = substr($edate,0,-3);
+                // var_dump($sdate, $edate);die();
+
+
 
         $data = array(
             'book_description' =>$note,     
@@ -508,6 +517,9 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
         $result = $this->db->insert('tbl_room_request',$data);
         return $result;
     }
+
+
+
 
         // delete list booking request by Samreth.SAROEURT
     public function select_booking($book_id){
@@ -556,8 +568,12 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
         $users = $this->db->get();
         return $users->result();
     }
+
+        
+   
  // update booking request by Samreth.SAROEURT 
     function update_request($date,$start,$end,$note,$book_id){
+
         $edit = array(
             'Date' =>$date, 
             'Start' =>$start,   
