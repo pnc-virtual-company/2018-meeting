@@ -29,7 +29,7 @@ class Welcome extends CI_Controller {
 			$this->load->model('Users_model');
 			$data['list_location'] = $this->Users_model->selectLocation();
 			$this->load->view('template/header');
-			$this->load->view('template/update_roomsleft_sidebar', $data);
+			$this->load->view('template/left_sidebar', $data);
 			$this->load->view('list_location', $data);
 			$this->load->view('template/footer');
 		// }else{
