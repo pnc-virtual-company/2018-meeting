@@ -5,7 +5,7 @@
 		<div class="col-md-3"></div>
 		<div class="col-md-6">
 			<h1 class="text-center">Edit A Room</h1>
-			<form action="<?php echo base_url();?>Welcome/update_rooms?loc_id=<?php echo $this->input->get('loc_id'); ?>&room_id=<?php echo $this->input->get('room_id'); ?>" method="post" enctype="multipart/form-data">
+			<form action="<?php echo base_url();?>room/update_rooms?loc_id=<?php echo $this->input->get('loc_id'); ?>&room_id=<?php echo $this->input->get('room_id'); ?>&loc_name=<?php echo $this->input->get('loc_name'); ?>" method="post" enctype="multipart/form-data">
 				<?php foreach ($update_room as $value): ?>
 					
 				
@@ -51,7 +51,7 @@
 								<i style="color: #fff" class="mdi mdi-check" data-toggle="tooltip"></i><span style="color: #fff">&nbsp; update </span>
 							</button>
 
-							<a href="<?php echo base_url(); ?>welcome/list_room?loc_id=<?php echo $this->input->get('loc_id'); ?>&loc_name=<?php echo $this->input->get('room_name'); ?>" class="btn btn-danger float-right">
+							<a href="<?php echo base_url(); ?>room/list_room?loc_id=<?php echo $this->input->get('loc_id'); ?>&loc_name=<?php echo $this->input->get('room_name'); ?>" class="btn btn-danger float-right">
 								<i class="mdi mdi-cancel "></i>&nbsp;Cancel</a>
 						</div>
 					</div>

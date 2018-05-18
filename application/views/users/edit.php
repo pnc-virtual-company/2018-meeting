@@ -46,7 +46,7 @@ echo form_open('users/edit/' . $users_item['id'], $attributes);
       <label class="control-label" for="role[]">Role</label>
       <select class="form-control" name="role[]" multiple="multiple" size="3">
       <?php foreach ($roles as $roles_item): ?>
-          <option value="<?php echo $roles_item['id'] ?>" <?php if ((((int)$roles_item['id']) & ((int) $users_item['role']))) echo "selected" ?>><?php echo $roles_item['name'] ?></option>
+          <option value="<?php echo $roles_item['role_id']; ?>" <?php if ((((int)$roles_item['role_id']) & ((int) $users_item['role']))) echo "selected" ?>><?php echo $roles_item['role_name']; ?></option>
       <?php endforeach ?>
       </select>
     </div>

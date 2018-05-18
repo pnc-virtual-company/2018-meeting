@@ -29,7 +29,7 @@
             <h3>Create A New Location</h3>
         </div>
         <div class="card-body">
-            <form method="POST" action="<?php echo base_url(); ?>welcome/insert_location">
+            <form method="POST" action="<?php echo base_url(); ?>location/insert_location">
               <div class="form-group">
                 <label for="loc_name">Name</label>
                 <input type="text" class="form-control" id="loc_name" name="loc_name" required="">
@@ -44,7 +44,7 @@
                 <input type="text" class="form-control"  data-target="#us6-dialog" data-toggle="modal" name="address" id="address" value="">
             </div>
             <button type="submit" class="btn btn-info">Create Location</button>
-            <a href="<?php echo base_url(); ?>welcome/location" class="btn btn-danger float-right">
+            <a href="<?php echo base_url(); ?>location" class="btn btn-danger float-right">
                 <i class="mdi mdi-cancel "></i>&nbsp;Cancel
             </a>
             <div id="us6-dialog" class="modal fade">

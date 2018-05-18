@@ -18,7 +18,30 @@ class Errors extends CI_Controller {
 		$this->load->view('errors/html/privileges', $data);
 		$this->load->view('templates/footer', $data);
 	}
-
+	public function userlevel()
+	{
+		$user = $this->session->role;
+		if ($user == 1) {
+			$page = "admin";
+			return $page;
+		}elseif ($user == 2) {
+			$page = "manager";
+			return $page;
+		}else if ($user == 3) {
+			$page = "normal";
+			return $page;
+		}else{
+			redirect('connection/login');
+		}
+	}
+	public function error()
+	{
+		$this->load->model('Users_model');
+		$data['list_location'] = $this->Users_model->selectLocation();
+		$user = $this->userlevel();
+		$data['page'] = "../errors/html/privileges";
+		$this->load->view($user, $data);
+	}
 	public function notfound()
 	{
 		$data['activeLink'] = 'home';

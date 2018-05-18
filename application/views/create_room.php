@@ -5,7 +5,7 @@
 		<div class="col-md-3"></div>
 		<div class="col-md-6">
 			<h1 class="text-center">Create A Room</h1>
-			<form action="<?php echo base_url();?>Welcome/insert_create_room?loc_id=<?php echo $this->input->get('loc_id'); ?>" method="post" enctype="multipart/form-data">
+			<form action="<?php echo base_url();?>room/insert_create_room?loc_id=<?php echo $this->input->get('loc_id'); ?>&loc_name=<?php echo $this->input->get('loc_name'); ?>" method="post" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="">Name</label>
 					<input type="text" name="name" class="form-control" required="">
@@ -49,7 +49,7 @@
 								<i style="color: #fff" class="mdi mdi-check" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Create a room</span>
 							</button>
 
-							<a href="<?php echo base_url(); ?>welcome/list_room?loc_id=<?php echo $this->input->get('loc_id'); ?>&loc_name=<?php echo $this->input->get('loc_name'); ?>" class="btn btn-danger float-right">
+							<a href="<?php echo base_url(); ?>room/list_room?loc_id=<?php echo $this->input->get('loc_id'); ?>&loc_name=<?php echo $this->input->get('loc_name'); ?>" class="btn btn-danger float-right">
 								<i class="mdi mdi-cancel "></i>&nbsp;Cancel
 							</a>
 						</div>

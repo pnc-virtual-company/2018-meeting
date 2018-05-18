@@ -33,7 +33,7 @@
 
 
           <div class="card-body">
-            <form method="POST"  action="<?php echo base_url(); ?>welcome/update_locations">
+            <form method="POST"  action="<?php echo base_url(); ?>location/update_locations">
               <div class="form-group">
                 <input type="hidden" value="<?php echo $row->loc_id; ?>" name="loc_id">
                 <label for="">Name</label>
@@ -47,80 +47,77 @@
               <br>
               <div class="form-group">
                 <label for="pwd">Address</label>
-                <input type="text" class="form-control"  data-target="#us6-dialog" data-toggle="modal" name="update_address" id="update_address" value="<?php echo $row->address; ?>"  >
+                <input type="text" class="form-control"  data-target="#us6-dialog" data-toggle="modal" name="address" value="<?php echo $row->address; ?>" required="">
             </div>
               <br>
           <?php endforeach; ?>
               
               <button type="submit" class="btn btn-success">Update Location</button>
-              <a href="<?php echo base_url(); ?>welcome/location" class="btn btn-danger float-right">
+              <a href="<?php echo base_url(); ?>location/location" class="btn btn-danger float-right">
           <i class="mdi mdi-cancel "></i>&nbsp;Cancel
         </a>
-        <div id="us6-dialog" class="modal fade">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Modal title</h4>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Location:</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="update_address" class="form-control" id="us3-address" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Radius:</label>
+              <!-- modal -->
+              <div class="modal"  id="us6-dialog">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
 
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control" id="us3-radius" />
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                          <h4 class="modal-title">Modal title</h4>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                          <div class="form-group">
+                              <label class="col-sm-2 control-label">Location:</label>
+                              <div class="col-sm-10">
+                                  <input type="text" name="address" class="form-control" id="us3-address" />
+                              </div>
+                          </div>
+                          <input type="hidden" class="form-control" id="us3-radius" />
+                          <div id="us3" style="width: 100%; height: 400px;"></div>
+                          <div class="clearfix">&nbsp;</div>
+                          <div class="m-t-small">
+                              <div class="col-sm-3">
+                                  <input type="hidden" class="form-control" style="width: 110px" id="us3-lat" />
+                              </div>
+                              <div class="col-sm-3">
+                                  <input type="hidden" class="form-control" style="width: 110px" id="us3-lon" />
+                              </div>
+                          </div>
+                          <div class="clearfix"></div>
+                          <script src="<?php echo base_url(); ?>assets/map-plugin/dist/locationpicker.jquery.js"></script>
+                          <script>
+                              $('#us3').locationpicker({
+                                  location: {
+                                      latitude: 11.56245,
+                                      longitude: 104.91601
+                                  },
+                                  inputBinding: {
+                                      latitudeInput: $('#us3-lat'),
+                                      longitudeInput: $('#us3-lon'),
+                                      radiusInput: $('#us3-radius'),
+                                      locationNameInput: $('#us3-address')
+                                  },
+                                  enableAutocomplete: true,
+                              });
+                              $('#us6-dialog').on('shown.bs.modal', function () {
+                                  $('#us3').locationpicker('autosize');
+                              });
+                          </script>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary" data-dismiss="modal" id="getaddress">Save changes</button>
+                    </div>
+
+                  </div>
                 </div>
-                <div id="us3" style="width: 100%; height: 400px;"></div>
-                <div class="clearfix">&nbsp;</div>
-                <div class="m-t-small">
-                    <label class="p-r-small col-sm-1 control-label">Lat.:</label>
-                    <div class="col-sm-3">
-                        <input type="hidden" class="form-control" style="width: 110px" id="us3-lat" />
-                    </div>
-                    <label class="p-r-small col-sm-2 control-label">Long.:</label>
-                    <div class="col-sm-3">
-                        <input type="hidden" class="form-control" style="width: 110px" id="us3-lon" />
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-                <script src="<?php echo base_url(); ?>assets/map-plugin/dist/locationpicker.jquery.js"></script>
-                <script>
-                    $('#us3').locationpicker({
-                        location: {
-                            latitude: 46.15242437752303,
-                            longitude: 2.7470703125
-                        },
-                        radius: 300,
-                        inputBinding: {
-                            latitudeInput: $('#us3-lat'),
-                            longitudeInput: $('#us3-lon'),
-                            radiusInput: $('#us3-radius'),
-                            locationNameInput: $('#us3-address')
-                        },
-                        enableAutocomplete: true,
-                        markerIcon: 'http://www.iconsdb.com/icons/preview/tropical-blue/map-marker-2-xl.png'
-                    });
-                    $('#us6-dialog').on('shown.bs.modal', function () {
-                        $('#us3').locationpicker('autosize');
-                    });
-                </script>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" id="getUpdateAdd">Save changes</button>
-            </div>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
+              </div>
+              <!-- //modal -->
             </form>
           </div>
           

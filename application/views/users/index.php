@@ -8,18 +8,27 @@
  */
 ?>
 
+ <div class="row-fluid"><div class="col-12">&nbsp;</div></div>
+ <div class="row-fluid"><div class="col-12"><h2 class="text-center">Users Management</h2></div></div>
+<div class="row-fluid">
+    <div class="col-12">
+      <a href="<?php echo base_url();?>users/export" class="btn btn-primary"><i class="mdi mdi-file-excel"></i>&nbsp;Export this list</a>
+      &nbsp;
+      <a href="<?php echo base_url();?>users/create" class="btn btn-primary"><i class="mdi mdi-account-plus"></i>&nbsp;Create a new user</a>
+    </div>
+</div>
+ <div class="row-fluid"><div class="col-12">&nbsp;</div></div>
 <div id="container">
+
 	<div class="row-fluid">
 		<div class="col-12">
 
-<h2><?php echo $title;?></h2>
 
-<?php echo $flashPartialView;?>
 
 <table id="users" cellpadding="0" cellspacing="0" class="table table-striped table-bordered" width="100%">
     <thead>
         <tr>
-            <th>ID</th>
+            <th>Action</th>
             <th>Firstname</th>
             <th>Lastname</th>
             <th>Login</th>
@@ -31,12 +40,6 @@
 <?php foreach ($users as $user):?>
     <tr>
         <td data-order="<?php echo $user['id']; ?>" data-id="<?php echo $user['id'];?>">
-            <?php echo $user['id'] ?>&nbsp;
-            <?php if (boolval($user['active'])) { ?>
-            <a href="<?php echo base_url();?>users/disable/<?php echo $user['id'] ?>" title="Disable user"><i class="mdi mdi-account"></i></a>
-            <?php } else { ?>
-            <a href="<?php echo base_url();?>users/enable/<?php echo $user['id'] ?>" title="Enable user"><i class="mdi mdi-account-off"></i></a>
-            <?php } ?>
             <a href="<?php echo base_url();?>users/edit/<?php echo $user['id'] ?>" title="Edit user"><i class="mdi mdi-pencil"></i></a>
             <a href="#" class="confirm-delete" title="Delete user"><i class="mdi mdi-delete"></i></a>
             <a href="#" class="reset-password" title="Reset user's password"><i class="mdi mdi-lock"></i></a>
@@ -45,7 +48,7 @@
         <td><?php echo $user['lastname']; ?></td>
         <td><?php echo $user['login']; ?></td>
         <td><a href="mailto:<?php echo $user['email']; ?>"><?php echo $user['email']; ?></a></td>
-        <td><?php echo $user['roles_list']; ?></td>
+        <td><?php echo $user['role_name']; ?></td>
     </tr>
 <?php endforeach ?>
             </tbody>
@@ -53,15 +56,9 @@
     </div>
 </div>
 
-  <div class="row-fluid"><div class="col-12">&nbsp;</div></div>
+ 
 
-  <div class="row-fluid">
-      <div class="col-12">
-        <a href="<?php echo base_url();?>users/export" class="btn btn-primary"><i class="mdi mdi-file-excel"></i>&nbsp;Export this list</a>
-        &nbsp;
-        <a href="<?php echo base_url();?>users/create" class="btn btn-primary"><i class="mdi mdi-account-plus"></i>&nbsp;Create a new user</a>
-      </div>
-  </div>
+  
 
 </div>
 

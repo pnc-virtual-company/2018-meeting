@@ -2,7 +2,7 @@
 <div id="container" >
   <div class="row-fluid">
     <div class="col-12">
-      <a href="<?php echo base_url(); ?>welcome/create_user" title="Add new User" class="btn btn-primary"><i class="mdi mdi-plus-circle"></i>&nbsp;Add new user</a>
+      <a href="<?php echo base_url(); ?>users/create" title="Add new User" class="btn btn-primary"><i class="mdi mdi-plus-circle"></i>&nbsp;Add new user</a>
     </div>
   </div>
   <br>
@@ -26,8 +26,8 @@
            <tr>   
             <td class="text-center">
               <?php //echo $row->id; ?>
-              <a href="<?php echo base_url(); ?>Welcome/delete_location?id=<?php echo $row->id;?>" class="confirm-delete" title="Delete User <?php echo $row->firstname.'&nbsp;'.$row->lastname;  ?>" data-toggle="modal" data-target="#<?php echo $row->id; ?>"><i class="mdi mdi-delete"></i></a>
-              <a href="<?php echo base_url(); ?>welcome/edit_user?id=<?php echo $row->id; ?>" id="edit_location" title="Update user <?php echo $row->firstname.'&nbsp;'.$row->lastname;  ?>"><i class="mdi mdi-pencil"></i></a>
+              <a href="<?php echo base_url(); ?>users/delete_location?id=<?php echo $row->id;?>" class="confirm-delete" title="Delete User <?php echo $row->firstname.'&nbsp;'.$row->lastname;  ?>" data-toggle="modal" data-target="#<?php echo $row->id; ?>"><i class="mdi mdi-delete"></i></a>
+              <a href="<?php echo base_url(); ?>users/edit/<?php echo $row->id; ?>" id="edit_location" title="Update user <?php echo $row->firstname.'&nbsp;'.$row->lastname;  ?>"><i class="mdi mdi-pencil"></i></a>
             </td>
             <td><?php echo $row->firstname; ?></td>
             <td><?php echo $row->lastname; ?></td>
@@ -49,7 +49,7 @@
                   <p>Are you sure that you want to perform this action?</p>
                 </div>
                 <div class="modal-footer">
-                  <a href="<?php echo base_url(); ?>welcome/delete_user?id=<?php echo $row->id;?>" class="btn btn-danger" id="lnkDeleteUser">Yes</a>
+                  <a href="<?php echo base_url(); ?>users/delete/<?php echo $row->id;?>" class="btn btn-danger" id="lnkDeleteUser">Yes</a>
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                 </div>
               </div>

@@ -52,7 +52,7 @@ echo form_open('users/create', $attributes); ?>
       <label class="control-label" for="role[]">Role</label>
       <select multiple class="form-control" name="role[]" size="3" required>
       <?php foreach ($roles as $roles_item): ?>
-          <option value="<?php echo $roles_item['id'] ?>" <?php if ($roles_item['id'] == 2) echo "selected"; ?>><?php echo $roles_item['name'] ?></option>
+          <option value="<?php echo $roles_item['role_id'] ?>" <?php if ($roles_item['role_id'] == 2) echo "selected"; ?>><?php echo $roles_item['role_name'] ?></option>
       <?php endforeach ?>
       </select>
     </div>

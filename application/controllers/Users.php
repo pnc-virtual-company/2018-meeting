@@ -43,13 +43,12 @@ class Users extends CI_Controller {
     public function index() {
         $this->load->helper('form');
         $data['users'] = $this->users_model->getUsersAndRoles();
-        $data['title'] = 'List of users';
-        $data['activeLink'] = 'users';
-        $data['flashPartialView'] = $this->load->view('templates/flash', $data, TRUE);
-        $this->load->view('templates/header', $data);
-        $this->load->view('menu/index', $data);
+        $this->load->model('Users_model');
+        $data['list_location'] = $this->Users_model->selectLocation();
+        $this->load->view('template/header', $data);
+        $this->load->view('template/left_sidebar', $data);
         $this->load->view('users/index', $data);
-        $this->load->view('templates/footer', $data);
+        $this->load->view('template/footer', $data);
     }
 
     /**
@@ -88,11 +87,9 @@ class Users extends CI_Controller {
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
     public function edit($id) {
+
         $this->load->helper('form');
         $this->load->library('form_validation');
-        $data['title'] = 'Edit a user';
-        $data['activeLink'] = 'users';
-
         $this->form_validation->set_rules('firstname', 'Firstname', 'required|strip_tags');
         $this->form_validation->set_rules('lastname', 'Lastname', 'required|strip_tags');
         $this->form_validation->set_rules('login', 'Login', 'required|strip_tags');
@@ -205,8 +202,6 @@ class Users extends CI_Controller {
     public function create() {
         $this->load->helper('form');
         $this->load->library('form_validation');
-        $data['title'] = 'Create a new user';
-        $data['activeLink'] = 'users';
         $data['roles'] = $this->users_model->getRoles();
 
         $this->form_validation->set_rules('firstname', 'Firstname', 'required|strip_tags');
