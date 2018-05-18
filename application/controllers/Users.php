@@ -6,9 +6,7 @@
  * @link       https://github.com/bbalet/skeleton
  * @since      0.1.0
  */
-
 if (!defined('BASEPATH')) { exit('No direct script access allowed'); }
-
 /**
  * This controller serves the user management pages and tools.
  * The difference with HR Controller is that operations are technical (CRUD, etc.).
