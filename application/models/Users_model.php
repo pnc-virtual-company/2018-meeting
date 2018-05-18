@@ -461,11 +461,11 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
 
     // by thintha
         public function delete_room($room_id) {
-           $delete = $this->db->delete('tbl_rooms', array('tbl_rooms.room_id' => $room_id));
-           return $delete;
-       }
+         $delete = $this->db->delete('tbl_rooms', array('tbl_rooms.room_id' => $room_id));
+         return $delete;
+     }
     // delete location by Danet THORNG
-       public function delete_location($locationID) {
+     public function delete_location($locationID) {
         $result = $this->db->delete('tbl_locations',array('tbl_locations.loc_id' =>$locationID ));
         return $result;
     }
@@ -490,45 +490,25 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
         return $result;
     }
         //Booking room request By Samreth.SAROEURT
-<<<<<<< HEAD
-    public function  booking_room($note,$date,$startHour,$startMin,$endHour,$endMin,$user_id,$room_id){
-=======
-        public function  booking_room($note,$date,$start,$end,$user_id,$room_id){
->>>>>>> b2dc68255925e15d338663b48551753965f88031
 
-                // var_dump($room_id);die();
+    public function  booking_room($note,$date,$start,$end,$user_id,$room_id){
+
         $sdate = substr($date,0,-3);
-                // $edate = substr($edate,0,-3);
-                // var_dump($sdate, $edate);die();
-<<<<<<< HEAD
+
         $data = array(
             'book_description' =>$note,     
             'Date' =>$date, 
-            'Start' =>$startHour.':'.$startMin,   
-            'End' =>$endHour.':'.$endMin,   
+            'Start' =>$start,   
+            'End' =>$end,   
             'user_id' => $user_id,
             'room_id' => $room_id,
             'sta_id' => 1
         );
-
+        
         $result = $this->db->insert('tbl_room_request',$data);
         return $result;
     }
-=======
-                $data = array(
-                    'book_description' =>$note,     
-                    'Date' =>$date, 
-                    'Start' =>$start,   
-                    'End' =>$end,   
-                    'user_id' => $user_id,
-                    'room_id' => $room_id,
-                    'sta_id' => 1
-                );
-                
-                $result = $this->db->insert('tbl_room_request',$data);
-                return $result;
-            }
->>>>>>> b2dc68255925e15d338663b48551753965f88031
+
         // delete list booking request by Samreth.SAROEURT
     public function select_booking($book_id){
         $this->db->select('*');
@@ -562,7 +542,7 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
         return $result;
     }
 
-            // delete list booking request by Samreth.SAROEURT 
+ // delete list booking request by Samreth.SAROEURT 
     public function delete_book_request($book_id) {
         $result = $this->db->delete('tbl_room_request',array('tbl_room_request.book_id' =>$book_id ));
         return $result;
@@ -576,34 +556,19 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
         $users = $this->db->get();
         return $users->result();
     }
-        // update list booking request by Samreth.SAROEURT 
-<<<<<<< HEAD
-    function update_request($date,$startHour,$startMin,$endHour,$endMin,$note,$book_id){
+ // update booking request by Samreth.SAROEURT 
+    function update_request($date,$start,$end,$note,$book_id){
         $edit = array(
             'Date' =>$date, 
-            'Start' =>$startHour.':'.$startMin,   
-            'End' =>$endHour.':'.$endMin,   
+            'Start' =>$start,   
+            'End' =>$end,   
             'book_description' =>$note     
-
+            
         );
         $this->db->where('book_id', $book_id);
         $result = $this->db->update('tbl_room_request', $edit);
         return $result;
     }
-=======
-        function update_request($date,$start,$end,$note,$book_id){
-            $edit = array(
-                'Date' =>$date, 
-                'Start' =>$start,   
-                'End' =>$end,   
-                'book_description' =>$note     
-                
-            );
-            $this->db->where('book_id', $book_id);
-            $result = $this->db->update('tbl_room_request', $edit);
-            return $result;
-        }
->>>>>>> b2dc68255925e15d338663b48551753965f88031
         //by thintha
     public function view_room_detail($room_id){
         $this->db->select ( '*' ) ;
