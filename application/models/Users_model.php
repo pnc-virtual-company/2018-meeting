@@ -341,14 +341,14 @@ class Users_model extends CI_Model {
 
     // Select manager from databas By Samreth.SAROEURT
 public function selectManager(){
-    
+
     $this->db->select('*');
     $query = $this->db->get(' users');
     return  $query->result();
 }
 
 public function selectUpdateRoom($room_id){
-    
+
     $this->db->select('*');
     $this->db->where('room_id', $room_id);
     $query = $this->db->get('tbl_rooms');
@@ -375,7 +375,7 @@ public function selectAllRoom(){
 }
     // Select Location from Db By Chhunhak.CHHOEUNG
 public function selectLocation(){
-    
+
     $this->db->select('*');
     $this->db->from('tbl_locations');
 
@@ -383,7 +383,7 @@ public function selectLocation(){
     return  $query->result();
 }
 public function selectUpdateLocation($loc_id){
-    
+
     $this->db->select('*');
     $this->db->from('tbl_locations');
     $this->db->where('loc_id', $loc_id);
@@ -393,7 +393,7 @@ public function selectUpdateLocation($loc_id){
 }
     // Select manager from databas By Samreth.SAROEURT
 public function insert_create_room($room,$floor,$description,$manager,$loc_id){            
-    
+
     $data = array('upload_data' => $this->upload->data());
             $photo = $this->upload->data()['file_name']; // Get image name
 
@@ -406,13 +406,13 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
                 'sta_id' => 1,   
                 'room_image' => $photo    
             );
-            
+
             $result = $this->db->insert('tbl_rooms',$data);
             return $result;
         }
         //Update Room by maryna.PHOAN
         public function update_rooms($room,$floor,$description,$manager,$loc_id,$room_id){            
-            
+
             $data = array('upload_data' => $this->upload->data());
             $photo = $this->upload->data()['file_name']; // Get image name
             // var_dump($room,$floor,$description,$manager,$loc_id,$room_id);die();
@@ -433,7 +433,7 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
         }
         //edit user by Chhunhak.chhoeung
         public function update_user($id){
-            
+
             $this->db->select("id,firstname,lastname,login, email,role");
             $this->db->from('users');
             $this->db->where('id', $id);
@@ -443,13 +443,16 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
         
 
     //Update by Chhunhak.CHHOEUNG
-        public function add_location($name, $des, $add){
-            
+        public function add_location($name, $des, $add,$lat,$long){
+
             $data = array(
                 'loc_name' =>$name, 
                 'description' =>$des,  
                 'address' =>$add,
-                
+                'lat'=>$lat,
+                'long'=>$long
+
+
             );
             $result = $this->db->insert('tbl_locations',$data);
             return $result;
@@ -502,7 +505,7 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
             'room_id' => $room_id,
             'sta_id' => 1
         );
-        
+
         $result = $this->db->insert('tbl_room_request',$data);
         return $result;
     }
@@ -544,7 +547,7 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
         $result = $this->db->delete('tbl_room_request',array('tbl_room_request.book_id' =>$book_id ));
         return $result;
     }
-    
+
 
     public function listAllUsers(){
         $this->db->select("id,firstname,lastname,login, email, tbl_roles.role_name");
@@ -560,7 +563,7 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
             'Start' =>$startHour.':'.$startMin,   
             'End' =>$endHour.':'.$endMin,   
             'book_description' =>$note     
-            
+
         );
         $this->db->where('book_id', $book_id);
         $result = $this->db->update('tbl_room_request', $edit);
@@ -578,7 +581,7 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
     }
         // create by Thintha and Maryna PHORN
     public function select_request_validate(){
-     
+
         $this->db->select('*');
         $this->db->from('tbl_room_request');
         $this->db->join('tbl_rooms', ' tbl_room_request.room_id = tbl_rooms.room_id');
@@ -591,7 +594,7 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
         return  $query->result();
     }
     public function update(){
-        
+
         $this->db->select('*');
         $query = $this->db->get(' users');
         return  $query->result();

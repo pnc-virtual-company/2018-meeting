@@ -73,11 +73,11 @@
                 <div class="m-t-small">
                     <label class="p-r-small col-sm-1 control-label">Lat.:</label>
                     <div class="col-sm-3">
-                        <input type="hidden" class="form-control" style="width: 110px" id="us3-lat" />
+                        <input type="hidden" class="form-control" style="width: 110px" id="us3-lat" name="lat" />
                     </div>
                     <label class="p-r-small col-sm-2 control-label">Long.:</label>
                     <div class="col-sm-3">
-                        <input type="hidden" class="form-control" style="width: 110px" id="us3-lon" />
+                        <input type="hidden" class="form-control" style="width: 110px" id="us3-lon" name="long" />
                     </div>
                 </div>
                 <div class="clearfix"></div>
@@ -87,7 +87,7 @@
                         location: {
                             latitude: 46.15242437752303,
                             longitude: 2.7470703125
-                        },
+                        },  
                         radius: 300,
                         inputBinding: {
                             latitudeInput: $('#us3-lat'),

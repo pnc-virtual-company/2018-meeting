@@ -224,10 +224,11 @@ class Welcome extends CI_Controller {
 			$name =$this->input->post('loc_name');
 			$des =$this->input->post('des');
 			$add =$this->input->post('address');
-			// $embed_url_map =$this->input->post('embed_url_map');
-			if ($name != '' && $des != '' && $add != '') {
+		    $lat =$this->input->post('lat');
+		    $long =$this->input->post('long');
+			if ($name != '' && $des != '' && $add != '' && $lat !='' && $long !='') {
 				$this->load->model('Users_model');
-				$add = $this->Users_model->add_location($name, $des, $add);
+				$add = $this->Users_model->add_location($name, $des, $add,$lat,$long);
 				if ($add == 'true') {
 					$this->index();
 				}else{
