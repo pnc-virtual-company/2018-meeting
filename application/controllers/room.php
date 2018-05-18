@@ -107,16 +107,6 @@ class room extends CI_Controller {
 			}
 		}
 
-		// Book meeting room by samreth.SAROEURT
-		public function book_meeting(){
-			$this->load->model('Users_model');
-			$data['list_location'] = $this->Users_model->selectLocation();
-			$this->load->view('template/header');
-			$this->load->view('template/left_sidebar', $data);
-			$this->load->view('book_meeting');
-			$this->load->view('template/footer');
-		}
-		
 		// Update a room by Maryna.PHORN
 		public function update_room(){
 			$user = $this->userlevel();

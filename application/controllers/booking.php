@@ -78,12 +78,11 @@
 
 			// Book meeting room by samreth.SAROEURT
 		public function book_meeting(){
+			$user = $this->userlevel();
 			$this->load->model('Users_model');
 			$data['list_location'] = $this->Users_model->selectLocation();
-			$this->load->view('template/header');
-			$this->load->view('template/left_sidebar', $data);
-			$this->load->view('book_meeting');
-			$this->load->view('template/footer');
+			$data['page'] = "book_meeting";
+			$this->load->view($user, $data);
 		}
 			// Resquest validate room by thintha and Maryna. PHORN
 		public function request_validate(){
