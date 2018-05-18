@@ -12,9 +12,9 @@
  <div class="row-fluid"><div class="col-12"><h2 class="text-center">Users Management</h2></div></div>
 <div class="row-fluid">
     <div class="col-12">
-      <a href="<?php echo base_url();?>users/export" class="btn btn-primary"><i class="mdi mdi-file-excel"></i>&nbsp;Export this list</a>
-      &nbsp;
       <a href="<?php echo base_url();?>users/create" class="btn btn-primary"><i class="mdi mdi-account-plus"></i>&nbsp;Create a new user</a>
+      &nbsp;
+      <a href="<?php echo base_url();?>users/export" class="btn btn-primary"><i class="mdi mdi-file-excel"></i>&nbsp;Export this list</a>
     </div>
 </div>
  <div class="row-fluid"><div class="col-12">&nbsp;</div></div>
