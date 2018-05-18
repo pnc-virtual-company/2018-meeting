@@ -224,11 +224,18 @@ class Welcome extends CI_Controller {
 			$name =$this->input->post('loc_name');
 			$des =$this->input->post('des');
 			$add =$this->input->post('address');
+<<<<<<< HEAD
 		    $lat =$this->input->post('lat');
 		    $long =$this->input->post('long');
 			if ($name != '' && $des != '' && $add != '' && $lat !='' && $long !='') {
 				$this->load->model('Users_model');
 				$add = $this->Users_model->add_location($name, $des, $add,$lat,$long);
+=======
+			$embed_url_map =$this->input->post('embed_url_map');
+			if ($name != '' && $des != '' && $add != ''&& $embed_url_map != '') {
+				$this->load->model('Users_model');
+				$add = $this->Users_model->add_location($name, $des, $add,$embed_url_map);
+>>>>>>> b2dc68255925e15d338663b48551753965f88031
 				if ($add == 'true') {
 					$this->index();
 				}else{
@@ -375,17 +382,16 @@ class Welcome extends CI_Controller {
 	// booking request room by samreth.SAROEURT
 		public function booking_room(){
 			$date = $this->input->post("sdate");
-			$startHour = $this->input->post("startHour");
-			$startMin = $this->input->post("startMin");
-			$endHour = $this->input->post("endHour");
-			$endMin = $this->input->post("endMin");
+			$start = $this->input->post("start");
+			$end = $this->input->post("end");
+			
 			$note = $this->input->post("comment");
 			$room_id = $this->session->userdata('room_id');
 			$user_id = $this->session->userdata('id');
 
 			$this->load->model('Users_model');
 			// var_dump($note,$date,$startHour,$startMin,$endHour,$endMin,$user_id,$room_id);die();
-			$data = $this->Users_model->booking_room($note,$date,$startHour,$startMin,$endHour,$endMin,$user_id,$room_id);
+			$data = $this->Users_model->booking_room($note,$date,$start,$end,$user_id,$room_id);
 			if ($data == 'true') {
 
 				$this->select_room_request();
@@ -436,15 +442,13 @@ class Welcome extends CI_Controller {
 		//edite meeting room by samreth.SAROEURT
 		public function update_request(){
 			$date = $this->input->post("sdate");
-			$startHour = $this->input->post("startHour");
-			$startMin = $this->input->post("startMin");
-			$endHour = $this->input->post("endHour");
-			$endMin = $this->input->post("endMin");
+			$start = $this->input->post("start");
+			$end = $this->input->post("end");
 			$note = $this->input->post("comment");
 
 			$book_id = $this->input->post("book_id");
 			$this->load->model('Users_model');
-			$data = $this->Users_model->update_request($date,$startHour,$startMin,$endHour,$endMin,$note,$book_id);
+			$data = $this->Users_model->update_request($date,$start,$end,$note,$book_id);
 			if ($data == 'true') {
 				$this->select_room_request();
 			}else{
@@ -457,5 +461,11 @@ class Welcome extends CI_Controller {
 			$this->load->model('users_model');
 			$users = $this->users_model->getExportFile();
 			$this->load->view('export', $users);
+		}
+		public function user_profile(){		
+			$this->load->view('template/header');
+			$this->load->view('template/left_sidebar');
+			$this->load->view('user_profile');
+			$this->load->view('template/footer');
 		}
 }
