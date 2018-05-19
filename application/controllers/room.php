@@ -167,7 +167,7 @@ class room extends CI_Controller {
 		// insert creat room by samreth.SAROEURT
 		public function insert_create_room(){
 			$user = $this->userlevel();
-			if (user == 'admin') {
+			if ($user == 'admin') {
 				$room = $this->input->post("name");
 				$floor = $this->input->post("floor");
 				$manager = $this->input->post("manager");
