@@ -49,13 +49,13 @@ echo form_open('users/create', $attributes); ?>
     </div>
 
     <div class="form-group">
-      <label class="control-label" for="role[]">Role</label>
-      <select multiple class="form-control" name="role[]" size="3" required>
-      <?php foreach ($roles as $roles_item): ?>
-          <option value="<?php echo $roles_item['role_id'] ?>" <?php if ($roles_item['role_id'] == 2) echo "selected"; ?>><?php echo $roles_item['role_name'] ?></option>
-      <?php endforeach ?>
-      </select>
-    </div>
+         <label class="control-label" for="role[]">Role</label>
+         <select multiple class="form-control" name="role[]" size="3" required>
+         <?php foreach ($roles as $roles_item): ?>
+             <option value="<?php echo $roles_item['role_id'] ?>" <?php if ($roles_item['role_id'] == 2) echo "selected"; ?>><?php echo $roles_item['role_name'] ?></option>
+         <?php endforeach ?>
+         </select>
+       </div>
 
     <div class="form-group">
       <label class="control-label" for="password">Password</label>

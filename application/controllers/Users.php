@@ -18,20 +18,33 @@ class Users extends CI_Controller {
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
     public function __construct() {
-        parent::__construct();
-        log_message('debug', 'URI=' . $this->uri->uri_string());
-        $this->session->set_userdata('last_page', $this->uri->uri_string());
-        if($this->session->loggedIn === TRUE) {
-           // Allowed methods
-           if ($this->session->isAdmin || $this->session->isSuperAdmin) {
-             //User management is reserved to admins and super admins
-           } else {
-             redirect('errors/privileges');
-           }
-         } else {
-           redirect('connection/login');
-         }
-        $this->load->model('users_model');
+                parent::__construct();
+                log_message('debug', 'URI=' . $this->uri->uri_string());
+                $this->session->set_userdata('last_page', $this->uri->uri_string());
+                if($this->session->loggedIn === TRUE) {
+                   // Allowed methods
+                    if ($this->session->isAdmin || $this->session->isSuperAdmin) {
+                     //User management is reserved to admins and super admins
+                    } else {
+                        $user = $this->session->role;
+                        if ($user == 2) {
+                            $page = "manager";
+                            return $page;
+                            $data['page'] = "list_location";
+                            $this->load->view($user, $data);
+                        }else if ($user == 3) {
+                            $page = "normal";
+                            return $page;
+                            $data['page'] = "list_location";
+                            $this->load->view($user, $data);
+                        }else{
+                            redirect('connection/login');
+                        }
+                    }
+                } else {
+                    redirect('connection/login');
+                }
+                $this->load->model('users_model');
     }
 
     /**
@@ -39,16 +52,36 @@ class Users extends CI_Controller {
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
     public function index() {
-        $this->load->helper('form');
-        $data['users'] = $this->users_model->getUsersAndRoles();
-        $this->load->model('Users_model');
-        $data['list_location'] = $this->Users_model->selectLocation();
-        $this->load->view('template/header', $data);
-        $this->load->view('template/left_sidebar', $data);
-        $this->load->view('users/index', $data);
-        $this->load->view('template/footer', $data);
+      $user = $this->userlevel();
+      if ($user == 'admin') {
+          $this->load->helper('form');
+          $data['users'] = $this->users_model->getUsersAndRoles();
+          $this->load->model('Users_model');
+          $data['list_location'] = $this->Users_model->selectLocation();
+          $this->load->view('template/header', $data);
+          $this->load->view('template/left_sidebar', $data);
+          $this->load->view('users/index', $data);
+          $this->load->view('template/footer', $data);
+      }else{
+        redirect('errors/error');
+      }
     }
-
+    public function userlevel()
+    {
+      $user = $this->session->role;
+      if ($user == 1) {
+        $page = "admin";
+        return $page;
+      }elseif ($user == 2) {
+        $page = "manager";
+        return $page;
+      }else if ($user == 3) {
+        $page = "normal";
+        return $page;
+      }else{
+        redirect('connection/login');
+      }
+    }
     /**
      * Set a user as active (TRUE) or inactive (FALSE)
      * @param int $id User identifier
@@ -198,6 +231,8 @@ class Users extends CI_Controller {
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
     public function create() {
+      $user = $this->userlevel();
+      if ($user == "admin") {
         $this->load->helper('form');
         $this->load->library('form_validation');
         $data['roles'] = $this->users_model->getRoles();
@@ -209,10 +244,12 @@ class Users extends CI_Controller {
         $this->form_validation->set_rules('role[]', 'Role', 'required');
 
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('templates/header', $data);
-            $this->load->view('menu/index', $data);
+            $this->load->model('Users_model');
+            $data['list_location'] = $this->Users_model->selectLocation();
+            $this->load->view('template/header');
+            $this->load->view('template/left_sidebar', $data);
             $this->load->view('users/create', $data);
-            $this->load->view('templates/footer');
+            $this->load->view('template/footer');
         } else {
             $password = $this->users_model->setUsers();
             //Send an e-mail to the user so as to inform that its account has been created
@@ -253,6 +290,9 @@ class Users extends CI_Controller {
             $this->session->set_flashdata('msg', 'The user was successfully created');
             redirect('users');
         }
+      }else{
+        redirect('errors/error');
+      }
     }
 
     /**
