@@ -32,7 +32,7 @@
             <form method="POST" action="<?php echo base_url(); ?>location/insert_location">
               <div class="form-group">
                 <label for="loc_name">Name</label>
-                <input type="text" class="form-control" id="loc_name" name="loc_name" required="">
+                <input type="text" class="form-control" id="loc_name" name="loc_name" required="" autofocus>
             </div>
             <div class="form-group">
                 <label for="pwd">Description</label>
