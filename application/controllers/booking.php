@@ -37,17 +37,13 @@
 		public function index()
 		{
 			$user = $this->userlevel();
-			if ($user == 'admin' || $user == 'manager' ) {
-				$this->load->model('Users_model');
-				$data['list_location'] = $this->Users_model->selectLocation();
-				$data['book_request'] = $this->Users_model->select_room_request();
-				$data['page'] = "booking_request";
-				$user = $this->userlevel();
-				// var_dump($user);die();
-				$this->load->view($user, $data);
-			}else{
-				redirect('errors/error');
-			}
+			$this->load->model('Users_model');
+			$data['list_location'] = $this->Users_model->selectLocation();
+			$data['book_request'] = $this->Users_model->select_room_request();
+			$data['page'] = "booking_request";
+			$user = $this->userlevel();
+			// var_dump($user);die();
+			$this->load->view($user, $data);
 		}
 		public function userlevel()
 		{
@@ -142,7 +138,6 @@
 
 			$this->load->model('Users_model');
 			$data = $this->Users_model->booking_room($note,$date,$start,$end,$user_id,$room_id);
-			var_dump($data);die();
 			if ($data != 'true') {
 				$this->session->set_flashdata('msg', 'Cannot book at this time');
 				$this->book_meeting();

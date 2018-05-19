@@ -496,7 +496,6 @@ class Users_model extends CI_Model {
 
 
         public function  booking_room($note,$date,$start,$end,$user_id,$room_id){
-            var_dump($note,$date,$start,$end,$user_id,$room_id);die();
             if ($start == $end) {
                        return false;
                    }else{
@@ -516,7 +515,6 @@ class Users_model extends CI_Model {
                                    'room_id' => $room_id,
                                    'sta_id' => 1
                                );
-
                                $result = $this->db->insert('tbl_room_request',$data);
                                return $result;
                            return true;
@@ -537,7 +535,6 @@ class Users_model extends CI_Model {
                                    'room_id' => $room_id,
                                    'sta_id' => 1
                                );
-
                                $result = $this->db->insert('tbl_room_request',$data);
                                return $result;
                            }

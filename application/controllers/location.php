@@ -15,7 +15,12 @@ class location extends CI_Controller {
              //User management is reserved to admins and super admins
 			} else {
 				$user = $this->session->role;
-				if ($user == 2) {
+				if ($user == 1) {
+					$page = "admin";
+					return $page;
+					$data['page'] = "list_location";
+					$this->load->view($user, $data);
+				}else if ($user == 2) {
 					$page = "manager";
 					return $page;
 					$data['page'] = "list_location";
