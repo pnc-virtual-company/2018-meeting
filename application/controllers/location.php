@@ -15,7 +15,12 @@ class location extends CI_Controller {
              //User management is reserved to admins and super admins
 			} else {
 				$user = $this->session->role;
-				if ($user == 2) {
+				if ($user == 1) {
+					$page = "admin";
+					return $page;
+					$data['page'] = "list_location";
+					$this->load->view($user, $data);
+				}else if ($user == 2) {
 					$page = "manager";
 					return $page;
 					$data['page'] = "list_location";
@@ -132,14 +137,18 @@ class location extends CI_Controller {
 		// delete location by Danet THORNG
 	public function delete_location()
 	{
-
-		$locationID = $this->input->get('loc_id');
-		$this->load->model('Users_model');
-		$data = $this->Users_model->delete_location($locationID);
-		if ($data == 'true') {
-			redirect('location');
+		$user = $this->userlevel();
+		if ($user == 'admin') {
+			$locationID = $this->input->get('loc_id');
+			$this->load->model('Users_model');
+			$data = $this->Users_model->delete_location($locationID);
+			if ($data == 'true') {
+				redirect('location');
+			}else{
+				echo "not delete";
+			}
 		}else{
-			echo "not delete";
+			redirect('errors/error');
 		}
 	}
 }

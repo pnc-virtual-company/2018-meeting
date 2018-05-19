@@ -39,7 +39,13 @@ class Errors extends CI_Controller {
 		$this->load->model('Users_model');
 		$data['list_location'] = $this->Users_model->selectLocation();
 		$user = $this->userlevel();
-		$data['page'] = "../errors/html/privileges";
+		if ($user == 'admin') {
+			$data['page'] = "errors/html/privileges";
+			$data['user'] = $user;
+		}else{
+			$data['page'] = "../errors/html/privileges";
+			$data['user'] = $user;
+		}
 		$this->load->view($user, $data);
 	}
 	public function notfound()
