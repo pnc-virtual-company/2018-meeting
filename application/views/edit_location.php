@@ -47,7 +47,7 @@
               <br>
               <div class="form-group">
                 <label for="pwd">Address</label>
-                <input type="text" class="form-control"  data-target="#us6-dialog" data-toggle="modal" name="address" value="<?php echo $row->address; ?>" required="">
+                <input type="text" class="form-control"  data-target="#us6-dialog" data-toggle="modal" name="update_address" id="update_address" value="<?php echo $row->address; ?>" required="">
             </div>
               <br>
           <?php endforeach; ?>
@@ -111,7 +111,7 @@
                     <!-- Modal footer -->
                     <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary" data-dismiss="modal" id="getaddress">Save changes</button>
+                          <button type="button" class="btn btn-primary" data-dismiss="modal" id="getUpdateAdd">Save changes</button>
                     </div>
 
                   </div>
