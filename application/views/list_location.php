@@ -1,4 +1,10 @@
 <br>
+<style>
+  #map {
+    height: 400px;
+    width: 100%;
+   }
+</style>
 <div id="container" >
 	<div class="row-fluid">
 		<div class="col-12">
@@ -40,7 +46,13 @@
                  </div>
                  <!-- Modal body -->
                  <div class="modal-body">
-                   <iframe src="<?php  echo $row->embed_url_map;  ?>" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                   <!-- <iframe src="<?php  //echo $row->embed_url_map;  ?>" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+                   <h3>My Google Maps Demo</h3>
+                   <div id="map"></div>
+                   <!-- Replace the value of the key parameter with your own API key. -->
+                   <script async defer
+                   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAjaIzPJQY_nrDt5zi2ayk1BfeQOHo7Kk&sensor=initMap">
+                   </script>
                  </div>
                  <!-- Modal footer -->
                  <div class="modal-footer">
@@ -100,4 +112,15 @@
 
 
   });
+  function initMap() {
+    var uluru = {lat: -25.363, lng: 131.044};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 4,
+      center: uluru
+    });
+    var marker = new google.maps.Marker({
+      position: uluru,
+      map: map
+    });
+  }
 </script>
