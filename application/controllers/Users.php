@@ -330,4 +330,10 @@ class Users extends CI_Controller {
     public function export() {
         $this->load->view('users/export');
     }
+    public function user_profile(){
+   $this->load->view('template/header');
+   $this->load->view('template/left_sidebar');
+   $this->load->view('user_profile');
+   $this->load->view('template/footer');
+ }
 }
