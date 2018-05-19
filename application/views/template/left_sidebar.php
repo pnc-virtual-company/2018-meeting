@@ -8,7 +8,7 @@
     <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications" style="
     margin-top: 10px;
 "><i class="mdi mdi-light mdi-bell-ring mdi-24px"></i></a>
-      <ul class="app-notification dropdown-menu dropdown-menu-right">
+      <!-- <ul class="app-notification dropdown-menu dropdown-menu-right">
         <li class="app-notification__title">You have 4 new notifications.</li>
         <div class="app-notification__content">
           <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></span>
@@ -20,14 +20,14 @@
          
         </div>
         <li class="app-notification__footer"><a href="#">See all notifications.</a></li>
-      </ul>
+      </ul> -->
     </li>
     <!-- User Menu-->
     <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu" style="
     margin-top: 10px;
 "><i class="mdi mdi-light mdi-settings mdi-24px  "></i></a>
       <ul class="dropdown-menu settings-menu dropdown-menu-right">
-        <li><a class="dropdown-item" href="page-user.html"><i class="mdi mdi-account mdi-24px"></i> Profile</a></li>
+        <li><a class="dropdown-item" href="<?php echo base_url(); ?>Users/user_profile"><i class="mdi mdi-account mdi-24px"></i> Profile</a></li>
         <li><a class="dropdown-item" href="<?php echo base_url(); ?>connection/logout"><i class="mdi mdi-logout mdi-24px"></i> Logout</a></li>
       </ul>
     </li>
@@ -54,7 +54,7 @@
 
     <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon mdi mdi-settings mdi-light mdi-24px"></i><span class="app-menu__label">Admin</span><i class="treeview-indicator mdi mdi-arrow-right-drop-circle-outline"></i></a>
      <ul class="treeview-menu" style="background-color: #026aab;">
-          <li><a class="treeview-item" href="<?php echo base_url(); ?>booking/occupancyRate"><i class="mdi mdi-chart-areaspline" style="font-size: 16px;"></i>&nbsp;Occupancy Rate</a></li>
+          <li><a class="treeview-item" href="<?php echo base_url(); ?>room/occupancyRate"><i class="mdi mdi-chart-areaspline" style="font-size: 16px;"></i>&nbsp;Occupancy Rate</a></li>
           <li><a class="treeview-item" href="<?php echo base_url(); ?>users"><i class="mdi mdi-account " style="font-size: 16px;"></i>&nbsp;User Management</a></li>
           <li><a class="treeview-item" href="<?php echo base_url(); ?>location"><i class="mdi mdi-map mdi-light" style="font-size: 16px;"></i>&nbsp;Location Management</a></li>
     </ul>

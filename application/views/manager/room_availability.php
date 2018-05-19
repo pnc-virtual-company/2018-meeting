@@ -3,7 +3,32 @@
 	<div class="row">
 		<div class="col-md-3"></div>
 		<div class="col-md-6">
-			<?php foreach ($view_room as $row): ?>
+			<?php
+			
+					if ($view_room->num_rows() == 0) {
+			?>
+			<div class="card">
+				<div class="card-header">
+					<h1 class="text-center">Room <span style="color:green"><?php echo $this->input->get('room_name'); ?></span> </h1>
+				</div>
+				<div class="card-body">
+					
+					<p>The room is currently free. 
+						<div class="form-group">
+							<a href="<?php echo base_url(); ?>room/list_room?loc_id=<?php echo $this->input->get('loc_id'); ?>&loc_name=<?php echo $this->input->get('loc_name'); ?>" class="btn btn-info float-left">
+								<i class="mdi mdi-arrow-left-bold "></i>&nbsp;Back to the list of room
+							</a>
+
+							<a href="<?php echo base_url(); ?>location/location" class="btn btn-info  float-right" data-toggle="modal" data-target="#popupcalendar">
+								<i class="mdi mdi-table-large"></i>&nbsp;Calendar of the room
+							</a>
+						</div>
+					</div>
+				</div>
+			<?php
+					}else{
+			 		foreach ($view_room->result() as $row): ?>
+
 				
 				<div class="card">
 					<div class="card-header">
@@ -27,7 +52,9 @@
 					</div>
 					
 					
-				<?php endforeach ?>
+				<?php endforeach; }?>
+					
+
 			</div>
 			
 			<div class="col-md-3"></div>
