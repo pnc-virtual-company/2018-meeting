@@ -76,7 +76,7 @@
 			$this->load->view('template/footer');
 		}
 
-			// Book meeting room by samreth.SAROEURT
+		// Book meeting room by samreth.SAROEURT
 		public function book_meeting(){
 			$user = $this->userlevel();
 			$this->load->model('Users_model');
@@ -130,6 +130,18 @@
 			$this->load->view('template/footer');
 		}
 
+
+		// list room by samreth.SAROEURT
+		public function select_room_request(){
+			$this->load->model('Users_model');
+			$location['list_location'] = $this->Users_model->selectLocation();
+			$this->load->view('template/header');
+			$this->load->view('template/left_sidebar', $location);
+			$this->load->model('Users_model');
+			$data['book_request'] = $this->Users_model->select_room_request();
+			$this->load->view('booking_request', $data);
+			$this->load->view('template/footer');
+		}
 		// booking request room by samreth.SAROEURT
 		public function booking_room(){
 			$date = $this->input->post("sdate");
@@ -142,7 +154,7 @@
 
 			$this->load->model('Users_model');
 			$data = $this->Users_model->booking_room($note,$date,$start,$end,$user_id,$room_id);
-			var_dump($data);die();
+
 			if ($data != 'true') {
 				$this->session->set_flashdata('msg', 'Cannot book at this time');
 				$this->book_meeting();
@@ -186,15 +198,14 @@
 			//edite meeting room by samreth.SAROEURT
 		public function update_request(){
 			$date = $this->input->post("sdate");
-			$startHour = $this->input->post("startHour");
-			$startMin = $this->input->post("startMin");
-			$endHour = $this->input->post("endHour");
-			$endMin = $this->input->post("endMin");
+			$start = $this->input->post("start");
+			$end = $this->input->post("end");
+
 			$note = $this->input->post("comment");
 
 			$book_id = $this->input->post("book_id");
 			$this->load->model('Users_model');
-			$data = $this->Users_model->update_request($date,$startHour,$startMin,$endHour,$endMin,$note,$book_id);
+			$data = $this->Users_model->update_request($date,$start,$end,$note,$book_id);
 			if ($data == 'true') {
 				$this->select_room_request();
 			}else{

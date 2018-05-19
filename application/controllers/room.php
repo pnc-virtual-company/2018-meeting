@@ -167,15 +167,14 @@ class room extends CI_Controller {
 
 		// create by thintha
 		public function room_availability(){
+			$user = $this->userlevel();
+
 			$this->load->model('Users_model');
 			$data['list_location'] = $this->Users_model->selectLocation();
-			$this->load->view('template/header');
-			$this->load->view('template/left_sidebar', $location);
+			$data['page'] = "room_availability";
 			$room_id = $this->input->get('room_id');
-			$this->load->model('Users_model');
 			$data['view_room'] = $this->Users_model->view_room_detail($room_id);
-			$this->load->view('room_availability', $data);
-			$this->load->view('template/footer');
+			$this->load->view($user, $data);
 		}
 		
 		// insert creat room by samreth.SAROEURT

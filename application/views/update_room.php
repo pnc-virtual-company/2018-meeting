@@ -41,7 +41,7 @@
 					</div>
 					<div class="form-group">
 						<label for="comment">Description</label>
-						<textarea class="form-control" rows="5" id="comment" style="resize: none;" name="description" required=""><?php echo $value->description; ?></textarea>
+						<textarea class="form-control" rows="5" id="comment" style="resize: none;" name="description"><?php echo $value->description; ?></textarea>
 					</div>
 					<?php endforeach ?>
 					<div class="form-group">

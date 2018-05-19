@@ -40,7 +40,7 @@
 					</div>
 					<div class="form-group">
 						<label for="comment">Description</label>
-						<textarea class="form-control" rows="5" id="comment" style="resize: none;" name="description" required=""></textarea>
+						<textarea class="form-control" rows="5" id="comment" style="resize: none;" name="description"></textarea>
 					</div>
 					<div class="form-group">
 
