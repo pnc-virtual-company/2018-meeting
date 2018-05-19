@@ -44,9 +44,9 @@
                 <label for="pwd">Password</label>
                 <input type="password" class="form-control"  name="pwd" required="" placeholder="Enter your password">
             </div>
-            <button type="submit" class="btn btn-info">Login</button>
+<!--             <button type="submit" class="btn btn-info">Login</button>
             <a href="<?php echo base_url(); ?>welcome/location" class="btn btn-danger float-right">
-                <i class="mdi mdi-cancel "></i>&nbsp;Cancel
+                <i class="mdi mdi-cancel "></i>&nbsp;Cancel -->
             </a>
         </form>
     </div>
