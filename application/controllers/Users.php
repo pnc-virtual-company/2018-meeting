@@ -89,9 +89,14 @@ class Users extends CI_Controller {
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
     public function active($id, $active) {
-        $this->users_model->setActive($id, $active);
-        $this->session->set_flashdata('msg', 'The user was successfully modified');
-        redirect('users');
+      $user = $this->userlevel();
+            if ($user == 'admin') {
+                $this->users_model->setActive($id, $active);
+                $this->session->set_flashdata('msg', 'The user was successfully modified');
+                redirect('users');
+            }else{
+              redirect('errors/error');
+            }
     }
 
     /**
@@ -100,7 +105,12 @@ class Users extends CI_Controller {
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
     public function enable($id) {
-        $this->active($id, TRUE);
+      $user = $this->userlevel();
+            if ($user == 'admin') {
+                $this->active($id, TRUE);
+            }else{
+              redirect('errors/error');
+            }
     }
 
     /**
@@ -109,7 +119,12 @@ class Users extends CI_Controller {
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
     public function disable($id) {
-        $this->active($id, FALSE);
+      $user = $this->userlevel();
+            if ($user == 'admin') {
+                $this->active($id, FALSE);
+            }else{
+              redirect('errors/error');
+            }
     }
 
     /**
@@ -118,34 +133,38 @@ class Users extends CI_Controller {
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
     public function edit($id) {
+      $user = $this->userlevel();
+        if ($user == 'admin') {
+          $this->load->helper('form');
+          $this->load->library('form_validation');
+          $this->form_validation->set_rules('firstname', 'Firstname', 'required|strip_tags');
+          $this->form_validation->set_rules('lastname', 'Lastname', 'required|strip_tags');
+          $this->form_validation->set_rules('login', 'Login', 'required|strip_tags');
+          $this->form_validation->set_rules('email', 'Email', 'required|strip_tags');
+          $this->form_validation->set_rules('role[]', 'Role', 'required');
 
-        $this->load->helper('form');
-        $this->load->library('form_validation');
-        $this->form_validation->set_rules('firstname', 'Firstname', 'required|strip_tags');
-        $this->form_validation->set_rules('lastname', 'Lastname', 'required|strip_tags');
-        $this->form_validation->set_rules('login', 'Login', 'required|strip_tags');
-        $this->form_validation->set_rules('email', 'Email', 'required|strip_tags');
-        $this->form_validation->set_rules('role[]', 'Role', 'required');
+          $data['users_item'] = $this->users_model->getUsers($id);
+          if (empty($data['users_item'])) {
+              redirect('notfound');
+          }
 
-        $data['users_item'] = $this->users_model->getUsers($id);
-        if (empty($data['users_item'])) {
-            redirect('notfound');
-        }
-
-        if ($this->form_validation->run() === FALSE) {
-            $data['roles'] = $this->users_model->getRoles();
-            $this->load->view('templates/header', $data);
-            $this->load->view('menu/index', $data);
-            $this->load->view('users/edit', $data);
-            $this->load->view('templates/footer');
-        } else {
-            $this->users_model->updateUsers();
-            $this->session->set_flashdata('msg', 'The user was successfully modified.');
-            if (isset($_GET['source'])) {
-                redirect($_GET['source']);
-            } else {
-                redirect('users');
-            }
+          if ($this->form_validation->run() === FALSE) {
+              $data['roles'] = $this->users_model->getRoles();
+              $this->load->view('templates/header', $data);
+              $this->load->view('menu/index', $data);
+              $this->load->view('users/edit', $data);
+              $this->load->view('templates/footer');
+          } else {
+              $this->users_model->updateUsers();
+              $this->session->set_flashdata('msg', 'The user was successfully modified.');
+              if (isset($_GET['source'])) {
+                  redirect($_GET['source']);
+              } else {
+                  redirect('users');
+              }
+          }
+        }else{
+          redirect('errors/error');
         }
     }
 
@@ -156,15 +175,20 @@ class Users extends CI_Controller {
      */
     public function delete($id) {
         //Test if user exists
-        $data['users_item'] = $this->users_model->getUsers($id);
-        if (empty($data['users_item'])) {
-            redirect('notfound');
-        } else {
-            $this->users_model->deleteUser($id);
+      $user = $this->userlevel();
+        if ($user == 'admin') {
+          $data['users_item'] = $this->users_model->getUsers($id);
+          if (empty($data['users_item'])) {
+              redirect('notfound');
+          } else {
+              $this->users_model->deleteUser($id);
+          }
+          log_message('error', 'User #' . $id . ' has been deleted by user #' . $this->session->userdata('id'));
+          $this->session->set_flashdata('msg', 'The user was successfully deleted');
+          redirect('users');
+        }else{
+          redirect('errors/error');
         }
-        log_message('error', 'User #' . $id . ' has been deleted by user #' . $this->session->userdata('id'));
-        $this->session->set_flashdata('msg', 'The user was successfully deleted');
-        redirect('users');
     }
 
     /**
@@ -174,56 +198,60 @@ class Users extends CI_Controller {
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
     public function reset($id) {
+        $user = $this->userlevel();
+          if ($user == 'admin') {
+            //Test if user exists
+            $data['users_item'] = $this->users_model->getUsers($id);
+            if (empty($data['users_item'])) {
+              log_message('debug', '{controllers/users/reset} user not found');
+              redirect('notfound');
+            } else {
+              log_message('debug', 'Reset the password of user #' . $id);
+              $this->users_model->resetPassword($id, $this->input->post('password'));
 
-        //Test if user exists
-        $data['users_item'] = $this->users_model->getUsers($id);
-        if (empty($data['users_item'])) {
-          log_message('debug', '{controllers/users/reset} user not found');
-          redirect('notfound');
-        } else {
-          log_message('debug', 'Reset the password of user #' . $id);
-          $this->users_model->resetPassword($id, $this->input->post('password'));
+              //Send an e-mail to the user so as to inform that its password has been changed
+              $user = $this->users_model->getUsers($id);
+              $this->load->library('email');
+              $this->load->library('parser');
+              $data = array(
+                  'Title' => 'Your password was reset',
+                  'Firstname' => $user['firstname'],
+                  'Lastname' => $user['lastname']
+              );
+              $message = $this->parser->parse('emails/password_reset', $data, TRUE);
 
-          //Send an e-mail to the user so as to inform that its password has been changed
-          $user = $this->users_model->getUsers($id);
-          $this->load->library('email');
-          $this->load->library('parser');
-          $data = array(
-              'Title' => 'Your password was reset',
-              'Firstname' => $user['firstname'],
-              'Lastname' => $user['lastname']
-          );
-          $message = $this->parser->parse('emails/password_reset', $data, TRUE);
+              if ($this->config->item('from_mail') != FALSE && $this->config->item('from_name') != FALSE ) {
+                  $this->email->from($this->config->item('from_mail'), $this->config->item('from_name'));
+              } else {
+                  $this->email->from('do.not@reply.me', 'LMS');
+              }
+              $this->email->to($user['email']);
+              $subject = $this->config->item('subject_prefix');
+              $this->email->subject($subject . 'Your password was reset');
+              $this->email->message($message);
+              log_message('debug', 'Sending the reset email');
+              if ($this->config->item('log_threshold') > 1) {
+                $this->email->send(FALSE);
+                $debug = $this->email->print_debugger(array('headers'));
+                log_message('debug', 'print_debugger = ' . $debug);
+              } else {
+                $this->email->send();
+              }
 
-          if ($this->config->item('from_mail') != FALSE && $this->config->item('from_name') != FALSE ) {
-              $this->email->from($this->config->item('from_mail'), $this->config->item('from_name'));
-          } else {
-              $this->email->from('do.not@reply.me', 'LMS');
+              //Inform back the user by flash message
+              $this->session->set_flashdata('msg', 'The password was successfully reset');
+              if ($this->session->isAdmin || $this->session->isSuperAdmin) {
+                log_message('debug', 'Redirect to list of users page');
+                redirect('users');
+              }
+              else {
+                log_message('debug', 'Redirect to homepage');
+                redirect('home');
+              }
+            }
+          }else{
+            redirect('errors/error');
           }
-          $this->email->to($user['email']);
-          $subject = $this->config->item('subject_prefix');
-          $this->email->subject($subject . 'Your password was reset');
-          $this->email->message($message);
-          log_message('debug', 'Sending the reset email');
-          if ($this->config->item('log_threshold') > 1) {
-            $this->email->send(FALSE);
-            $debug = $this->email->print_debugger(array('headers'));
-            log_message('debug', 'print_debugger = ' . $debug);
-          } else {
-            $this->email->send();
-          }
-
-          //Inform back the user by flash message
-          $this->session->set_flashdata('msg', 'The password was successfully reset');
-          if ($this->session->isAdmin || $this->session->isSuperAdmin) {
-            log_message('debug', 'Redirect to list of users page');
-            redirect('users');
-          }
-          else {
-            log_message('debug', 'Redirect to homepage');
-            redirect('home');
-          }
-        }
     }
 
     /**
@@ -302,12 +330,17 @@ class Users extends CI_Controller {
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
     public function checkLogin($login) {
-        if (!$this->users_model->isLoginAvailable($login)) {
-            $this->form_validation->set_message('checkLogin', lang('users_create_checkLogin'));
-            return FALSE;
-        } else {
-            return TRUE;
-        }
+      $user = $this->userlevel();
+      if ($user == "admin") {
+          if (!$this->users_model->isLoginAvailable($login)) {
+              $this->form_validation->set_message('checkLogin', lang('users_create_checkLogin'));
+              return FALSE;
+          } else {
+              return TRUE;
+          }
+      }else{
+          redirect('errors/error');
+      }
     }
 
     /**
@@ -315,12 +348,17 @@ class Users extends CI_Controller {
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
     public function checkLoginByAjax() {
-        $this->output->set_content_type('text/plain');
-        if ($this->users_model->isLoginAvailable($this->input->post('login'))) {
-            $this->output->set_output('true');
-        } else {
-            $this->output->set_output('false');
-        }
+      $user = $this->userlevel();
+      if ($user == "admin") {
+          $this->output->set_content_type('text/plain');
+          if ($this->users_model->isLoginAvailable($this->input->post('login'))) {
+              $this->output->set_output('true');
+          } else {
+              $this->output->set_output('false');
+          }
+      }else{
+          redirect('errors/error');
+      }
     }
 
     /**
@@ -328,7 +366,12 @@ class Users extends CI_Controller {
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
     public function export() {
-        $this->load->view('users/export');
+      $user = $this->userlevel();
+        if ($user == "admin") {
+            $this->load->view('users/export');
+        }else{
+            redirect('errors/error');
+        }
     }
     public function user_profile(){
     $user = $this->userlevel();

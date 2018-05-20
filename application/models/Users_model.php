@@ -496,51 +496,63 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
             if ($start == $end) {
                return false;
            }else{
-               $value= "";
-               $this->db->select('*');
-               $this->db->from('tbl_room_request');
-               $query = $this->db->get();
-               $rowcount = $query->num_rows();
-                       // var_dump($rowcount);die();
-               if ($rowcount == 0) {
-                $data = array(
+               // $value= "";
+               // $this->db->select('*');
+               // $this->db->from('tbl_room_request');
+               // $query = $this->db->get();
+            $data = array(
                    'book_description' =>$note,     
                    'Date' =>$date, 
                    'Start' =>$start,   
                    'End' =>$end,   
                    'user_id' => $user_id,
                    'room_id' => $room_id,
-                   'sta_id' => 1
-               );
-
-                $result = $this->db->insert('tbl_room_request',$data);
-                return $result;
-                return true;
-            }else{
-               foreach ($query->result() as $finddate) {
-                   if ($finddate->End < $start) {
-                       return false;
-                   }else{
-                       $value = 'true';
-                   }
-               }if ($value == 'true') {
-                   $data = array(
-                       'book_description' =>$note,     
-                       'Date' =>$date, 
-                       'Start' =>$start,   
-                       'End' =>$end,   
-                       'user_id' => $user_id,
-                       'room_id' => $room_id,
-                       'sta_id' => 1
-                   );
-
-                   $result = $this->db->insert('tbl_room_request',$data);
-                   return $result;
-               }
-
+                   'sta_id' => 3
+                );               
+            $result = $this->db->insert('tbl_room_request',$data);
+             return $result;
            }
+           //     $rowcount = $query->num_rows();
+           //             // var_dump($rowcount);die();
+           //     if ($rowcount == 0) {
 
-       }            
+           //          $data = array(
+           //             'book_description' =>$note,     
+           //             'Date' =>$date, 
+           //             'Start' =>$start,   
+           //             'End' =>$end,   
+           //             'user_id' => $user_id,
+           //             'room_id' => $room_id,
+           //             'sta_id' => 1
+           //         );
+           //      $result = $this->db->insert('tbl_room_request',$data);
+           //      return $result;
+           //      return true;
+           //  }else{
+           //     foreach ($query->result() as $finddate) {
+           //         if ($finddate->End < $start) {
+           //             return false;
+           //         }else{
+           //             $value = 'true';
+           //         }
+           //     }if ($value == 'true') {
+           //         $data = array(
+           //             'book_description' =>$note,     
+           //             'Date' =>$date, 
+           //             'Start' =>$start,   
+           //             'End' =>$end,   
+           //             'user_id' => $user_id,
+           //             'room_id' => $room_id,
+           //             'sta_id' => 1
+           //         );
+
+           //         $result = $this->db->insert('tbl_room_request',$data);
+           //         return $result;
+           //     }
+
+           // }
+
+       // }            
    }
 
 
