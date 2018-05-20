@@ -25,6 +25,8 @@
         <tbody>
           <?php   
           foreach ($list_location as $row) {
+            $lat = $row->lat;
+            $long = $row->long;
            ?>
            <tr>   
             <td>
@@ -41,7 +43,7 @@
                <div class="modal-content">
                  <!-- Modal Header -->
                  <div class="modal-header">
-                   <h4 class="modal-title text-center"><?php echo $row->loc_name; ?> Location</h4>
+                   <h4 class="modal-title text-center"><?php echo $row->loc_name; ?></h4>
                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                  </div>
                  <!-- Modal body -->
@@ -50,8 +52,24 @@
                    <h3>My Google Maps Demo</h3>
                     <div id="map"></div>
                     <!-- Replace the value of the key parameter with your own API key. -->
-                    <script async defer
-                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkUOdZ5y7hMm0yrcCQoCvLwzdM6M8s5qk&callback=initMap">
+                      <?php 
+                        $lat = $row->lat;
+                        $long = $row->long;
+                        echo $lat;
+                        echo $long;
+                       ?>
+                    <script>
+                      function initMap() {
+                        var uluru = {lat: parseFloat('<?php echo $lat;?>'), lng: parseFloat('<?php echo $long;?>')};
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                          zoom: 4,
+                          center: uluru
+                        });
+                        var marker = new google.maps.Marker({
+                          position: uluru,
+                          map: map
+                        });
+                      }
                     </script>
                  </div>
                  <!-- Modal footer -->
@@ -63,7 +81,7 @@
            </div>
          </tr>  
          <?php
-       }
+          }
        ?>
      </tbody> 
    </table>
@@ -112,15 +130,7 @@
 
 
   });
- function initMap() {
-  var uluru = {lat: -23, lng: 1.044};
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
-    center: uluru
-  });
-  var marker = new google.maps.Marker({
-    position: uluru,
-    map: map
-  });
-}
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAjaIzPJQY_nrDt5zi2ayk1BfeQOHo7Kk&callback=initMap">
 </script>

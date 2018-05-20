@@ -64,9 +64,20 @@
                 <div id="us3" style="width: 100%; height: 400px;"></div>
                 <di v class="clearfix">&nbsp;</div>
                 <div class="m-t-small">
+
+                    <label class="p-r-small col-sm-1 control-label">Lat.:</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" style="width: 110px" id="us3-lat" name="lat" />
+                    </div>
+                    <label class="p-r-small col-sm-2 control-label">Long.:</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" style="width: 110px" id="us3-lon" name="long" />
+                    </div>
+
                         <input type="hidden" class="form-control" style="width: 110px" id="us3-lat" name="lat" />
                     
                         <input type="hidden" class="form-control" style="width: 110px" id="us3-lon" name="long" />
+
                 </div>
                 <div class="clearfix"></div>
                 <script src="<?php echo base_url(); ?>assets/map-plugin/dist/locationpicker.jquery.js"></script>
