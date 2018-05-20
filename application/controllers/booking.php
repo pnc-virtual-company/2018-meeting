@@ -96,12 +96,11 @@
 		}
 
 		public function update_booking(){
+			$user = $this->userlevel();
 			$this->load->model('Users_model');
 			$data['list_location'] = $this->Users_model->selectLocation();
-			$this->load->view('template/header');
-			$this->load->view('template/left_sidebar', $data);
-			$this->load->view('update_booking');
-			$this->load->view('template/footer');
+			$data['page'] = "update_booking";
+			$this->load->view($user, $data);
 		}
 
 		public function fullCalendar(){
