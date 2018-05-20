@@ -52,7 +52,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Modal title</h4>
+                
             </div>
             <div class="modal-body">
                 <div class="form-group">
@@ -61,13 +61,7 @@
                         <input type="text" name="address" class="form-control" id="us3-address" />
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Radius:</label>
-
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control" id="us3-radius" />
-                    </div>
-                </div>
+                
                 <div id="us3" style="width: 100%; height: 400px;"></div>
                 <div class="clearfix">&nbsp;</div>
                 <div class="m-t-small">
