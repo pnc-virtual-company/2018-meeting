@@ -121,7 +121,7 @@
                 header: {
                     left: 'prev,next today',
                     center: 'title',
-                    right: 'month,basicWeek,basicDay'
+                    right: 'basicDay,basicWeek,month',
                 },
                 /*themeSystem: 'bootstrap3',*/
                 defaultDate: Date(),
@@ -185,7 +185,7 @@
                     }
                     ]
             });
-            $('#calendar').fullCalendar('changeView', 'agendaDay');
+            $('#calendar').fullCalendar('changeView', 'basicDay');
         });
     </script>
     
