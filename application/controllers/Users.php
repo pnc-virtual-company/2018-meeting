@@ -331,9 +331,10 @@ class Users extends CI_Controller {
         $this->load->view('users/export');
     }
     public function user_profile(){
-   $this->load->view('template/header');
-   $this->load->view('template/left_sidebar');
-   $this->load->view('user_profile');
-   $this->load->view('template/footer');
- }
+    $user = $this->userlevel();
+    $this->load->model('Users_model');
+    $data['list_location'] = $this->Users_model->selectLocation();
+    $data['page'] = "user_profile";
+    $this->load->view($user, $data);
+  }
 }
