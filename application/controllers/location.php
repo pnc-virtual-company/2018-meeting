@@ -23,12 +23,12 @@ class location extends CI_Controller {
 				}else if ($user == 2) {
 					$page = "manager";
 					return $page;
-					$data['page'] = "list_location";
+					$data['page'] = "card_location";
 					$this->load->view($user, $data);
 				}else if ($user == 3) {
 					$page = "normal";
 					return $page;
-					$data['page'] = "list_location";
+					$data['page'] = "card_location";
 					$this->load->view($user, $data);
 				}else{
 					redirect('connection/login');
@@ -41,11 +41,20 @@ class location extends CI_Controller {
 	}
 	public function index()
 	{
-		$this->load->model('Users_model');
-		$data['list_location'] = $this->Users_model->selectLocation();
-		$data['page'] = "list_location";
 		$user = $this->userlevel();
-		$this->load->view($user, $data);
+		if ($user != "admin") {
+			$this->load->model('Users_model');
+			$data['list_location'] = $this->Users_model->selectLocation();
+			$data['page'] = "card_location";
+			$user = $this->userlevel();
+			$this->load->view($user, $data);
+		}else{
+			$this->load->model('Users_model');
+			$data['list_location'] = $this->Users_model->selectLocation();
+			$data['page'] = "list_location";
+			$user = $this->userlevel();
+			$this->load->view($user, $data);
+		}
 	}
 	public function userlevel()
 	{
