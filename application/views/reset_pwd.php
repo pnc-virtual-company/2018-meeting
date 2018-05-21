@@ -1,4 +1,4 @@
-<!-- Danet THRONG -->
+<!-- Danet THORNG -->
 	<div class="container">
 		<div class="row">
 			<div class="col-md-3"></div>
@@ -12,12 +12,12 @@
 						<input type="text" name="email" class="form-control" placeholder="Enter Your Email"><br>
 					</div>
 					<div class="card-footer">
-						<a href="<?php base_url(); ?>new_pwd" ><button type="button" class="btn btn-outline-success float-right">Reset Now</button></a>
-						<a href="<?php base_url(); ?>login" ><button type="button" class="btn btn-outline-danger float-left">Cancel</button></a>
+						<a href="<?php echo base_url(); ?>Connection/new_pwd" ><button type="button" class="btn btn-outline-success float-right">Reset Now</button></a>
+						<a href="<?php echo base_url(); ?>Connection/login" ><button type="button" class="btn btn-outline-danger float-left">Cancel</button></a>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-3"></div>
 		</div>
 	</div>
-<!-- Danet THRONG -->
+<!-- Danet THORNG -->
