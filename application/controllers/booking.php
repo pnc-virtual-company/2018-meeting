@@ -169,7 +169,7 @@
 
 			$data['list_location'] = $this->Users_model->selectLocation();
 			$book_id = $this->input->get('book_id');
-			$location['list_location'] = $this->Users_model->selectLocation();
+			$data['book_request'] = $this->Users_model->select_room_request();
 			$data['request_update'] = $this->Users_model->select_booking($book_id);
 			$data['page'] = "update_booking";
 			$this->load->view($user, $data);
