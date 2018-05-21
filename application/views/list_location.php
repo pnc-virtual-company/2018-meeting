@@ -49,6 +49,9 @@
                  <!-- Modal body -->
                  <div class="modal-body">
                    <!-- <iframe src="<?php  echo $row->embed_url_map;  ?>" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
+                   <script async defer
+                   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAjaIzPJQY_nrDt5zi2ayk1BfeQOHo7Kk&callback=initMap">
+                   </script>
                    <h3>My Google Maps Demo</h3>
                     <div id="map"></div>
                     <!-- Replace the value of the key parameter with your own API key. -->
@@ -131,6 +134,4 @@
 
   });
 </script>
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAjaIzPJQY_nrDt5zi2ayk1BfeQOHo7Kk&callback=initMap">
-</script>
+
