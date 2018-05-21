@@ -112,20 +112,6 @@
 			$this->load->view('template/footer');
 
 		}
-		// 	// create by thintha
-		// public function edit_location(){
-		// 	$this->load->model('Users_model');
-		// 	$location['list_location'] = $this->Users_model->selectLocation();
-		// 	$loc_id = $this->input->get('loc_id');
-		// 	$this->load->view('template/header');
-		// 	$this->load->view('template/left_sidebar', $location);
-		// 	$this->load->model('Users_model');
-		// 	$data['listUpdatelocation'] = $this->Users_model->selectUpdateLocation($loc_id);
-		// 	$this->load->view('edit_location', $data);
-		// 	$this->load->view('template/footer');
-		// }
-
-
 		// list room by samreth.SAROEURT
 		public function select_room_request(){
 			$user = $this->userlevel();
@@ -166,7 +152,6 @@
 			// delete list room request by samreth.SAROEURT
 		public function delete_book_request()
 		{
-
 			$book_id = $this->input->get('book_id');
 			$this->load->model('Users_model');
 			$data = $this->Users_model->delete_book_request($book_id);
@@ -189,7 +174,6 @@
 			$data['page'] = "update_booking";
 			$this->load->view($user, $data);
 		}
-
 			//edite meeting room by samreth.SAROEURT
 		public function update_request(){
 			$user = $this->userlevel();
@@ -208,7 +192,37 @@
 				echo "Data not insert";
 			}
 		}
-			//Export file into excel by Danet THORNG
+
+		public function acceptRequest($reqId){
+			$user = $this->userlevel();
+			if ($user != 'normal') {
+				$this->load->model('users_model');
+				$accept = $this->users_model->acceptRequest($reqId);
+				if ($accept == 'true') {
+					redirect('booking/request_validate');
+				}else{
+					echo 'error';	
+				}
+			}else{
+				redirect('errors/error');
+			}
+		}
+		public function rejectRequest($reqId){
+			$user = $this->userlevel();
+			if ($user != 'normal') {
+				$this->load->model('users_model');
+				$accept = $this->users_model->rejectRequest($reqId);
+				if ($accept == 'true') {
+					redirect('booking/request_validate');
+				}else{
+					echo 'error';	
+				}
+			}else{
+				redirect('errors/error');
+			}
+		}
+		
+		//Export file into excel by Danet THORNG
 		public function getExportFile(){
 				// redirect('welcome/getExportFile');
 			$this->load->model('users_model');

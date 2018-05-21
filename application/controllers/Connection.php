@@ -26,12 +26,19 @@ class Connection extends CI_Controller {
 		$this->form_validation->set_rules('login', 'Login', 'required|strip_tags');
 		$this->form_validation->set_rules('password', 'Password', 'required|strip_tags');
 		if ($this->form_validation->run() === FALSE) {
-			log_message('debug', 'Let\'s display the login form');
-			$data['title'] = 'Login';
-			$data['flashPartialView'] = $this->load->view('templates/flash', $data, TRUE);
-			$this->load->view('templates/header', $data);
-			$this->load->view('login/login', $data);
-			$this->load->view('templates/footer');
+			$login = $this->session->login;
+			$role = $this->session->role;
+			$this->load->model('users_model');
+			if ($this->users_model->checkusersession($login, $role) == 'true') {
+				redirect('location');
+			}else{
+				log_message('debug', 'Let\'s display the login form');
+				$data['title'] = 'Login';
+				$data['flashPartialView'] = $this->load->view('templates/flash', $data, TRUE);
+				$this->load->view('templates/header', $data);
+				$this->load->view('login/login', $data);
+				$this->load->view('templates/footer');
+			}
 		} else {
 			$this->load->model('users_model');
 			$login = $this->input->post('login');
