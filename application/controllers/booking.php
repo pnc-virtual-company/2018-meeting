@@ -144,10 +144,10 @@
 
 			$note = $this->input->post("comment");
 			$room_id = $this->session->userdata('room_id');
-			$user_id = $this->session->userdata('id');
+			$user_booking_id = $this->session->userdata('id');
 
 			$this->load->model('Users_model');
-			$data = $this->Users_model->booking_room($note,$date,$start,$end,$user_id,$room_id);
+			$data = $this->Users_model->booking_room($note,$date,$start,$end,$user_booking_id,$room_id);
 
 
 			if ($data != 'true') {
@@ -155,7 +155,7 @@
 				$this->book_meeting();
 			}else {
 				if($data == 'true'){
-					$this->select_room_request();
+					redirect('booking');
 				}else{
 					$this->book_meeting();
 				}
@@ -181,10 +181,7 @@
 		public function update_booking_room(){
 			$user = $this->userlevel();
 			$this->load->model('Users_model');
-<<<<<<< HEAD
-=======
 			$data['list_location'] = $this->Users_model->selectLocation();
->>>>>>> 55c3fad8070bcdbd3f62ef218ec009dbdf2f43e1
 			$book_id = $this->input->get('book_id');
 			$location['list_location'] = $this->Users_model->selectLocation();
 			$data['request_update'] = $this->Users_model->select_booking($book_id);

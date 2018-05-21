@@ -478,7 +478,7 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
             $this->db->join('tbl_status', ' tbl_room_request.sta_id = tbl_status.sta_id');
             $this->db->join('tbl_rooms', ' tbl_rooms.room_id = tbl_room_request.room_id');
             $this->db->join('tbl_locations', ' tbl_rooms.loc_id = tbl_locations.loc_id');
-            $this->db->where('tbl_room_request.user_id', $user_id);
+            $this->db->where('tbl_room_request.user_booking_id', $user_id);
             $this->db->order_by('tbl_room_request.book_id', 'DESC');
             $query = $this->db->get();
             // var_dump($query->result());die();
@@ -491,59 +491,32 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
         }
             //Booking room request By Samreth.SAROEURT
 
-        public function  booking_room($note,$date,$start,$end,$user_id,$room_id){
-
-
-
-
+        public function  booking_room($note,$date,$start,$end,$user_booking_id,$room_id){
             if ($start == $end) {
                return false;
            }else{
-               $value= "";
                $this->db->select('*');
-               $this->db->from('tbl_room_request');
+               $this->db->from('tbl_rooms');
+               $this->db->where('tbl_rooms.room_id',$room_id);
                $query = $this->db->get();
-               $rowcount = $query->num_rows();
-                       // var_dump($rowcount);die();
-               if ($rowcount == 0) {
-                $data = array(
-                   'book_description' =>$note,     
-                   'Date' =>$date, 
-                   'Start' =>$start,   
-                   'End' =>$end,   
-                   'user_id' => $user_id,
-                   'room_id' => $room_id,
-                   'sta_id' => 1
-               );
-
-                $result = $this->db->insert('tbl_room_request',$data);
-                return $result;
-                return true;
-            }else{
-               foreach ($query->result() as $finddate) {
-                   if ($finddate->End < $start) {
-                       return false;
-                   }else{
-                       $value = 'true';
-                   }
-               }if ($value == 'true') {
+               foreach ($query->result() as $value) {
+                   $user_id = $value->user_id;
+               }
                    $data = array(
                        'book_description' =>$note,     
                        'Date' =>$date, 
                        'Start' =>$start,   
                        'End' =>$end,   
                        'user_id' => $user_id,
+                       'user_booking_id' => $user_booking_id,
                        'room_id' => $room_id,
-                       'sta_id' => 1
+                       'sta_id' => 3
                    );
 
                    $result = $this->db->insert('tbl_room_request',$data);
                    return $result;
                }
 
-           }
-
-       }            
    }
 
 
@@ -589,14 +562,6 @@ public function delete_book_request($book_id) {
 }
 
 
-public function listAllUsers(){
-    $this->db->select("id,firstname,lastname,login, email, tbl_roles.role_name");
-    $this->db->from('users');
-    $this->db->join('tbl_roles', 'users.role=tbl_roles.role_id');
-    $users = $this->db->get();
-    return $users->result();
-}
-
      // update booking request by Samreth.SAROEURT 
 function update_request($date,$start,$end,$note,$book_id){
 
@@ -623,13 +588,17 @@ public function view_room_detail($room_id){
 }
             // create by Thintha and Maryna PHORN
 public function select_request_validate(){
-
+    $user_id = $this->session->id;
     $this->db->select('*');
     $this->db->from('tbl_room_request');
-    $this->db->join('tbl_rooms', ' tbl_room_request.room_id = tbl_rooms.room_id');
-    $this->db->join('users', ' tbl_rooms.user_id = users.id');
+    $this->db->join('tbl_status', ' tbl_room_request.sta_id = tbl_status.sta_id');
+    $this->db->join('tbl_rooms', ' tbl_rooms.room_id = tbl_room_request.room_id');
     $this->db->join('tbl_locations', ' tbl_rooms.loc_id = tbl_locations.loc_id');
+    $this->db->join('users', ' tbl_room_request.user_booking_id = users.id');
+    $this->db->where('tbl_room_request.user_id', $user_id);
     $this->db->order_by('tbl_room_request.book_id', 'DESC');
+    $query = $this->db->get();
+    return  $query->result();
     error_reporting(0);
     $query = $this->db->get();
             //var_dump($query->result());die();
