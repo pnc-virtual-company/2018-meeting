@@ -42,7 +42,7 @@
  					<div class="col-10">
  						<div>
  							<button class="btn btn-primary" type="submit" name="send" value="login">
- 								<i style="color: #fff" class="mdi mdi-check" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp;Request Room</span>
+ 								<i style="color: #fff" class="mdi mdi-check" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Update Request</span>
  							</button>
  							<a  class="btn btn-danger float-right"  href="<?php echo base_url(); ?>booking/select_room_request" class="btn btn-danger float-right" class="text-center">
  								<i style="color: #fff" class="mdi mdi-close" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Cancel</span>
