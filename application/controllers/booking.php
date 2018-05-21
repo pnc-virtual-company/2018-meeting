@@ -181,8 +181,12 @@
 		public function update_booking_room(){
 			$user = $this->userlevel();
 			$this->load->model('Users_model');
+<<<<<<< HEAD
+=======
 			$data['list_location'] = $this->Users_model->selectLocation();
+>>>>>>> 55c3fad8070bcdbd3f62ef218ec009dbdf2f43e1
 			$book_id = $this->input->get('book_id');
+			$location['list_location'] = $this->Users_model->selectLocation();
 			$data['request_update'] = $this->Users_model->select_booking($book_id);
 			$data['page'] = "update_booking";
 			$this->load->view($user, $data);
@@ -190,6 +194,7 @@
 
 			//edite meeting room by samreth.SAROEURT
 		public function update_request(){
+			$user = $this->userlevel();
 			$date = $this->input->post("sdate");
 			$start = $this->input->post("start");
 			$end = $this->input->post("end");
@@ -200,7 +205,7 @@
 			$this->load->model('Users_model');
 			$data = $this->Users_model->update_request($date,$start,$end,$note,$book_id);
 			if ($data == 'true') {
-				$this->select_room_request();
+				redirect('booking');
 			}else{
 				echo "Data not insert";
 			}
