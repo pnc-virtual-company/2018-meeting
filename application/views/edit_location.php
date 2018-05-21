@@ -49,13 +49,8 @@
                 <label for="pwd">Address</label>
                 <input type="text" class="form-control"  data-target="#us6-dialog" data-toggle="modal" name="update_address" id="update_address" value="<?php echo $row->address; ?>" required="">
             </div>
+
               <br>
-          <?php endforeach; ?>
-              
-              <button type="submit" class="btn btn-success">Update Location</button>
-              <a href="" class="btn btn-danger float-right">
-          <i class="mdi mdi-cancel "></i>&nbsp;Cancel
-        </a>
               <!-- modal -->
               <div class="modal"  id="us6-dialog">
                 <div class="modal-dialog modal-lg">
@@ -80,10 +75,10 @@
                           <div class="clearfix">&nbsp;</div>
                           <div class="m-t-small">
                               <div class="col-sm-3">
-                                  <input type="hidden" class="form-control" style="width: 110px" id="us3-lat" />
+                                  <input type="hidden" class="form-control" name="lat" style="width: 110px" id="us3-lat" />
                               </div>
                               <div class="col-sm-3">
-                                  <input type="hidden" class="form-control" style="width: 110px" id="us3-lon" />
+                                  <input type="hidden" class="form-control" name="long" style="width: 110px" id="us3-lon" />
                               </div>
                           </div>
                           <div class="clearfix"></div>
@@ -91,8 +86,8 @@
                           <script>
                               $('#us3').locationpicker({
                                   location: {
-                                      latitude: 11.56245,
-                                      longitude: 104.91601
+                                      latitude: <?php echo $row->lat; ?>,
+                                      longitude: <?php echo $row->long; ?>
                                   },
                                   inputBinding: {
                                       latitudeInput: $('#us3-lat'),
@@ -118,6 +113,13 @@
                 </div>
               </div>
               <!-- //modal -->
+          <?php endforeach; ?>
+              
+              <button type="submit" class="btn btn-success">Update Location</button>
+              <a href="<?php echo base_url(); ?>location" class="btn btn-danger float-right">
+          <i class="mdi mdi-cancel "></i>&nbsp;Cancel
+        </a>
+              
             </form>
           </div>
           

@@ -112,30 +112,29 @@
 			$this->load->view('template/footer');
 
 		}
-			// create by thintha
-		public function edit_location(){
-			$this->load->model('Users_model');
-			$location['list_location'] = $this->Users_model->selectLocation();
-			$loc_id = $this->input->get('loc_id');
-			$this->load->view('template/header');
-			$this->load->view('template/left_sidebar', $location);
-			$this->load->model('Users_model');
-			$data['listUpdatelocation'] = $this->Users_model->selectUpdateLocation($loc_id);
-			$this->load->view('edit_location', $data);
-			$this->load->view('template/footer');
-		}
+		// 	// create by thintha
+		// public function edit_location(){
+		// 	$this->load->model('Users_model');
+		// 	$location['list_location'] = $this->Users_model->selectLocation();
+		// 	$loc_id = $this->input->get('loc_id');
+		// 	$this->load->view('template/header');
+		// 	$this->load->view('template/left_sidebar', $location);
+		// 	$this->load->model('Users_model');
+		// 	$data['listUpdatelocation'] = $this->Users_model->selectUpdateLocation($loc_id);
+		// 	$this->load->view('edit_location', $data);
+		// 	$this->load->view('template/footer');
+		// }
 
 
 		// list room by samreth.SAROEURT
 		public function select_room_request(){
+			$user = $this->userlevel();
 			$this->load->model('Users_model');
-			$location['list_location'] = $this->Users_model->selectLocation();
-			$this->load->view('template/header');
-			$this->load->view('template/left_sidebar', $location);
-			$this->load->model('Users_model');
+			$data['list_location'] = $this->Users_model->selectLocation();
+			$book_id = $this->input->get('book_id');
 			$data['book_request'] = $this->Users_model->select_room_request();
-			$this->load->view('booking_request', $data);
-			$this->load->view('template/footer');
+			$data['page'] = "booking_request";
+			$this->load->view($user, $data);
 		}
 		// booking request room by samreth.SAROEURT
 		public function booking_room(){
@@ -182,6 +181,10 @@
 		public function update_booking_room(){
 			$user = $this->userlevel();
 			$this->load->model('Users_model');
+<<<<<<< HEAD
+=======
+			$data['list_location'] = $this->Users_model->selectLocation();
+>>>>>>> 55c3fad8070bcdbd3f62ef218ec009dbdf2f43e1
 			$book_id = $this->input->get('book_id');
 			$location['list_location'] = $this->Users_model->selectLocation();
 			$data['request_update'] = $this->Users_model->select_booking($book_id);

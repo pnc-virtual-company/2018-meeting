@@ -556,11 +556,13 @@ public function select_booking($book_id){
     return  $query->result();
 }
 
-public function update_location($name,$des,$add,$loc_id){
+public function update_location($name,$des,$add,$lat,$long,$loc_id){
     $edit = array(
         'loc_name' =>$name, 
         'description' =>$des,   
-        'address' =>$add   
+        'address' =>$add,
+        'lat' =>$lat,
+        'long'=>$long  
     );
     $this->db->where('loc_id', $loc_id);
     $result = $this->db->update('tbl_locations', $edit);
