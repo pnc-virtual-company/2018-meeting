@@ -11,9 +11,9 @@
      <thead>
         <tr>
             <th>Action</th>
+            <th>Status</th>
             <th>Location</th>
             <th>Room</th>
-            <th>Status</th>
             <th>Date</th>
             <th>Start</th>
             <th>End</th>
@@ -31,9 +31,9 @@
                    <a href="<?php echo base_url(); ?>booking/delete_book_request?book_id=<?php echo $row->book_id; ?>" title="Delete room request" data-toggle="modal" data-target="#<?php echo $row->book_id; ?>"><i class="mdi mdi-delete"></i></a>
                    <a href="<?php echo base_url(); ?>booking/update_booking_room?book_id=<?php echo $row->book_id; ?>" title="Update room Request"><i class="mdi mdi-pencil"></i></a>
                </td>
+               <td><?php echo $row->status ?></td>
                <td><?php echo $row->loc_name  ?></td>
                <td><?php echo $row->room_name ?></td>
-               <td><?php echo $row->status ?></td>
                <td><?php echo $row->Date; ?></td>
                <td><?php echo substr($row->Start,0,-10) ?></td>
                <td><?php echo substr($row->End,0,-10) ?></td>
