@@ -583,6 +583,7 @@ public function delete_book_request($book_id) {
 function update_request($date,$start,$end,$note,$book_id){
 
     $edit = array(
+        'sta_id' => 3,
         'Date' =>$date, 
         'Start' =>$start,   
         'End' =>$end,   
@@ -613,13 +614,11 @@ public function select_request_validate(){
     $this->db->join('tbl_locations', ' tbl_rooms.loc_id = tbl_locations.loc_id');
     $this->db->join('users', ' tbl_room_request.user_booking_id = users.id');
     $this->db->where('tbl_room_request.user_id', $user_id);
-    $this->db->where('tbl_room_request.sta_id', '3');
     $this->db->order_by('tbl_room_request.book_id', 'DESC');
     $query = $this->db->get();
     return  $query->result();
     error_reporting(0);
     $query = $this->db->get();
-            //var_dump($query->result());die();
     return  $query->result();
 }
 public function acceptRequest($reqId){
