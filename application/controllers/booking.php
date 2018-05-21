@@ -148,6 +148,32 @@
 			}
 		}
 
+		// booking request room by samreth.SAROEURT
+		public function booking_a_room(){
+			$date = $this->input->post("sdate");
+			$start = $this->input->post("start");
+			$end = $this->input->post("end");
+
+			$note = $this->input->post("comment");
+			$room_id = $this->input->post("room_id");
+			// $room_id = $this->session->userdata('room_id');
+			$user_booking_id = $this->session->userdata('id');
+
+			$this->load->model('Users_model');
+			$data = $this->Users_model->booking_room($note,$date,$start,$end,$user_booking_id,$room_id);
+
+
+			if ($data != 'true') {
+				$this->session->set_flashdata('msg', 'Cannot book at this time');
+				$this->book_meeting();
+			}else {
+				if($data == 'true'){
+					redirect('booking');
+				}else{
+					$this->book_meeting();
+				}
+			}
+		}
 		public function book_a_room(){
 			$user = $this->userlevel();
 			$this->load->model('Users_model');
