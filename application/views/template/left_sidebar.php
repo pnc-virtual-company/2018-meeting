@@ -42,7 +42,7 @@
     <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon mdi mdi-settings mdi-light mdi-24px"></i><span class="app-menu__label">Admin</span><i class="treeview-indicator mdi mdi-arrow-right-drop-circle-outline"></i></a>
      <ul class="treeview-menu" style="background-color: #026aab;">
           <li><a class="treeview-item" href="<?php echo base_url(); ?>room/occupancyRate"><i class="mdi mdi-chart-areaspline" style="font-size: 16px;"></i>&nbsp;Occupancy Report</a></li>
-          <li><a class="treeview-item" href="<?php echo base_url(); ?>users"><i class="mdi mdi-account " style="font-size: 16px;"></i>&nbsp;Users Management</a></li>
+          <li><a class="treeview-item" href="<?php echo base_url(); ?>users"><i class="mdi mdi-account " style="font-size: 16px;"></i>&nbsp;Users Managements</a></li>
           <li><a class="treeview-item" href="<?php echo base_url(); ?>location"><i class="mdi mdi-map mdi-light" style="font-size: 16px;"></i>&nbsp;Locations Management</a></li>
     </ul>
    </li>

@@ -61,17 +61,6 @@
 				redirect('connection/login');
 			}
 		}
-
-		public function occupancyRate()
-		{
-			$this->load->model('Users_model');
-			$data['list_location'] = $this->Users_model->selectLocation();
-			$this->load->view('template/header');
-			$this->load->view('template/left_sidebar', $data);
-			$this->load->view('chart');
-			$this->load->view('template/footer');
-		}
-
 		// Book meeting room by samreth.SAROEURT
 		public function book_meeting(){
 			$user = $this->userlevel();
@@ -103,15 +92,6 @@
 			$this->load->view($user, $data);
 		}
 
-		public function fullCalendar(){
-			$this->load->model('Users_model');
-			$data['list_location'] = $this->Users_model->selectLocation();
-			$this->load->view('template/header');
-			$this->load->view('template/left_sidebar', $data);
-			$this->load->view('fullcalendar');
-			$this->load->view('template/footer');
-
-		}
 		// list room by samreth.SAROEURT
 		public function select_room_request(){
 			$user = $this->userlevel();

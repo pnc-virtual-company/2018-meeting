@@ -15,7 +15,12 @@ class room extends CI_Controller {
 	             //User management is reserved to admins and super admins
 	           } else {
 	            $user = $this->session->role;
-	            if ($user == 2) {
+	             if ($user == 1) {
+	            	$page = "admin";
+	            	return $page;
+	            	$data['page'] = "list_location";
+	            	$this->load->view($user, $data);
+	            }else if ($user == 2) {
 	            	$page = "manager";
 	            	return $page;
 	            	$data['page'] = "list_location";
@@ -64,10 +69,14 @@ class room extends CI_Controller {
 		public function occupancyRate()
 		{
 			$user = $this->userlevel();
-			$this->load->model('Users_model');
-			$data['list_location'] = $this->Users_model->selectLocation();
-			$data['page'] = "chart";
-			$this->load->view($user, $data);
+			if ($user == 'admin') {
+				$this->load->model('Users_model');
+				$data['list_location'] = $this->Users_model->selectLocation();
+				$data['page'] = "chart";
+				$this->load->view($user, $data);
+			}else{
+				redirect('errors/error');
+			}
 		}
 		// list room by samreth.SAROEURT
 		public function list_room(){

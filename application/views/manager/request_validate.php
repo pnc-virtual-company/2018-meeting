@@ -2,7 +2,7 @@
 <div id="container">
   <div class="row-fluid">
     <div class="col-12">
-      <h2 style="text-align: center;">Booking Request Validate</h2>
+      <h2 style="text-align: center;">Booking Request Validation</h2>
       <br>
       <table id="request_validate" cellpadding="0" cellspacing="0" class="table table-striped table-bordered" width="100%">
         <thead>
