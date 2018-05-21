@@ -8,6 +8,7 @@
         <thead>
           <tr>
             <th>Action</th>
+            <th>Status</th>
             <th>Location</th>
             <th>Room</th>
             <th>Date</th>
@@ -29,6 +30,7 @@
                 <a href="#" title="Accept request" data-toggle="modal" data-target="#accept"><i class="mdi mdi-check"></i></a>
                 <a href="#" title="Reject request" data-toggle="modal" data-target="#reject"><i class="mdi mdi-window-close"></i></a> 
               </td>
+              <td><?php echo $row->status; ?></td>
               <td><?php echo $row->loc_name; ?></td>
               <td><?php echo $row->room_name; ?></td>
               <td><?php echo $row->Date; ?></td>
@@ -62,13 +64,13 @@
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title">Accept confirmation</h5>
+                      <h5 class="modal-title">Reject confirmation</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
                     <div class="modal-body">
-                      <p>You are going to accept this request.</p>
+                      <p>You are going to reject this request.</p>
                       <p>Are you sure that you want to perform this action?</p>
                     </div>
                     <div class="modal-footer">

@@ -9,7 +9,11 @@
 				<div class="form-group row">
 				  <label for="example-time-input" class="col-2 col-form-label">Location:</label>
 				  <div class="col-10">
+
 				  	<select name="" id="" class="time start form-control">
+
+				  	<select name="" id="" class="time start form-control" disabled="">
+
 				  		<option value=""><?php echo$loc_name = $this->input->get('loc_name'); ?></option>
 				  	</select>
 				  </div>
@@ -17,7 +21,10 @@
 				<div class="form-group row">
 				  <label for="example-time-input" class="col-2 col-form-label">Room:</label>
 				  <div class="col-10">
+
 				   	<select name="" id="" class="time start form-control">
+				   	<select name="" id="" class="time start form-control" disabled="">
+
 				   		<option value=""><?php echo$room_name = $this->input->get('room_name'); ?></option>
 				   	</select>	
 				  </div>
