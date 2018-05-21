@@ -17,37 +17,63 @@
 <div class="container">
     <div class="row">
       <div class="col-md-3"></div>
-      <div class="col-md-6">
+      <div class="col-md-7">
         <div class="">
           <div class="text-center">
-            <h3>User Profile</h3>
+            <h3>Edit My Profile</h3>
         </div>
+            <hr>
+               <button type="submit" class="btn btn-danger" style="margin-left: 17px; ">Cancel</button>
+               <br><br>
+         <h4 style="margin-left: 17px;">General Information</h4>
         <div class="card-body">
             <form method="POST" action="">
               <div class="form-group">
                 <label for="name">First Name</label>
-                <input type="text" class="form-control" id="name" name="name" required="" placeholder="Enter your firstname">
+                <input type="text" class="form-control" id="name" name="name" required="">
             </div>
             <div class="form-group">
                 <label for="lname">Last Name</label>
-                <input type="text" class="form-control" id="lname"  name="lname" required="" placeholder="Enter your lastname">
+                <input type="text" class="form-control" id="lname"  name="lname" required="">
             </div>
             <div class="form-group">
                 <label for="login">Login</label>
-                <input type="text" class="form-control"  name="login" required="" placeholder="Enter login">
+                <input type="text" class="form-control"  name="login" required="">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="text" class="form-control"  name="email" required="" placeholder="Enter Your email">
+                <input type="text" class="form-control"  name="email" required="">
+            </div>
+            <button type="submit" class="btn btn-primary">Validate</button>
+        </form>
+    </div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-7">
+        <div class="">
+          <div class="text-center">
+        </div>
+        <h4 style="margin-left: 17px;" >Change Password</h4>
+        <div class="card-body">
+            <form method="POST" action="">
+              <div class="form-group">
+                <label for="name">Current Password</label>
+                <input type="text" class="form-control" id="name" name="name" required="">
             </div>
             <div class="form-group">
-                <label for="pwd">Password</label>
-                <input type="password" class="form-control"  name="pwd" required="" placeholder="Enter your password">
+                <label for="lname">New Password</label>
+                <input type="text" class="form-control" id="lname"  name="lname" required="">
             </div>
-<!--             <button type="submit" class="btn btn-info">Login</button>
-            <a href="<?php echo base_url(); ?>welcome/location" class="btn btn-danger float-right">
-                <i class="mdi mdi-cancel "></i>&nbsp;Cancel -->
-            </a>
+            <div class="form-group">
+                <label for="login">Confirm New Password</label>
+                <input type="text" class="form-control"  name="login" required="">
+            </div>
+            <button type="submit" class="btn btn-primary">Validate</button>
         </form>
     </div>
 </div>
