@@ -4,5 +4,4 @@
   $pages =  "normal/".$page.".php";
   include $pages;
   include 'template/footer.php';
-
  ?>
