@@ -181,10 +181,8 @@
 		public function update_booking_room(){
 			$user = $this->userlevel();
 			$this->load->model('Users_model');
-<<<<<<< HEAD
-=======
+
 			$data['list_location'] = $this->Users_model->selectLocation();
->>>>>>> 55c3fad8070bcdbd3f62ef218ec009dbdf2f43e1
 			$book_id = $this->input->get('book_id');
 			$location['list_location'] = $this->Users_model->selectLocation();
 			$data['request_update'] = $this->Users_model->select_booking($book_id);
