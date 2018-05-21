@@ -373,6 +373,8 @@ class Users extends CI_Controller {
             redirect('errors/error');
         }
     }
+    
+    // Create user profile by Maryna.PHORN
     public function user_profile(){
     $user = $this->userlevel();
     $this->load->model('Users_model');
