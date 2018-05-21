@@ -257,7 +257,22 @@ class Users_model extends CI_Model {
             }
         }
     }
-
+    //create by chhunhak.CHHOEUNG
+    public function checkusersession($login, $role)
+    {
+        $this->db->from('users');
+        $this->db->where('login', $login);
+        $query = $this->db->get();
+        $return = "";
+        foreach ($query->result() as $value) {
+            if ($value->login == $login && $value->role == $role) {
+                return true;
+            }else{
+                $return = "false";
+            }
+        }
+        return $return;
+    }
     /**
      * Set a user as active (TRUE) or inactive (FALSE)
      * @param int $id User identifier
@@ -524,6 +539,8 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
 public function select_booking($book_id){
     $this->db->select('*');
     $this->db->from('tbl_room_request');
+    $this->db->join('tbl_rooms', ' tbl_rooms.room_id = tbl_room_request.room_id');
+    $this->db->join('tbl_locations', ' tbl_rooms.loc_id = tbl_locations.loc_id');
     $this->db->where('book_id', $book_id);
     $query = $this->db->get();
     return  $query->result();
@@ -596,6 +613,7 @@ public function select_request_validate(){
     $this->db->join('tbl_locations', ' tbl_rooms.loc_id = tbl_locations.loc_id');
     $this->db->join('users', ' tbl_room_request.user_booking_id = users.id');
     $this->db->where('tbl_room_request.user_id', $user_id);
+    $this->db->where('tbl_room_request.sta_id', '3');
     $this->db->order_by('tbl_room_request.book_id', 'DESC');
     $query = $this->db->get();
     return  $query->result();
@@ -603,6 +621,18 @@ public function select_request_validate(){
     $query = $this->db->get();
             //var_dump($query->result());die();
     return  $query->result();
+}
+public function acceptRequest($reqId){
+    $user_id = $this->session->id;
+    $this->db->set('sta_id', 1);
+    $this->db->where('book_id', $reqId);
+    return $this->db->update('tbl_room_request');
+}
+public function rejectRequest($reqId){
+    $user_id = $this->session->id;
+    $this->db->set('sta_id', 2);
+    $this->db->where('book_id', $reqId);
+    return $this->db->update('tbl_room_request');
 }
 public function update(){
 

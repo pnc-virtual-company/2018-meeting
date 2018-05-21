@@ -8,6 +8,22 @@
  			<h2 class="text-center">Update A Reservation</h2><br>
  			<form action="<?php echo base_url();?>booking/update_request" method="post">
  				<div class="form-group row">
+ 				  <label for="example-time-input" class="col-2 col-form-label">Location:</label>
+ 				  <div class="col-10">
+ 				   	<select name="" id="" class="time start form-control" disabled="">
+ 				   		<option value=""><?php echo $rows->loc_name; ?></option>
+ 				   	</select> 	
+ 				  </div>
+ 				</div><br>
+ 				<div class="form-group row">
+ 				  <label for="example-time-input" class="col-2 col-form-label">Room:</label>
+ 				  <div class="col-10">
+ 				   	<select name="" id="" class="time start form-control" disabled="">
+ 				   		<option value=""><?php echo $rows->room_name; ?></option>
+ 				   	</select> 			
+ 				  </div>
+ 				</div><br>
+ 				<div class="form-group row">
  					<label for="example-time-input" class="col-2 col-form-label">Date:</label>
  					<div class="col-10">
  						<div class="input-group date" id="datetimepicker1" data-target-input="nearest">
