@@ -8,19 +8,6 @@
     <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications" style="
     margin-top: 10px;
 "><i class="mdi mdi-light mdi-bell-ring mdi-24px"></i></a>
-      <!-- <ul class="app-notification dropdown-menu dropdown-menu-right">
-        <li class="app-notification__title">You have 4 new notifications.</li>
-        <div class="app-notification__content">
-          <li><a class="app-notification__item" href="javascript:;"><span class="app-notification__icon"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></span>
-              <div>
-                <p class="app-notification__message">Lisa sent you a mail</p>
-                <p class="app-notification__meta">2 min ago</p>
-              </div></a></li>
-          
-         
-        </div>
-        <li class="app-notification__footer"><a href="#">See all notifications.</a></li>
-      </ul> -->
     </li>
     <!-- User Menu-->
     <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu" style="
@@ -37,7 +24,7 @@
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar">
   <ul class="app-menu" id="menu_leftsidebar">
-    <li><a class="app-menu__item" href="#"><i class="app-menu__icon mdi mdi-book-open-page-variant mdi-24px"></i><span class="app-menu__label">&nbsp;Book a Room</span></a></li>
+    <li><a class="app-menu__item" href="<?php echo base_url(); ?>booking/book_a_room"><i class="app-menu__icon mdi mdi-book-open-page-variant mdi-24px"></i><span class="app-menu__label">&nbsp;Book a Room</span></a></li>
     
     <!-- <li><a class="app-menu__item active" href="<?php// echo base_url(); ?>location/"><i class="app-menu__icon mdi mdi-map mdi-light mdi-24px"></i><span class="app-menu__label">Location</span></a></li> -->
    
@@ -55,7 +42,7 @@
     <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon mdi mdi-settings mdi-light mdi-24px"></i><span class="app-menu__label">Admin</span><i class="treeview-indicator mdi mdi-arrow-right-drop-circle-outline"></i></a>
      <ul class="treeview-menu" style="background-color: #026aab;">
           <li><a class="treeview-item" href="<?php echo base_url(); ?>room/occupancyRate"><i class="mdi mdi-chart-areaspline" style="font-size: 16px;"></i>&nbsp;Occupancy Report</a></li>
-          <li><a class="treeview-item" href="<?php echo base_url(); ?>users"><i class="mdi mdi-account " style="font-size: 16px;"></i>&nbsp;Users Management</a></li>
+          <li><a class="treeview-item" href="<?php echo base_url(); ?>users"><i class="mdi mdi-account " style="font-size: 16px;"></i>&nbsp;Users Managements</a></li>
           <li><a class="treeview-item" href="<?php echo base_url(); ?>location"><i class="mdi mdi-map mdi-light" style="font-size: 16px;"></i>&nbsp;Locations Management</a></li>
     </ul>
    </li>

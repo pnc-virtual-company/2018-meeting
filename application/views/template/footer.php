@@ -79,7 +79,10 @@
          // initialize input widgets first
             $('#datepairExample .time').timepicker({
                 'showDuration': true,
-                'timeFormat': 'g:ia'
+                'timeFormat': 'g:ia',
+                'minTime': '7:00am',
+                'maxTime': '7:00pm',
+                'showDuration': true
             });
 
             

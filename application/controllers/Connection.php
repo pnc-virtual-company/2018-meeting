@@ -65,16 +65,4 @@ class Connection extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect('connection');
 	}
-	//Danet THORNG reset new password 
-	public function reset_pwd(){
-		$this->load->view('templates/header');
-		$this->load->view('reset_pwd');
-		$this->load->view('templates/footer');
-	}
-	public function new_pwd(){
-		$this->load->view('templates/header');
-		$this->load->view('new_pwd');
-		$this->load->view('templates/footer');
-	}
-	//Danet THORNG reset new password
 }

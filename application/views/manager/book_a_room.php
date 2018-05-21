@@ -7,19 +7,23 @@
 			
 			<form action="<?php echo base_url();?>booking/booking_room" method="post">
 				<div class="form-group row">
-				  <label for="example-time-input" class="col-2 col-form-label">Location:</label>
+				  <label  class="col-2 col-form-label">Location:</label>
 				  <div class="col-10">
-				  	<select name="" id="" class="time start form-control">
-				  		<option value=""><?php echo$loc_name = $this->input->get('loc_name'); ?></option>
+				  	<select class="form-control" name="manager" id="" required="">
+				  		<?php foreach ($list_location as $row): ?>
+							<option value=""><?php echo $row->loc_name; ?></option>
+				  		<?php endforeach ?>
 				  	</select>
 				  </div>
 				</div><br>
 				<div class="form-group row">
-				  <label for="example-time-input" class="col-2 col-form-label">Room:</label>
+				  <label  class="col-2 col-form-label">Room:</label>
 				  <div class="col-10">
-				   	<select name="" id="" class="time start form-control">
-				   		<option value=""><?php echo$room_name = $this->input->get('room_name'); ?></option>
-				   	</select>	
+				   	<select class="form-control" name="manager" id="" required="">
+				  		<?php foreach ($allroom as $row): ?>
+							<option value=""><?php echo $row->room_name; ?></option>
+				  		<?php endforeach ?>
+				  	</select>
 				  </div>
 				</div><br>
 
@@ -76,3 +80,4 @@
 	$room_id = $this->input->get('room_id');
 	$this->session->set_userdata('room_id', $room_id);
  ?>
+ 

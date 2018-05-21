@@ -10,7 +10,7 @@
  				<div class="form-group row">
  				  <label for="example-time-input" class="col-2 col-form-label">Location:</label>
  				  <div class="col-10">
- 				   	<select name="" id="" class="time start form-control" disabled="">
+ 				   	<select name="" id="" class="time start form-control">
  				   		<option value=""><?php echo $rows->loc_name; ?></option>
  				   	</select> 	
  				  </div>
@@ -18,7 +18,7 @@
  				<div class="form-group row">
  				  <label for="example-time-input" class="col-2 col-form-label">Room:</label>
  				  <div class="col-10">
- 				   	<select name="" id="" class="time start form-control" disabled="">
+ 				   	<select name="" id="" class="time start form-control">
  				   		<option value=""><?php echo $rows->room_name; ?></option>
  				   	</select> 			
  				  </div>

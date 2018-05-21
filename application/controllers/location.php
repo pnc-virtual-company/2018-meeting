@@ -130,8 +130,6 @@ class location extends CI_Controller {
 		}
 	}
 		//create by Chhunhak.CHHOEUNG
-
-		// create by thintha
 	public function edit_location(){
 		$user = $this->userlevel();
 		if ($user == 'admin') {
