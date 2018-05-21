@@ -4,7 +4,7 @@
 <div class="row-fluid">
 <div class="col-12">
 
-<h2 style="text-align: center;">My Reservation</h2>
+<h2 style="text-align: center;">My Reservations</h2>
 
 <table id="list_room" cellpadding="0" cellspacing="0" class="table table-striped table-bordered" width="100%">
     

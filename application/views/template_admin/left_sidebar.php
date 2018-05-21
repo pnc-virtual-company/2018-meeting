@@ -14,8 +14,6 @@
                 <p class="app-notification__message">Lisa sent you a mail</p>
                 <p class="app-notification__meta">2 min ago</p>
               </div></a></li>
-          
-         
         </div>
         <li class="app-notification__footer"><a href="#">See all notifications.</a></li>
       </ul>

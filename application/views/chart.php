@@ -7,7 +7,7 @@
   <div class="col-md-1"></div>
   <div class="col-md-10">
     
-  <h2 style="text-align: center;">Distribution of booked hours per meeting room, in PNC</h2>
+  <h2 style="text-align: center;">Booked Hours Per Meeting Rooms</h2>
   <br><br>
   <div class="row">
     <div class="col-md-1"></div>
@@ -24,7 +24,7 @@
             <i class="fa fa-calendar" >
             </i>
            </div>
-           <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text"/>
+           <input class="form-control" id="date" name="date" placeholder="MM/DD" type="text"/>
           </div>
          </div>
         </div>
