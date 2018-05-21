@@ -172,7 +172,7 @@
 			$this->load->model('Users_model');
 			$data = $this->Users_model->delete_book_request($book_id);
 			if ($data == 'true') {
-				$this->select_room_request();
+				redirect('booking');
 			}else{
 				echo "not delete";
 			}
@@ -180,15 +180,13 @@
 
 			// Book meeting room by samreth.SAROEURT
 		public function update_booking_room(){
+			$user = $this->userlevel();
 			$this->load->model('Users_model');
 			$location['list_location'] = $this->Users_model->selectLocation();
 			$book_id = $this->input->get('book_id');
-			$this->load->view('template/header');
-			$this->load->view('template/left_sidebar', $location);
-			$this->load->model('Users_model');
 			$data['request_update'] = $this->Users_model->select_booking($book_id);
-			$this->load->view('update_booking', $data);
-			$this->load->view('template/footer');
+			$data['page'] = "update_booking";
+			$this->load->view($user, $data);
 		}
 
 			//edite meeting room by samreth.SAROEURT
