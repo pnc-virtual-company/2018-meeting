@@ -108,7 +108,7 @@ class location extends CI_Controller {
 				$this->load->model('Users_model');
 				$add = $this->Users_model->add_location($name, $des, $add,$lat,$long);
 				if ($add == 'true') {
-					$this->index();
+					redirect('location');
 				}else{
 					$this->create_location();
 				}
