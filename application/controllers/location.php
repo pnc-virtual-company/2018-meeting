@@ -84,6 +84,7 @@ class location extends CI_Controller {
 				redirect('errors/error');
 			}
 	}
+	// by thintha
 	public function create_location(){
 			$user = $this->userlevel();
 			if ($user == "admin") {
