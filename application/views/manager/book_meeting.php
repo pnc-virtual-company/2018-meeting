@@ -7,6 +7,23 @@
 			
 			<form action="<?php echo base_url();?>booking/booking_room" method="post">
 				<div class="form-group row">
+				  <label for="example-time-input" class="col-2 col-form-label">Location:</label>
+				  <div class="col-10">
+				  	<select name="" id="" class="time start form-control">
+				  		<option value=""><?php echo$loc_name = $this->input->get('loc_name'); ?></option>
+				  	</select>
+				  </div>
+				</div><br>
+				<div class="form-group row">
+				  <label for="example-time-input" class="col-2 col-form-label">Room:</label>
+				  <div class="col-10">
+				   	<select name="" id="" class="time start form-control">
+				   		<option value=""><?php echo$room_name = $this->input->get('room_name'); ?></option>
+				   	</select>	
+				  </div>
+				</div><br>
+
+				<div class="form-group row">
 				  <label for="example-time-input" class="col-2 col-form-label">Date:</label>
 				  <div class="col-10">
 				    <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
@@ -17,7 +34,7 @@
                     	</div>
                 	</div>
 				  </div>
-				</div><br><br>
+				</div><br>
 				
 				<div class="form-group row" id="datepairExample">
 				  <label for="example-time-input" class="col-2 col-form-label">Start:</label>
@@ -28,7 +45,7 @@
 				  <div class="col-4">
 				   	<input type="text" name="end" class="time end form-control" />
 				  </div>
-				</div><br><br>
+				</div><br>
 
 				<div class="form-group row">
 				  <label for="example-time-input" class="col-2 col-form-label">Note:</label>

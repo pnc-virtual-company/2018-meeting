@@ -148,6 +148,15 @@
 			}
 		}
 
+		public function book_a_room(){
+			$user = $this->userlevel();
+			$this->load->model('Users_model');
+			$data['list_location'] = $this->Users_model->selectLocation();
+			$data['allroom'] = $this->Users_model->selectAllRoom();
+			$this->load->model('Users_model');
+			$data['page'] = "book_a_room";
+			$this->load->view($user, $data);
+		}
 
 			// delete list room request by samreth.SAROEURT
 		public function delete_book_request()
