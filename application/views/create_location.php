@@ -43,7 +43,7 @@
                 <label for="pwd">Address</label>
                 <input type="text" class="form-control"  data-target="#us6-dialog" data-toggle="modal" name="address" id="address" value="">
             </div>
-            <button type="submit" class="btn btn-info">Create Location</button>
+            <button type="submit" class="btn btn-primary">Create Location</button>
             <a href="<?php echo base_url(); ?>location" class="btn btn-danger float-right">
                 <i class="mdi mdi-cancel "></i>&nbsp;Cancel
             </a>
@@ -52,7 +52,6 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                
             </div>
             <div class="modal-body">
                 <div class="form-group">
@@ -61,7 +60,6 @@
                         <input type="text" name="address" class="form-control" id="us3-address" />
                     </div>
                 </div>
-                
                 <div id="us3" style="width: 100%; height: 400px;"></div>
                 <div class="clearfix">&nbsp;</div>
                 <div class="m-t-small">

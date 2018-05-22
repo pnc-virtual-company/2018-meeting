@@ -129,7 +129,7 @@ class location extends CI_Controller {
 			redirect('errors/error');
 		}
 	}
-		//create by Chhunhak.CHHOEUNG
+		//Edited location create by Maryna.PHORN
 	public function edit_location(){
 		$user = $this->userlevel();
 		if ($user == 'admin') {

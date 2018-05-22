@@ -653,3 +653,13 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
     }
 }
 
+public function selectRoomuser($room_id){
+    $this->db->select('users.firstname, users.lastname, users.email');
+    $this->db->from('tbl_rooms');
+    $this->db->join('users', 'users.id = tbl_rooms.user_id');
+    $this->db->where('tbl_rooms.room_id',$room_id);
+    $query = $this->db->get();
+    return $query->result();
+}
+
+

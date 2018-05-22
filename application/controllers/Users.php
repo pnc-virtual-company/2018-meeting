@@ -150,10 +150,10 @@ class Users extends CI_Controller {
 
           if ($this->form_validation->run() === FALSE) {
               $data['roles'] = $this->users_model->getRoles();
-              $this->load->view('templates/header', $data);
-              $this->load->view('menu/index', $data);
+              $this->load->view('template/header', $data);
+              $this->load->view('template/left_sidebar', $data);
               $this->load->view('users/edit', $data);
-              $this->load->view('templates/footer');
+              $this->load->view('template/footer');
           } else {
               $this->users_model->updateUsers();
               $this->session->set_flashdata('msg', 'The user was successfully modified.');
@@ -289,7 +289,8 @@ class Users extends CI_Controller {
                 'Firstname' => $this->input->post('firstname'),
                 'Lastname' => $this->input->post('lastname'),
                 'Login' => $this->input->post('login'),
-                'Password' => $password
+                'Password' => $password,
+                'active' => 1
             );
             $message = $this->parser->parse('emails/new_user', $data, TRUE);
 
