@@ -5,13 +5,13 @@
 		<div class="col-md-6">
 			<h2 class="text-center">Make A Reservation</h2><br>
 			
-			<form action="<?php echo base_url();?>booking/booking_room" method="post">
+			<form action="<?php echo base_url();?>booking/booking_a_room" method="post">
 				<div class="form-group row">
 				  <label  class="col-2 col-form-label">Location:</label>
 				  <div class="col-10">
-				  	<select class="form-control" name="manager" id="" required="">
+				  	<select class="form-control" name="loc_id" id="">
 				  		<?php foreach ($list_location as $row): ?>
-							<option value=""><?php echo $row->loc_name; ?></option>
+							<option value="<?php echo $row->loc_id; ?>"><?php echo $row->loc_name; ?></option>
 				  		<?php endforeach ?>
 				  	</select>
 				  </div>
@@ -19,9 +19,9 @@
 				<div class="form-group row">
 				  <label  class="col-2 col-form-label">Room:</label>
 				  <div class="col-10">
-				   	<select class="form-control" name="manager" id="" required="">
+				   	<select class="form-control" name="room_id" id="">
 				  		<?php foreach ($allroom as $row): ?>
-							<option value=""><?php echo $row->room_name; ?></option>
+							<option value="<?php echo $row->room_id; ?>"><?php echo $row->room_name; ?></option>
 				  		<?php endforeach ?>
 				  	</select>
 				  </div>
@@ -43,11 +43,11 @@
 				<div class="form-group row" id="datepairExample">
 				  <label for="example-time-input" class="col-2 col-form-label">Start:</label>
 				  <div class="col-5">	         
-				      <input type="text" name="start" class="time start form-control" />    
+				      <input type="text" name="start" required="" class="time start form-control" />    
 				  </div>
 				  <label for="example-time-input" class="col-1 col-form-label">End:</label>
 				  <div class="col-4">
-				   	<input type="text" name="end" class="time end form-control" />
+				   	<input type="text" name="end" required="" class="time end form-control" />
 				  </div>
 				</div><br>
 

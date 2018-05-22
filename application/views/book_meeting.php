@@ -39,11 +39,11 @@
 				<div class="form-group row" id="datepairExample">
 				  <label for="example-time-input" class="col-2 col-form-label">Start:</label>
 				  <div class="col-5">	         
-				      <input type="text" name="start" class="time start form-control" />    
+				      <input type="text" name="start" required="" class="time start form-control" />    
 				  </div>
 				  <label for="example-time-input" class="col-1 col-form-label">End:</label>
 				  <div class="col-4">
-				   	<input type="text" name="end" class="time end form-control" />
+				   	<input type="text" name="end" required="" class="time end form-control" />
 				  </div>
 				</div><br>
 
