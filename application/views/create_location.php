@@ -43,7 +43,7 @@
                 <label for="pwd">Address</label>
                 <input type="text" class="form-control"  data-target="#us6-dialog" data-toggle="modal" name="address" id="address" value="">
             </div>
-            <button type="submit" class="btn btn-info">Create Location</button>
+            <button type="submit" class="btn btn-primary">Create Location</button>
             <a href="<?php echo base_url(); ?>location" class="btn btn-danger float-right">
                 <i class="mdi mdi-cancel "></i>&nbsp;Cancel
             </a>
