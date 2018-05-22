@@ -289,7 +289,8 @@ class Users extends CI_Controller {
                 'Firstname' => $this->input->post('firstname'),
                 'Lastname' => $this->input->post('lastname'),
                 'Login' => $this->input->post('login'),
-                'Password' => $password
+                'Password' => $password,
+                'active' => 1
             );
             $message = $this->parser->parse('emails/new_user', $data, TRUE);
 

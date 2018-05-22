@@ -28,7 +28,6 @@
 				  <div class="col-10">
 				    <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
                     	<input type="text" name="sdate" data-toggle="datetimepicker" required="" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
-	
                     	<div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
                     	    <div class="input-group-text"><i class="mdi mdi-calendar-clock"></i></div>
                     	</div>

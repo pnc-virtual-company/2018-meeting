@@ -65,7 +65,7 @@ class room extends CI_Controller {
 		}
 	}
 
-		//add by Chhunhak.CHHOEUNG and Maryna.PHORN
+	//add by Chhunhak.CHHOEUNG and Maryna.PHORN
 		public function occupancyRate()
 		{
 			$user = $this->userlevel();
@@ -78,7 +78,7 @@ class room extends CI_Controller {
 				redirect('errors/error');
 			}
 		}
-		// list room by samreth.SAROEURT
+	// list room by samreth.SAROEURT
 		public function list_room(){
 			$user = $this->userlevel();
 			$this->load->model('Users_model');	
@@ -90,7 +90,7 @@ class room extends CI_Controller {
 		}
 		
 
-		// Create room by samreth.SAROEURT
+	// Create room by samreth.SAROEURT
 		public function create_room(){
 			$user = $this->userlevel();
 			if ($user == 'admin') {
@@ -104,7 +104,7 @@ class room extends CI_Controller {
 			}
 		}
 
-		// Update a room by Maryna.PHORN
+	// Update a room by Maryna.PHORN
 		public function update_room(){
 			$user = $this->userlevel();
 			if ($user == 'admin') {
@@ -119,7 +119,7 @@ class room extends CI_Controller {
 				redirect('errors/error');
 			}
 		}
-		// Update a room by Maryna.PHORN
+	// Update a room by Maryna.PHORN
 		public function update_rooms(){
 			$user = $this->userlevel();
 			if ($user == 'admin') {
@@ -162,7 +162,7 @@ class room extends CI_Controller {
 			}
 		}
 
-		// create by thintha
+	// create by thintha
 		public function room_availability(){
 			$user = $this->userlevel();
 			$this->load->model('Users_model');
@@ -173,7 +173,7 @@ class room extends CI_Controller {
 			$this->load->view($user, $data);
 		}
 		
-		// insert creat room by samreth.SAROEURT
+	// insert creat room by samreth.SAROEURT
 		public function insert_create_room(){
 			$user = $this->userlevel();
 			if ($user == 'admin') {
@@ -214,7 +214,7 @@ class room extends CI_Controller {
 			}
 		}
 
-		// create by thintha
+	// create by thintha
 		public function delete_room()
 		{
 			$user = $this->userlevel();
@@ -240,6 +240,10 @@ class room extends CI_Controller {
 			$data['list_location'] = $this->Users_model->selectLocation();
 			$data['page'] = "fullcalendar";
 			$this->load->view($user, $data);
-			
+		}
+
+	//Danet THORNG getexport file list 
+		public function getExportFile(){
+			$this->load->view('export');
 		}
 }
