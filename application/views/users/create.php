@@ -8,21 +8,21 @@
  */
 ?>
 <style>
-  .container{
-    margin-left: 20%;
-  }
+.container{
+  margin-left: 20%;
+}
 </style>
 <div class="container">
-<div class="row-fluid">
-  <div class="col-md-3"></div>
-  <div class="col-md-6">
-    <h2 style="text-align: center;">Create a new user</h2>
-    <?php echo validation_errors(); ?>
-    <?php
-    $attributes = array('id' => 'target', 'class' => 'form-horizontal');
-    echo form_open('users/create', $attributes); ?>
-    
-    <form action="<?php echo base_url(); ?>users" id="target" class="form-horizontal" method="post" accept-charset="utf-8">
+  <div class="row-fluid">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <h2 style="text-align: center;">Create a new user</h2>
+      <?php echo validation_errors(); ?>
+      <?php
+      $attributes = array('id' => 'target', 'class' => 'form-horizontal');
+      echo form_open('users/create', $attributes); ?>
+
+      <form action="<?php echo base_url(); ?>users" id="target" class="form-horizontal" method="post" accept-charset="utf-8">
 
         <div class="form-group">
           <label class="control-label" for="firstname">Firstname</label>
@@ -38,14 +38,9 @@
           <label class="control-label" for="login">Login</label>
           <div class="input-group">
             <input type="text" class="form-control" name="login" id="login" required />
-            <div class="input-group-append">
-                <a id="cmdRefreshLogin" class="btn btn-primary"><i class="mdi mdi-refresh"></i></a>
-            </div>
+            
           </div>
-          <div id="lblLoginAlert" class="alert alert-primary hide" role="alert">
-              <button type="button" class="close" data-dismiss="alert">&times;</button>
-              This login name is not available
-          </div>
+          
         </div>
 
         <div class="form-group">
@@ -56,43 +51,43 @@
         <div class="form-group">
           <label class="control-label" for="role[]">Role</label>
           <select multiple class="form-control" name="role[]" size="3" required>
-                    <option value="1" >admin</option>
-                    <option value="2" selected>normal</option>
-                    <option value="3" >manager</option>
-                </select>
+            <option value="1" >admin</option>
+            <option value="2" selected>normal</option>
+            <option value="3" >manager</option>
+          </select>
         </div>
 
         <div class="form-group">
           <label class="control-label" for="password">Password</label>
           <div class="input-group">
-              <input type="password" class="form-control" name="password" id="password" required />
+            <input type="password" class="form-control" name="password" id="password" required />
               <!-- <div class="input-group-append">
                 <a class="btn btn-primary" id="cmdGeneratePassword"><i class="mdi mdi-refresh"></i>&nbsp;Generate password</a>
               </div> -->
+            </div>
           </div>
-        </div>
           <div class="row-fluid"><div class="col-12">&nbsp;</div></div>
 
           <div class="row-fluid">
-              <div class="col-12">
-                  <button id="send" class="btn btn-primary">
-                      <i class="mdi mdi-account-plus"></i> Create
-                  </button>
-                  &nbsp;
-                  <a href="<?php echo base_url(); ?>users" class="btn btn-danger">
-                    <i class="mdi mdi-cancel"></i>&nbsp;Cancel
-                  </a>
-              </div>
+            <div class="col-12">
+              <button id="send" class="btn btn-primary">
+                <i class="mdi mdi-account-plus"></i> Create
+              </button>
+              &nbsp;
+              <a href="<?php echo base_url(); ?>users" class="btn btn-danger">
+                <i class="mdi mdi-cancel"></i>&nbsp;Cancel
+              </a>
+            </div>
           </div>
-    </form>
+        </form>
       </div>
     </div>
 
     
 
-</div>
-<script src="<?php echo base_url();?>assets/js/bootbox-4.4.0.min.js"></script>
-<script type="text/javascript">
+  </div>
+  <script src="<?php echo base_url();?>assets/js/bootbox-4.4.0.min.js"></script>
+  <script type="text/javascript">
   //Check for mandatory fields
   function validate_form() {
     result = false;
