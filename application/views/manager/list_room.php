@@ -21,7 +21,7 @@
         <td>
          &nbsp;
          <a href="<?php echo base_url(); ?>booking/book_meeting?loc_id=<?php error_reporting(0); echo $this->input->get('loc_id'); ?>&loc_name=<?php echo  $this->input->get('loc_name'); ?>&room_id=<?php echo $row->room_id;?>&room_name=<?php echo $row->room_name; ?>" title="Make a reservation"><i class="mdi mdi-notebook"></i></a>            
-         <a href="<?php echo base_url(); ?>room/fullCalendar?loc_id=<?php error_reporting(0); echo $this->input->get('loc_id'); ?>&loc_name=<?php echo  $this->input->get('loc_name'); ?>&room_id=<?php echo $row->room_id;?>" title="Room calendar"><i class="mdi mdi-table-large"></i></a>            
+         <a href="<?php echo base_url(); ?>room/fullCalendar?loc_id=<?php error_reporting(0); echo $this->input->get('loc_id'); ?>&loc_name=<?php echo  $this->input->get('loc_name'); ?>&room_id=<?php echo $row->room_id;?>&room_name=<?php echo $row->room_name; ?>" title="Room calendar"><i class="mdi mdi-table-large"></i></a>            
          <a href="<?php echo base_url(); ?>room/room_availability?loc_id=<?php error_reporting(0); echo $this->input->get('loc_id'); ?>&loc_name=<?php echo  $this->input->get('loc_name'); ?>&room_id=<?php echo $row->room_id;?>&room_name=<?php echo $row->room_name; ?>" title="Room availability"><i class="mdi mdi-check"></i></a>     
          <a href="<?php echo base_url(); ?>room/list_room?room_id=<?php echo $row->room_id; ?>" title="View room location" data-toggle="modal" data-target="#location<?php echo $row->room_id; ?>"><i class="mdi mdi-source-commit-start"></i></a>
        </td>
