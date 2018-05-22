@@ -651,26 +651,26 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
         $query = $this->db->get_where('tbl_rooms', array('tbl_rooms.room_id' => $id));
         return $query->row_array();
     }
+    public function selectRoomuser($room_id){
+        $this->db->select('users.firstname, users.lastname, users.email');
+        $this->db->from('tbl_rooms');
+        $this->db->join('users', 'users.id = tbl_rooms.user_id');
+        $this->db->where('tbl_rooms.room_id',$room_id);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function selectReq($reqId){
+        $this->db->select('*');
+        $this->db->from('tbl_room_request');
+        $this->db->join('users', 'users.id = tbl_room_request.user_booking_id');
+        $this->db->join('tbl_rooms', 'tbl_room_request.room_id = tbl_rooms.room_id');
+        $this->db->where('tbl_room_request.book_id',$reqId);
+        $query = $this->db->get();
+        return $query->result();
+    }
 }
 
-public function selectRoomuser($room_id){
-    $this->db->select('users.firstname, users.lastname, users.email');
-    $this->db->from('tbl_rooms');
-    $this->db->join('users', 'users.id = tbl_rooms.user_id');
-    $this->db->where('tbl_rooms.room_id',$room_id);
-    $query = $this->db->get();
-    return $query->result();
-}
-
-public function selectReq($reqId){
-    $this->db->select('*');
-    $this->db->from('tbl_room_request');
-    $this->db->join('users', 'users.id = tbl_room_request.user_booking_id');
-    $this->db->join('tbl_rooms', 'tbl_room_request.room_id = tbl_rooms.room_id');
-    $this->db->where('tbl_room_request.book_id',$reqId);
-    $query = $this->db->get();
-    return $query->result();
-}
 
 
 
