@@ -121,7 +121,12 @@
 				$this->book_meeting();
 			}else {
 				if($data == 'true'){
-					redirect('booking');
+					$mail = $this->sendbookingmail($note,$date,$start,$end,$user_booking_id,$room_id);
+					if ($mail =='true') {
+						redirect('booking');
+					}else{
+						echo $mail;;
+					}
 				}else{
 					$this->book_meeting();
 				}
@@ -236,12 +241,38 @@
 				redirect('errors/error');
 			}
 		}
-		
+
 		//Export file into excel by Danet THORNG
 		public function getExportFile(){
 				// redirect('welcome/getExportFile');
 			$this->load->model('users_model');
 			$users = $this->users_model->getExportFile();
 			$this->load->view('export', $users);
+		}
+		// sendbookingmail by chhunhak.CHHOUENG
+		public function sendbookingmail($note,$date,$start,$end,$user_booking_id,$room_id){
+			$this->load->library('email');
+			$room_name = $this->input->get('room_name');
+			$firstnamebooking = $this->session->firstname;
+			$this->load->model('users_model');
+			$roomuser = $this->users_model->selectRoomuser($room_id);
+			$firstname = "";
+			$lastname  = "";
+			$email = "";
+			foreach ($roomuser as $user) {
+				$firstname = $user->firstname;
+				$lastname = $user->lastname;
+				$email = $user->email;
+			}
+			$this->email->from('pnc.temporary.vc2018@passerellesnumeriques.org', 'Booking Management');
+			$this->email->to($email, $firstname);
+			$this->email->subject('Request booking Room at '.$room_name);
+			$this->email->message('Dear '.$firstname.',  <br /> <br />your room '.$room_name.' Has been booked by '.$firstnamebooking.' from date '.$date.' start at '.$start.' end at '.$end.' <br /> <br /> Best Regard,');
+			if ($this->email->send()) {
+				return 'true';
+			}else{
+				return $this->email->print_debugger();;
+			}
+			
 		}
 	}
