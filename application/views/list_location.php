@@ -4,6 +4,9 @@
     height: 400px;
     width: 100%;
    }
+   .pac-container {
+    z-index: 99999;
+}
 </style>
 <div id="container" >
 	<div class="row-fluid">
@@ -33,7 +36,7 @@
               <!-- <?php echo $row->loc_id; ?> -->
               <a href="<?php echo base_url(); ?>location/edit_location?loc_id=<?php echo $row->loc_id; ?>" id="edit_location" title="Update Location"><i class="mdi mdi-pencil"></i></a>
               <a href="<?php echo base_url(); ?>location/delete_location?loc_id=<?php echo $row->loc_id;?>" class="confirm-delete" title="Delete Location" data-toggle="modal" data-target="#frmConfirmDelete"><i class="mdi mdi-delete"></i></a>
-              <a href="#" class="Pin-location" title="View Location on google map" data-toggle="modal" data-target="#<?php echo $row->loc_id; ?>"><i class="mdi mdi-map-marker"></i></a>
+              <a href="<?php echo base_url(); ?>location/create_location?loc_id=<?php echo $row->loc_id; ?>" class="Pin-location" title="View Location on google map" data-toggle="modal" data-target="#<?php echo $row->loc_id; ?>"><i class="mdi mdi-map-marker"></i></a>
             </td>
             <td><?php echo $row->loc_name; ?></td>
             <td><?php echo $row->description; ?></td>
@@ -52,11 +55,13 @@
                    <h3>My Google Maps Demo</h3>
                     <div id="map"></div>
                     <!-- Replace the value of the key parameter with your own API key. -->
+                    <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAjaIzPJQY_nrDt5zi2ayk1BfeQOHo7Kk&callback=initMap">
+                    </script>
                       <?php 
                         $lat = $row->lat;
                         $long = $row->long;
-                        echo $lat;
-                        echo $long;
+                        
                        ?>
                     <script>
                       function initMap() {
@@ -131,6 +136,4 @@
 
   });
 </script>
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAjaIzPJQY_nrDt5zi2ayk1BfeQOHo7Kk&callback=initMap">
-</script>
+

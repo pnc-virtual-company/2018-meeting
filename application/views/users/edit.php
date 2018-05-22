@@ -7,9 +7,15 @@
  * @since      0.1.0
  */
 ?>
-
+<style>
+  .container{
+    margin-left: 20%;
+  }
+</style>
+<div class="container">
 <div class="row-fluid">
-    <div class="col-12">
+  <div class="col-md-3"></div>
+    <div class="col-6">
 
 <h2>Edit user #<?php echo $users_item['id']; ?></h2>
 
@@ -21,7 +27,7 @@ echo form_open('users/edit/' . $users_item['id'], $attributes);
 ?>
 
     <input type="hidden" name="id" value="<?php echo $users_item['id']; ?>" />
-
+    <form action="">
     <div class="form-group">
       <label class="control-label" for="firstname">Firstname</label>
       <input type="text" class="form-control" name="firstname" value="<?php echo $users_item['firstname']; ?>" required />
@@ -50,7 +56,7 @@ echo form_open('users/edit/' . $users_item['id'], $attributes);
       <?php endforeach ?>
       </select>
     </div>
-
+    <div class="row-fluid"><div class="col-12">&nbsp;</div></div>
   <div class="row-fluid">
       <div class="col-12">
           <button type="submit" class="btn btn-primary"><i class="mdi mdi-pencil"></i>&nbsp;Update</button>
@@ -61,4 +67,5 @@ echo form_open('users/edit/' . $users_item['id'], $attributes);
 
 </form>
   </div>
+</div>
 </div>
