@@ -641,6 +641,15 @@ public function selectRoomuser($room_id){
     $query = $this->db->get();
     return $query->result();
 }
+public function selectReq($reqId){
+    $this->db->select('*');
+    $this->db->from('tbl_room_request');
+    $this->db->join('users', 'users.id = tbl_room_request.user_booking_id');
+    $this->db->join('tbl_rooms', 'tbl_room_request.room_id = tbl_rooms.room_id');
+    $this->db->where('tbl_room_request.book_id',$reqId);
+    $query = $this->db->get();
+    return $query->result();
+}
 public function update(){
 
     $this->db->select('*');

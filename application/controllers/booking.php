@@ -219,7 +219,12 @@
 				$this->load->model('users_model');
 				$accept = $this->users_model->acceptRequest($reqId);
 				if ($accept == 'true') {
-					redirect('booking/request_validate');
+					$accept = $this->acceptsendmail($reqId);
+					if ($accept == 'true') {
+						redirect('booking/request_validate');
+					}else{
+						return $accept;
+					}
 				}else{
 					echo 'error';	
 				}
@@ -268,6 +273,30 @@
 			$this->email->to($email, $firstname);
 			$this->email->subject('Request booking Room at '.$room_name);
 			$this->email->message('Dear '.$firstname.',  <br /> <br />your room '.$room_name.' Has been booked by '.$firstnamebooking.' from date '.$date.' start at '.$start.' end at '.$end.' <br /> <br /> Best Regard,');
+			if ($this->email->send()) {
+				return 'true';
+			}else{
+				return $this->email->print_debugger();;
+			}
+			
+		}
+		// acceptsendmail by chhunhak.CHHOUENG
+		public function acceptsendmail($reqId){
+			$this->load->library('email');
+			$this->load->model('users_model');
+			$accept = $this->users_model->selectReq($reqId);
+			$booking_user ="";
+			$email = "";
+			$room_name = "";
+			foreach ($accept as  $row) {
+				$booking_user = $row->firstname;
+				$email =  $row->email;
+				$room_name =  $row->room_name;
+			}
+			$this->email->from('pnc.temporary.vc2018@passerellesnumeriques.org', 'Booking Management');
+			$this->email->to($email, $booking_user);
+			$this->email->subject('Accept Request Booking Room at '.$room_name);
+			$this->email->message('Dear '.$firstname.',  <br /> <br /> You has been accepted booking the room in '.$room_name.'<br /> <br /> Best Regard,');
 			if ($this->email->send()) {
 				return 'true';
 			}else{
