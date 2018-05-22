@@ -41,7 +41,7 @@
     <tr>
         <td data-order="<?php echo $user['id']; ?>" data-id="<?php echo $user['id'];?>">
             <a href="<?php echo base_url();?>users/edit/<?php echo $user['id'] ?>" title="Edit user"><i class="mdi mdi-pencil"></i></a>
-            <a href="#" class="confirm-delete" title="Delete user"><i class="mdi mdi-delete"></i></a>
+            <a href="<?php echo base_url();?>users/delete/<?php echo $user['id'] ?>" class="confirm-delete" title="Delete user" data-toggle="modal" data-target="#frmConfirmDelete"><i class="mdi mdi-delete"></i></a>
             <a href="#" class="reset-password" title="Reset user's password"><i class="mdi mdi-lock"></i></a>
         </td>
         <td><?php echo $user['firstname']; ?></td>
@@ -76,7 +76,7 @@
 	        <p>Are you sure that you want to perform this action?</p>
 	    </div>
 	    <div class="modal-footer">
-	        <a href="#" class="btn btn-danger" id="lnkDeleteUser">Yes</a>
+	        <a href="<?php echo base_url();?>users/delete/<?php echo $user['id'] ?>" class="btn btn-danger" id="lnkDeleteUser">Yes</a>
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
 	    </div>
 		</div>
