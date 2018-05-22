@@ -38,9 +38,9 @@
           <label class="control-label" for="login">Login</label>
           <div class="input-group">
             <input type="text" class="form-control" name="login" id="login" required />
-            <div class="input-group-append">
+            <!-- <div class="input-group-append">
                 <a id="cmdRefreshLogin" class="btn btn-primary"><i class="mdi mdi-refresh"></i></a>
-            </div>
+            </div> -->
           </div>
           
         </div>
