@@ -661,7 +661,7 @@ public function selectRoomuser($room_id){
     $query = $this->db->get();
     return $query->result();
 }
-<<<<<<< HEAD
+
 public function selectReq($reqId){
     $this->db->select('*');
     $this->db->from('tbl_room_request');
@@ -671,8 +671,6 @@ public function selectReq($reqId){
     $query = $this->db->get();
     return $query->result();
 }
-public function update(){
-=======
->>>>>>> 6cc29f8e4fd41596fac4bcbdc309b06266fd6ec9
+
 
 
