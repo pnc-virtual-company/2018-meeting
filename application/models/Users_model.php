@@ -639,4 +639,29 @@ public function update(){
     $query = $this->db->get(' users');
     return  $query->result();
 }
+
+// Select user  by Maryna PHORN
+public function select_users(){
+    $id = $this->session->id;
+    $this->db->select('*');
+    $this->db->from('users');
+    $this->db->where('id', $id);
+
+    $query = $this->db->get();
+    return  $query->result();
+}
+// Update profile by maryna.PHORN
+public function update_profile($id,$firstname,$lastname, $login, $email){
+    $edit = array(
+        'firstname' =>$firstname, 
+        'lastname' =>$lastname, 
+        'login' =>$login,   
+        'email' =>$email,
+        'id'=>$id
+
+    );
+    $this->db->where('id', $id);
+    $result = $this->db->update('users', $edit);
+    return $result;
+}
 }
