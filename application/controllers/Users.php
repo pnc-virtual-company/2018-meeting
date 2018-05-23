@@ -296,15 +296,15 @@ class Users extends CI_Controller {
           if ($this->config->item('from_mail') != FALSE && $this->config->item('from_name') != FALSE ) {
             $this->email->from($this->config->item('from_mail'), $this->config->item('from_name'));
           } else {
-           $this->email->from('do.not@reply.me', 'Skeleton app');
+           $this->email->from('do.not@reply.me', 'Booking Management app');
          }
          $this->email->to($this->input->post('email'));
          if ($this->config->item('subject_prefix') != FALSE) {
           $subject = $this->config->item('subject_prefix');
         } else {
-         $subject = '[Skeleton] ';
+         $subject = 'Create Booking Management account';
        }
-       $this->email->subject($subject . 'Your account is created');
+       $this->email->subject($subject);
        $this->email->message($message);
        log_message('debug', 'Sending the user creation email');
        if ($this->config->item('log_threshold') > 1) {

@@ -133,7 +133,7 @@ class Users_model extends CI_Model {
             'email' => $this->input->post('email'),
             'password' => $hash,
             'role' => $role,
-            'active' => 1
+            'active' => '1'
         );
         $this->db->insert('users', $data);
         return $password;
