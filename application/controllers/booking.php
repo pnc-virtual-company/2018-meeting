@@ -141,10 +141,12 @@
 					$time = "";
 					foreach ($room_booking->result() as $booking) {
 						if ($booking->room_id == $room_id) {
-							if (strtotime($booking->Date) <= strtotime($date)) {
+							if (strtotime($booking->Date) == strtotime($date)){
 								if (strtotime($booking->End) <= strtotime($start)) {
 									$time = "canbook";
 								}
+							}else if(strtotime(date('Y-m-d')) <= strtotime($date)){
+								$time = "canbook";
 							}
 						}
 					}
