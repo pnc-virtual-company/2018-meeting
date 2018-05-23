@@ -695,57 +695,11 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
         return $query->result();
     }
 
-
-    // get user by Maryna PHORN
-    public function get_current_password($id){
-     $data = array(
-      'password' => md5($this->input->post('password_confirm'))
-  );
-
-     $this->db->where('id', $id);
-
-     return $this->db->update('users', $data);
-
-     $query = $this->db->get_where('users', array('id' => $id));
-
-     if($query->num_rows() > 0){
-
     public function selectbookingroom(){
         $this->db->select('*');
         $this->db->from('tbl_room_request');
         $data = $this->db->get();
         return $data;
     }
-}
-
-
-      $current_password = $query->row('password');
-      $inputted_current_password = md5($this->input->post('current_password'));
-      $inputted_new_password = md5($this->input->post('new_password'));
-      $inputted_confirm_password = md5($this->input->post('password_confirm'));
-
-      if ($inputted_new_password == $inputted_confirm_password) {
-
-         if ($inputted_current_password != $current_password) {
-
-            $this->db->where('id', $id);
-            return $this->db->update('users', $inputted_new_password);
-        }
-
-    } else {
-     return false;
- }
-}
-}
- public function passwordReset($id, $password) {
-        //Hash the clear password using bcrypt (8 iterations)
-    $salt = '$2a$08$' . substr(strtr(base64_encode($this->getRandomBytes(16)), '+', '.'), 0, 22) . '$';
-    $hash = crypt($password, $salt);
-    $data = array(
-        'password' => $hash
-    );
-    $this->db->where('id', $id);
-    return $this->db->update('users', $data);
-}
 
 }
