@@ -18,33 +18,33 @@ class Users extends CI_Controller {
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
     public function __construct() {
-                parent::__construct();
-                log_message('debug', 'URI=' . $this->uri->uri_string());
-                $this->session->set_userdata('last_page', $this->uri->uri_string());
-                if($this->session->loggedIn === TRUE) {
+      parent::__construct();
+      log_message('debug', 'URI=' . $this->uri->uri_string());
+      $this->session->set_userdata('last_page', $this->uri->uri_string());
+      if($this->session->loggedIn === TRUE) {
                    // Allowed methods
-                    if ($this->session->isAdmin || $this->session->isSuperAdmin) {
+        if ($this->session->isAdmin || $this->session->isSuperAdmin) {
                      //User management is reserved to admins and super admins
-                    } else {
-                        $user = $this->session->role;
-                        if ($user == 2) {
-                            $page = "manager";
-                            return $page;
-                            $data['page'] = "list_location";
-                            $this->load->view($user, $data);
-                        }else if ($user == 3) {
-                            $page = "normal";
-                            return $page;
-                            $data['page'] = "list_location";
-                            $this->load->view($user, $data);
-                        }else{
-                            redirect('connection/login');
-                        }
-                    }
-                } else {
-                    redirect('connection/login');
-                }
-                $this->load->model('users_model');
+        } else {
+          $user = $this->session->role;
+          if ($user == 2) {
+            $page = "manager";
+            return $page;
+            $data['page'] = "list_location";
+            $this->load->view($user, $data);
+          }else if ($user == 3) {
+            $page = "normal";
+            return $page;
+            $data['page'] = "list_location";
+            $this->load->view($user, $data);
+          }else{
+            redirect('connection/login');
+          }
+        }
+      } else {
+        redirect('connection/login');
+      }
+      $this->load->model('users_model');
     }
 
     /**
@@ -54,14 +54,14 @@ class Users extends CI_Controller {
     public function index() {
       $user = $this->userlevel();
       if ($user == 'admin') {
-          $this->load->helper('form');
-          $data['users'] = $this->users_model->getUsersAndRoles();
-          $this->load->model('Users_model');
-          $data['list_location'] = $this->Users_model->selectLocation();
-          $this->load->view('template/header', $data);
-          $this->load->view('template/left_sidebar', $data);
-          $this->load->view('users/index', $data);
-          $this->load->view('template/footer', $data);
+        $this->load->helper('form');
+        $data['users'] = $this->users_model->getUsersAndRoles();
+        $this->load->model('Users_model');
+        $data['list_location'] = $this->Users_model->selectLocation();
+        $this->load->view('template/header', $data);
+        $this->load->view('template/left_sidebar', $data);
+        $this->load->view('users/index', $data);
+        $this->load->view('template/footer', $data);
       }else{
         redirect('errors/error');
       }
@@ -90,13 +90,13 @@ class Users extends CI_Controller {
      */
     public function active($id, $active) {
       $user = $this->userlevel();
-            if ($user == 'admin') {
-                $this->users_model->setActive($id, $active);
-                $this->session->set_flashdata('msg', 'The user was successfully modified');
-                redirect('users');
-            }else{
-              redirect('errors/error');
-            }
+      if ($user == 'admin') {
+        $this->users_model->setActive($id, $active);
+        $this->session->set_flashdata('msg', 'The user was successfully modified');
+        redirect('users');
+      }else{
+        redirect('errors/error');
+      }
     }
 
     /**
@@ -106,11 +106,11 @@ class Users extends CI_Controller {
      */
     public function enable($id) {
       $user = $this->userlevel();
-            if ($user == 'admin') {
-                $this->active($id, TRUE);
-            }else{
-              redirect('errors/error');
-            }
+      if ($user == 'admin') {
+        $this->active($id, TRUE);
+      }else{
+        redirect('errors/error');
+      }
     }
 
     /**
@@ -120,11 +120,11 @@ class Users extends CI_Controller {
      */
     public function disable($id) {
       $user = $this->userlevel();
-            if ($user == 'admin') {
-                $this->active($id, FALSE);
-            }else{
-              redirect('errors/error');
-            }
+      if ($user == 'admin') {
+        $this->active($id, FALSE);
+      }else{
+        redirect('errors/error');
+      }
     }
 
     /**
@@ -134,38 +134,38 @@ class Users extends CI_Controller {
      */
     public function edit($id) {
       $user = $this->userlevel();
-        if ($user == 'admin') {
-          $this->load->helper('form');
-          $this->load->library('form_validation');
-          $this->form_validation->set_rules('firstname', 'Firstname', 'required|strip_tags');
-          $this->form_validation->set_rules('lastname', 'Lastname', 'required|strip_tags');
-          $this->form_validation->set_rules('login', 'Login', 'required|strip_tags');
-          $this->form_validation->set_rules('email', 'Email', 'required|strip_tags');
-          $this->form_validation->set_rules('role[]', 'Role', 'required');
+      if ($user == 'admin') {
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+        $this->form_validation->set_rules('firstname', 'Firstname', 'required|strip_tags');
+        $this->form_validation->set_rules('lastname', 'Lastname', 'required|strip_tags');
+        $this->form_validation->set_rules('login', 'Login', 'required|strip_tags');
+        $this->form_validation->set_rules('email', 'Email', 'required|strip_tags');
+        $this->form_validation->set_rules('role[]', 'Role', 'required');
 
-          $data['users_item'] = $this->users_model->getUsers($id);
-          if (empty($data['users_item'])) {
-              redirect('notfound');
-          }
-
-          if ($this->form_validation->run() === FALSE) {
-              $data['roles'] = $this->users_model->getRoles();
-              $this->load->view('template/header', $data);
-              $this->load->view('template/left_sidebar', $data);
-              $this->load->view('users/edit', $data);
-              $this->load->view('template/footer');
-          } else {
-              $this->users_model->updateUsers();
-              $this->session->set_flashdata('msg', 'The user was successfully modified.');
-              if (isset($_GET['source'])) {
-                  redirect($_GET['source']);
-              } else {
-                  redirect('users');
-              }
-          }
-        }else{
-          redirect('errors/error');
+        $data['users_item'] = $this->users_model->getUsers($id);
+        if (empty($data['users_item'])) {
+          redirect('notfound');
         }
+
+        if ($this->form_validation->run() === FALSE) {
+          $data['roles'] = $this->users_model->getRoles();
+          $this->load->view('templates/header', $data);
+          $this->load->view('menu/index', $data);
+          $this->load->view('users/edit', $data);
+          $this->load->view('templates/footer');
+        } else {
+          $this->users_model->updateUsers();
+          $this->session->set_flashdata('msg', 'The user was successfully modified.');
+          if (isset($_GET['source'])) {
+            redirect($_GET['source']);
+          } else {
+            redirect('users');
+          }
+        }
+      }else{
+        redirect('errors/error');
+      }
     }
 
     /**
@@ -176,19 +176,19 @@ class Users extends CI_Controller {
     public function delete($id) {
         //Test if user exists
       $user = $this->userlevel();
-        if ($user == 'admin') {
-          $data['users_item'] = $this->users_model->getUsers($id);
-          if (empty($data['users_item'])) {
-              redirect('notfound');
-          } else {
-              $this->users_model->deleteUser($id);
-          }
-          log_message('error', 'User #' . $id . ' has been deleted by user #' . $this->session->userdata('id'));
-          $this->session->set_flashdata('msg', 'The user was successfully deleted');
-          redirect('users');
-        }else{
-          redirect('errors/error');
+      if ($user == 'admin') {
+        $data['users_item'] = $this->users_model->getUsers($id);
+        if (empty($data['users_item'])) {
+          redirect('notfound');
+        } else {
+          $this->users_model->deleteUser($id);
         }
+        log_message('error', 'User #' . $id . ' has been deleted by user #' . $this->session->userdata('id'));
+        $this->session->set_flashdata('msg', 'The user was successfully deleted');
+        redirect('users');
+      }else{
+        redirect('errors/error');
+      }
     }
 
     /**
@@ -198,60 +198,60 @@ class Users extends CI_Controller {
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
     public function reset($id) {
-        $user = $this->userlevel();
-          if ($user == 'admin') {
+      $user = $this->userlevel();
+      if ($user == 'admin') {
             //Test if user exists
-            $data['users_item'] = $this->users_model->getUsers($id);
-            if (empty($data['users_item'])) {
-              log_message('debug', '{controllers/users/reset} user not found');
-              redirect('notfound');
-            } else {
-              log_message('debug', 'Reset the password of user #' . $id);
-              $this->users_model->resetPassword($id, $this->input->post('password'));
+        $data['users_item'] = $this->users_model->getUsers($id);
+        if (empty($data['users_item'])) {
+          log_message('debug', '{controllers/users/reset} user not found');
+          redirect('notfound');
+        } else {
+          log_message('debug', 'Reset the password of user #' . $id);
+          $this->users_model->resetPassword($id, $this->input->post('password'));
 
               //Send an e-mail to the user so as to inform that its password has been changed
-              $user = $this->users_model->getUsers($id);
-              $this->load->library('email');
-              $this->load->library('parser');
-              $data = array(
-                  'Title' => 'Your password was reset',
-                  'Firstname' => $user['firstname'],
-                  'Lastname' => $user['lastname']
-              );
-              $message = $this->parser->parse('emails/password_reset', $data, TRUE);
+          $user = $this->users_model->getUsers($id);
+          $this->load->library('email');
+          $this->load->library('parser');
+          $data = array(
+            'Title' => 'Your password was reset',
+            'Firstname' => $user['firstname'],
+            'Lastname' => $user['lastname']
+          );
+          $message = $this->parser->parse('emails/password_reset', $data, TRUE);
 
-              if ($this->config->item('from_mail') != FALSE && $this->config->item('from_name') != FALSE ) {
-                  $this->email->from($this->config->item('from_mail'), $this->config->item('from_name'));
-              } else {
-                  $this->email->from('do.not@reply.me', 'LMS');
-              }
-              $this->email->to($user['email']);
-              $subject = $this->config->item('subject_prefix');
-              $this->email->subject($subject . 'Your password was reset');
-              $this->email->message($message);
-              log_message('debug', 'Sending the reset email');
-              if ($this->config->item('log_threshold') > 1) {
-                $this->email->send(FALSE);
-                $debug = $this->email->print_debugger(array('headers'));
-                log_message('debug', 'print_debugger = ' . $debug);
-              } else {
-                $this->email->send();
-              }
+          if ($this->config->item('from_mail') != FALSE && $this->config->item('from_name') != FALSE ) {
+            $this->email->from($this->config->item('from_mail'), $this->config->item('from_name'));
+          } else {
+            $this->email->from('do.not@reply.me', 'LMS');
+          }
+          $this->email->to($user['email']);
+          $subject = $this->config->item('subject_prefix');
+          $this->email->subject($subject . 'Your password was reset');
+          $this->email->message($message);
+          log_message('debug', 'Sending the reset email');
+          if ($this->config->item('log_threshold') > 1) {
+            $this->email->send(FALSE);
+            $debug = $this->email->print_debugger(array('headers'));
+            log_message('debug', 'print_debugger = ' . $debug);
+          } else {
+            $this->email->send();
+          }
 
               //Inform back the user by flash message
-              $this->session->set_flashdata('msg', 'The password was successfully reset');
-              if ($this->session->isAdmin || $this->session->isSuperAdmin) {
-                log_message('debug', 'Redirect to list of users page');
-                redirect('users');
-              }
-              else {
-                log_message('debug', 'Redirect to homepage');
-                redirect('home');
-              }
-            }
-          }else{
-            redirect('errors/error');
+          $this->session->set_flashdata('msg', 'The password was successfully reset');
+          if ($this->session->isAdmin || $this->session->isSuperAdmin) {
+            log_message('debug', 'Redirect to list of users page');
+            redirect('users');
           }
+          else {
+            log_message('debug', 'Redirect to homepage');
+            redirect('home');
+          }
+        }
+      }else{
+        redirect('errors/error');
+      }
     }
 
     /**
@@ -272,57 +272,56 @@ class Users extends CI_Controller {
         $this->form_validation->set_rules('role[]', 'Role', 'required');
 
         if ($this->form_validation->run() === FALSE) {
-            $this->load->model('Users_model');
-            $data['list_location'] = $this->Users_model->selectLocation();
-            $this->load->view('template/header');
-            $this->load->view('template/left_sidebar', $data);
-            $this->load->view('users/create', $data);
-            $this->load->view('template/footer');
+          $this->load->model('Users_model');
+          $data['list_location'] = $this->Users_model->selectLocation();
+          $this->load->view('template/header');
+          $this->load->view('template/left_sidebar', $data);
+          $this->load->view('users/create', $data);
+          $this->load->view('template/footer');
         } else {
-            $password = $this->users_model->setUsers();
+          $password = $this->users_model->setUsers();
             //Send an e-mail to the user so as to inform that its account has been created
-            $this->load->library('email');
-            $this->load->library('parser');
-            $data = array(
-                'Title' => 'User account to the Skeleton application',
-                'BaseURL' => base_url(),
-                'Firstname' => $this->input->post('firstname'),
-                'Lastname' => $this->input->post('lastname'),
-                'Login' => $this->input->post('login'),
-                'Password' => $password,
-                'active' => 1
-            );
-            $message = $this->parser->parse('emails/new_user', $data, TRUE);
+          $this->load->library('email');
+          $this->load->library('parser');
+          $data = array(
+            'Title' => 'User account to the Skeleton application',
+            'BaseURL' => base_url(),
+            'Firstname' => $this->input->post('firstname'),
+            'Lastname' => $this->input->post('lastname'),
+            'Login' => $this->input->post('login'),
+            'Password' => $password
+          );
+          $message = $this->parser->parse('emails/new_user', $data, TRUE);
 
-            if ($this->config->item('from_mail') != FALSE && $this->config->item('from_name') != FALSE ) {
-                $this->email->from($this->config->item('from_mail'), $this->config->item('from_name'));
-            } else {
-               $this->email->from('do.not@reply.me', 'Skeleton app');
-            }
-            $this->email->to($this->input->post('email'));
-            if ($this->config->item('subject_prefix') != FALSE) {
-                $subject = $this->config->item('subject_prefix');
-            } else {
-               $subject = '[Skeleton] ';
-            }
-            $this->email->subject($subject . 'Your account is created');
-            $this->email->message($message);
-            log_message('debug', 'Sending the user creation email');
-            if ($this->config->item('log_threshold') > 1) {
-              $this->email->send(FALSE);
-              $debug = $this->email->print_debugger(array('headers'));
-              log_message('debug', 'print_debugger = ' . $debug);
-            } else {
-              $this->email->send();
-            }
-
-            $this->session->set_flashdata('msg', 'The user was successfully created');
-            redirect('users');
-        }
-      }else{
-        redirect('errors/error');
+          if ($this->config->item('from_mail') != FALSE && $this->config->item('from_name') != FALSE ) {
+            $this->email->from($this->config->item('from_mail'), $this->config->item('from_name'));
+          } else {
+           $this->email->from('do.not@reply.me', 'Skeleton app');
+         }
+         $this->email->to($this->input->post('email'));
+         if ($this->config->item('subject_prefix') != FALSE) {
+          $subject = $this->config->item('subject_prefix');
+        } else {
+         $subject = '[Skeleton] ';
+       }
+       $this->email->subject($subject . 'Your account is created');
+       $this->email->message($message);
+       log_message('debug', 'Sending the user creation email');
+       if ($this->config->item('log_threshold') > 1) {
+        $this->email->send(FALSE);
+        $debug = $this->email->print_debugger(array('headers'));
+        log_message('debug', 'print_debugger = ' . $debug);
+      } else {
+        $this->email->send();
       }
+
+      $this->session->set_flashdata('msg', 'The user was successfully created');
+      redirect('users');
     }
+  }else{
+    redirect('errors/error');
+  }
+}
 
     /**
      * Form validation callback : prevent from login duplication
@@ -333,14 +332,14 @@ class Users extends CI_Controller {
     public function checkLogin($login) {
       $user = $this->userlevel();
       if ($user == "admin") {
-          if (!$this->users_model->isLoginAvailable($login)) {
-              $this->form_validation->set_message('checkLogin', lang('users_create_checkLogin'));
-              return FALSE;
-          } else {
-              return TRUE;
-          }
+        if (!$this->users_model->isLoginAvailable($login)) {
+          $this->form_validation->set_message('checkLogin', lang('users_create_checkLogin'));
+          return FALSE;
+        } else {
+          return TRUE;
+        }
       }else{
-          redirect('errors/error');
+        redirect('errors/error');
       }
     }
 
@@ -351,14 +350,14 @@ class Users extends CI_Controller {
     public function checkLoginByAjax() {
       $user = $this->userlevel();
       if ($user == "admin") {
-          $this->output->set_content_type('text/plain');
-          if ($this->users_model->isLoginAvailable($this->input->post('login'))) {
-              $this->output->set_output('true');
-          } else {
-              $this->output->set_output('false');
-          }
+        $this->output->set_content_type('text/plain');
+        if ($this->users_model->isLoginAvailable($this->input->post('login'))) {
+          $this->output->set_output('true');
+        } else {
+          $this->output->set_output('false');
+        }
       }else{
-          redirect('errors/error');
+        redirect('errors/error');
       }
     }
 
@@ -368,19 +367,46 @@ class Users extends CI_Controller {
      */
     public function export() {
       $user = $this->userlevel();
-        if ($user == "admin") {
-            $this->load->view('users/export');
-        }else{
-            redirect('errors/error');
-        }
+      if ($user == "admin") {
+        $this->load->view('users/export');
+      }else{
+        redirect('errors/error');
+      }
     }
-    
-    // Create user profile by Maryna.PHORN
-    public function user_profile(){
+
+  // get user profile by Maryna PHORN
+    public function get_users(){
+     $user = $this->userlevel();
+     if ($user == 'admin') {
+      $this->load->model('Users_model');
+      $data['list_user'] = $this->Users_model->selectLocation();
+      $data['page'] = "user_profile";
+      $data['listUsers'] = $this->Users_model->select_users();
+      $this->load->view($user, $data);
+    }else{
+      redirect('errors/error');
+    }
+  }
+
+  // Udate profile by Maryna.PHORN
+  public function update_profile(){
     $user = $this->userlevel();
-    $this->load->model('Users_model');
-    $data['list_location'] = $this->Users_model->selectLocation();
-    $data['page'] = "user_profile";
-    $this->load->view($user, $data);
+    if ($user == 'admin') {
+      $firstname = $this->input->post("firstname");
+      $lastname = $this->input->post("lastname");
+      $login = $this->input->post("login");
+      $email = $this->input->post("email");
+      $id = $this->input->post("id");
+      $this->load->model('Users_model');
+      $data = $this->Users_model->update_profile($id,$firstname,$lastname, $login, $email);
+      if ($data == 'true') {
+        $this->index();
+      }else{
+        echo "Data not insert";
+      }
+    }else{
+      redirect('errors/error');
+    }
   }
 }
+

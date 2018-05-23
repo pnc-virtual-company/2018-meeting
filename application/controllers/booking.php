@@ -212,7 +212,7 @@
 				echo "Data not insert";
 			}
 		}
-
+		// acceptRequest function by Chhunhak.CHHOEUNG
 		public function acceptRequest($reqId){
 			$user = $this->userlevel();
 			if ($user != 'normal') {
@@ -232,12 +232,19 @@
 				redirect('errors/error');
 			}
 		}
+		// rejectRequest function by Chhunhak.CHHOEUNG
 		public function rejectRequest($reqId){
 			$user = $this->userlevel();
 			if ($user != 'normal') {
 				$this->load->model('users_model');
-				$accept = $this->users_model->rejectRequest($reqId);
-				if ($accept == 'true') {
+				$rejectdata = $this->users_model->rejectRequest($reqId);
+				if ($rejectdata == 'true') {
+					$reject = $this-> rejectsendmail($reqId);
+					if ($reject == 'true') {
+						redirect('booking/request_validate');
+					}else{
+						return $accept;
+					}
 					redirect('booking/request_validate');
 				}else{
 					echo 'error';	
@@ -303,5 +310,28 @@
 				return $this->email->print_debugger();;
 			}
 			
+		}
+		// rejectsendmail by chhunhak.CHHOUENG
+		public function rejectsendmail($reqId){
+			$this->load->library('email');
+			$this->load->model('users_model');
+			$accept = $this->users_model->selectReq($reqId);
+			$booking_user ="";
+			$email = "";
+			$room_name = "";
+			foreach ($accept as  $row) {
+				$booking_user = $row->firstname;
+				$email =  $row->email;
+				$room_name =  $row->room_name;
+			}
+			$this->email->from('pnc.temporary.vc2018@passerellesnumeriques.org', 'Booking Management');
+			$this->email->to($email, $booking_user);
+			$this->email->subject('Rekect Request Booking Room at '.$room_name);
+			$this->email->message('Dear '.$booking_user.',  <br /> <br /> You has been Rejected booking the room in '.$room_name.'<br /> <br /> Best Regard,');
+			if ($this->email->send()) {
+				return 'true';
+			}else{
+				return $this->email->print_debugger();;
+			}
 		}
 	}
