@@ -52,11 +52,11 @@
 
         <div class="form-group">
           <label class="control-label" for="role[]">Role</label>
-          <select multiple class="form-control" name="role[]" size="3" required>
+          <select class="form-control" name="role" required>
                     <option value="1" >admin</option>
-                    <option value="2" selected>normal</option>
+                    <option value="2" >normal</option>
                     <option value="3" >manager</option>
-                </select>
+            </select>
         </div>
 
         <div class="form-group">

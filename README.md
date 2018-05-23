@@ -1,6 +1,6 @@
-# Skeleton application
+# Meeting Reservation
 
-The Skeleton application is designed for the WEP Students of Passerelles numériques in Cambodia.
+The Meeting Reservation application is designed for the WEP Students of Passerelles numériques in Cambodia.
 It contains some useful frontend and backend libraries:
 
  * CodeIgniter 3

@@ -21,8 +21,6 @@
     <body>
         <h3>{Title}</h3>
         <p>Dear {Firstname} {Lastname},</p>
-        <p>Your Skeleton password has been reset. If you did not perform this operation, please contact your manager.</p>
-        <hr>
-        <h5>*** This is an automatically generated message, please do not reply to this message ***</h5>
+        <p>Your Booking management application password has been reset. If you did not perform this operation, please contact your manager.</p>
     </body>
 </html>

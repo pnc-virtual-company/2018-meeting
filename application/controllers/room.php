@@ -72,12 +72,14 @@ class room extends CI_Controller {
 			if ($user == 'admin') {
 				$this->load->model('Users_model');
 				$data['list_location'] = $this->Users_model->selectLocation();
+				$data['allroom'] = $this->Users_model->selectAllRoom();
 				$data['page'] = "chart";
 				$this->load->view($user, $data);
 			}else{
 				redirect('errors/error');
 			}
 		}
+
 	// list room by samreth.SAROEURT
 		public function list_room(){
 			$user = $this->userlevel();

@@ -41,17 +41,21 @@
        </div>
      </div>
     <div class="col-md-1"></div>
+    <?php foreach ($allroom as $row): ?>
+      <input type="hidden" value="<?php echo $row->room_name; ?>">
+    <?php endforeach ?>
+
   </div>
   <canvas id="pie-chart" width="850" height="400"></canvas>
   </div>
   <div class="col-md-1"></div>
 </div>
-
+      
 <script type="text/javascript">
 new Chart(document.getElementById("pie-chart"), {
     type: 'pie',
     data: {
-      labels: ["B32", "B21", "B11", "A22", "B31"], 
+      labels: [" <?php foreach ($allroom as $row): ?><?php echo $row->room_name; ?> <?php endforeach ?>", "B21", "B11", "A22", "B31"], 
       datasets: [{
         label: "Population (millions)",
         backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
