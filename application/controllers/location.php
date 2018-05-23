@@ -161,4 +161,9 @@ class location extends CI_Controller {
 			redirect('errors/error');
 		}
 	}
+	public function getLocationById($id){
+		$this->load->model("Users_model");
+		$data = $this->Users_model->selectUpdateLocation($id);
+		echo json_encode($data);
+	}
 }
