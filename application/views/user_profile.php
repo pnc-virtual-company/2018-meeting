@@ -22,30 +22,35 @@
           <div class="text-center">
             <h3>Edit My Profile</h3>
         </div>
-            <hr>
-               <button type="submit" class="btn btn-danger" style="margin-left: 17px; ">Cancel</button>
-               <br><br>
-         <h4 style="margin-left: 17px;">General Information</h4>
-        <div class="card-body">
-            <form method="POST" action="">
-              <div class="form-group">
-                <label for="name">First Name</label>
-                <input type="text" class="form-control" id="name" name="name" required="">
-            </div>
-            <div class="form-group">
-                <label for="lname">Last Name</label>
-                <input type="text" class="form-control" id="lname"  name="lname" required="">
-            </div>
-            <div class="form-group">
-                <label for="login">Login</label>
-                <input type="text" class="form-control"  name="login" required="">
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="text" class="form-control"  name="email" required="">
-            </div>
-            <button type="submit" class="btn btn-primary">Validate</button>
-        </form>
+        <hr>
+        <a href="<?php echo base_url();?>Users/get_users" class="btn btn-danger" style="margin-left: 19px;"><i class="mdi mdi-cancel"></i>&nbsp;Cancel</a>
+        <br><br>
+        <h4 style="margin-left: 18px;">General Information</h4>
+
+        <?php foreach ($listUsers as $row): ?>
+
+            <div class="card-body">
+                <form method="POST" action="<?php echo base_url(); ?>Users/update_profile">
+                  <div class="form-group">
+                    <input type="hidden" value="<?php echo $row->id; ?>" name="id">
+                    <label for="name">First Name</label>
+                    <input type="text" class="form-control" value="<?php echo $row->firstname; ?>" id="firstname" name="firstname" required="">
+                </div>
+                <div class="form-group">
+                    <label for="lname">Last Name</label>
+                    <input type="text" class="form-control" value="<?php echo $row->lastname; ?>" id="lastname"  name="lastname" required="">
+                </div>
+                <div class="form-group">
+                    <label for="login">Login</label>
+                    <input type="text" class="form-control" value="<?php echo $row->login; ?>" name="login" id="login" required="">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" value="<?php echo $row->email; ?>" name="email" id="email" required="">
+                </div>
+                <button type="submit" class="btn btn-primary">Validate</button>
+            </form>
+        <?php endforeach; ?>
     </div>
 </div>
 </div>
@@ -57,24 +62,27 @@
       <div class="col-md-7">
         <div class="">
           <div class="text-center">
-        </div>
-        <h4 style="margin-left: 17px;" >Change Password</h4>
-        <div class="card-body">
-            <form method="POST" action="">
+          </div>
+          <h4 style="margin-left: 17px;" >Change Password</h4>
+          
+           <?php foreach ($listUsers as $row): ?>
+          <form method="POST" action="<?php echo base_url(); ?>Users/user_profile">
+            <div class="card-body">
               <div class="form-group">
-                <label for="name">Current Password</label>
-                <input type="text" class="form-control" id="name" name="name" required="">
+                <label for="">Current Password</label>
+                <input type="password" class="form-control" id="old_password" name="old_password" required="">
             </div>
             <div class="form-group">
-                <label for="lname">New Password</label>
-                <input type="text" class="form-control" id="lname"  name="lname" required="">
+                <label for="">New Password</label>
+                <input type="password" class="form-control" id="newpassword"  name="newpassword" required="">
             </div>
             <div class="form-group">
-                <label for="login">Confirm New Password</label>
-                <input type="text" class="form-control"  name="login" required="">
+                <label for="">Confirm New Password</label>
+                <input type="password" class="form-control"  id= "re_password" name="re_password" required="">
             </div>
             <button type="submit" class="btn btn-primary">Validate</button>
         </form>
+         <?php endforeach; ?>
     </div>
 </div>
 </div>
