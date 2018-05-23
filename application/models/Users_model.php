@@ -694,7 +694,6 @@ public function update_profile($id,$firstname,$lastname, $login, $email){
         $query = $this->db->get();
         return $query->result();
     }
-
 }
 
 
