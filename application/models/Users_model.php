@@ -660,12 +660,6 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
         return $query->result();
     }
 
-<<<<<<< HEAD
-    $this->db->select('*');
-    $query = $this->db->get(' users');
-    return  $query->result();
-}
-
 // Select user  by Maryna PHORN
 public function select_users(){
     $id = $this->session->id;
@@ -690,7 +684,7 @@ public function update_profile($id,$firstname,$lastname, $login, $email){
     $result = $this->db->update('users', $edit);
     return $result;
 }
-=======
+
     public function selectReq($reqId){
         $this->db->select('*');
         $this->db->from('tbl_room_request');
@@ -700,7 +694,6 @@ public function update_profile($id,$firstname,$lastname, $login, $email){
         $query = $this->db->get();
         return $query->result();
     }
->>>>>>> 3431026dcec0d54df89b49e331893026903a188e
 }
 
 
