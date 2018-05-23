@@ -34,8 +34,8 @@
               <td><?php echo $row->loc_name; ?></td>
               <td><?php echo $row->room_name; ?></td>
               <td><?php echo $row->Date; ?></td>
-              <td><?php echo substr($row->Start,0,-10) ?></td>
-              <td><?php echo substr($row->End,0,-10) ?></td>
+              <td><?php echo $row->Start = date("H:i A", strtotime($row->Start)); ?></td>
+              <td><?php echo $row->End = date("H:i A", strtotime($row->End)); ?></td>
               <td><?php echo $row->firstname;?></td>
               <td><?php echo $row->book_description;?></td>
               <!-- Modol pop up Accept request -->

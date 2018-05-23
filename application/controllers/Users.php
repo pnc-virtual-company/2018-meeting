@@ -148,6 +148,7 @@ class Users extends CI_Controller {
           redirect('notfound');
         }
 
+<<<<<<< HEAD
         if ($this->form_validation->run() === FALSE) {
           $data['roles'] = $this->users_model->getRoles();
           $this->load->view('templates/header', $data);
@@ -159,6 +160,14 @@ class Users extends CI_Controller {
           $this->session->set_flashdata('msg', 'The user was successfully modified.');
           if (isset($_GET['source'])) {
             redirect($_GET['source']);
+=======
+          if ($this->form_validation->run() === FALSE) {
+              $data['roles'] = $this->users_model->getRoles();
+              $this->load->view('template/header', $data);
+              $this->load->view('template/left_sidebar', $data);
+              $this->load->view('users/edit', $data);
+              $this->load->view('template/footer');
+>>>>>>> 3431026dcec0d54df89b49e331893026903a188e
           } else {
             redirect('users');
           }
@@ -281,6 +290,7 @@ class Users extends CI_Controller {
         } else {
           $password = $this->users_model->setUsers();
             //Send an e-mail to the user so as to inform that its account has been created
+<<<<<<< HEAD
           $this->load->library('email');
           $this->load->library('parser');
           $data = array(
@@ -292,6 +302,42 @@ class Users extends CI_Controller {
             'Password' => $password
           );
           $message = $this->parser->parse('emails/new_user', $data, TRUE);
+=======
+            $this->load->library('email');
+            $this->load->library('parser');
+            $data = array(
+                'Title' => 'User account to the Skeleton application',
+                'BaseURL' => base_url(),
+                'Firstname' => $this->input->post('firstname'),
+                'Lastname' => $this->input->post('lastname'),
+                'Login' => $this->input->post('login'),
+                'Password' => $password,
+                'active' => 1
+            );
+            $message = $this->parser->parse('emails/new_user', $data, TRUE);
+
+            if ($this->config->item('from_mail') != FALSE && $this->config->item('from_name') != FALSE ) {
+                $this->email->from($this->config->item('from_mail'), $this->config->item('from_name'));
+            } else {
+               $this->email->from('do.not@reply.me', 'Skeleton app');
+            }
+            $this->email->to($this->input->post('email'));
+            if ($this->config->item('subject_prefix') != FALSE) {
+                $subject = $this->config->item('subject_prefix');
+            } else {
+               $subject = '[Skeleton] ';
+            }
+            $this->email->subject($subject . 'Your account is created');
+            $this->email->message($message);
+            log_message('debug', 'Sending the user creation email');
+            if ($this->config->item('log_threshold') > 1) {
+              $this->email->send(FALSE);
+              $debug = $this->email->print_debugger(array('headers'));
+              log_message('debug', 'print_debugger = ' . $debug);
+            } else {
+              $this->email->send();
+            }
+>>>>>>> 3431026dcec0d54df89b49e331893026903a188e
 
           if ($this->config->item('from_mail') != FALSE && $this->config->item('from_name') != FALSE ) {
             $this->email->from($this->config->item('from_mail'), $this->config->item('from_name'));

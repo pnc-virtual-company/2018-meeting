@@ -121,7 +121,12 @@
 				$this->book_meeting();
 			}else {
 				if($data == 'true'){
-					redirect('booking');
+					$mail = $this->sendbookingmail($note,$date,$start,$end,$user_booking_id,$room_id);
+					if ($mail =='true') {
+						redirect('booking');
+					}else{
+						echo $mail;;
+					}
 				}else{
 					$this->book_meeting();
 				}
@@ -207,14 +212,19 @@
 				echo "Data not insert";
 			}
 		}
-
+		// acceptRequest function by Chhunhak.CHHOEUNG
 		public function acceptRequest($reqId){
 			$user = $this->userlevel();
 			if ($user != 'normal') {
 				$this->load->model('users_model');
 				$accept = $this->users_model->acceptRequest($reqId);
 				if ($accept == 'true') {
-					redirect('booking/request_validate');
+					$accept = $this->acceptsendmail($reqId);
+					if ($accept == 'true') {
+						redirect('booking/request_validate');
+					}else{
+						return $accept;
+					}
 				}else{
 					echo 'error';	
 				}
@@ -222,12 +232,19 @@
 				redirect('errors/error');
 			}
 		}
+		// rejectRequest function by Chhunhak.CHHOEUNG
 		public function rejectRequest($reqId){
 			$user = $this->userlevel();
 			if ($user != 'normal') {
 				$this->load->model('users_model');
-				$accept = $this->users_model->rejectRequest($reqId);
-				if ($accept == 'true') {
+				$rejectdata = $this->users_model->rejectRequest($reqId);
+				if ($rejectdata == 'true') {
+					$reject = $this-> rejectsendmail($reqId);
+					if ($reject == 'true') {
+						redirect('booking/request_validate');
+					}else{
+						return $accept;
+					}
 					redirect('booking/request_validate');
 				}else{
 					echo 'error';	
@@ -236,12 +253,85 @@
 				redirect('errors/error');
 			}
 		}
-		
+
 		//Export file into excel by Danet THORNG
 		public function getExportFile(){
 				// redirect('welcome/getExportFile');
 			$this->load->model('users_model');
 			$users = $this->users_model->getExportFile();
 			$this->load->view('export', $users);
+		}
+		// sendbookingmail by chhunhak.CHHOUENG
+		public function sendbookingmail($note,$date,$start,$end,$user_booking_id,$room_id){
+			$this->load->library('email');
+			$room_name = $this->input->get('room_name');
+			$firstnamebooking = $this->session->firstname;
+			$this->load->model('users_model');
+			$roomuser = $this->users_model->selectRoomuser($room_id);
+			$firstname = "";
+			$lastname  = "";
+			$email = "";
+			foreach ($roomuser as $user) {
+				$firstname = $user->firstname;
+				$lastname = $user->lastname;
+				$email = $user->email;
+			}
+			$this->email->from('pnc.temporary.vc2018@passerellesnumeriques.org', 'Booking Management');
+			$this->email->to($email, $firstname);
+			$this->email->subject('Request booking Room at '.$room_name);
+			$this->email->message('Dear '.$firstname.',  <br /> <br />your room '.$room_name.' Has been booked by '.$firstnamebooking.' from date '.$date.' start at '.$start.' end at '.$end.' <br /> <br /> Best Regard,');
+			if ($this->email->send()) {
+				return 'true';
+			}else{
+				return $this->email->print_debugger();;
+			}
+			
+		}
+		// acceptsendmail by chhunhak.CHHOUENG
+		public function acceptsendmail($reqId){
+			$this->load->library('email');
+			$this->load->model('users_model');
+			$accept = $this->users_model->selectReq($reqId);
+			$booking_user ="";
+			$email = "";
+			$room_name = "";
+			foreach ($accept as  $row) {
+				$booking_user = $row->firstname;
+				$email =  $row->email;
+				$room_name =  $row->room_name;
+			}
+			$this->email->from('pnc.temporary.vc2018@passerellesnumeriques.org', 'Booking Management');
+			$this->email->to($email, $booking_user);
+			$this->email->subject('Accept Request Booking Room at '.$room_name);
+			$this->email->message('Dear '.$firstname.',  <br /> <br /> You has been accepted booking the room in '.$room_name.'<br /> <br /> Best Regard,');
+			if ($this->email->send()) {
+				return 'true';
+			}else{
+				return $this->email->print_debugger();;
+			}
+			
+		}
+		// rejectsendmail by chhunhak.CHHOUENG
+		public function rejectsendmail($reqId){
+			$this->load->library('email');
+			$this->load->model('users_model');
+			$accept = $this->users_model->selectReq($reqId);
+			$booking_user ="";
+			$email = "";
+			$room_name = "";
+			foreach ($accept as  $row) {
+				$booking_user = $row->firstname;
+				$email =  $row->email;
+				$room_name =  $row->room_name;
+			}
+			$this->email->from('pnc.temporary.vc2018@passerellesnumeriques.org', 'Booking Management');
+			$this->email->to($email, $booking_user);
+			$this->email->subject('Rekect Request Booking Room at '.$room_name);
+			$this->email->message('Dear '.$booking_user.',  <br /> <br /> You has been Rejected booking the room in '.$room_name.'<br /> <br /> Best Regard,');
+			if ($this->email->send()) {
+				return 'true';
+			}else{
+				return $this->email->print_debugger();;
+			}
 		}
 	}
