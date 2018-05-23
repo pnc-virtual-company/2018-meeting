@@ -7,8 +7,8 @@ class Connection extends CI_Controller {
 	 * @author Benjamin BALET <benjamin.balet@gmail.com>
 	 */
 	public function __construct() {
-			parent::__construct();
-			log_message('debug', 'URI=' . $this->uri->uri_string());
+		parent::__construct();
+		log_message('debug', 'URI=' . $this->uri->uri_string());
 	}
 
 	/**
@@ -64,5 +64,16 @@ class Connection extends CI_Controller {
 		log_message('debug', 'Logout current user and redirect to the home page');
 		$this->session->sess_destroy();
 		redirect('connection');
+	}
+	//Danet THORNG reset password
+	public function reset_pwd(){
+		$this->load->view('templates/header');
+		$this->load->view('reset_pwd');
+		$this->load->view('templates/footer');
+	}
+	public function new_pwd(){
+		$this->load->view('templates/header');
+		$this->load->view('new_pwd');
+		$this->load->view('templates/footer');
 	}
 }
