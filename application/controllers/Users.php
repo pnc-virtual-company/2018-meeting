@@ -269,7 +269,7 @@ class Users extends CI_Controller {
         $this->form_validation->set_rules('lastname', 'Lastname', 'required|strip_tags');
         $this->form_validation->set_rules('login', 'Login', 'required|callback_checkLogin|strip_tags');
         $this->form_validation->set_rules('email', 'Email', 'required|strip_tags');
-        $this->form_validation->set_rules('role[]', 'Role', 'required');
+        $this->form_validation->set_rules('role', 'Role', 'required');
 
         if ($this->form_validation->run() === FALSE) {
           $this->load->model('Users_model');
@@ -284,7 +284,7 @@ class Users extends CI_Controller {
           $this->load->library('email');
           $this->load->library('parser');
           $data = array(
-            'Title' => 'User account to the Skeleton application',
+            'Title' => 'User account to the Booking Management application',
             'BaseURL' => base_url(),
             'Firstname' => $this->input->post('firstname'),
             'Lastname' => $this->input->post('lastname'),

@@ -20,7 +20,7 @@
     </head>
     <body>
         <h3>{Title}</h3>
-        Welcome to the Skeleton app {Firstname} {Lastname}. Please use these credentials to <a href="{BaseURL}">login to the system</a> :
+        Welcome to the Booking Management Application {Firstname} {Lastname}. Please use these credentials to <a href="{BaseURL}">login to the system</a> :
         <table border="0">
             <tr>
                 <td>Login</td><td>{Login}</td>
@@ -30,7 +30,5 @@
             </tr>
         </table>
         <p>Once connected, you can change your password.</p>
-        <hr>
-        <h5>*** This is an automatically generated message, please do not reply to this message ***</h5>
     </body>
 </html>
