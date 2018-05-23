@@ -64,25 +64,22 @@
           <div class="text-center">
           </div>
           <h4 style="margin-left: 17px;" >Change Password</h4>
-          
-           <?php foreach ($listUsers as $row): ?>
-          <form method="POST" action="<?php echo base_url(); ?>Users/user_profile">
+          <form method="POST" action="<?php echo base_url(); ?>Users/change_password">
             <div class="card-body">
               <div class="form-group">
                 <label for="">Current Password</label>
-                <input type="password" class="form-control" id="old_password" name="old_password" required="">
+                <input type="password" class="form-control" id="old_password" name="current_password" required="">
             </div>
             <div class="form-group">
                 <label for="">New Password</label>
-                <input type="password" class="form-control" id="newpassword"  name="newpassword" required="">
+                <input type="password" class="form-control" id="newpassword"  name="new_password" required="">
             </div>
             <div class="form-group">
                 <label for="">Confirm New Password</label>
-                <input type="password" class="form-control"  id= "re_password" name="re_password" required="">
+                <input type="password" class="form-control"  id= "re_password" name="password_confirm" required="">
             </div>
             <button type="submit" class="btn btn-primary">Validate</button>
         </form>
-         <?php endforeach; ?>
     </div>
 </div>
 </div>

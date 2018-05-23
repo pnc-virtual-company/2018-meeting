@@ -44,12 +44,12 @@ class Users_model extends CI_Model {
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
     public function getUsersAndRoles() {
-     $this->db->select("id,firstname,lastname,login, email, tbl_roles.role_name");
-     $this->db->from('users');
-     $this->db->join('tbl_roles', 'users.role=tbl_roles.role_id');
-     $users = $this->db->get();
-     return $users->result_array();
- }
+       $this->db->select("id,firstname,lastname,login, email, tbl_roles.role_name");
+       $this->db->from('users');
+       $this->db->join('tbl_roles', 'users.role=tbl_roles.role_id');
+       $users = $this->db->get();
+       return $users->result_array();
+   }
 
   /**
    * Get the list of roles or one role
@@ -476,11 +476,11 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
 
         // by thintha
             public function delete_room($room_id) {
-               $delete = $this->db->delete('tbl_rooms', array('tbl_rooms.room_id' => $room_id));
-               return $delete;
-           }
+             $delete = $this->db->delete('tbl_rooms', array('tbl_rooms.room_id' => $room_id));
+             return $delete;
+         }
         // delete location by Danet THORNG
-           public function delete_location($locationID) {
+         public function delete_location($locationID) {
             $result = $this->db->delete('tbl_locations',array('tbl_locations.loc_id' =>$locationID ));
             return $result;
         }
@@ -508,35 +508,35 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
 
         public function  booking_room($note,$date,$start,$end,$user_booking_id,$room_id){
             if ($start == $end) {
-             return false;
-         }else{
-             $this->db->select('*');
-             $this->db->from('tbl_rooms');
-             $this->db->where('tbl_rooms.room_id',$room_id);
-             $query = $this->db->get();
-             foreach ($query->result() as $value) {
-                 $user_id = $value->user_id;
-             }
-             $data = array(
-                 'book_description' =>$note,     
-                 'Date' =>$date, 
-                 'Start' =>$start,   
-                 'End' =>$end,   
-                 'user_id' => $user_id,
-                 'user_booking_id' => $user_booking_id,
-                 'room_id' => $room_id,
-                 'sta_id' => 3
-             );
+               return false;
+           }else{
+               $this->db->select('*');
+               $this->db->from('tbl_rooms');
+               $this->db->where('tbl_rooms.room_id',$room_id);
+               $query = $this->db->get();
+               foreach ($query->result() as $value) {
+                   $user_id = $value->user_id;
+               }
+               $data = array(
+                   'book_description' =>$note,     
+                   'Date' =>$date, 
+                   'Start' =>$start,   
+                   'End' =>$end,   
+                   'user_id' => $user_id,
+                   'user_booking_id' => $user_booking_id,
+                   'room_id' => $room_id,
+                   'sta_id' => 3
+               );
 
-             $result = $this->db->insert('tbl_room_request',$data);
-             return $result;
-         }
+               $result = $this->db->insert('tbl_room_request',$data);
+               return $result;
+           }
 
-     }
+       }
 
 
             // delete list booking request by Samreth.SAROEURT
-     public function select_booking($book_id){
+       public function select_booking($book_id){
         $this->db->select('*');
         $this->db->from('tbl_room_request');
         $this->db->join('tbl_rooms', ' tbl_rooms.room_id = tbl_room_request.room_id');
@@ -661,29 +661,28 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
     }
 
 // Select user  by Maryna PHORN
-public function select_users(){
-    $id = $this->session->id;
-    $this->db->select('*');
-    $this->db->from('users');
-    $this->db->where('id', $id);
-
-    $query = $this->db->get();
-    return  $query->result();
-}
+    public function select_users(){
+        $id = $this->session->id;
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->where('id', $id);
+        $query = $this->db->get();
+        return  $query->result();
+    }
 // Update profile by maryna.PHORN
-public function update_profile($id,$firstname,$lastname, $login, $email){
-    $edit = array(
-        'firstname' =>$firstname, 
-        'lastname' =>$lastname, 
-        'login' =>$login,   
-        'email' =>$email,
-        'id'=>$id
+    public function update_profile($id,$firstname,$lastname, $login, $email){
+        $edit = array(
+            'firstname' =>$firstname, 
+            'lastname' =>$lastname, 
+            'login' =>$login,   
+            'email' =>$email,
+            'id'=>$id
 
-    );
-    $this->db->where('id', $id);
-    $result = $this->db->update('users', $edit);
-    return $result;
-}
+        );
+        $this->db->where('id', $id);
+        $result = $this->db->update('users', $edit);
+        return $result;
+    }
 
     public function selectReq($reqId){
         $this->db->select('*');
@@ -695,8 +694,47 @@ public function update_profile($id,$firstname,$lastname, $login, $email){
         return $query->result();
     }
 
+    // get user by Maryna PHORN
+    public function get_current_password($id){
+     $data = array(
+      'password' => md5($this->input->post('password_confirm'))
+  );
+
+     $this->db->where('id', $id);
+
+     return $this->db->update('users', $data);
+
+     $query = $this->db->get_where('users', array('id' => $id));
+
+     if($query->num_rows() > 0){
+
+      $current_password = $query->row('password');
+      $inputted_current_password = md5($this->input->post('current_password'));
+      $inputted_new_password = md5($this->input->post('new_password'));
+      $inputted_confirm_password = md5($this->input->post('password_confirm'));
+
+      if ($inputted_new_password == $inputted_confirm_password) {
+
+         if ($inputted_current_password != $current_password) {
+
+            $this->db->where('id', $id);
+            return $this->db->update('users', $inputted_new_password);
+        }
+
+    } else {
+     return false;
+ }
+}
+}
+ public function passwordReset($id, $password) {
+        //Hash the clear password using bcrypt (8 iterations)
+    $salt = '$2a$08$' . substr(strtr(base64_encode($this->getRandomBytes(16)), '+', '.'), 0, 22) . '$';
+    $hash = crypt($password, $salt);
+    $data = array(
+        'password' => $hash
+    );
+    $this->db->where('id', $id);
+    return $this->db->update('users', $data);
 }
 
-
-
-
+}
