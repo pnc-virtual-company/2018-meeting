@@ -694,6 +694,12 @@ public function update_profile($id,$firstname,$lastname, $login, $email){
         $query = $this->db->get();
         return $query->result();
     }
+    public function selectbookingroom(){
+        $this->db->select('*');
+        $this->db->from('tbl_room_request');
+        $data = $this->db->get();
+        return $data->result();
+    }
 }
 
 
