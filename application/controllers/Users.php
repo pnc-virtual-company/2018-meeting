@@ -214,7 +214,7 @@ class Users extends CI_Controller {
           $this->load->library('email');
           $this->load->library('parser');
           $data = array(
-            'Title' => 'Your password was reset',
+            'Title' => 'Your password was changed',
             'Firstname' => $user['firstname'],
             'Lastname' => $user['lastname']
           );
@@ -296,15 +296,15 @@ class Users extends CI_Controller {
           if ($this->config->item('from_mail') != FALSE && $this->config->item('from_name') != FALSE ) {
             $this->email->from($this->config->item('from_mail'), $this->config->item('from_name'));
           } else {
-           $this->email->from('do.not@reply.me', 'Skeleton app');
+           $this->email->from('do.not@reply.me', 'Booking Management app');
          }
          $this->email->to($this->input->post('email'));
          if ($this->config->item('subject_prefix') != FALSE) {
           $subject = $this->config->item('subject_prefix');
         } else {
-         $subject = '[Skeleton] ';
+         $subject = 'Create Booking Management account';
        }
-       $this->email->subject($subject . 'Your account is created');
+       $this->email->subject($subject);
        $this->email->message($message);
        log_message('debug', 'Sending the user creation email');
        if ($this->config->item('log_threshold') > 1) {
@@ -389,24 +389,59 @@ class Users extends CI_Controller {
   }
 
   // Udate profile by Maryna.PHORN
-  public function update_profile(){
-    $user = $this->userlevel();
-    if ($user == 'admin') {
-      $firstname = $this->input->post("firstname");
-      $lastname = $this->input->post("lastname");
-      $login = $this->input->post("login");
-      $email = $this->input->post("email");
-      $id = $this->input->post("id");
-      $this->load->model('Users_model');
-      $data = $this->Users_model->update_profile($id,$firstname,$lastname, $login, $email);
-      if ($data == 'true') {
-        $this->index();
+  public function change_password($id) {
+      $user = $this->userlevel();
+      if ($user == 'admin') {
+            //Test if user exists
+        $data['users_item'] = $this->users_model->getUsers($id);
+        if (empty($data['users_item'])) {
+          log_message('debug', '{controllers/users/reset} user not found');
+          redirect('notfound');
+        } else {
+          log_message('debug', 'Reset the password of user #' . $id);
+          $this->users_model->resetPassword($id, $this->input->post('password'));
+              //Send an e-mail to the user so as to inform that its password has been changed
+          $user = $this->users_model->getUsers($id);
+          $this->load->library('email');
+          $this->load->library('parser');
+          $data = array(
+            'Title' => 'Your password was changed',
+            'Firstname' => $user['firstname'],
+            'Lastname' => $user['lastname']
+          );
+          $message = $this->parser->parse('emails/password_reset', $data, TRUE);
+
+          if ($this->config->item('from_mail') != FALSE && $this->config->item('from_name') != FALSE ) {
+            $this->email->from($this->config->item('from_mail'), $this->config->item('from_name'));
+          } else {
+            $this->email->from('do.not@reply.me', 'LMS');
+          }
+          $this->email->to($user['email']);
+          $subject = $this->config->item('subject_prefix');
+          $this->email->subject($subject . 'Your password was reset');
+          $this->email->message($message);
+          log_message('debug', 'Sending the reset email');
+          if ($this->config->item('log_threshold') > 1) {
+            $this->email->send(FALSE);
+            $debug = $this->email->print_debugger(array('headers'));
+            log_message('debug', 'print_debugger = ' . $debug);
+          } else {
+            $this->email->send();
+          }
+              //Inform back the user by flash message
+          $this->session->set_flashdata('msg', 'The password was successfully reset');
+          if ($this->session->isAdmin || $this->session->isSuperAdmin) {
+            log_message('debug', 'Redirect to list of users page');
+            redirect('users');
+          }
+          else {
+            log_message('debug', 'Redirect to homepage');
+            redirect('home');
+          }
+        }
       }else{
-        echo "Data not insert";
+        redirect('errors/error');
       }
-    }else{
-      redirect('errors/error');
     }
-  }
 }
 
