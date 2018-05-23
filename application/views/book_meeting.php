@@ -9,16 +9,16 @@
 				<div class="form-group row">
 				  <label for="example-time-input" class="col-2 col-form-label">Location:</label>
 				  <div class="col-10">
-				  	<select name="" id="" class="time start form-control">
-				  		<option value=""><?php echo$loc_name = $this->input->get('loc_name'); ?></option>
+				  	<select name="loc_name" id="" class="time start form-control">
+				  		<option value="<?php echo $this->input->get('loc_name'); ?>"><?php echo $this->input->get('loc_name'); ?></option>
 				  	</select>
 				  </div>
 				</div><br>
 				<div class="form-group row">
 				  <label for="example-time-input" class="col-2 col-form-label">Room:</label>
 				  <div class="col-10">
-				   	<select name="" id="" class="time start form-control">
-				   		<option value=""><?php echo$room_name = $this->input->get('room_name'); ?></option>
+				   	<select name="room_name" id="" class="time start form-control">
+				   		<option value="<?php echo $this->input->get('room_name'); ?>"><?php echo $this->input->get('room_name'); ?></option>
 				   	</select>	
 				  </div>
 				</div><br>

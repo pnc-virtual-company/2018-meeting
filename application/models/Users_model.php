@@ -135,7 +135,8 @@ class Users_model extends CI_Model {
             'login' => $this->input->post('login'),
             'email' => $this->input->post('email'),
             'password' => $hash,
-            'role' => $role
+            'role' => $role,
+            'active' => 1
         );
         $this->db->insert('users', $data);
         return $password;
@@ -694,6 +695,7 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
         return $query->result();
     }
 
+
     // get user by Maryna PHORN
     public function get_current_password($id){
      $data = array(
@@ -707,6 +709,15 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
      $query = $this->db->get_where('users', array('id' => $id));
 
      if($query->num_rows() > 0){
+
+    public function selectbookingroom(){
+        $this->db->select('*');
+        $this->db->from('tbl_room_request');
+        $data = $this->db->get();
+        return $data;
+    }
+}
+
 
       $current_password = $query->row('password');
       $inputted_current_password = md5($this->input->post('current_password'));
