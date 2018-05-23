@@ -135,7 +135,8 @@ class Users_model extends CI_Model {
             'login' => $this->input->post('login'),
             'email' => $this->input->post('email'),
             'password' => $hash,
-            'role' => $role
+            'role' => $role,
+            'active' => 1
         );
         $this->db->insert('users', $data);
         return $password;
@@ -698,7 +699,7 @@ public function update_profile($id,$firstname,$lastname, $login, $email){
         $this->db->select('*');
         $this->db->from('tbl_room_request');
         $data = $this->db->get();
-        return $data->result();
+        return $data;
     }
 }
 

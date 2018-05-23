@@ -138,40 +138,40 @@
 						}
 					}
 				}else{
-							$time = "";
-							foreach ($room_booking as $booking) {
-								if ($booking->room_id == $room_id) {
-									if (strtotime($booking->Date) <= strtotime($date)) {
-										if (strtotime($booking->End) <= strtotime($start)) {
-											$time = "canbook";
-										}
-									}
+					$time = "";
+					foreach ($room_booking->result() as $booking) {
+						if ($booking->room_id == $room_id) {
+							if (strtotime($booking->Date) <= strtotime($date)) {
+								if (strtotime($booking->End) <= strtotime($start)) {
+									$time = "canbook";
 								}
 							}
-						if ($time == "canbook") {
-							$data = $this->Users_model->booking_room($note,$date,$start,$end,$user_booking_id,$room_id);
-							if ($data != 'true') {
-								$this->session->set_flashdata('msg', 'Cannot book at this time');
-								redirect('booking/book_meeting');
-							}else {
-								if($data == 'true'){
-									$mail = $this->sendbookingmail($note,$date,$start,$end,$user_booking_id,$room_id);
-									if ($mail =='true') {
-										redirect('booking');
-									}else{
-										echo $mail;;
-									}
-								}else{
-									$this->book_meeting();
-								}
-							}
-						}else{
-							$this->session->set_flashdata('msg', 'Cannot book at this time');
-							redirect('booking/book_meeting');
 						}
 					}
+					if ($time == "canbook") {
+						$data = $this->Users_model->booking_room($note,$date,$start,$end,$user_booking_id,$room_id);
+						if ($data != 'true') {
+							$this->session->set_flashdata('msg', 'Cannot book at this time');
+							redirect('booking/book_meeting');
+						}else {
+							if($data == 'true'){
+								$mail = $this->sendbookingmail($note,$date,$start,$end,$user_booking_id,$room_id);
+								if ($mail =='true') {
+									redirect('booking');
+								}else{
+									echo $mail;;
+								}
+							}else{
+								$this->book_meeting();
+							}
+						}
+					}else{
+						$this->session->set_flashdata('msg', 'Cannot book at this time');
+						redirect('booking/book_meeting');
+					}
 				}
-	}
+			}
+		}
 
 		// booking request room by samreth.SAROEURT
 		public function booking_a_room(){
