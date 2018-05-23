@@ -41,32 +41,37 @@
        </div>
      </div>
     <div class="col-md-1"></div>
-    <?php foreach ($allroom as $row): ?>
-      <input type="hidden" value="<?php echo $row->room_name; ?>">
-    <?php endforeach ?>
-
-  </div>
+  </div><br><br>
   <canvas id="pie-chart" width="850" height="400"></canvas>
   </div>
   <div class="col-md-1"></div>
 </div>
+ <script type="text/javascript">
+ new Chart(document.getElementById("pie-chart"), {
+     type: 'pie',
+     data: {
+
+       labels: [
+         <?php 
+          foreach($allroom as $row)
+          { 
+             echo "'".$row->room_name."',";
+          }
+          ?>
+       ],
+       datasets: [{
+         label: "Population (millions)",
+         backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","green","red","blue"],
+          data: [
+            <?php 
+                 foreach($allbook as $row){ 
+                 echo $row->room_id.",";
+            }
+            ?>
+          ]
+       }]
+     },
+ });
+ </script>     
+
       
-<script type="text/javascript">
-new Chart(document.getElementById("pie-chart"), {
-    type: 'pie',
-    data: {
-      labels: [" <?php foreach ($allroom as $row): ?><?php echo $row->room_name; ?> <?php endforeach ?>", "B21", "B11", "A22", "B31"], 
-      datasets: [{
-        label: "Population (millions)",
-        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-        data: [2478,5267,734,784,433]
-      }]
-    },
-    options: {
-      title: {
-        display: true,
-        // text: 'Distribution of booked hours per meeting room, in PNC'
-      }
-    }
-});
-</script>

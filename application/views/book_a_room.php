@@ -5,7 +5,7 @@
 		<div class="col-md-6">
 			<h2 class="text-center">Make A Reservation</h2><br>
 			
-			<form action="<?php echo base_url();?>booking/booking_a_room" method="post">
+			<form action="<?php echo base_url();?>booking/booking_a_room?loc_id=<?php echo $row->loc_id; ?>&loc_name=<?php echo $row->loc_name; ?>&room_name=<?php echo $this->input->get('room_name'); ?>&room_id=<?php echo $this->input->get('room_id'); ?>" method="post">
 				<div class="form-group row">
 				  <label  class="col-2 col-form-label">Location:</label>
 				  <div class="col-10">

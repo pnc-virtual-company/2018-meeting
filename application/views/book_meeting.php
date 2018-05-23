@@ -1,11 +1,11 @@
 <br>
 <div class="container">
+	<?php echo $flashPartialView;?>
 	<div class="row">
 		<div class="col-md-3"></div>
 		<div class="col-md-6">
 			<h2 class="text-center">Make A Reservation</h2><br>
-			
-			<form action="<?php echo base_url();?>booking/booking_room" method="post">
+			<form action="<?php echo base_url();?>booking/booking_room?loc_id=<?php echo $this->input->get('loc_id'); ?>&loc_name=<?php echo $this->input->get('loc_name'); ?>&room_name=<?php echo $this->input->get('room_name'); ?>&room_id=<?php echo $this->input->get('room_id'); ?>" method="post">
 				<div class="form-group row">
 				  <label for="example-time-input" class="col-2 col-form-label">Location:</label>
 				  <div class="col-10">

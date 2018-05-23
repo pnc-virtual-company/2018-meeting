@@ -72,7 +72,8 @@ class room extends CI_Controller {
 			if ($user == 'admin') {
 				$this->load->model('Users_model');
 				$data['list_location'] = $this->Users_model->selectLocation();
-				$data['allroom'] = $this->Users_model->selectAllRoom();
+				$data['allroom'] = $this->Users_model->chartAllRoom();
+				$data['allbook'] = $this->Users_model->allchartbooking();
 				$data['page'] = "chart";
 				$this->load->view($user, $data);
 			}else{
