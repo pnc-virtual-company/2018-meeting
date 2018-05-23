@@ -24,7 +24,7 @@
             <i class="fa fa-calendar" >
             </i>
            </div>
-           <input class="form-control" id="date" name="date" placeholder="MM/DD" type="text"/>
+           <input class="form-control" id="date" name="date" placeholder="MM-DD-YY" type="text"/>
           </div>
          </div>
         </div>
@@ -33,11 +33,11 @@
     </div>
     <div class="col-md-5">
        <div class="col-sm-9">
-          <select name="location" class="form-control">
-              <option value="pnc">PNC</option>
-              <option value="pnv">PNV</option>
-              <option value="pnp">PNP</option>
-          </select>
+            <select class="form-control" name="location" id="">
+              <?php foreach ($list_location as $row): ?>
+              <option value="<?php echo $row->loc_id; ?>"><?php echo $row->loc_name; ?></option>
+              <?php endforeach ?>
+            </select>
        </div>
      </div>
     <div class="col-md-1"></div>
