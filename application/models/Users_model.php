@@ -395,15 +395,16 @@ public function chartAllRoom(){
 }  
 // Select all room display in chard from databas By Samreth.SAROEURT
 public function allchartbooking(){
-    // $this->db->select("COUNT(room_id)");
+    // $this->db->select("room_id, COUNT(book_id)");
     // $query =  $this->db->get_where('tbl_room_request',array('tbl_room_request.book_id'=>'room_id'));
     // return $query->result();
-
-    $this->db->select('*');
-    $this->db->from(' tbl_rooms');
-    $this->db->join(' tbl_room_request', ' tbl_rooms.room_id =  tbl_room_request.room_id');
+    $this->db->select('room_id, COUNT(book_id) as count');
+    $this->db->from(' tbl_room_request');
+    $this->db->group_by('room_id');
     $query = $this->db->get();
     return  $query->result();
+    
+
 }        // Select Location from Db By Chhunhak.CHHOEUNG
 public function selectLocation(){
 
