@@ -124,10 +124,7 @@ class Users_model extends CI_Model {
         $hash = crypt($password, $salt);
 
         //Role field is a binary mask
-        $role = 0;
-        foreach($this->input->post("role") as $role_bit){
-            $role = $role | $role_bit;
-        }
+        $role = $this->input->post("role");
 
         $data = array(
             'firstname' => $this->input->post('firstname'),
