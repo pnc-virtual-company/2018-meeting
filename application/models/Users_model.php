@@ -686,14 +686,13 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
         return  $query->result();
     }
 // Update profile by maryna.PHORN
-    public function update_profile($id,$firstname,$lastname, $login, $email){
+    public function update_profiles($id,$firstname,$lastname, $login, $email){
         $edit = array(
             'firstname' =>$firstname, 
             'lastname' =>$lastname, 
             'login' =>$login,   
             'email' =>$email,
             'id'=>$id
-
         );
         $this->db->where('id', $id);
         $result = $this->db->update('users', $edit);
@@ -717,6 +716,28 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
         $this->db->where('tbl_room_request.Date', $date);
         $data = $this->db->get();
         return $data;
+    }
+
+    // Get current password by Maryna PHORN
+    public function get_password($id = 0) {
+        $this->db->select('users.*');
+        if ($id === 0) {
+            $query = $this->db->get('users');
+            return $query->result_array();
+        }
+        $query = $this->db->get_where('users', array('users.id' => $id));
+        return $query->row_array();
+    }
+
+     public function change_pass($id, $password) {
+        //Hash the clear password using bcrypt (8 iterations)
+        $salt = '$2a$08$' . substr(strtr(base64_encode($this->getRandomBytes(16)), '+', '.'), 0, 22) . '$';
+        $hash = crypt($password, $salt);
+        $data = array(
+            'password' => $hash
+        );
+        $this->db->where('id', $id);
+        return $this->db->update('users', $data);
     }
 
 }

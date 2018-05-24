@@ -23,7 +23,7 @@
             <h3>Edit My Profile</h3>
         </div>
         <hr>
-        <a href="<?php echo base_url();?>Users/get_users" class="btn btn-danger" style="margin-left: 19px;"><i class="mdi mdi-cancel"></i>&nbsp;Cancel</a>
+        <a href="<?php echo base_url();?>users/index" class="btn btn-danger" style="margin-left: 19px;"><i class="mdi mdi-cancel"></i>&nbsp;Cancel</a>
         <br><br>
         <h4 style="margin-left: 18px;">General Information</h4>
 
