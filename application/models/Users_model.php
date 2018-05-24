@@ -709,9 +709,11 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
         return $query->result();
     }
 
-    public function selectbookingroom(){
-        $this->db->select('*');
+    public function selectbookingroom($room_id, $date){
+        $this->db->select('Date, Start, End');
         $this->db->from('tbl_room_request');
+        $this->db->where('tbl_room_request.room_id', $room_id);
+        $this->db->where('tbl_room_request.Date', $date);
         $data = $this->db->get();
         return $data;
     }
