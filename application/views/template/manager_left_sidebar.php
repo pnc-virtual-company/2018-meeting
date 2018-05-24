@@ -4,10 +4,7 @@
   <!-- Navbar Right Menu-->
   <ul class="app-nav">
     <!--Notification Menu-->
-    <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications" style="
-    margin-top: 10px;
-"><i class="mdi mdi-light mdi-bell-ring mdi-24px"></i></a>
-     
+    <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications" style="margin-top: 10px;"><i class="mdi mdi-light mdi-bell-ring mdi-24px"></i></a>
     </li>
     <!-- User Menu-->
     <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu" style="margin-top: 10px;"><i class="mdi mdi-light mdi-settings mdi-24px"></i></a>
