@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+  <h2 class="text-center">Location Management</h2><br>
+=======
  <style>
    #map {
      height: 400px;
@@ -6,6 +9,7 @@
    
  </style>
   <h2 class="text-center">Location</h2><br>
+>>>>>>> 252839f48e289a4255e2fa9cd3e41d2944cc17bf
        <div class="container">
         <div class="row">
   <?php foreach ($list_location as $row): ?>

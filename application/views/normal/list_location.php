@@ -26,13 +26,36 @@
            ?>
            <tr>   
             <td class="text-center">
+<<<<<<< HEAD
+              <a href="#" class="Pin-location" title="View Location on google map" data-toggle="modal" data-target="#<?php echo $row->loc_id; ?>"><i class="mdi mdi-map-marker"></i></a>
+=======
               <!-- <?php echo $row->loc_id; ?> -->
               <a href="#" onclick="showMap('<?php echo $row->loc_id; ?>')" class="Pin-location" title="View Location on google map" data-toggle="modal" data-target="#mapModal"><i class="mdi mdi-map-marker"></i></a>
+>>>>>>> 252839f48e289a4255e2fa9cd3e41d2944cc17bf
             </td>
             <td><?php echo $row->loc_name; ?></td>
             <td><?php echo $row->description; ?></td>
             <td><?php echo $row->address; ?></td>    
+<<<<<<< HEAD
+            <div class="modal fade" id="<?php echo $row->loc_id; ?>">
+             <div class="modal-dialog modal-lg">
+               <div class="modal-content">
+                 <div class="modal-header">
+                   <h4 class="modal-title text-center"><?php echo $row->loc_name; ?> Location</h4>
+                   <button type="button" class="close" data-dismiss="modal">&times;</button>
+                 </div>
+                 <div class="modal-body">
+                   <iframe src="<?php  echo $row->embed_url_map;  ?>" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                 </div>
+                 <div class="modal-footer">
+                   <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                 </div>
+               </div>
+             </div>
+           </div>
+=======
             
+>>>>>>> 252839f48e289a4255e2fa9cd3e41d2944cc17bf
          </tr>  
          <?php
        }
