@@ -133,7 +133,7 @@ class Users_model extends CI_Model {
             'email' => $this->input->post('email'),
             'password' => $hash,
             'role' => $role,
-            'active' => 1
+            'active' => '1'
         );
         $this->db->insert('users', $data);
         return $password;
@@ -386,7 +386,25 @@ public function selectAllRoom(){
     $query = $this->db->get();
     return  $query->result();
 }
-        // Select Location from Db By Chhunhak.CHHOEUNG
+// Select all room display in chard from databas By Samreth.SAROEURT
+public function chartAllRoom(){
+    $this->db->select('*');
+    $this->db->from(' tbl_rooms');
+    $query = $this->db->get();
+    return  $query->result();
+}  
+// Select all room display in chard from databas By Samreth.SAROEURT
+public function allchartbooking(){
+    // $this->db->select("COUNT(room_id)");
+    // $query =  $this->db->get_where('tbl_room_request',array('tbl_room_request.book_id'=>'room_id'));
+    // return $query->result();
+
+    $this->db->select('*');
+    $this->db->from(' tbl_rooms');
+    $this->db->join(' tbl_room_request', ' tbl_rooms.room_id =  tbl_room_request.room_id');
+    $query = $this->db->get();
+    return  $query->result();
+}        // Select Location from Db By Chhunhak.CHHOEUNG
 public function selectLocation(){
 
     $this->db->select('*');
@@ -425,7 +443,6 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
             }
             //Update Room by maryna.PHOAN
             public function update_rooms($room,$floor,$description,$manager,$loc_id,$room_id){            
-
                 $data = array('upload_data' => $this->upload->data());
                 $photo = $this->upload->data()['file_name']; // Get image name
                 // var_dump($room,$floor,$description,$manager,$loc_id,$room_id);die();
