@@ -5,7 +5,7 @@
     }
    
  </style>
-  <h2 class="text-center">Location Managements</h2><br>
+  <h2 class="text-center">Location</h2><br>
        <div class="container">
         <div class="row">
   <?php foreach ($list_location as $row): ?>
