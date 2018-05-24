@@ -385,7 +385,7 @@ $config['encryption_key'] = '';
 |
 */
 $config['sess_driver'] = 'files';
-$config['sess_cookie_name'] = 'ci_session';
+$config['sess_cookie_name'] = 'meeting_session';
 $config['sess_expiration'] = 7200;
 $config['sess_save_path'] = NULL;
 $config['sess_match_ip'] = FALSE;
@@ -532,8 +532,8 @@ $config['proxy_ips'] = '';
 //____________________________________________________________________________
 //default email from
 $config['from_mail'] = 'do.not@reply.me';
-$config['from_name'] = 'Skeleton';
-$config['subject_prefix'] = '[Skeleton] ';
+$config['from_name'] = 'Meeting Room Management';
+$config['subject_prefix'] = '[Meeting Room Management] ';
 
 //____________________________________________________________________________
 //User management

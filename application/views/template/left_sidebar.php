@@ -10,9 +10,7 @@
 "><i class="mdi mdi-light mdi-bell-ring mdi-24px"></i></a>
     </li>
     <!-- User Menu-->
-    <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu" style="
-    margin-top: 10px;
-"><i class="mdi mdi-light mdi-settings mdi-24px  "></i></a>
+    <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu" style="margin-top: 10px;"><i class="mdi mdi-light mdi-settings mdi-24px  "></i></a>
       <ul class="dropdown-menu settings-menu dropdown-menu-right">
         <li><a class="dropdown-item" href="<?php echo base_url(); ?>Users/get_users"><i class="mdi mdi-account mdi-24px"></i> Profile</a></li>
         <li><a class="dropdown-item" href="<?php echo base_url(); ?>connection/logout"><i class="mdi mdi-logout mdi-24px"></i> Logout</a></li>
@@ -24,7 +22,7 @@
 <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <aside class="app-sidebar">
   <ul class="app-menu" id="menu_leftsidebar">
-    <li><a class="app-menu__item" href="<?php echo base_url(); ?>booking/book_a_room"><i class="app-menu__icon mdi mdi-book-open-page-variant mdi-24px"></i><span class="app-menu__label">&nbsp;Book a Room</span></a></li>
+    <li><a class="app-menu__item" href="<?php echo base_url(); ?>booking/book_a_room"><i class="app-menu__icon mdi mdi-book-open-page-variant mdi-24px"></i><span class="app-menu__label">&nbsp;Book A Room</span></a></li>
     
     <!-- <li><a class="app-menu__item active" href="<?php// echo base_url(); ?>location/"><i class="app-menu__icon mdi mdi-map mdi-light mdi-24px"></i><span class="app-menu__label">Location</span></a></li> -->
    
@@ -42,8 +40,8 @@
     <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon mdi mdi-settings mdi-light mdi-24px"></i><span class="app-menu__label">Admin</span><i class="treeview-indicator mdi mdi-arrow-right-drop-circle-outline"></i></a>
      <ul class="treeview-menu" style="background-color: #026aab;">
           <li><a class="treeview-item" href="<?php echo base_url(); ?>room/occupancyRate"><i class="mdi mdi-chart-areaspline" style="font-size: 16px;"></i>&nbsp;Occupancy Reports</a></li>
-          <li><a class="treeview-item" href="<?php echo base_url(); ?>users"><i class="mdi mdi-account " style="font-size: 16px;"></i>&nbsp;Users Managements</a></li>
-          <li><a class="treeview-item" href="<?php echo base_url(); ?>location"><i class="mdi mdi-map mdi-light" style="font-size: 16px;"></i>&nbsp;Location Managements</a></li>
+          <li><a class="treeview-item" href="<?php echo base_url(); ?>users"><i class="mdi mdi-account " style="font-size: 16px;"></i>&nbsp;User Management</a></li>
+          <li><a class="treeview-item" href="<?php echo base_url(); ?>location"><i class="mdi mdi-map mdi-light" style="font-size: 16px;"></i>&nbsp;Location Management</a></li>
     </ul>
    </li>
 

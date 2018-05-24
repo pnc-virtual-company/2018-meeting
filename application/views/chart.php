@@ -1,13 +1,10 @@
 <!--We just need a JS file //-->
 <script src="<?php echo base_url();?>assets/js/Chart-2.7.1.min.js"></script>
-
 <br>
-
 <div class="row">
   <div class="col-md-1"></div>
   <div class="col-md-10">
-    
-  <h2 style="text-align: center;">Booked Hours Per Meeting Rooms</h2>
+  <h2 style="text-align: center;">Booked Hours Per Meeting Room</h2>
   <br><br>
   <div class="row">
     <div class="col-md-1"></div>

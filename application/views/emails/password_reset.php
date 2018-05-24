@@ -21,6 +21,6 @@
     <body>
         <h3>{Title}</h3>
         <p>Dear {Firstname} {Lastname},</p>
-        <p>Your Booking management application password has been reset. If you did not perform this operation, please contact your manager.</p>
+        <p>Your Meeting Room management application password has been reset. If you did not perform this operation, please contact your manager.</p>
     </body>
 </html>

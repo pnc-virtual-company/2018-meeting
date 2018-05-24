@@ -23,12 +23,12 @@ class room extends CI_Controller {
 	            }else if ($user == 2) {
 	            	$page = "manager";
 	            	return $page;
-	            	$data['page'] = "list_location";
+	            	$data['page'] = "card_location";
 	            	$this->load->view($user, $data);
 	            }else if ($user == 3) {
 	            	$page = "normal";
 	            	return $page;
-	            	$data['page'] = "list_location";
+	            	$data['page'] = "card_location";
 	            	$this->load->view($user, $data);
 	            }else{
 	            	redirect('connection/login');

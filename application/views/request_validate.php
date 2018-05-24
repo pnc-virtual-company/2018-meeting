@@ -27,10 +27,10 @@
               <td data-order="1" data-id="1">
                 &nbsp;
                 <!-- <a href="#" title="" data-toggle="modal" data-target="#myModal"><i class="mdi mdi-delete"></i></a> -->
-                <a href="#" title="Accept request" data-toggle="modal" data-target="#accept"><i class="mdi mdi-check"></i></a>
-                <a href="#" title="Reject request" data-toggle="modal" data-target="#reject"><i class="mdi mdi-window-close"></i></a> 
+                <a href="#" title="Accept request" data-toggle="modal" data-target="#accept<?php echo $row->book_id; ?>"><i class="mdi mdi-check"></i></a>
+                <a href="#" title="Reject request" data-toggle="modal" data-target="#reject<?php echo $row->book_id; ?>"><i class="mdi mdi-window-close"></i></a> 
               </td>
-              <td><?php echo $row->status; ?></td>
+              <td><span class="badge badge-success"><?php echo $row->status; ?></span></td>
               <td><?php echo $row->loc_name; ?></td>
               <td><?php echo $row->room_name; ?></td>
               <td><?php echo $row->Date; ?></td>
@@ -39,7 +39,7 @@
               <td><?php echo $row->firstname;?></td>
               <td><?php echo $row->book_description;?></td>
               <!-- Modol pop up Accept request -->
-              <div id="accept" class="modal hide fade" tabindex="-1" role="dialog">
+              <div id="accept<?php echo $row->book_id; ?>" class="modal hide fade" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -58,9 +58,8 @@
                     </div>
                   </div>
                 </div>
-              </div>
               <!-- Modol pop up reject request -->
-              <div id="reject" class="modal hide fade" tabindex="-1" role="dialog">
+              <div id="reject<?php echo $row->book_id; ?>" class="modal hide fade" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">

@@ -4,13 +4,12 @@
     height: 400px;
     width: 100%;
    }
-  
 </style>
 <div id="container" >
 	<div class="row-fluid">
 		<div class="col-12">
       <div class="row-fluid">
-          <h2 style="text-align: center;">Location Managements</h2>
+          <h2 style="text-align: center;">Locations</h2>
           <a href="<?php echo base_url(); ?>location/create_location" class="btn btn-primary"><i class="mdi mdi-plus"></i>&nbsp;Create Location</a>
           <br> <br>
       </div>
@@ -112,7 +111,7 @@
             });
           var mapProp = {
                 center: new google.maps.LatLng(latitude, longtitude),
-                zoom: 20,
+                zoom: 16,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
             map = new google.maps.Map(document.getElementById('map'), mapProp);
