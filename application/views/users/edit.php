@@ -17,7 +17,7 @@
   <div class="col-md-3"></div>
     <div class="col-6">
 
-<h2>Edit user #<?php echo $users_item['id']; ?></h2>
+<h2 class="text-center">Edit user</h2>
 
 <?php echo validation_errors(); ?>
 
@@ -61,7 +61,7 @@ echo form_open('users/edit/' . $users_item['id'], $attributes);
       <div class="col-12">
           <button type="submit" class="btn btn-primary"><i class="mdi mdi-pencil"></i>&nbsp;Update</button>
           &nbsp;
-          <a href="<?php echo base_url();?>users" class="btn btn-danger"><i class="mdi mdi-cancel"></i>&nbsp;Cancel</a>
+          <a href="<?php echo base_url();?>users" class="btn btn-danger float-right"><i class="mdi mdi-cancel"></i>&nbsp;Cancel</a>
       </div>
   </div>
 

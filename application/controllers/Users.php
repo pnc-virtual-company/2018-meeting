@@ -150,10 +150,10 @@ class Users extends CI_Controller {
 
         if ($this->form_validation->run() === FALSE) {
           $data['roles'] = $this->users_model->getRoles();
-          $this->load->view('templates/header', $data);
-          $this->load->view('menu/index', $data);
+          $this->load->view('template/header', $data);
+          $this->load->view('template/left_sidebar');
           $this->load->view('users/edit', $data);
-          $this->load->view('templates/footer');
+          $this->load->view('template/footer');
         } else {
           $this->users_model->updateUsers();
           $this->session->set_flashdata('msg', 'The user was successfully modified.');
