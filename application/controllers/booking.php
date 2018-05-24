@@ -40,6 +40,7 @@
 			$this->load->model('Users_model');
 			$data['list_location'] = $this->Users_model->selectLocation();
 			$data['book_request'] = $this->Users_model->select_room_request();
+			$data['flashPartialView'] = $this->load->view('templates/flash', $data, TRUE);
 			$data['page'] = "booking_request";
 			$user = $this->userlevel();
 			// var_dump($user);die();
@@ -231,12 +232,42 @@
 			$note = $this->input->post("comment");
 
 			$book_id = $this->input->post("book_id");
+			$room_id = $this->input->get('room_id');
 			$this->load->model('Users_model');
-			$data = $this->Users_model->update_request($date,$start,$end,$note,$book_id);
-			if ($data == 'true') {
-				redirect('booking');
+			$getRoom =  $this->users_model->selectbookingroom($room_id,$date);
+			$Starttime[] = "";
+			$Endtime[] = "";
+			foreach ($getRoom->result() as $row) {
+				$Date = $row->Date;
+				$Starttime[] .= $row->Start;
+				$Endtime[] .= $row->End;
+			}
+			// var_dump($Starttime, $Endtime);die();
+			$book = "false";
+			for ($i=0; $i < count($Starttime); $i++) { 
+				$stime = new DateTime($Starttime[$i]);
+				$etime = new DateTime($Endtime[$i]);
+				$sbook = new DateTime($start);
+				$ebook = new DateTime($end);
+				if ($ebook <= $stime) {
+					$book = "true";
+				}else if ($sbook >= $etime) {
+					$book = "true";
+				}else{
+					$book = "false";
+				}
+			}
+			
+			if ($book == 'true') {
+				$data = $this->Users_model->update_request($date,$start,$end,$note,$book_id);
+				if ($data == 'true') {
+					redirect('booking');
+				}else{
+					echo "Data not insert";
+				}
 			}else{
-				echo "Data not insert";
+				$this->session->set_flashdata('msg', 'Cannot change to this time');
+				redirect('booking');
 			}
 		}
 		// acceptRequest function by Chhunhak.CHHOEUNG
