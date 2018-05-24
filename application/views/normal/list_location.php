@@ -1,18 +1,14 @@
-<br>
 <style>
   #map {
     height: 400px;
     width: 100%;
    }
+  
 </style>
+<br>
 <div id="container" >
 	<div class="row-fluid">
 		<div class="col-12">
-      <div class="row-fluid">
-          <h2 style="text-align: center;">Locations</h2>
-          <a href="<?php echo base_url(); ?>location/create_location" class="btn btn-primary"><i class="mdi mdi-plus"></i>&nbsp;Create Location</a>
-          <br> <br>
-      </div>
       <table id="location" class="table table-striped table-bordered  " width="100%">
         <thead>
           <tr>
@@ -29,18 +25,17 @@
             $long = $row->long;
            ?>
            <tr>   
-            <td>
+            <td class="text-center">
               <!-- <?php echo $row->loc_id; ?> -->
-              <a href="<?php echo base_url(); ?>location/edit_location?loc_id=<?php echo $row->loc_id; ?>" id="edit_location" title="Update Location"><i class="mdi mdi-pencil"></i></a>
-              <a href="<?php echo base_url(); ?>location/delete_location?loc_id=<?php echo $row->loc_id;?>" class="confirm-delete" title="Delete Location" data-toggle="modal" data-target="#frmConfirmDelete"><i class="mdi mdi-delete"></i></a>
               <a href="#" onclick="showMap('<?php echo $row->loc_id; ?>')" class="Pin-location" title="View Location on google map" data-toggle="modal" data-target="#mapModal"><i class="mdi mdi-map-marker"></i></a>
             </td>
             <td><?php echo $row->loc_name; ?></td>
             <td><?php echo $row->description; ?></td>
             <td><?php echo $row->address; ?></td>    
+            
          </tr>  
          <?php
-          }
+       }
        ?>
      </tbody> 
    </table>
@@ -111,7 +106,7 @@
             });
           var mapProp = {
                 center: new google.maps.LatLng(latitude, longtitude),
-                zoom: 16,
+                zoom: 20,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
             map = new google.maps.Map(document.getElementById('map'), mapProp);
