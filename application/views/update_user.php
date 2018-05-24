@@ -12,7 +12,7 @@
   <div class="row">
     <div class="col-lg-3 col-md-2 col-sm-2"></div>
     <div class="col-lg-6 col-md-8 col-sm-8">
-          <h3 style="text-align: center;">Update User information</h3>
+          <h3 style="text-align: center;">Update User Information</h3>
           <?php foreach ($updateUser as $row): ?>
             <div class="card-body">
               <form method="POST"  action="<?php echo base_url(); ?>welcome/get_update_user">

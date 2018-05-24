@@ -17,7 +17,6 @@
            ?>
            <tr>   
             <td class="text-center">
-              <!-- <?php echo $row->loc_id; ?> -->
               <a href="#" class="Pin-location" title="View Location on google map" data-toggle="modal" data-target="#<?php echo $row->loc_id; ?>"><i class="mdi mdi-map-marker"></i></a>
             </td>
             <td><?php echo $row->loc_name; ?></td>
@@ -26,16 +25,13 @@
             <div class="modal fade" id="<?php echo $row->loc_id; ?>">
              <div class="modal-dialog modal-lg">
                <div class="modal-content">
-                 <!-- Modal Header -->
                  <div class="modal-header">
                    <h4 class="modal-title text-center"><?php echo $row->loc_name; ?> Location</h4>
                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                  </div>
-                 <!-- Modal body -->
                  <div class="modal-body">
                    <iframe src="<?php  echo $row->embed_url_map;  ?>" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
                  </div>
-                 <!-- Modal footer -->
                  <div class="modal-footer">
                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                  </div>

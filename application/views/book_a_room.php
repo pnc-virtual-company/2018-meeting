@@ -26,7 +26,6 @@
 				  	</select>
 				  </div>
 				</div><br>
-
 				<div class="form-group row">
 				  <label for="example-time-input" class="col-2 col-form-label">Date:</label>
 				  <div class="col-10">
@@ -39,7 +38,6 @@
                 	</div>
 				  </div>
 				</div><br>
-				
 				<div class="form-group row" id="datepairExample">
 				  <label for="example-time-input" class="col-2 col-form-label">Start:</label>
 				  <div class="col-5">	         
@@ -50,14 +48,12 @@
 				   	<input type="text" name="end" required="" class="time end form-control" />
 				  </div>
 				</div><br>
-
 				<div class="form-group row">
 				  <label for="example-time-input" class="col-2 col-form-label">Note:</label>
 				  <div class="col-10">
 				    <textarea class="form-control" rows="5" id="comment" name="comment" style="resize: none;"></textarea>
 				  </div>
 				</div>
-				
 				<div class="form-group row">
 				  <label for="example-time-input" class="col-2 col-form-label"></label>
 				  <div class="col-10">

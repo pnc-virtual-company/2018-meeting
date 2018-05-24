@@ -7,115 +7,101 @@
  * @since      1.0.0
  */
 ?>
-
- <div class="row-fluid"><div class="col-12">&nbsp;</div></div>
- <div class="row-fluid"><div class="col-12"><h2 class="text-center">Users</h2></div></div><br>
+<div class="row-fluid"><div class="col-12">&nbsp;</div></div>
+<div class="row-fluid"><div class="col-12"><h2 class="text-center">Users Managements</h2></div></div><br>
 <div class="row-fluid">
     <div class="col-12">
       <a href="<?php echo base_url();?>users/create" class="btn btn-primary"><i class="mdi mdi-account-plus"></i>&nbsp;Create a new user</a>
       &nbsp;
       <a href="<?php echo base_url();?>users/export" class="btn btn-primary"><i class="mdi mdi-file-excel"></i>&nbsp;Export this list</a>
-    </div>
+  </div>
 </div>
- <div class="row-fluid"><div class="col-12">&nbsp;</div></div>
+<div class="row-fluid"><div class="col-12">&nbsp;</div></div>
 <div id="container">
-
 	<div class="row-fluid">
 		<div class="col-12">
-
-
-
-<table id="users" cellpadding="0" cellspacing="0" class="table table-striped table-bordered" width="100%">
-    <thead>
-        <tr>
-            <th>Action</th>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Login</th>
-            <th>Email</th>
-            <th>Role</th>
-        </tr>
-    </thead>
-    <tbody>
-<?php foreach ($users as $user):?>
-    <tr>
-        <td data-order="<?php echo $user['id']; ?>" data-id="<?php echo $user['id'];?>">
-            <a href="<?php echo base_url();?>users/edit/<?php echo $user['id'] ?>" title="Edit user"><i class="mdi mdi-pencil"></i></a>
-            <a href="<?php echo base_url();?>users/delete/<?php echo $user['id'] ?>" class="confirm-delete" title="Delete user" data-toggle="modal" data-target="#frmConfirmDelete"><i class="mdi mdi-delete"></i></a>
-            <a href="<?php echo base_url();?>users/reset/<?php echo $user['id'] ?>" class="reset-password" title="Reset user's password" data-toggle="modal" data-target="#frmResetPwd"><i class="mdi mdi-lock"></i></a>
-        </td>
-        <td><?php echo $user['firstname']; ?></td>
-        <td><?php echo $user['lastname']; ?></td>
-        <td><?php echo $user['login']; ?></td>
-        <td><a href="mailto:<?php echo $user['email']; ?>"><?php echo $user['email']; ?></a></td>
-        <td><?php echo $user['role_name']; ?></td>
-    </tr>
-<?php endforeach ?>
-            </tbody>
-        </table>
+            <table id="users" cellpadding="0" cellspacing="0" class="table table-striped table-bordered" width="100%">
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Login</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($users as $user):?>
+                        <tr>
+                            <td data-order="<?php echo $user['id']; ?>" data-id="<?php echo $user['id'];?>">
+                                <a href="<?php echo base_url();?>users/edit/<?php echo $user['id'] ?>" title="Edit user"><i class="mdi mdi-pencil"></i></a>
+                                <a href="<?php echo base_url();?>users/delete/<?php echo $user['id'] ?>" class="confirm-delete" title="Delete user" data-toggle="modal" data-target="#frmConfirmDelete"><i class="mdi mdi-delete"></i></a>
+                                <a href="<?php echo base_url();?>users/reset/<?php echo $user['id'] ?>" class="reset-password" title="Reset user's password" data-toggle="modal" data-target="#frmResetPwd"><i class="mdi mdi-lock"></i></a>
+                            </td>
+                            <td><?php echo $user['firstname']; ?></td>
+                            <td><?php echo $user['lastname']; ?></td>
+                            <td><?php echo $user['login']; ?></td>
+                            <td><a href="mailto:<?php echo $user['email']; ?>"><?php echo $user['email']; ?></a></td>
+                            <td><?php echo $user['role_name']; ?></td>
+                        </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
-
- 
-
-  
-
-</div>
-
 <div id="frmConfirmDelete" class="modal hide fade" tabindex="-1" role="dialog">
 	<div class="modal-dialog" role="document">
-    <div class="modal-content">
-	    <div class="modal-header">
-				<h5 class="modal-title">Delete confirmation</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-	    </div>
-	    <div class="modal-body">
-	        <p>You are going to delete a user.</p>
-	        <p>Are you sure that you want to perform this action?</p>
-	    </div>
-	    <div class="modal-footer">
-	        <a href="<?php echo base_url();?>users/delete/<?php echo $user['id'] ?>" class="btn btn-danger" id="lnkDeleteUser">Yes</a>
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-	    </div>
-		</div>
-	</div>
+        <div class="modal-content">
+           <div class="modal-header">
+            <h5 class="modal-title">Delete confirmation</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+           </button>
+       </div>
+       <div class="modal-body">
+           <p>You are going to delete a user.</p>
+           <p>Are you sure that you want to perform this action?</p>
+       </div>
+       <div class="modal-footer">
+           <a href="<?php echo base_url();?>users/delete/<?php echo $user['id'] ?>" class="btn btn-danger" id="lnkDeleteUser">Yes</a>
+           <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+       </div>
+   </div>
 </div>
-
+</div>
 <div id="frmResetPwd" class="modal hide fade" tabindex="-1" role="dialog">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
-	    <div class="modal-header">
-				<h5 class="modal-title">Reset a password</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-	    </div>
-	    <div class="modal-body">
-				<form id="formResetPwd" method="POST">
-				    <label for="password">Password</label>
-						<div class="input-group">
-					    <input type="password" name="password" id="password" required />
-							<div class="input-group-append">
-					    	<button type="send" class="btn btn-primary">Reset</button>
-							</div>
-						</div>
-				</form>
-	    </div>
-	    <div class="modal-footer">
-	       <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-	    </div>
-		</div>
-	</div>
+           <div class="modal-header">
+            <h5 class="modal-title">Reset a password</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+           </button>
+       </div>
+       <div class="modal-body">
+        <form id="formResetPwd" method="POST">
+            <label for="password">Password</label>
+            <div class="input-group">
+               <input type="password" name="password" id="password" required />
+               <div class="input-group-append">
+                  <button type="send" class="btn btn-primary">Reset</button>
+              </div>
+          </div>
+      </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
 </div>
-
+</div>
+</div>
+</div>
 <link href="<?php echo base_url();?>assets/DataTable/DataTables-1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
-
 <script type="text/javascript">
-$(document).ready(function() {
+    $(document).ready(function() {
     //Transform the HTML table in a fancy datatable
     $('#users').dataTable({
         stateSave: true,
@@ -134,15 +120,15 @@ $(document).ready(function() {
     //a simplier selector doesn't work when the delete is on page >1
     $("#users tbody").on('click', '.confirm-delete',  function(){
         var id = $(this).parent().data('id');
-				var link = "<?php echo base_url();?>users/delete/" + id;
-				$("#lnkDeleteUser").attr('href', link);
+        var link = "<?php echo base_url();?>users/delete/" + id;
+        $("#lnkDeleteUser").attr('href', link);
         $('#frmConfirmDelete').modal('show');
     });
 
-		$("#users tbody").on('click', '.reset-password',  function(){
+    $("#users tbody").on('click', '.reset-password',  function(){
         var id = $(this).parent().data('id');
-				var link = "<?php echo base_url();?>users/reset/" + id;
-				$("#formResetPwd").prop("action", link);
+        var link = "<?php echo base_url();?>users/reset/" + id;
+        $("#formResetPwd").prop("action", link);
         $('#frmResetPwd').modal('show');
     });
 

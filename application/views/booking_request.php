@@ -1,13 +1,9 @@
-
 <br>
 <div id="container">
 <div class="row-fluid">
 <div class="col-12">
-
-<h2 style="text-align: center;">My Reservations</h2>
-
+<h2 style="text-align: center;">My Reservation</h2>
 <table id="list_room" cellpadding="0" cellspacing="0" class="table table-striped table-bordered" width="100%">
-    
      <thead>
         <tr>
             <th>Action</th>
@@ -38,11 +34,7 @@
                <td><?php echo $row->Start = date("H:i A", strtotime($row->Start)); ?></td>
                <td><?php echo $row->End = date("H:i A", strtotime($row->End)); ?></td>
                <td><?php echo $row->book_description;?></td>
-              <!--  <td>23/04/2018 10:30AM</td>
-               <td>Monthly team meeting</td> -->
            </tr>    
-
-           <!-- Delete modal pop up -->
            <div id="<?php echo $row->book_id; ?>" class="modal hide fade" tabindex="-1" role="dialog">
              <div class="modal-dialog" role="document">
                <div class="modal-content">
@@ -64,7 +56,6 @@
                </div>
              </div>
            </div>
-     
          <?php
          }
        ?>
@@ -73,8 +64,6 @@
     </div>
 </div>
 </div>
-
-<!-- Delete modal pop up -->
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

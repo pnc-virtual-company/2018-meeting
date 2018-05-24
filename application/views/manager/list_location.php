@@ -73,10 +73,6 @@
  </div>
 </div>
 </div>
-<!-- pop map -->
-
-<!-- The Modal -->
-
 <script src="<?php echo base_url();?>assets/js/jquery-3.2.1.min.js"></script>
 <!-- link datatable -->
 <link href="<?php echo base_url();?>assets/DataTable/DataTables-1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet">

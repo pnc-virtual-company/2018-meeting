@@ -52,7 +52,6 @@
  						<textarea class="form-control" rows="5" id="comment" name="comment" style="resize: none;"><?php echo $rows->book_description; ?></textarea>
  					</div>
  				</div>
- 				
  				<div class="form-group row">
  					<label for="example-time-input" class="col-2 col-form-label"></label>
  					<div class="col-10">

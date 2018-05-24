@@ -1,10 +1,8 @@
 <br>
 <div id="container">
   <div class="row-fluid">
-
   <h2 style="text-align: center;"><?php echo $this->input->get('loc_name'); ?>&nbsp;Meeting Rooms</h2>
     <div class="col-12">
-
       &nbsp;&nbsp;
       <button class="btn btn-primary"><a href="<?php echo base_url(); ?>room/create_room?loc_id=<?php error_reporting(0); echo $this->input->get('loc_id'); ?>&loc_name=<?php echo  $this->input->get('loc_name'); ?>" class="text-center">
         <i style="color: #fff" class="mdi mdi-plus-circle" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp; Create a room</span>
@@ -44,7 +42,6 @@
        <td><?php echo $row->floor; ?></td>
        <td><?php echo $row->description; ?></td>    
      </tr>  
-     <!-- Delete modal pop up -->
      <div id="<?php echo $row->room_id; ?>" class="modal hide fade" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -60,13 +57,11 @@
           </div>
           <div class="modal-footer">
             <a href="<?php echo base_url(); ?>room/delete_room?room_id=<?php echo $row->room_id; ?>&loc_id=<?php echo $this->input->get('loc_id'); ?>&loc_name=<?php echo $this->input->get('loc_name'); ?>" class="btn btn-danger">OK </a>
-
             <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
           </div>
         </div>
       </div>
     </div>
-
     <!-- Modal pup up list location room -->
     <div class="modal fade" id="location<?php echo $row->room_id; ?>">
       <div class="row">
@@ -75,23 +70,16 @@
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
 
-          <!-- Modal Header -->
           <div class="modal-header">
             <h3 style="text-align: center;"><?php echo $this->input->get('loc_name'); ?>&nbsp;Room Location</h3>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
-
-          <!-- Modal body -->
           <div class="modal-body">
 
            <img width="100%" src="<?php echo base_url(); ?>assets/images/room/<?php echo $row->room_image ?>" alt="a">
          </div>
-
-         <!-- Modal footer -->
          <div class="modal-footer">
-           <!--  <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button> -->
          </div>
-
        </div>
      </div>
    </div>
