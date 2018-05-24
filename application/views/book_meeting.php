@@ -49,7 +49,7 @@
 				<div class="form-group row">
 				  <label for="example-time-input" class="col-2 col-form-label">Note:</label>
 				  <div class="col-10">
-				    <textarea class="form-control" rows="5" id="comment" name="comment" style="resize: none;"></textarea>
+				    <textarea class="form-control" rows="4" id="comment" name="comment" style="resize: none;"></textarea>
 				  </div>
 				</div>
 				

@@ -25,5 +25,6 @@
             cursor: pointer;    
         }
     </style>
+        <script src="<?php echo base_url();?>assets/js/jquery-3.2.1.min.js"></script>
   </head>
   <body class="app sidebar-mini rtl">

@@ -417,10 +417,10 @@
 				$lastname = $user->lastname;
 				$email = $user->email;
 			}
-			$this->email->from('pnc.temporary.vc2018@passerellesnumeriques.org', 'Booking Management');
+			$this->email->from('pnc.temporary.vc2018@passerellesnumeriques.org', 'Meeting Room Management');
 			$this->email->to($email, $firstname);
-			$this->email->subject('Request booking Room at '.$room_name);
-			$this->email->message('Dear '.$firstname.',  <br /> <br />your room '.$room_name.' Has been booked by '.$firstnamebooking.' from date '.$date.' start at '.$start.' end at '.$end.' <br /> <br /> Best Regard,');
+			$this->email->subject('Requested Meeting Room ');
+			$this->email->message('Dear '.$firstname.',  <br /> <br />Your room has been booked on date '.$date.' start from '.$start.' to '.$end.' <br /> <br /> Best Regard,');
 			if ($this->email->send()) {
 				return 'true';
 			}else{
@@ -440,9 +440,9 @@
 				$email =  $row->email;
 				$room_name =  $row->room_name;
 			}
-			$this->email->from('pnc.temporary.vc2018@passerellesnumeriques.org', 'Booking Management');
+			$this->email->from('pnc.temporary.vc2018@passerellesnumeriques.org', 'Meeting Room Management');
 			$this->email->to($email, $booking_user);
-			$this->email->subject('Accept Request Booking Room at '.$room_name);
+			$this->email->subject('Accepted Request Meeting');
 			$this->email->message('Dear '.$firstname.',  <br /> <br /> You has been accepted booking the room in '.$room_name.'<br /> <br /> Best Regard,');
 			if ($this->email->send()) {
 				return 'true';
@@ -464,10 +464,10 @@
 				$email =  $row->email;
 				$room_name =  $row->room_name;
 			}
-			$this->email->from('pnc.temporary.vc2018@passerellesnumeriques.org', 'Booking Management');
+			$this->email->from('pnc.temporary.vc2018@passerellesnumeriques.org', 'Meeting Room Management');
 			$this->email->to($email, $booking_user);
-			$this->email->subject('Rekect Request Booking Room at '.$room_name);
-			$this->email->message('Dear '.$booking_user.',  <br /> <br /> You has been Rejected booking the room in '.$room_name.'<br /> <br /> Best Regard,');
+			$this->email->subject('Rejected Request Meeting');
+			$this->email->message('Dear '.$booking_user.',  <br /> <br /> You has been rejected booking the room in '.$room_name.'<br /> <br /> Best Regard,');
 			if ($this->email->send()) {
 				return 'true';
 			}else{

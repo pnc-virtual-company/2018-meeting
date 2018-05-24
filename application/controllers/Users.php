@@ -286,7 +286,7 @@ class Users extends CI_Controller {
           $this->load->library('email');
           $this->load->library('parser');
           $data = array(
-            'Title' => 'User account to the Booking Management application',
+            'Title' => 'User account to the Meeting Room Management application',
             'BaseURL' => base_url(),
             'Firstname' => $this->input->post('firstname'),
             'Lastname' => $this->input->post('lastname'),
@@ -298,13 +298,13 @@ class Users extends CI_Controller {
           if ($this->config->item('from_mail') != FALSE && $this->config->item('from_name') != FALSE ) {
             $this->email->from($this->config->item('from_mail'), $this->config->item('from_name'));
           } else {
-           $this->email->from('do.not@reply.me', 'Booking Management app');
+           $this->email->from('do.not@reply.me', 'Meeting Room Management app');
          }
          $this->email->to($this->input->post('email'));
          if ($this->config->item('subject_prefix') != FALSE) {
           $subject = $this->config->item('subject_prefix');
         } else {
-         $subject = 'Create Booking Management account';
+         $subject = 'Create Meeting Room Management account';
        }
        $this->email->subject($subject);
        $this->email->message($message);

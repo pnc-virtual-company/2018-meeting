@@ -1,12 +1,4 @@
-<?php
-/**
- * Email template.You can change the content of this template
- * @copyright  Copyright (c) 2018 Benjamin BALET
- * @license    http://opensource.org/licenses/AGPL-3.0 AGPL-3.0
- * @link       https://github.com/bbalet/skeleton
- * @since      0.1.0
- */
-?>
+
 <html lang="en">
     <head>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -20,7 +12,7 @@
     </head>
     <body>
         <h3>{Title}</h3>
-        Welcome to the Booking Management Application {Firstname} {Lastname}. Please use these credentials to <a href="{BaseURL}">login to the system</a> :
+        Welcome to the Meeting Room Management Application {Firstname} {Lastname}. Please use these credentials to <a href="{BaseURL}">login to the system</a> :
         <table border="0">
             <tr>
                 <td>Login</td><td>{Login}</td>

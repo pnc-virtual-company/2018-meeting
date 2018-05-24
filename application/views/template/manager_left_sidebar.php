@@ -11,11 +11,9 @@
      
     </li>
     <!-- User Menu-->
-    <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu" style="
-    margin-top: 10px;
-"><i class="mdi mdi-light mdi-settings mdi-24px  "></i></a>
+    <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu" style="margin-top: 10px;"><i class="mdi mdi-light mdi-settings mdi-24px"></i></a>
       <ul class="dropdown-menu settings-menu dropdown-menu-right">
-        <li><a class="dropdown-item" href="page-user.html"><i class="mdi mdi-account mdi-24px"></i> Profile</a></li>
+        <li><a class="dropdown-item" href="<?php echo base_url(); ?>Users/get_users"><i class="mdi mdi-account mdi-24px"></i> Profile</a></li>
         <li><a class="dropdown-item" href="<?php echo base_url(); ?>connection/logout"><i class="mdi mdi-logout mdi-24px"></i> Logout</a></li>
       </ul>
     </li>
