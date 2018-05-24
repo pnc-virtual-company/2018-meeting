@@ -76,7 +76,7 @@
                       <i class="mdi mdi-account-plus"></i> Create
                   </button>
                   &nbsp;
-                  <a href="<?php echo base_url(); ?>users" class="btn btn-danger">
+                  <a href="<?php echo base_url(); ?>users" class="btn btn-danger" style="margin-left: 256px;">
                     <i class="mdi mdi-cancel"></i>&nbsp;Cancel
                   </a>
               </div>
