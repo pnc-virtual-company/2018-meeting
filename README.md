@@ -20,7 +20,7 @@ It contains some useful frontend and backend libraries:
  * Treeview
  * etc.
 
-The Skeleton application is a starter kit for any CodeIgniter 3 projects.
+The Meeting Reservation application is a starter kit for any CodeIgniter 3 projects.
 It contains a login page, session and user management.
 
 ## PHP requirements
@@ -40,7 +40,7 @@ Use composer (PHP dependencies manager) to install the libraies with this comman
 
     composer install
 
-Create a database named (for example) skeleton with the collating option `utf8_general_ci`
+Create a database named skeleton with the collating option `utf8_general_ci`
 Import the schema by using the SQL script provided into the SQL folder.
 Edit the file `application/config/database.php` and point to your database.
 By default, the skeleton application uses a prefix (`skeleton_`) for all tables.
