@@ -93,7 +93,6 @@
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                       <button type="button" class="btn btn-primary" data-dismiss="modal" id="getUpdateAdd">Save changes</button>
                     </div>
-
                   </div>
                 </div>
               </div>
