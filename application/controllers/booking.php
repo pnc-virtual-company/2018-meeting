@@ -138,33 +138,30 @@
 							}
 						}
 				}else{
-					$Date = "";
-					$Starttime = "";
-					$End = "";
+					$Starttime[] = "";
+					$Endtime[] = "";
 					foreach ($getRoom->result() as $row) {
 						$Date = $row->Date;
-						$Starttime = $row->Start;
-						$Endtime = $row->End;
+						$Starttime[] .= $row->Start;
+						$Endtime[] .= $row->End;
 					}
-					
-					if (strtotime($start) > strtotime($Starttime) && strtotime($start) > strtotime($Endtime)) {
-						$data = $this->Users_model->booking_room($note,$date,$start,$end,$user_booking_id,$room_id);
-						if ($data != 'true') {
-							$this->session->set_flashdata('msg', 'Cannot book at this time');
-							redirect('booking/book_meeting');
-						}else {
-							if($data == 'true'){
-								$mail = $this->sendbookingmail($note,$date,$start,$end,$user_booking_id,$room_id);
-								if ($mail =='true') {
-									redirect('booking');
-								}else{
-									echo $mail;;
-								}
-							}else{
-								$this->book_meeting();
-							}
+					// var_dump($Starttime, $Endtime);die();
+					$book = "false";
+					for ($i=0; $i < count($Starttime); $i++) { 
+						$stime = new DateTime($Starttime[$i]);
+						$etime = new DateTime($Endtime[$i]);
+						$sbook = new DateTime($start);
+						$ebook = new DateTime($end);
+						if ($ebook <= $stime) {
+							$book = "true";
+						}else if ($sbook >= $etime) {
+							$book = "true";
+						}else{
+							$book = "false";
 						}
-					}else if (strtotime($start) < strtotime($Starttime) && strtotime($start) < strtotime($Endtime)){
+					}
+					if ($book== 'true' ) {
+						$this->load->model('Users_model');
 						$data = $this->Users_model->booking_room($note,$date,$start,$end,$user_booking_id,$room_id);
 						if ($data != 'true') {
 							$this->session->set_flashdata('msg', 'Cannot book at this time');
@@ -188,88 +185,6 @@
 			}
 		}
 
-		// booking request room by samreth.SAROEURT
-		public function booking_a_room(){
-
-			$date = $this->input->post("sdate");
-			$start = $this->input->post("start");
-			$end = $this->input->post("end");
-			$note = $this->input->post("comment");
-			$room_id = $this->input->post("room_id");
-			$user_booking_id = $this->session->userdata('id');
-			$loc_id = $this->input->post('loc_id');
-			$loc_name = $this->input->post('loc_name');
-			$room_name = $this->input->post('room_name');
-			if (strtotime($date) <= strtotime(date('Y-m-d'))) {
-				$this->session->set_flashdata('msg', 'Cannot book at this time');
-				$this->book_meeting();
-			}else{
-				if ($start == $end) {
-					$this->session->set_flashdata('msg', 'Cannot book at this time');
-					$this->book_meeting();
-				}else{
-					$this->load->model('Users_model');
-					$room_booking = $this->Users_model->selectbookingroom();
-					if ($room_booking->num_rows() == 0) {
-						$data = $this->Users_model->booking_room($note,$date,$start,$end,$user_booking_id,$room_id);
-						if ($data != 'true') {
-							$this->session->set_flashdata('msg', 'Cannot book at this time');
-							redirect('booking/book_meeting');
-						}else {
-							if($data == 'true'){
-								$mail = $this->sendbookingmail($note,$date,$start,$end,$user_booking_id,$room_id);
-								if ($mail =='true') {
-									redirect('booking');
-								}else{
-									echo $mail;;
-								}
-							}else{
-								$this->book_meeting();
-							}
-						}
-					}else{
-						$time = "";
-						$room = "";
-						foreach ($room_booking->result() as $booking) {
-							if ($booking->room_id == $room_id) {
-								if(strtotime($booking->Date) == strtotime($date)){
-									if(strtotime($booking->End) <= strtotime($start)) {
-										$time = "canbook";
-										$room = "canbook";
-									}
-								}else if(strtotime(date('Y-m-d')) <= strtotime($date)){
-									$time = "canbook";
-								}
-							}else if ($booking->room_id != $room_id) {
-								$room = "canbook";
-								$time = "canbook";
-							}
-						}
-						if ($time == "canbook" && $room == 'canbook') {
-							$data = $this->Users_model->booking_room($note,$date,$start,$end,$user_booking_id,$room_id);
-							if ($data != 'true') {
-								$this->session->set_flashdata('msg', 'Cannot book at this time');
-								redirect('booking/book_meeting');
-							}else {
-								if($data == 'true'){
-									$mail = $this->sendbookingmail($note,$date,$start,$end,$user_booking_id,$room_id);
-									if ($mail =='true') {
-										redirect('booking');
-									}else{
-										echo $mail;;
-									}
-								}else{
-									$this->book_meeting();
-								}
-							}
-						}else{
-							$this->session->set_flashdata('msg', 'Cannot book at this time');
-							redirect('booking/book_meeting');
-						}
-					}
-				}
-			}
-		}
 		public function book_a_room(){
 			$user = $this->userlevel();
 			$this->load->model('Users_model');
