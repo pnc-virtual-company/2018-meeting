@@ -54,6 +54,7 @@
             <input type="password" class="form-control" name="password" id="password" required />
           </div>
         </div>
+<<<<<<< HEAD
         <div class="row-fluid"><div class="col-12">&nbsp;</div></div>
         <div class="row-fluid">
           <div class="col-12">
@@ -64,6 +65,21 @@
             <a href="<?php echo base_url(); ?>users" class="btn btn-danger">
               <i class="mdi mdi-cancel"></i>&nbsp;Cancel
             </a>
+=======
+          <div class="row-fluid"><div class="col-12">&nbsp;</div></div>
+
+          <div class="row-fluid">
+              <div class="col-12">
+                  <button id="send" class="btn btn-primary">
+                      <i class="mdi mdi-account-plus"></i> Create
+                  </button>
+                  &nbsp;
+
+                  <a href="<?php echo base_url(); ?>users" class="btn btn-danger float-right">
+                    <i class="mdi mdi-cancel"></i>&nbsp;Cancel
+                  </a>
+              </div>
+>>>>>>> 252839f48e289a4255e2fa9cd3e41d2944cc17bf
           </div>
         </div>
       </form>

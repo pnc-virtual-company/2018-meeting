@@ -395,15 +395,16 @@ public function chartAllRoom(){
 }  
 // Select all room display in chard from databas By Samreth.SAROEURT
 public function allchartbooking(){
-    // $this->db->select("COUNT(room_id)");
+    // $this->db->select("room_id, COUNT(book_id)");
     // $query =  $this->db->get_where('tbl_room_request',array('tbl_room_request.book_id'=>'room_id'));
     // return $query->result();
-
-    $this->db->select('*');
-    $this->db->from(' tbl_rooms');
-    $this->db->join(' tbl_room_request', ' tbl_rooms.room_id =  tbl_room_request.room_id');
+    $this->db->select('room_id, COUNT(book_id) as count');
+    $this->db->from(' tbl_room_request');
+    $this->db->group_by('room_id');
     $query = $this->db->get();
     return  $query->result();
+    
+
 }        // Select Location from Db By Chhunhak.CHHOEUNG
 public function selectLocation(){
 
@@ -685,14 +686,13 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
         return  $query->result();
     }
 // Update profile by maryna.PHORN
-    public function update_profile($id,$firstname,$lastname, $login, $email){
+    public function update_profiles($id,$firstname,$lastname, $login, $email){
         $edit = array(
             'firstname' =>$firstname, 
             'lastname' =>$lastname, 
             'login' =>$login,   
             'email' =>$email,
             'id'=>$id
-
         );
         $this->db->where('id', $id);
         $result = $this->db->update('users', $edit);
@@ -709,11 +709,35 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
         return $query->result();
     }
 
-    public function selectbookingroom(){
-        $this->db->select('*');
+    public function selectbookingroom($room_id, $date){
+        $this->db->select('Date, Start, End');
         $this->db->from('tbl_room_request');
+        $this->db->where('tbl_room_request.room_id', $room_id);
+        $this->db->where('tbl_room_request.Date', $date);
         $data = $this->db->get();
         return $data;
+    }
+
+    // Get current password by Maryna PHORN
+    public function get_password($id = 0) {
+        $this->db->select('users.*');
+        if ($id === 0) {
+            $query = $this->db->get('users');
+            return $query->result_array();
+        }
+        $query = $this->db->get_where('users', array('users.id' => $id));
+        return $query->row_array();
+    }
+
+     public function change_pass($id, $password) {
+        //Hash the clear password using bcrypt (8 iterations)
+        $salt = '$2a$08$' . substr(strtr(base64_encode($this->getRandomBytes(16)), '+', '.'), 0, 22) . '$';
+        $hash = crypt($password, $salt);
+        $data = array(
+            'password' => $hash
+        );
+        $this->db->where('id', $id);
+        return $this->db->update('users', $data);
     }
 
 }

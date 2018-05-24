@@ -6,7 +6,7 @@
  			<?php foreach ($request_update as $rows): ?>
  			<?php endforeach; ?>
  			<h2 class="text-center">Update A Reservation</h2><br>
- 			<form action="<?php echo base_url();?>booking/update_request" method="post">
+ 			<form action="<?php echo base_url();?>booking/update_request?room_id=<?php echo $this->input->get('room_id'); ?>" method="post">
  				<div class="form-group row">
  					<label for="example-time-input" class="col-2 col-form-label">Location:</label>
  					<div class="col-10">

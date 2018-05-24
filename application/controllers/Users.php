@@ -150,10 +150,12 @@ class Users extends CI_Controller {
 
         if ($this->form_validation->run() === FALSE) {
           $data['roles'] = $this->users_model->getRoles();
-          $this->load->view('templates/header', $data);
-          $this->load->view('menu/index', $data);
-          $this->load->view('users/edit', $data);
-          $this->load->view('templates/footer');
+
+          $user = $this->userlevel();
+          $this->load->model('Users_model');
+          $data['list_location'] = $this->Users_model->selectLocation();
+          $data['page'] = "users/edit";
+          $this->load->view($user, $data);
         } else {
           $this->users_model->updateUsers();
           $this->session->set_flashdata('msg', 'The user was successfully modified.');
@@ -388,18 +390,38 @@ class Users extends CI_Controller {
     }
   }
 
+  // Update user profile by Maryna.PHORN
+  public function update_profile(){
+      $user = $this->userlevel();
+      if ($user == 'admin') {
+        $firstname = $this->input->post("firstname");
+        $lastname = $this->input->post("lastname");
+        $login = $this->input->post("login");
+        $email= $this->input->post("email");
+        $id = $this->input->post("id");
+        $this->load->model('Users_model');
+        $data = $this->Users_model->update_profiles($id,$firstname,$lastname, $login, $email);
+        if ($data == 'true') {
+          $this->index();
+        }else{
+          echo "Data not insert";
+        }
+      }else{
+        redirect('errors/error');
+      }
+  }
   // Udate profile by Maryna.PHORN
   public function change_password($id) {
       $user = $this->userlevel();
       if ($user == 'admin') {
             //Test if user exists
-        $data['users_item'] = $this->users_model->getUsers($id);
-        if (empty($data['users_item'])) {
+        $data['users'] = $this->users_model->get_password($id);
+        if (empty($data['users'])) {
           log_message('debug', '{controllers/users/reset} user not found');
           redirect('notfound');
         } else {
           log_message('debug', 'Reset the password of user #' . $id);
-          $this->users_model->resetPassword($id, $this->input->post('password'));
+          $this->users_model->change_pass($id, $this->input->post('password'));
               //Send an e-mail to the user so as to inform that its password has been changed
           $user = $this->users_model->getUsers($id);
           $this->load->library('email');

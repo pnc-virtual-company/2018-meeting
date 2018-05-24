@@ -9,7 +9,11 @@
 	<div class="row-fluid">
 		<div class="col-12">
       <div class="row-fluid">
+<<<<<<< HEAD
           <h2 style="text-align: center;">Location Management</h2>
+=======
+          <h2 style="text-align: center;">Location</h2>
+>>>>>>> 252839f48e289a4255e2fa9cd3e41d2944cc17bf
           <a href="<?php echo base_url(); ?>location/create_location" class="btn btn-primary"><i class="mdi mdi-plus"></i>&nbsp;Create Location</a>
           <br> <br>
       </div>

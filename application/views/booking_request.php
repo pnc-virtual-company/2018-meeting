@@ -25,9 +25,9 @@
                   &nbsp;
                     <input type="hidden" value="<?php echo $row->book_id; ?>">
                    <a href="<?php echo base_url(); ?>booking/delete_book_request?book_id=<?php echo $row->book_id; ?>" title="Delete room request" data-toggle="modal" data-target="#<?php echo $row->book_id; ?>"><i class="mdi mdi-delete"></i></a>
-                   <a href="<?php echo base_url(); ?>booking/update_booking_room?book_id=<?php echo $row->book_id; ?>" title="Update room Request"><i class="mdi mdi-pencil"></i></a>
+                   <a href="<?php echo base_url(); ?>booking/update_booking_room?book_id=<?php echo $row->book_id; ?>&room_id=<?php echo $row->room_id; ?>" title="Update room Request"><i class="mdi mdi-pencil"></i></a>
                </td>
-               <td><?php echo $row->status ?></td>
+               <td><span class="badge badge-success"><?php echo $row->status; ?></span></td>
                <td><?php echo $row->loc_name  ?></td>
                <td><?php echo $row->room_name ?></td>
                <td><?php echo $row->Date; ?></td>

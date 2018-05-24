@@ -62,7 +62,7 @@
           data: [
             <?php 
                  foreach($allbook as $row){ 
-                 echo $row->room_id.",";
+                 echo $row->count.",";
             }
             ?>
           ]
