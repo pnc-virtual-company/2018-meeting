@@ -316,7 +316,7 @@
 
 			$book_id = $this->input->post("book_id");
 			$room_id = $this->input->get('room_id');
-			$this->load->model('Users_model');
+			$this->load->model('users_model');
 			$getRoom =  $this->users_model->selectbookingroom($room_id,$date);
 			$Starttime[] = "";
 			$Endtime[] = "";
@@ -342,6 +342,7 @@
 			}
 			
 			if ($book == 'true') {
+				$this->load->model('Users_model');
 				$data = $this->Users_model->update_request($date,$start,$end,$note,$book_id);
 				if ($data == 'true') {
 					redirect('booking');

@@ -69,7 +69,7 @@
  		<div class="col-md-3"></div>
  	</div>
  </div>
-<?php 
- 	$room_id = $this->input->get('room_id');
- 	$this->session->set_userdata('room_id', $room_id);
-?>
+ <?php 
+ $room_id = $this->input->get('room_id');
+ $this->session->set_userdata('room_id', $room_id);
+ ?>
