@@ -22,7 +22,7 @@
     <div class="col-md-6">
       <div class="">
         <div class="text-center">
-          <h3>Edit Locations</h3>
+          <h3>Edit Location</h3>
         </div>  
         <?php foreach ($listUpdatelocation as $row): ?>
           <div class="card-body">
