@@ -117,6 +117,7 @@
 			$this->load->model('users_model');
 			$chekcDate = strtotime(date("Y-m-d")) - strtotime($date);
 			if ($chekcDate > 0) {
+				$this->session->set_flashdata('msg', 'Cannot book at before this time');
 				$this->book_meeting();
 			}else{
 				$getRoom =  $this->users_model->selectbookingroom($room_id,$date);
