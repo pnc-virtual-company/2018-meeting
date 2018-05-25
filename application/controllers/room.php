@@ -240,7 +240,9 @@ class room extends CI_Controller {
 		public function fullCalendar(){
 			$user = $this->userlevel();
 			$this->load->model('Users_model');
+			$room_id = $this->input->get('room_id');
 			$data['list_location'] = $this->Users_model->selectLocation();
+			$data['getDate'] = $this->Users_model->getEvents($room_id);
 			$data['page'] = "fullcalendar";
 			$this->load->view($user, $data);
 		}
@@ -249,4 +251,7 @@ class room extends CI_Controller {
 		public function getExportFile(){
 			$this->load->view('export');
 		}
+
+
+	
 }
