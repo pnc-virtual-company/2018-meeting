@@ -24,8 +24,6 @@
   <ul class="app-menu" id="menu_leftsidebar">
     <li><a class="app-menu__item" href="<?php echo base_url(); ?>booking/book_a_room"><i class="app-menu__icon mdi mdi-book-open-page-variant mdi-24px"></i><span class="app-menu__label">&nbsp;Book A Room</span></a></li>
     
-    <!-- <li><a class="app-menu__item active" href="<?php// echo base_url(); ?>location/"><i class="app-menu__icon mdi mdi-map mdi-light mdi-24px"></i><span class="app-menu__label">Location</span></a></li> -->
-   
    <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon mdi mdi-account-multiple mdi-light mdi-24px"></i><span class="app-menu__label">&nbsp;Meeting Rooms</span><i class="treeview-indicator mdi mdi-arrow-right-drop-circle-outline"></i></a>
      <ul class="treeview-menu" style="background-color: #026aab;">
       <?php foreach ($list_location as $row): ?>
@@ -50,3 +48,16 @@
 </aside>
 <main class="app-content" style="background-color: #ffffff;">
 
+  <?php if($this->session->flashdata('msg')){ ?>
+  <div id="flashbox" class="alert alert-primary" role="alert">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <?php echo $this->session->flashdata('msg'); ?>
+  </div>
+
+  <script type="text/javascript">
+  //Flash message
+  $(document).ready(function() {
+      $("#flashbox").alert();
+  });
+  </script>
+  <?php } ?>

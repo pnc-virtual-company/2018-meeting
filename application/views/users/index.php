@@ -80,20 +80,23 @@
                <span aria-hidden="true">&times;</span>
            </button>
        </div>
-       <div class="modal-body">
         <form id="formResetPwd" method="POST">
-            <label for="password">Password</label>
-            <div class="input-group">
-               <input type="password" name="password" id="password" required />
-               <div class="input-group-append">
-                  <button type="send" class="btn btn-primary">Reset</button>
-              </div>
-          </div>
+       <div class="modal-body">
+                  <label class="control-label" for="password">Password</label>
+                  <div class="input-group">
+                      <input type="password" id="password" required disabled />
+                      <input type="hidden" name="password" id="hiddenpwd" required />
+                      <div class="input-group-append">
+                        <a class="btn btn-primary" id="cmdGeneratePassword"><i class="mdi mdi-refresh"></i>&nbsp;Generate password</a>
+                      </div>
+                  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="send" class="btn btn-primary">Reset</button>
+        <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+    </div>
       </form>
   </div>
-  <div class="modal-footer">
-    <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-</div>
 </div>
 </div>
 </div>
@@ -101,6 +104,9 @@
 <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
 <script type="text/javascript">
+  $("#cmdGeneratePassword").click(function() {
+      $("#password,#hiddenpwd").val(password_generator(<?php echo $this->config->item('password_length');?>));
+  });
     $(document).ready(function() {
     //Transform the HTML table in a fancy datatable
     $('#users').dataTable({
@@ -140,4 +146,24 @@
         $(this).removeData('modal');
     });*/
 });
+    function password_generator(len) {
+        var length = (len)?(len):(10);
+        var string = "abcdefghijklnopqrstuvwxyz";
+        var numeric = '0123456789';
+        var punctuation = '!@?/=';
+        var password = "";
+        var character = "";
+        while(password.length < length) {
+            entity1 = Math.ceil(string.length * Math.random() * Math.random());
+            entity2 = Math.ceil(numeric.length * Math.random() * Math.random());
+            entity3 = Math.ceil(punctuation.length * Math.random() * Math.random());
+            hold = string.charAt(entity1);
+            hold = (entity1 % 2 == 0)?(hold.toUpperCase()):(hold);
+            character += hold;
+            character += numeric.charAt( entity2 );
+            character += punctuation.charAt( entity3 );
+            password = character;
+        }
+        return password;
+    }
 </script>
