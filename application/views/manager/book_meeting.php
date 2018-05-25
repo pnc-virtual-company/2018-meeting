@@ -1,5 +1,4 @@
 <br>
-<?php echo $flashPartialView;?>
 <div class="container">
 	<div class="row">
 		<div class="col-md-3"></div>
@@ -22,7 +21,6 @@
 				   	</select>	
 				  </div>
 				</div><br>
-
 				<div class="form-group row">
 				  <label for="example-time-input" class="col-2 col-form-label">Date:</label>
 				  <div class="col-10">
