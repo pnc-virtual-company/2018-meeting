@@ -40,7 +40,6 @@
     <button type="button" class="close" data-dismiss="alert">&times;</button>
     <?php echo $this->session->flashdata('msg'); ?>
   </div>
-
   <script type="text/javascript">
   //Flash message
   $(document).ready(function() {

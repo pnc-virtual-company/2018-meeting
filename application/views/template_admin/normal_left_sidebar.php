@@ -34,8 +34,6 @@
 
       <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/all_room" ><i class="app-menu__icon mdi mdi-home mdi-light mdi-18px"></i><span class="app-menu__label">List Rooms</span></a></li>
 
-      <!--  <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/request_validate"><i class="app-menu__icon mdi mdi-swap-vertical mdi-light mdi-18px"></i><span class="app-menu__label">Request</span></a></li> -->
-
       <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/select_room_request"><i class="app-menu__icon mdi mdi-swap-vertical mdi-light mdi-18px"></i><span class="app-menu__label">My Booking Rooms</span></a></li>
 
       <li><a class="app-menu__item" href="<?php echo base_url(); ?>welcome/occupancyRate" ><i class="app-menu__icon mdi mdi-square-inc mdi-light mdi-18px"></i><span class="app-menu__label">Occupancy Reports</span></a></li>

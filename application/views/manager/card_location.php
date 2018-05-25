@@ -1,18 +1,15 @@
-
    <style>
      #map {
        height: 400px;
        width: 100%;
-      }
-     
+      }  
    </style>
-    <h2 class="text-center">Location</h2><br>
+    <h2 class="text-center">Locations</h2><br>
         <div class="container">
          <div class="row">
    <?php foreach ($list_location as $row): ?>
            <div class="col-md-4">
              <div class="card border-primary mb-3 text-white" style="max-width: 45rem; background-color:#026aab;">
-               <!-- <div class="card-header text-center "><i class="mdi mdi-map-marker mdi-36px"></i></div> -->
                <a href="<?php echo base_url(); ?>room/list_room?loc_id=<?php echo $row->loc_id; ?>&loc_name=<?php echo $row->loc_name; ?>">
                <div class="card-body">
                  <h2 class="card-title text-center text-white"><?php echo $row->loc_name; ?></h2>
@@ -46,7 +43,6 @@
   <?php endforeach ?>
          </div>
         </div>
-        
         <!--end pop map delete -->
         <script src="<?php echo base_url();?>assets/js/jquery-3.2.1.min.js"></script>
         <!-- link datatable -->
@@ -96,18 +92,11 @@
                     initMap(lat,longt);            
                 });
             }
-             
-
-
-
-
           $(document).ready(function() {
             //Transform the HTML table in a fancy datatable
             $('#location').dataTable({
               select: true
             });
-
-
           });
         </script>
 
