@@ -35,7 +35,7 @@
           <div class="input-group">
             <input type="text" class="form-control" name="login" id="login" required />
             <div class="input-group-append">
-                <a id="cmdRefreshLogin" class="btn btn-primary"></a>
+                <a id="cmdRefreshLogin" class="btn btn-primary">generate Login</a>
             </div>
           </div>
         </div>
