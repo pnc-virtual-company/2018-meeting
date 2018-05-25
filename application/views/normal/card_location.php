@@ -6,18 +6,20 @@
       }
      
    </style>
-   <h2 class="text-center">Location</h2><br>
+    <h2 class="text-center">Location</h2><br>
         <div class="container">
          <div class="row">
    <?php foreach ($list_location as $row): ?>
            <div class="col-md-4">
              <div class="card border-primary mb-3 text-white" style="max-width: 45rem; background-color:#026aab;">
                <!-- <div class="card-header text-center "><i class="mdi mdi-map-marker mdi-36px"></i></div> -->
+               <a href="<?php echo base_url(); ?>room/list_room?loc_id=<?php echo $row->loc_id; ?>&loc_name=<?php echo $row->loc_name; ?>">
                <div class="card-body">
-                 <br>
-                 <h2 class="card-title text-center text-white"><a href="<?php echo base_url(); ?>room/list_room?loc_id=<?php echo $row->loc_id; ?>&loc_name=<?php echo $row->loc_name; ?>"  class="text-white"><?php echo $row->loc_name; ?></a></h2><br>
+                 <h2 class="card-title text-center text-white"><?php echo $row->loc_name; ?></h2>
                </div>
-               <div class="card-footer text-center "><h3><a href="#" class="Pin-location" title="View Location on google map" onclick="showMap('<?php echo $row->loc_id; ?>')" data-toggle="modal"  style="color:#f7bb24;" data-target="#mapModal"><i class="mdi mdi-map-marker"></i></a></i></h3></div>
+               </a>
+               <a href="#" class="Pin-location" title="View Location on google map" onclick="showMap('<?php echo $row->loc_id; ?>')" data-toggle="modal"  data-target="#mapModal">
+               <div class="card-footer text-center "><h4><i class="mdi mdi-map-marker" style="color:#f7bb24;"></i></h4></div>  
              </div>
              <!-- pop up map -->
               <div class="modal fade" id="mapModal">
