@@ -69,7 +69,6 @@
       </div>
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
-
           <div class="modal-header">
             <h3 style="text-align: center;"><?php echo $this->input->get('loc_name'); ?>&nbsp;Room Location</h3>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
