@@ -30,7 +30,7 @@
                 <a href="#" title="Accept request" data-toggle="modal" data-target="#accept<?php echo $row->book_id; ?>"><i class="mdi mdi-check"></i></a>
                 <a href="#" title="Reject request" data-toggle="modal" data-target="#reject<?php echo $row->book_id; ?>"><i class="mdi mdi-window-close"></i></a> 
               </td>
-              <td><span class="badge badge-success"><?php echo $row->status; ?></span></td>
+              <td><span class="badge <?php if($row->status == 'Requested'){echo 'badge-info';}else if ($row->status == 'Accepted'){echo 'badge-success';}else{echo 'badge-danger';}?>"><?php echo $row->status; ?></span></td>
               <td><?php echo $row->loc_name; ?></td>
               <td><?php echo $row->room_name; ?></td>
               <td><?php echo $row->Date; ?></td>
@@ -58,6 +58,7 @@
                     </div>
                   </div>
                 </div>
+              </div>
               <!-- Modol pop up reject request -->
               <div id="reject<?php echo $row->book_id; ?>" class="modal hide fade" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">

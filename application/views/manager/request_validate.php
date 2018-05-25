@@ -26,16 +26,11 @@
             <tr>
               <td data-order="1" data-id="1">
                 &nbsp;
-<<<<<<< HEAD
-                <a href="#" title="Accept request" data-toggle="modal" data-target="#accept"><i class="mdi mdi-check"></i></a>
-                <a href="#" title="Reject request" data-toggle="modal" data-target="#reject"><i class="mdi mdi-window-close"></i></a> 
-=======
                 <!-- <a href="#" title="" data-toggle="modal" data-target="#myModal"><i class="mdi mdi-delete"></i></a> -->
                 <a href="#" title="Accept request" data-toggle="modal" data-target="#accept<?php echo $row->book_id; ?>"><i class="mdi mdi-check"></i></a>
                 <a href="#" title="Reject request" data-toggle="modal" data-target="#reject<?php echo $row->book_id; ?>"><i class="mdi mdi-window-close"></i></a> 
->>>>>>> 252839f48e289a4255e2fa9cd3e41d2944cc17bf
               </td>
-              <td><span class="badge badge-success"><?php echo $row->status; ?></span></td>
+              <td><span class="badge <?php if($row->status == 'Requested'){echo 'badge-info';}else if ($row->status == 'Accepted'){echo 'badge-success';}else{echo 'badge-danger';}?>"><?php echo $row->status; ?></span></td>
               <td><?php echo $row->loc_name; ?></td>
               <td><?php echo $row->room_name; ?></td>
               <td><?php echo $row->Date; ?></td>

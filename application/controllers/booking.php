@@ -40,7 +40,6 @@
 			$this->load->model('Users_model');
 			$data['list_location'] = $this->Users_model->selectLocation();
 			$data['book_request'] = $this->Users_model->select_room_request();
-			// $data['flashPartialView'] = $this->load->view('templates/flash', $data, TRUE);
 			$data['page'] = "booking_request";
 			$user = $this->userlevel();
 			// var_dump($user);die();
@@ -118,6 +117,7 @@
 			$this->load->model('users_model');
 			$chekcDate = strtotime(date("Y-m-d")) - strtotime($date);
 			if ($chekcDate > 0) {
+				$this->session->set_flashdata('msg', 'Cannot book at before this time');
 				$this->book_meeting();
 			}else{
 				$getRoom =  $this->users_model->selectbookingroom($room_id,$date);
@@ -176,10 +176,12 @@
 									echo $mail;;
 								}
 							}else{
+								$this->session->set_flashdata('msg', 'Cannot book at this time because have in another book');
 								$this->book_meeting();
 							}
 						}
 					}else{
+						$this->session->set_flashdata('msg', 'Cannot book at this time');
 						$this->book_meeting();
 					}
 				}
