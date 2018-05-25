@@ -35,3 +35,16 @@
 </aside>
 <main class="app-content" style="background-color: #ffffff;">
 
+  <?php if($this->session->flashdata('msg')){ ?>
+  <div id="flashbox" class="alert alert-primary" role="alert">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <?php echo $this->session->flashdata('msg'); ?>
+  </div>
+
+  <script type="text/javascript">
+  //Flash message
+  $(document).ready(function() {
+      $("#flashbox").alert();
+  });
+  </script>
+  <?php } ?>

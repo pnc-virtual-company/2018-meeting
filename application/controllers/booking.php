@@ -40,7 +40,7 @@
 			$this->load->model('Users_model');
 			$data['list_location'] = $this->Users_model->selectLocation();
 			$data['book_request'] = $this->Users_model->select_room_request();
-			$data['flashPartialView'] = $this->load->view('templates/flash', $data, TRUE);
+			// $data['flashPartialView'] = $this->load->view('templates/flash', $data, TRUE);
 			$data['page'] = "booking_request";
 			$user = $this->userlevel();
 			// var_dump($user);die();
@@ -303,6 +303,7 @@
 			$data['book_request'] = $this->Users_model->select_room_request();
 			$data['request_update'] = $this->Users_model->select_booking($book_id);
 			$data['page'] = "update_booking";
+			$data['flashPartialView'] = "";
 			$this->load->view($user, $data);
 		}
 			//edite meeting room by samreth.SAROEURT
