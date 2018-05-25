@@ -199,6 +199,73 @@ class Users extends CI_Controller {
      * @param int $id User identifier
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
+    public function manualreset(){
+      $id = $this->session->id;
+      $current_password  = $this->input->post('current_password');
+      $newpass = $this->input->post('new_password');
+      $newpassword_confirm = $this->input->post('password_confirm');
+      $this->load->model('users_model');
+      $getuser = $this->users_model->getUsers($id);
+      // var_dump($getuser);die();
+      $curPassword = $getuser['password'];
+      $hash = crypt($current_password, $curPassword);
+      // var_dump($hash,$getuser['password']);die();
+      if ($hash === $getuser['password']) {
+        if ($newpass === $newpassword_confirm) {
+            log_message('debug', 'Reset the password of user #' . $id);
+            $this->users_model->resetPassword($id, $newpass);
+
+                //Send an e-mail to the user so as to inform that its password has been changed
+            $user = $this->users_model->getUsers($id);
+            $this->load->library('email');
+            $this->load->library('parser');
+            $data = array(
+              'Title' => 'Your password was changed',
+              'Firstname' => $user['firstname'],
+              'Lastname' => $user['lastname'],
+              'password' => $newpass
+            );
+            $message = $this->parser->parse('emails/change_pwd', $data, TRUE);
+
+            if ($this->config->item('from_mail') != FALSE && $this->config->item('from_name') != FALSE ) {
+              $this->email->from($this->config->item('from_mail'), $this->config->item('from_name'));
+            } else {
+              $this->email->from('do.not@reply.me', 'LMS');
+            }
+            $this->email->to($user['email']);
+            $this->email->subject('Your password was changed');
+            $this->email->message($message);
+            log_message('debug', 'Sending the change password email');
+            if ($this->config->item('log_threshold') > 1) {
+              $this->email->send(FALSE);
+              $debug = $this->email->print_debugger(array('headers'));
+              log_message('debug', 'print_debugger = ' . $debug);
+            } else {
+              $this->email->send();
+            }
+
+                //Inform back the user by flash message
+            $this->session->set_flashdata('msg', 'The password was successfully Change');
+            $user = $this->userlevel();
+            if ($user == 'admin') {
+              log_message('debug', 'Redirect to list of users page');
+              redirect('users');
+            }else {
+              $this->session->set_flashdata('msg', 'The password was successfully Change');
+              log_message('debug', 'Redirect to homepage');
+              redirect('users/get_users');
+            }
+        }else{
+              $this->session->set_flashdata('msg', 'The New password and the Confirm password is not the same');
+              log_message('debug', 'Redirect to homepage');
+              redirect('users/get_users');
+        }
+      }else{
+        $this->session->set_flashdata('msg', 'The current password you enter is wrong!');
+        log_message('debug', 'Redirect to homepage');
+        redirect('users/get_users');
+      }
+      }
     public function reset($id) {
       $user = $this->userlevel();
       if ($user == 'admin') {
@@ -212,13 +279,15 @@ class Users extends CI_Controller {
           $this->users_model->resetPassword($id, $this->input->post('password'));
 
               //Send an e-mail to the user so as to inform that its password has been changed
+          $password = $this->input->post('password');
           $user = $this->users_model->getUsers($id);
           $this->load->library('email');
           $this->load->library('parser');
           $data = array(
             'Title' => 'Your password was changed',
             'Firstname' => $user['firstname'],
-            'Lastname' => $user['lastname']
+            'Lastname' => $user['lastname'],
+            'password' => $password
           );
           $message = $this->parser->parse('emails/password_reset', $data, TRUE);
 
@@ -228,8 +297,7 @@ class Users extends CI_Controller {
             $this->email->from('do.not@reply.me', 'LMS');
           }
           $this->email->to($user['email']);
-          $subject = $this->config->item('subject_prefix');
-          $this->email->subject($subject . 'Your password was reset');
+          $this->email->subject('Your password was reset');
           $this->email->message($message);
           log_message('debug', 'Sending the reset email');
           if ($this->config->item('log_threshold') > 1) {
@@ -379,21 +447,16 @@ class Users extends CI_Controller {
   // get user profile by Maryna PHORN
     public function get_users(){
      $user = $this->userlevel();
-     if ($user == 'admin') {
       $this->load->model('Users_model');
       $data['list_user'] = $this->Users_model->selectLocation();
       $data['page'] = "user_profile";
       $data['listUsers'] = $this->Users_model->select_users();
       $this->load->view($user, $data);
-    }else{
-      redirect('errors/error');
-    }
   }
 
   // Update user profile by Maryna.PHORN
   public function update_profile(){
-      $user = $this->userlevel();
-      if ($user == 'admin') {
+        $user = $this->userlevel();
         $firstname = $this->input->post("firstname");
         $lastname = $this->input->post("lastname");
         $login = $this->input->post("login");
@@ -402,68 +465,16 @@ class Users extends CI_Controller {
         $this->load->model('Users_model');
         $data = $this->Users_model->update_profiles($id,$firstname,$lastname, $login, $email);
         if ($data == 'true') {
-          $this->index();
+          if ($user != 'admin') {
+            $this->session->set_flashdata('msg', 'The user profile was successfully created');
+            redirect('users/get_users');
+          }else{
+            $this->session->set_flashdata('msg', 'The user profile was successfully created');
+            redirect('users');
+          }
         }else{
           echo "Data not insert";
         }
-      }else{
-        redirect('errors/error');
-      }
   }
-  // Udate profile by Maryna.PHORN
-  public function change_password($id) {
-      $user = $this->userlevel();
-      if ($user == 'admin') {
-            //Test if user exists
-        $data['users'] = $this->users_model->get_password($id);
-        if (empty($data['users'])) {
-          log_message('debug', '{controllers/users/reset} user not found');
-          redirect('notfound');
-        } else {
-          log_message('debug', 'Reset the password of user #' . $id);
-          $this->users_model->change_pass($id, $this->input->post('password'));
-              //Send an e-mail to the user so as to inform that its password has been changed
-          $user = $this->users_model->getUsers($id);
-          $this->load->library('email');
-          $this->load->library('parser');
-          $data = array(
-            'Title' => 'Your password was changed',
-            'Firstname' => $user['firstname'],
-            'Lastname' => $user['lastname']
-          );
-          $message = $this->parser->parse('emails/password_reset', $data, TRUE);
-
-          if ($this->config->item('from_mail') != FALSE && $this->config->item('from_name') != FALSE ) {
-            $this->email->from($this->config->item('from_mail'), $this->config->item('from_name'));
-          } else {
-            $this->email->from('do.not@reply.me', 'LMS');
-          }
-          $this->email->to($user['email']);
-          $subject = $this->config->item('subject_prefix');
-          $this->email->subject($subject . 'Your password was reset');
-          $this->email->message($message);
-          log_message('debug', 'Sending the reset email');
-          if ($this->config->item('log_threshold') > 1) {
-            $this->email->send(FALSE);
-            $debug = $this->email->print_debugger(array('headers'));
-            log_message('debug', 'print_debugger = ' . $debug);
-          } else {
-            $this->email->send();
-          }
-              //Inform back the user by flash message
-          $this->session->set_flashdata('msg', 'The password was successfully reset');
-          if ($this->session->isAdmin || $this->session->isSuperAdmin) {
-            log_message('debug', 'Redirect to list of users page');
-            redirect('users');
-          }
-          else {
-            log_message('debug', 'Redirect to homepage');
-            redirect('home');
-          }
-        }
-      }else{
-        redirect('errors/error');
-      }
-    }
 }
 

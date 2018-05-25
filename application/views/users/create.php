@@ -34,6 +34,9 @@
           <label class="control-label" for="login">Login</label>
           <div class="input-group">
             <input type="text" class="form-control" name="login" id="login" required />
+            <div class="input-group-append">
+                <a id="cmdRefreshLogin" class="btn btn-primary"></a>
+            </div>
           </div>
         </div>
         <div class="form-group">
@@ -51,7 +54,10 @@
         <div class="form-group">
           <label class="control-label" for="password">Password</label>
           <div class="input-group">
-            <input type="password" class="form-control" name="password" id="password" required />
+              <input type="password" class="form-control" name="password" id="password" required />
+              <div class="input-group-append">
+                <a class="btn btn-primary" id="cmdGeneratePassword"><i class="mdi mdi-refresh"></i>&nbsp;Generate password</a>
+              </div>
           </div>
         </div>
 
@@ -81,6 +87,7 @@
 <script src="<?php echo base_url();?>assets/js/bootbox-4.4.0.min.js"></script>
 <script type="text/javascript">
   //Check for mandatory fields
+  
   function validate_form() {
     result = false;
     var fieldname = "";
@@ -104,25 +111,25 @@
    * @author Benjamin BALET <benjamin.balet@gmail.com>
    */
    function password_generator(len) {
-    var length = (len)?(len):(10);
-    var string = "abcdefghijklnopqrstuvwxyz";
-    var numeric = '0123456789';
-    var punctuation = '!@?/=';
-    var password = "";
-    var character = "";
-    while(password.length < length) {
-      entity1 = Math.ceil(string.length * Math.random() * Math.random());
-      entity2 = Math.ceil(numeric.length * Math.random() * Math.random());
-      entity3 = Math.ceil(punctuation.length * Math.random() * Math.random());
-      hold = string.charAt(entity1);
-      hold = (entity1 % 2 == 0)?(hold.toUpperCase()):(hold);
-      character += hold;
-      character += numeric.charAt( entity2 );
-      character += punctuation.charAt( entity3 );
-      password = character;
-    }
-    return password;
-  }
+       var length = (len)?(len):(10);
+       var string = "abcdefghijklnopqrstuvwxyz";
+       var numeric = '0123456789';
+       var punctuation = '!@?/=';
+       var password = "";
+       var character = "";
+       while(password.length < length) {
+           entity1 = Math.ceil(string.length * Math.random() * Math.random());
+           entity2 = Math.ceil(numeric.length * Math.random() * Math.random());
+           entity3 = Math.ceil(punctuation.length * Math.random() * Math.random());
+           hold = string.charAt(entity1);
+           hold = (entity1 % 2 == 0)?(hold.toUpperCase()):(hold);
+           character += hold;
+           character += numeric.charAt( entity2 );
+           character += punctuation.charAt( entity3 );
+           password = character;
+       }
+       return password;
+   }
 
   /**
    * Generate a login according to a pattern

@@ -14,7 +14,7 @@
   margin-top: 10px;
   "><i class="mdi mdi-light mdi-settings mdi-24px  "></i></a>
   <ul class="dropdown-menu settings-menu dropdown-menu-right">
-    <li><a class="dropdown-item" href="page-user.html"><i class="mdi mdi-account mdi-24px"></i> Profile</a></li>
+    <li><a class="dropdown-item" href="<?php echo base_url(); ?>Users/get_users"><i class="mdi mdi-account mdi-24px"></i> Profile</a></li>
     <li><a class="dropdown-item" href="<?php echo base_url(); ?>connection/logout"><i class="mdi mdi-logout mdi-24px"></i> Logout</a></li>
   </ul>
 </li>
@@ -36,3 +36,16 @@
 </aside>
 <main class="app-content" style="background-color: #ffffff;">
 
+  <?php if($this->session->flashdata('msg')){ ?>
+  <div id="flashbox" class="alert alert-primary" role="alert">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <?php echo $this->session->flashdata('msg'); ?>
+  </div>
+
+  <script type="text/javascript">
+  //Flash message
+  $(document).ready(function() {
+      $("#flashbox").alert();
+  });
+  </script>
+  <?php } ?>
