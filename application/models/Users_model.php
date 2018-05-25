@@ -740,4 +740,14 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
         return $this->db->update('users', $data);
     }
 
+    Public function getEvents($room_id)
+    {
+     $this->db->select("*");
+     $this->db->from(' tbl_room_request');
+     $this->db->join('tbl_rooms', 'tbl_room_request.room_id = tbl_rooms.room_id');
+     $this->db->where('tbl_room_request.room_id', $room_id);
+     $query = $this->db->get();
+     return  $query->result();
+    }
+
 }
