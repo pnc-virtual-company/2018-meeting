@@ -31,7 +31,7 @@
       <?php endforeach ?>
     </ul>
    </li>
-    <li><a class="app-menu__item" href="<?php echo base_url(); ?>booking/"><i class="app-menu__icon mdi mdi-content-paste mdi-light mdi-24px"></i><span class="app-menu__label">My Reservations</span></a></li>
+    <li><a class="app-menu__item" href="<?php echo base_url(); ?>booking/"><i class="app-menu__icon mdi mdi-content-paste mdi-light mdi-24px"></i><span class="app-menu__label">My Reservation</span></a></li>
   </ul>
 </aside>
 <main class="app-content" style="background-color: #ffffff;">

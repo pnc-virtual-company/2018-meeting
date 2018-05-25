@@ -31,9 +31,9 @@
       <?php endforeach ?>
     </ul>
    </li>
-    <li><a class="app-menu__item" href="<?php echo base_url(); ?>booking/"><i class="app-menu__icon mdi mdi-content-paste mdi-light mdi-24px"></i><span class="app-menu__label">My Reservations</span></a></li>
+    <li><a class="app-menu__item" href="<?php echo base_url(); ?>booking/"><i class="app-menu__icon mdi mdi-content-paste mdi-light mdi-24px"></i><span class="app-menu__label">My Reservation</span></a></li>
  
-    <li><a class="app-menu__item" href="<?php echo base_url(); ?>booking/request_validate"><i class="app-menu__icon mdi mdi-repeat mdi-light mdi-24px"></i><span class="app-menu__label">Requests</span></a></li>
+    <li><a class="app-menu__item" href="<?php echo base_url(); ?>booking/request_validate"><i class="app-menu__icon mdi mdi-repeat mdi-light mdi-24px"></i><span class="app-menu__label">Request</span></a></li>
 
     <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon mdi mdi-settings mdi-light mdi-24px"></i><span class="app-menu__label">Admin</span><i class="treeview-indicator mdi mdi-arrow-right-drop-circle-outline"></i></a>
      <ul class="treeview-menu" style="background-color: #026aab;">
