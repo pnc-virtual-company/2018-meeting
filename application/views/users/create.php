@@ -16,7 +16,7 @@
   <div class="row-fluid">
     <div class="col-md-3"></div>
     <div class="col-md-6">
-      <h2 style="text-align: center;">Create A New User</h2>
+      <h2 style="text-align: center;">Create a New User</h2>
       <?php echo validation_errors(); ?>
       <?php
       $attributes = array('id' => 'target', 'class' => 'form-horizontal');
