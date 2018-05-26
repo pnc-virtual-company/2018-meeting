@@ -4,11 +4,12 @@
 		<div class="col-md-3"></div>
 		<div class="col-md-6">
 			<h2 class="text-center">Make A Reservation</h2><br>
-			<form action="<?php echo base_url();?>booking/booking_a_room" method="post">
+			<form action="<?php echo base_url();?>booking/booking_a_room?loc_id=<?php echo $row->loc_id; ?>&loc_name=<?php echo $row->loc_name; ?>&room_name=<?php echo $this->input->get('room_name'); ?>&room_id=<?php echo $this->input->get('room_id'); ?>" method="post">
 				<div class="form-group row">
 				  <label  class="col-2 col-form-label">Location:</label>
 				  <div class="col-10">
-				  	<select class="form-control" name="loc_id" id="">
+				  	<select class="form-control" name="loc_id" id="" required>
+				  		<option value="">--Please select location--</option>
 				  		<?php foreach ($list_location as $row): ?>
 							<option value="<?php echo $row->loc_id; ?>"><?php echo $row->loc_name; ?></option>
 				  		<?php endforeach ?>
@@ -18,7 +19,8 @@
 				<div class="form-group row">
 				  <label  class="col-2 col-form-label">Room:</label>
 				  <div class="col-10">
-				   	<select class="form-control" name="room_id" id="">
+				   	<select class="form-control" name="room_id" id="" required>
+				  		<option value="">--Please select room--</option>
 				  		<?php foreach ($allroom as $row): ?>
 							<option value="<?php echo $row->room_id; ?>"><?php echo $row->room_name; ?></option>
 				  		<?php endforeach ?>
@@ -60,7 +62,7 @@
 					    <button class="btn btn-primary" type="submit" name="send" value="login">
 					      <i style="color: #fff" class="mdi mdi-check" data-toggle="tooltip" title="Add new room"></i><span style="color: #fff">&nbsp;Request Room</span>
 					    </button>
-					   <a href="<?php echo base_url(); ?>room/list_room?loc_id=<?php echo $this->input->get('loc_id'); ?>&loc_name=<?php echo $this->input->get('loc_name'); ?>" class="btn btn-danger float-right">
+					   <a href="<?php echo base_url(); ?>location" class="btn btn-danger float-right">
 					   	<i class="mdi mdi-cancel "></i>&nbsp;Cancel
 					   </a>
 					</div>

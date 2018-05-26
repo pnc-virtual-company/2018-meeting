@@ -210,7 +210,7 @@
 						$data = $this->users_model->booking_room($note,$date,$start,$end,$user_booking_id,$room_id);
 						if ($data != 'true') {
 							$this->session->set_flashdata('msg', 'Cannot book at this time');
-							redirect('booking/book_meeting');
+							redirect('booking/book_a_room');
 						}else {
 							if($data == 'true'){
 								$mail = $this->sendbookingmail($note,$date,$start,$end,$user_booking_id,$room_id);
@@ -251,7 +251,7 @@
 						$data = $this->Users_model->booking_room($note,$date,$start,$end,$user_booking_id,$room_id);
 						if ($data != 'true') {
 							$this->session->set_flashdata('msg', 'Cannot book at this time');
-							redirect('booking/book_meeting');
+							redirect('booking/book_a_room');
 						}else {
 							if($data == 'true'){
 								$mail = $this->sendbookingmail($note,$date,$start,$end,$user_booking_id,$room_id);
