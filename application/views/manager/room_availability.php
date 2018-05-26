@@ -8,7 +8,7 @@
 				?>
 				<div class="card">
 					<div class="card-header">
-						<h1 class="text-center">Room <span style="color:green"><?php echo $this->input->get('room_name'); ?></span> </h1>
+						<h1 class="text-center">Rooms <span style="color:green"><?php echo $this->input->get('room_name'); ?></span> </h1>
 					</div>
 					<div class="card-body">
 						<p>The room is currently free. 

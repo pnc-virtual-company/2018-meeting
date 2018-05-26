@@ -4,12 +4,7 @@
   <!-- Sidebar toggle button--><a class="app-sidebar__toggle mdi mdi-menu mdi-24px" href="#" data-toggle="sidebar" aria-label="Hide Sidebar" id="hide_menu" style="display: none;"></a>
   <!-- Navbar Right Menu-->
   <ul class="app-nav">
-    <!--Notification Menu-->
-    <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications" style="
-    margin-top: 10px;
-"><i class="mdi mdi-light mdi-bell-ring mdi-24px"></i></a>
-    </li>
-    <!-- User Menu-->
+      <!-- User Menu-->
     <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu" style="margin-top: 10px;"><i class="mdi mdi-light mdi-settings mdi-24px  "></i></a>
       <ul class="dropdown-menu settings-menu dropdown-menu-right">
         <li><a class="dropdown-item" href="<?php echo base_url(); ?>Users/get_users"><i class="mdi mdi-account mdi-24px"></i> Profile</a></li>
@@ -31,9 +26,9 @@
       <?php endforeach ?>
     </ul>
    </li>
-    <li><a class="app-menu__item" href="<?php echo base_url(); ?>booking/"><i class="app-menu__icon mdi mdi-content-paste mdi-light mdi-24px"></i><span class="app-menu__label">My Reservations</span></a></li>
+    <li><a class="app-menu__item" href="<?php echo base_url(); ?>booking/"><i class="app-menu__icon mdi mdi-content-paste mdi-light mdi-24px"></i><span class="app-menu__label">My Reservation</span></a></li>
  
-    <li><a class="app-menu__item" href="<?php echo base_url(); ?>booking/request_validate"><i class="app-menu__icon mdi mdi-repeat mdi-light mdi-24px"></i><span class="app-menu__label">Requests</span></a></li>
+    <li><a class="app-menu__item" href="<?php echo base_url(); ?>booking/request_validate"><i class="app-menu__icon mdi mdi-repeat mdi-light mdi-24px"></i><span class="app-menu__label">Request</span></a></li>
 
     <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon mdi mdi-settings mdi-light mdi-24px"></i><span class="app-menu__label">Admin</span><i class="treeview-indicator mdi mdi-arrow-right-drop-circle-outline"></i></a>
      <ul class="treeview-menu" style="background-color: #026aab;">

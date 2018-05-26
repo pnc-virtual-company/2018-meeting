@@ -2,7 +2,7 @@
 <div id="container" >
   <div class="row-fluid">
     <div class="col-12">
-      <a href="<?php echo base_url(); ?>users/create" title="Add new User" class="btn btn-primary"><i class="mdi mdi-plus-circle"></i>&nbsp;Add new user</a>
+      <a href="<?php echo base_url(); ?>users/create" title="Add new User" class="btn btn-primary"><i class="mdi mdi-plus-circle"></i>&nbsp;Add New User</a>
     </div>
   </div>
   <br>
