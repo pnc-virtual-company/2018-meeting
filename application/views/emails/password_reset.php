@@ -21,7 +21,7 @@
     <body>
         <h3>{Title}</h3>
         <p>Dear {Firstname} {Lastname},</p>
-        <p>Your Meeting Room management application password has been reset. If you did not perform this operation, please contact your manager.</p>
+        <p>The password has successfully reset. If you did not perform this operation, please contact your manager.</p>
         <p>Your new password is: {password}</p>
     </body>
 </html>

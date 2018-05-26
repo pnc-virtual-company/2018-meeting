@@ -61,7 +61,8 @@ echo form_open('users/create', $attributes); ?>
     <div class="form-group">
       <label class="control-label" for="password">Password</label>
       <div class="input-group">
-          <input type="password" name="password" id="password" required />
+          <input type="password"  id="password" required disabled />
+          <input type="hidden" name="password" id="hidpass" required />
           <div class="input-group-append">
             <a class="btn btn-primary" id="cmdGeneratePassword"><i class="mdi mdi-refresh"></i>&nbsp;Generate password</a>
           </div>
@@ -187,7 +188,7 @@ echo form_open('users/create', $attributes); ?>
   $(function () {
       //Generate a random password
       $("#cmdGeneratePassword").click(function() {
-          $("#password").val(password_generator(<?php echo $this->config->item('password_length');?>));
+          $("#password, #hidpass").val(password_generator(<?php echo $this->config->item('password_length');?>));
       });
 
       //On any change on firstname or lastname fields, automatically build the
