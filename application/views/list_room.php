@@ -56,8 +56,8 @@
             <p>Are you sure that you want to perform this action?</p>
           </div>
           <div class="modal-footer">
-            <a href="<?php echo base_url(); ?>room/delete_room?room_id=<?php echo $row->room_id; ?>&loc_id=<?php echo $this->input->get('loc_id'); ?>&loc_name=<?php echo $this->input->get('loc_name'); ?>" class="btn btn-danger">OK </a>
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+            <a href="<?php echo base_url(); ?>room/delete_room?room_id=<?php echo $row->room_id; ?>&loc_id=<?php echo $this->input->get('loc_id'); ?>&loc_name=<?php echo $this->input->get('loc_name'); ?>" class="btn btn-danger">Yes </a>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
           </div>
         </div>
       </div>
