@@ -1,7 +1,7 @@
     <br>
     <div class="container-fluid">
       <h3 class="text-center"><?php echo $this->input->get('room_name'); ?> Room Calendar</h3>
-      <p class="text-center" style="text-align: center;"><span class="badge badge-success">Accepted</span><span class="badge badge-danger">Rejected</span><span class="badge badge-info">Reguested</span></p>
+      <p class="text-center" style="text-align: center;"><span class="badge badge-success">Accepted</span><span class="badge badge-danger">Rejected</span><span class="badge badge-info">Requested</span></p>
         <div class="row">
             <br>
             <a href="<?php echo base_url(); ?>room/list_room?loc_id=<?php echo $this->input->get('loc_id'); ?>&loc_name=<?php echo $this->input->get('loc_name'); ?>" class="btn btn-primary float-right">
@@ -31,7 +31,7 @@ $(document).ready(function() {
     },
     //2018-95-25T13:50
     /*themeSystem: 'bootstrap3',*/
-    defaultDate: '<?php echo $row->Date; ?>',
+    defaultDate: '<?php echo date("Y-m-d"); ?>',
     navLinks: true, // can click day/week names to navigate views
     editable: false,
     eventLimit: true, // allow "more" link when too many events
@@ -41,7 +41,7 @@ $(document).ready(function() {
                title: '<?php echo $row->Start = date("H:i A", strtotime($row->Start)).' to '.$row->Start = date("H:i A", strtotime($row->End)).' at '.$row->room_name; ?>',
               start: '<?php echo $row->Date; ?>',
 
-              color:'<?php if($row->status == 'Requested'){echo '#00747f';}else if ($row->status == 'Accepted'){echo '#017f2b';}else{echo '#d12f23';}?>'
+              color:'<?php if($row->status == 'Requested'){echo '#06909e';}else if ($row->status == 'Accepted'){echo '#017f2b';}else{echo '#d12f23';}?>'
                 }, 
               <?php endforeach; ?>
          ],
