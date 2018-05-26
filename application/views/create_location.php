@@ -41,69 +41,69 @@
 
             <div class="form-group">
                 <label for="pwd">Address</label>
-                <input type="text" class="form-control"  data-target="#us6-dialog" data-toggle="modal" name="address" id="address" value="">
+                <input type="button" class="form-control"  data-target="#us6-dialog" data-toggle="modal" name="address" id="address" value="">
             </div>
             <button type="submit" class="btn btn-primary">Create Location</button>
             <a href="<?php echo base_url(); ?>location" class="btn btn-danger float-right">
                 <i class="mdi mdi-cancel "></i>&nbsp;Cancel
             </a>
-            <div id="us6-dialog" class="modal fade">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Location:</label>
-                    <div class="col-sm-10">
-                        <input type="text" name="address" class="form-control" id="us3-address" />
+            <div id="us6-dialog" class="modal">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Location:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="address" class="form-control" id="us3-address" />
+                                </div>
+                            </div>
+                            <div id="us3" style="width: 100%; height: 400px;"></div>
+                            <div class="clearfix">&nbsp;</div>
+                            <div class="m-t-small">
+
+                                <div class="col-sm-3">
+                                    <input type="hidden" class="form-control" style="width: 110px" id="us3-lat" name="lat" />
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <input type="hidden" class="form-control" style="width: 110px" id="us3-lon" name="long" />
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <script src="<?php echo base_url(); ?>assets/map-plugin/dist/locationpicker.jquery.js"></script>
+                            <script>
+                                $('#us3').locationpicker({
+                                    location: {
+                                        latitude: 46.15242437752303,
+                                        longitude: 2.7470703125
+                                    },  
+                                   
+                                    inputBinding: {
+                                        latitudeInput: $('#us3-lat'),
+                                        longitudeInput: $('#us3-lon'),
+                                        radiusInput: $('#us3-radius'),
+                                        locationNameInput: $('#us3-address')
+                                    },
+                                    enableAutocomplete: true,
+
+                                });
+                                $('#us6-dialog').on('shown.bs.modal', function () {
+                                    $('#us3').locationpicker();
+                                });
+                            </script>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" id="getaddress">Save changes</button>
+                        </div>
                     </div>
+                    <!-- /.modal-content -->
                 </div>
-                <div id="us3" style="width: 100%; height: 400px;"></div>
-                <div class="clearfix">&nbsp;</div>
-                <div class="m-t-small">
-                    
-                    <div class="col-sm-3">
-                        <input type="hidden" class="form-control" style="width: 110px" id="us3-lat" name="lat" />
-                    </div>
-                    
-                    <div class="col-sm-3">
-                        <input type="hidden" class="form-control" style="width: 110px" id="us3-lon" name="long" />
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-                <script src="<?php echo base_url(); ?>assets/map-plugin/dist/locationpicker.jquery.js"></script>
-                <script>
-                    $('#us3').locationpicker({
-                        location: {
-                            latitude: 46.15242437752303,
-                            longitude: 2.7470703125
-                        },  
-                        radius: 300,
-                        inputBinding: {
-                            latitudeInput: $('#us3-lat'),
-                            longitudeInput: $('#us3-lon'),
-                            radiusInput: $('#us3-radius'),
-                            locationNameInput: $('#us3-address')
-                        },
-                        enableAutocomplete: true,
-                        markerIcon: 'http://www.iconsdb.com/icons/preview/tropical-blue/map-marker-2-xl.png'
-                    });
-                    $('#us6-dialog').on('shown.bs.modal', function () {
-                        $('#us3').locationpicker('autosize');
-                    });
-                </script>
+                <!-- /.modal-dialog -->
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" id="getaddress">Save changes</button>
-            </div>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
         </form>
     </div>
 </div>
