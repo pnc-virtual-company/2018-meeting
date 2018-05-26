@@ -1,5 +1,6 @@
     <br>
     <div class="container-fluid">
+      <h3 class="text-center"><?php echo $this->input->get('room_name'); ?> Room Calendar</h3>
         <div class="row">
             <br>
             <a href="<?php echo base_url(); ?>room/list_room?loc_id=<?php echo $this->input->get('loc_id'); ?>&loc_name=<?php echo $this->input->get('loc_name'); ?>" class="btn btn-primary float-right">

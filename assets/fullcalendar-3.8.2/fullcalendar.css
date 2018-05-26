@@ -285,10 +285,17 @@ a[data-goto]:hover {
 row content (which contains day/week numbers and events) as well as "helper" (which contains
 temporary rendered events).
 */
+.fc-content{
+  height: 50px;
+  text-align: center;
+  font-size: 20px;
+  color: #ffff;
+}
 .fc-row .fc-content-skeleton {
   position: relative;
   z-index: 4;
   padding-bottom: 2px;
+  
   /* matches the space above the events */ }
 
 .fc-row .fc-helper-skeleton {

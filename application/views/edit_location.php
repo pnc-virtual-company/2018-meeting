@@ -22,7 +22,7 @@
     <div class="col-md-6">
       <div class="">
         <div class="text-center">
-          <h3>Edit Locations</h3>
+          <h3>Edit Location</h3>
         </div>  
         <?php foreach ($listUpdatelocation as $row): ?>
           <div class="card-body">
@@ -47,7 +47,7 @@
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h4 class="modal-title">Modal title</h4>
+                      
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div class="modal-body">
@@ -93,7 +93,6 @@
                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                       <button type="button" class="btn btn-primary" data-dismiss="modal" id="getUpdateAdd">Save changes</button>
                     </div>
-
                   </div>
                 </div>
               </div>

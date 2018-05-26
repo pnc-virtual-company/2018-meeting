@@ -138,18 +138,11 @@
             initMap(lat,longt);            
         });
     }
-     
-
-
-
-
   $(document).ready(function() {
     //Transform the HTML table in a fancy datatable
     $('#location').dataTable({
       select: true
     });
-
-
   });
 </script>
 
