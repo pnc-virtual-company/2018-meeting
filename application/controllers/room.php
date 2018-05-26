@@ -242,6 +242,7 @@ class room extends CI_Controller {
 			$this->load->model('Users_model');
 			$room_id = $this->input->get('room_id');
 			$data['list_location'] = $this->Users_model->selectLocation();
+			$data['book_request'] = $this->Users_model->select_room_request();
 			$data['getDate'] = $this->Users_model->getEvents($room_id);
 			$data['page'] = "fullcalendar";
 			$this->load->view($user, $data);
