@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="col-md-3"></div>
 		<div class="col-md-6">
-			<h1 class="text-center">Create a Room</h1>
+			<h1 class="text-center">Create A Room</h1>
 			<form action="<?php echo base_url();?>room/insert_create_room?loc_id=<?php echo $this->input->get('loc_id'); ?>&loc_name=<?php echo $this->input->get('loc_name'); ?>" method="post" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="">Name</label>

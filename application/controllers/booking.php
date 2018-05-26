@@ -117,6 +117,7 @@
 			$this->load->model('users_model');
 			$chekcDate = strtotime(date("Y-m-d")) - strtotime($date);
 			if ($chekcDate > 0) {
+				$this->session->set_flashdata('msg', 'Cannot book at before this time');
 				$this->book_meeting();
 			}else{
 				$getRoom =  $this->users_model->selectbookingroom($room_id,$date);
@@ -150,8 +151,8 @@
 					for ($i=0; $i < count($Starttime); $i++) { 
 						$stime = new DateTime($Starttime[$i]);
 						$etime = new DateTime($Endtime[$i]);
-						$sbook = new DateTime($start);
-						$ebook = new DateTime($end);
+						$sbook = new DateTime(substr($start,0,-2));
+						$ebook = new DateTime(substr($end, 0, -2));
 						if ($ebook <= $stime) {
 							$book = "true";
 						}else if ($sbook >= $etime) {

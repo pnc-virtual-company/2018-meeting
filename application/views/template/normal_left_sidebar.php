@@ -4,11 +4,6 @@
   <!-- Sidebar toggle button--><a class="app-sidebar__toggle mdi mdi-menu mdi-24px" href="#" data-toggle="sidebar" aria-label="Hide Sidebar" id="hide_menu" style="display: none;"></a>
   <!-- Navbar Right Menu-->
   <ul class="app-nav">
-    <!--Notification Menu-->
-    <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications" style="
-    margin-top: 10px;
-"><i class="mdi mdi-light mdi-bell-ring mdi-24px"></i></a>
-    </li>
   <!-- User Menu-->
   <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu" style="
   margin-top: 10px;
@@ -31,7 +26,7 @@
       <?php endforeach ?>
     </ul>
    </li>
-    <li><a class="app-menu__item" href="<?php echo base_url(); ?>booking/"><i class="app-menu__icon mdi mdi-content-paste mdi-light mdi-24px"></i><span class="app-menu__label">My Reservations</span></a></li>
+    <li><a class="app-menu__item" href="<?php echo base_url(); ?>booking/"><i class="app-menu__icon mdi mdi-content-paste mdi-light mdi-24px"></i><span class="app-menu__label">My Reservation</span></a></li>
   </ul>
 </aside>
 <main class="app-content" style="background-color: #ffffff;">
