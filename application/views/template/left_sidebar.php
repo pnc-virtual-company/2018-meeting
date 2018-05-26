@@ -4,12 +4,7 @@
   <!-- Sidebar toggle button--><a class="app-sidebar__toggle mdi mdi-menu mdi-24px" href="#" data-toggle="sidebar" aria-label="Hide Sidebar" id="hide_menu" style="display: none;"></a>
   <!-- Navbar Right Menu-->
   <ul class="app-nav">
-    <!--Notification Menu-->
-    <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Show notifications" style="
-    margin-top: 10px;
-"><i class="mdi mdi-light mdi-bell-ring mdi-24px"></i></a>
-    </li>
-    <!-- User Menu-->
+      <!-- User Menu-->
     <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu" style="margin-top: 10px;"><i class="mdi mdi-light mdi-settings mdi-24px  "></i></a>
       <ul class="dropdown-menu settings-menu dropdown-menu-right">
         <li><a class="dropdown-item" href="<?php echo base_url(); ?>Users/get_users"><i class="mdi mdi-account mdi-24px"></i> Profile</a></li>
