@@ -31,7 +31,7 @@ $(document).ready(function() {
     /*themeSystem: 'bootstrap3',*/
     defaultDate: '<?php echo $row->Date; ?>',
     navLinks: true, // can click day/week names to navigate views
-    editable: true,
+    editable: false,
     eventLimit: true, // allow "more" link when too many events
     events:[
              <?php foreach($getDate as $row): ?>
