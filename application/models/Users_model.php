@@ -656,10 +656,11 @@ public function insert_create_room($room,$floor,$description,$manager,$loc_id){
     }
 // Danet THORNG export file list 
     public function getExportFile($id = 0) {
-        $this->db->select('tbl_rooms.room_name,tbl_rooms.floor,tbl_rooms.description,tbl_roles.role_name');
+        $this->db->select('tbl_rooms.room_name,tbl_rooms.floor,tbl_rooms.description,tbl_roles.role_name,tbl_locations.loc_name');
         $this->db->from('tbl_rooms');
         $this->db->join('users', 'tbl_rooms.user_id = users.id');
         $this->db->join('tbl_roles', 'tbl_roles.role_id = users.role');
+        $this->db->join('tbl_locations', 'tbl_locations.loc_id = tbl_rooms.loc_id');
         if ($id === 0) {
             $query = $this->db->get();
             return $query->result_array();

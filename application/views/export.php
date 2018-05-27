@@ -16,21 +16,23 @@ $spreadsheet = new Spreadsheet();
 $sheet = $spreadsheet->getActiveSheet();
 
 $sheet->setTitle(mb_strimwidth('Users list', 0, 28, "..."));  //Maximum 31 characters allowed in sheet title.
-$sheet->setCellValue('A1', 'Name');
-$sheet->setCellValue('B1', 'Floor');
-$sheet->setCellValue('C1', 'Manager');
-$sheet->setCellValue('D1', 'Description');
+$sheet->setCellValue('A1', 'Location');
+$sheet->setCellValue('B1', 'Name');
+$sheet->setCellValue('C1', 'Floor');
+$sheet->setCellValue('D1', 'Manager');
+$sheet->setCellValue('E1', 'Description');
 
-$sheet->getStyle('A1:D1')->getFont()->setBold(true);
-$sheet->getStyle('A1:D1')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+$sheet->getStyle('A1:E1')->getFont()->setBold(true);
+$sheet->getStyle('A1:E1')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
 $rooms = $this->users_model->getExportFile();
 $line = 2;
 foreach ($rooms as $room) {
-    $sheet->setCellValue('A' . $line, $room['room_name']);
-    $sheet->setCellValue('B' . $line, $room['floor']);
-    $sheet->setCellValue('C' . $line, $room['role_name']);
-    $sheet->setCellValue('D' . $line, $room['description']);
+    $sheet->setCellValue('A' . $line, $room['loc_name']);
+    $sheet->setCellValue('B' . $line, $room['room_name']);
+    $sheet->setCellValue('C' . $line, $room['floor']);
+    $sheet->setCellValue('D' . $line, $room['role_name']);
+    $sheet->setCellValue('E' . $line, $room['description']);
     $line++;
 }
 
