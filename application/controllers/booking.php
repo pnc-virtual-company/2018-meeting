@@ -423,7 +423,7 @@
 			$this->email->from('pnc.temporary.vc2018@passerellesnumeriques.org', 'Meeting Room Management');
 			$this->email->to($email, $firstname);
 			$this->email->subject('Requested Meeting Room ');
-			$this->email->message('Dear '.$firstname.',  <br /> <br />Your room has been booked on date '.$date.' start from '.$start.' to '.$end.' <br /> <br /> Best Regard,');
+			$this->email->message('Dear '.$firstname.',  <br /> <br />Your room has been booked on date '.$date.' from '.$start.' to '.$end.' <br /> <br /> Best Regard,');
 			if ($this->email->send()) {
 				return 'true';
 			}else{
@@ -449,7 +449,7 @@
 			$this->email->from('pnc.temporary.vc2018@passerellesnumeriques.org', 'Meeting Room Management');
 			$this->email->to($email, $booking_user);
 			$this->email->subject('Accepted Request Meeting');
-			$this->email->message('Dear '.$booking_user.',  <br /> <br /> Your request for the room on date '.$date. 'from start ' .$start.' to '.$end.' has been accepted. <br /> <br /> Best Regard,');
+			$this->email->message('Dear '.$booking_user.',  <br /> <br /> Your request for the room on date  '.$date. ' from  ' .substr($start,0,-10).' to '.substr($end,0,-10).' has been accepted. <br /> <br /> Best Regard,');
 			if ($this->email->send()) {
 				return 'true';
 			}else{
@@ -477,7 +477,7 @@
 			$this->email->from('pnc.temporary.vc2018@passerellesnumeriques.org', 'Meeting Room Management');
 			$this->email->to($email, $booking_user);
 			$this->email->subject('Rejected Request Meeting');
-			$this->email->message('Dear '.$booking_user.',  <br /> <br /> Your request for the room on date '.$date. 'from start ' .$start.' to '.$end.' has been rejected. <br /> <br /> Best Regard,');
+			$this->email->message('Dear '.$booking_user.',  <br /> <br /> Your request for the room on date '.$date. ' from ' .substr($start,0,-10).' to '.substr($end,0,-10).' has been rejected. <br /> <br /> Best Regard,');
 			if ($this->email->send()) {
 				return 'true';
 			}else{
