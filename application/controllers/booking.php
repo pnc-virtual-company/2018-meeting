@@ -42,7 +42,6 @@
 			$data['book_request'] = $this->Users_model->select_room_request();
 			$data['page'] = "booking_request";
 			$user = $this->userlevel();
-			// var_dump($user);die();
 			$this->load->view($user, $data);
 		}
 		public function userlevel()
