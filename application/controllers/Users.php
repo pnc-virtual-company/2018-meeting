@@ -448,7 +448,7 @@ class Users extends CI_Controller {
     public function get_users(){
      $user = $this->userlevel();
       $this->load->model('Users_model');
-      $data['list_user'] = $this->Users_model->selectLocation();
+      $data['list_location'] = $this->Users_model->selectLocation();
       $data['page'] = "user_profile";
       $data['listUsers'] = $this->Users_model->select_users();
       $this->load->view($user, $data);
